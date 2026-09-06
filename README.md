@@ -1,7 +1,7 @@
 # System Monitor (Monitor del Sistema) for NVDA
 
 * **Author:** Daliana
-* **Version:** 2.3
+* **Version:** 2.4
 * **Compatibility:** NVDA 2019.3 or later
 * **License:** GNU General Public License v2.0 (GPLv2)
 

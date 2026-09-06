@@ -1,7 +1,7 @@
 # Monitor del Sistema para NVDA
 
 * Autora: Daliana
-* Versión: 2.3
+* Versión: 2.4
 * Compatibilidad con NVDA: 2019.3 en adelante
 
 Este complemento proporciona información accesible en tiempo real sobre el uso de la memoria RAM, la carga del procesador (CPU), la velocidad/frecuencia del procesador, el espacio en disco, la salud de la batería, conexión de red Wi-Fi, velocidad de Internet, la versión de Windows, el tiempo de actividad y el estado de la tarjeta gráfica (GPU y VRAM).
