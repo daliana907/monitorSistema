@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Monitor - Documentation</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 860px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 8px; }
+  h2 { color: #1f618d; margin-top: 32px; }
+  h3 { color: #2874a6; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th { background: #1a5276; color: white; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #aed6f1; padding: 7px 12px; }
+  tr:nth-child(even) td { background: #eaf4fb; }
+  code { background: #eaf4fb; padding: 2px 6px; border-radius: 3px; font-size: 0.97em; }
+  .aviso { background: #fef9e7; border-left: 4px solid #f4d03f; padding: 10px 14px; margin: 16px 0; }
+  ul li { margin: 5px 0; }
+</style>
+</head>
+<body>
+
+<h1>System Monitor</h1>
+<p><strong>Wersion:</strong> 2.3 &nbsp;)|&nbsp; <strong>Author:</strong> Daliana &nbsp;)|&nbsp; <strong>Compatibility:</strong> NVDA 2019.3 or later</p>
+
+<p>This add-on provides accessible real-time information about RAM usage, CPU load, CPU core metrics, clock frequency/turbo boost, disk space, battery status and health, Wi-Fi connection and signal strength, internet speed, Windows build information, system uptime, and multi-vendor GPU/VRAM performance.</p>
+
+<div class="aviso">
+  <strong>Origin and Acknowledgements:</strong> This add-on is an extended fork built upon the foundation and inspiration of the classic <strong>Resource Monitor</strong> add-on by <strong>Joseph Lee and contributors</strong> for the NVDA community. It expands upon the original design by integrating complementary capabilities (multi-vendor GPU/VRMM monitoring for AMD, Intel, and NVIDIA; S.M.A.R.T. disk health analysis; battery reporting for classic Bluetooth audio and BLE peripherals; internet speed testing; and configurable background event alerts) into a unified, all-in-one accessible hardware suite.
+</div>
+
+<hr>
+
+<h2>Keyboard Shortcuts</h2>
+
+<h3>Basic Monitor</h3>
+<table>
+  <tr><th>Shortcut</th><th>Function</th></tr>
+  <tr><td><code>NVDA + Shift + E</code></td><td>RAM usage percentage and average CPU load</td></tr>
+  <tr><td><code>NVDA + Shift + 1</code></td><td>Average CPU load and per-core usage</td></tr>
+  <tr><td><code>NVDA + Shift + 2</code></td><td>Physical and virtual RAM used, total, and percentage</td></tr>
+  <tr><td><code>NVDA + Shift + 3</code></td><td>Disk space for local, removable, and network drives</td></tr>
+  <tr><td><code>NVDA + Shift + 4</code></td><td>Wi-Fi SSID, signal strength, and security type</td></tr>
+  <tr><td><code>NVDA + Shift + 5</code></td><td>CPU current clock frequency (GHz), base clock, and turbo status</td></tr>
+  <tr><td><code>NVDA + Shift + 6</code></td><td>Windows version, build number, and architecture</td></tr>
+  <tr><td><code>NVDA + Shift + 7</code></td><td>System uptime (days, hours, minutes, seconds)</td></tr>
+  <tr><td><code>NVDA + Shift + 8</code></td><td>GPU memory used, percentage, load, and temperature</td></tr>
+  <tr><td><code>NVDA + Control + Shift + 8</code></td><td>Detailed GPU and dedicated VRAM breakdown</td></tr>
+</table>
+
+<h3>Advanced Tools</h3>
+<table>
+  <tr><th>Shortcut</th><th>Function</th></tr>
+  <tr><td><code>NVDA + Shift + Control + 1</code></td><td>S.M.A.R.T. disk health analysis, temperature, and wear level</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 2</code></td><td>Top resource-consuming processes (CPU and RAM)</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 3</code></td><td>Internet speed and ping latency test</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 4</code></td><td>Advanced battery status, remaining time, and factory wear</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 5</code></td><td>Battery level of connected Bluetooth peripherals</td></tr>
+</table>
+
+<p><em>Note: Pressing any shortcut twice copies the announced information to the clipboard.</em></p>
+
+<h2>Credits and Acknowledgements</h2>
+<ul>
+  <li><strong>Joseph Lee and the Resource Monitor contributors:</strong> For designing and developing the original Resource Monitor add-on for NVDA that inspired this project and served as the foundational codebase.</li>
+  <li><strong>NVDA Add-on Community:</strong> For their ongoing dedication to accessible computing for blind and vision-impaired users worldwide.</li>
+</ul>
+
+</body>
+</html>

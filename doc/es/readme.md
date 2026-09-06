@@ -6,7 +6,7 @@
 
 Este complemento proporciona información accesible en tiempo real sobre el uso de la memoria RAM, la carga del procesador (CPU), la velocidad/frecuencia del procesador, el espacio en disco, la salud de la batería, conexión de red Wi-Fi, velocidad de Internet, la versión de Windows, el tiempo de actividad y el estado de la tarjeta gráfica (GPU y VRAM).
 
-> **Nota de la Autora:** Este proyecto nació tomando como punto de partida el clásico complemento *Resource Monitor* para NVDA. Al ver que la idea original tenía un potencial enorme, decidí reescribirlo y expandirlo masivamente para crear esta nueva versión definitiva, incorporando un motor completamente nuevo con herramientas avanzadas (como salud de discos, métricas de GPU, test de velocidad, baterías Bluetooth y desgaste real), llevando el monitoreo del sistema a un nivel muy superior.
+> **Origen y Reconocimiento:** Este complemento es una bifurcación (fork) ampliada que toma como base e inspiración el extraordinario trabajo de **Joseph Lee y los colaboradores del complemento Resource Monitor** para la comunidad de NVDA. Se amplió el diseño original incorporando nuevas capacidades complementarias (monitorización multi-fabricante de GPU/VRAM para AMD, Intel y NVIDIA, salud de discos S.M.A.R.T., batería de dispositivos Bluetooth clásicos y BLE, test de velocidad y un sistema configurable de alertas automáticas en segundo plano) para ofrecer una suite accesible unificada.
 
 
 ## Atajos de teclado
@@ -51,6 +51,10 @@ El complemento audita automáticamente durante el arranque de NVDA si existen ot
 
 ## Compatibilidad de Tarjetas Gráficas (GPU)
 * Compatible de forma nativa y universal con tarjetas gráficas **AMD Radeon**, **Intel (UHD / Iris / Arc)** y **NVIDIA**. Con soporte para lectura de temperatura en GPUs NVIDIA y AMD Radeon mediante sus bibliotecas nativas.
+
+## Créditos y Reconocimientos
+* **Joseph Lee y los colaboradores de Resource Monitor**: Por el diseño y la base de código original del monitor de recursos para NVDA que inspiró este proyecto y sirvió como punto de partida.
+* **Comunidad de desarrolladores de complementos de NVDA**: Por su continuo esfuerzo en hacer el ecosistema accesible para personas con discapacidad visual en todo el mundo.
 
 ## Declaración sobre el uso de inteligencia artificial
 He utilizado herramientas de inteligencia artificial como ayuda para escribir y organizar el código de este complemento.
