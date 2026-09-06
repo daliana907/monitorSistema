@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-09-04 20:37+0000\n"
+"PO-Revision-Date: 2026-09-04 20:40\n"
+"Last-Translator: \n"
+"Language-Team: Kurmanji (Kurdish)\n"
+"Language: kmr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: kmr\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "byte"
+
+msgid " bytes"
+msgstr "bytes"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Dîskên analîz dike, ji kerema xwe bisekinin..."
+
+msgid "Analizando procesos..."
+msgstr "Analîzkirina pêvajoyên..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Dabeşkirina bîra qerta grafîkê (VRAM) radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Rewşa batterê, dema mayî û kincên tenduristiyê radigihîne."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Rewşa tenduristiyê (S.M.A.R.T), germahî û jiyana kêrhatî ya dîskên fizîkî ragihand."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Asta batterê ya cîhazên Bluetooth-ê yên girêdayî radigihîne."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Navê tora wireless (SSID), hêza sînyala û protokola ewlehiyê radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Rêjeya barkirina tevahî ya CPU û barkirina her bingehek kesane radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Wextê pergalê radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Mîqdara RAM-a sazkirî, mîqdara bikar anîn û ji sedî, û mîqdara RAM-a belaş radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kapasîteya, cîhê belaş û cîhê bikar anîna hemî dîskên berdest ên li ser pergalê radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Frekansa CPU ya herî zêde û ya heyî radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bîra hatî bikar anîn, tevahî û barkirina pêvajoya grafîkê (GPU) radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Leza dakêşandin û barkirina Înternetê di demek rast de ragihand."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Guhertoya Windows û mîmariya pergalê radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Pêvajoyên ku niha herî zêde CPU û RAM dixwe radigihîne."
+
+msgid "Batería Bluetooth: "
+msgstr "Pîlê Bluetooth:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Pîl li {}%. Dewlet: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Li cîhazên Bluetooth-ê digere, ji kerema xwe bisekine..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Tevahiya barkirina CPU: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Tevahiya barkirina CPU: {}%. Navokên takekesî: {}."
+
+msgid "Celsius"
+msgstr ""
+
+msgid "Conectado a {}"
+msgstr "Girêdayî {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Rewşa pîlê kontrol dike, ji kerema xwe bisekinin..."
+
+msgid "Dañado (Crítico)"
+msgstr "Zirar (Krîtîk)"
+
+msgid "Desconectado de {}"
+msgstr "Ji {} veqetiya"
+
+msgid "Desconocido"
+msgstr "Unknown"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Lixwekirina dirêjiya jiyanê: ji sedî {} (Tenduristî: {}%)."
+
+msgid "Disco desconocido"
+msgstr "dîskê nenas"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Dîsk {}: Tîpa {}. Rewşa giştî: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Pêşkêşkar ji ber kirina wê gelek caran li pey hev ceribandin asteng kir. Çend hûrdeman bisekinin û dîsa biceribînin."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Di xetereyê de (Hişyarî)"
+
+msgid "Error al consultar discos."
+msgstr "Di lêpirsîna dîskê de çewtî."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Di dema pirsa rewşa tenduristiya dîskan de çewtî."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Di pîvandina leza Înternetê de çewtî."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Di bidestxistina agahdariya qerta grafîkê de çewtî."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Çewtiya wergirtina agahdariya bîranînê ji karta grafîkê."
+
+msgid "Error analizando procesos."
+msgstr "Di analîzkirina pêvajoyên çewt de."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Di pirskirina cîhazên Bluetooth de çewtî."
+
+msgid "Error consultando la batería."
+msgstr "Çewtiya kontrolkirina pîlê."
+
+msgid "Fahrenheit"
+msgstr ""
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Frekansa CPU ya niha: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Frekansa CPU ya herî zêde: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: barkirina pêvajoya grafîkê: {}%, germahî: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: Barkirina pêvajoya grafîkê: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: bîra {}, barkirina pêvajoya grafîkê: {}%, germahî: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: bîra {}, barkirina pêvajoya grafîkê: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Ji bo NVDA çavdêriya çavkaniya gihîştî. Di wextê rast de barkirina CPU, frekansa zindî, bîra RAM, dîskên, tora Wi-Fi, qerta grafîkê (bîra GPU û VRAM), guhertoya Windows-ê û dema xebatê binihêrin."
+
+msgid "Monitor de Sistema"
+msgstr "Sîstema Monitor"
+
+msgid "Monitor del Sistema"
+msgstr "Sîstema Monitor"
+
+msgid "Monitor del sistema"
+msgstr "Sîstema Monitor"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Pîl tune an jî komputerek sermaseyê ye."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Têkiliyên torê yên bêtêl tune"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Daneyên karta grafîkê tune."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Daneyên bîra qerta grafîkê tune."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "No cîhazên tora wireless"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Agahdariya karta grafîkê tune."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Agahdariya bîranîna karta grafîkê tune."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Ti dîskên fizîkî yên ku teşhîsê piştgirî dikin nehatin dîtin."
+
+msgid "No se encontraron discos."
+msgstr "Dîsk nehat dîtin."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Tu cîhazên Bluetooth-ê nehatin dîtin ku battera xwe radigihînin."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Tu ajokarên dîskê yên berdest nehatin dîtin."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Pêvajo nehatin bidestxistin."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Nekarî dema xebatê ya pergalê bigire."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Ji bîrê nekarî agahiyan bigire."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Nekarî agahdariya qerta grafîkê bigire."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Nikare agahî ji dîskê bigire."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Nekarî agahdariya bîranînê ji qerta grafîkê bigire."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Pêvajoya bi CPU ya herî zêde: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Pêvajoya bi RAM-a zêde: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Tevahiya RAM: {}. Bikaranîn: {} ({}%). RAM belaş: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Testkirina rastkirinê (nêzîkî 12 çirke), ji kerema xwe li bendê bin..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Tora bêtêlê ya girêdayî: {}, hêza sînyalê: {}%, cureyê ewlehiyê: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Tenduristiya pîlê ya rastîn: {}% ji kapasîteya wê ya bingehîn."
+
+msgid "Saludable"
+msgstr "Healthy"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Amûrek torê ya bêtêlê hate asteng kirin"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Amûrek torê ya bêtêlê hate çalak kirin"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Rastkirin tune ye (Vekirî ye)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Germahî: {} pileya Celsius."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Dema mayî ya texmînkirî: {} saet û {} hûrdem."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Yekîneya germahiya karta grafîkê:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Leza Înternetê. Daxistin: {} Megabytes per second. Barkirin: {} Megabytes serê çirkeyê."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Leza Înternetê. Derengî: {} millisecond. Daxistin: {} Megabytes per second. Barkirin: {} Megabytes serê çirkeyê."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Jiyana kêrhatî ya mayî ya texmînkirî: ji sedî {}."
+
+msgid "conectado"
+msgstr "ve girêdayî ye"
+
+msgid "de red"
+msgstr "şebek"
+
+msgid "desconectado"
+msgstr "offline"
+
+msgid "día"
+msgstr "roj"
+
+msgid "días"
+msgstr "rojan"
+
+msgid "estado sólido (SSD)"
+msgstr "dewleta zexm (SSD)"
+
+msgid "fijo"
+msgstr "sabît kirin"
+
+msgid "hora"
+msgstr "saet"
+
+msgid "horas"
+msgstr "saetan"
+
+msgid "minuto"
+msgstr "minute"
+
+msgid "minutos"
+msgstr "minutes"
+
+msgid "rígido (HDD)"
+msgstr "hişk (HDD)"
+
+msgid "segundo"
+msgstr "duyemîn"
+
+msgid "segundos"
+msgstr "seconds"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (dîskê {driveType}): {usedSpace} ji {totalSpace} tê bikaranîn ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (ajoka torê): ne berdest e."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Nekarî agahiyê ji dîskê bigire an jî destûra rêvebir hat betalkirin."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Xeletî di wergirtina kurteya pergalê de."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Di bidestxistina agahdariya pêvajoyê de çewtî."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Di bidestxistina agahiyan ji bîra RAM de çewtî."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Di bidestxistina frekansa pêvajoyê de çewtî."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Di bidestxistina agahdariya ajokera dîskê de çewtî."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Di bidestxistina rewşa tora bêtêlê de çewtî."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Di guhertoya Windows-ê de çewtî."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Pîl tune an jî komputerek sermaseyê ye."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ew barkirina navînî ya pêvajoyê, germahî û barkirina her bingehê destnîşan dike. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Barkirina pêvajoyê, germahî û kors"
+
+msgid "temperatura: {}"
+msgstr "germahî: {}"
+
+msgid "temperatura no disponible"
+msgstr "germahî peyda nabe"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "Barkirina CPU li {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Barkirina CPU ya navîn li {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "pileya Celsiusê"
+
+msgid "grados Fahrenheit"
+msgstr "pileya Fahrenheitê"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Alerts sîstema otomatîk"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Dema ku pîlê bi tevahî dagirtî ye agahdar bikin (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Dema ku pîlê kêm e (15% an kêmtir) agahdar bikin"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Ger germahiya pêvajoyê pir zêde be (85 °C an zêdetir) agahdar bikin"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Pîl bi tevahî 100%. Hûn dikarin şarjê qut bikin."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Hişyarî: Pîl kêm bûye heta {}%. Amûrên bi hêzê ve girêdin."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Hişyarî: Germahiya pêvajoyê ya bilind ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T radigihîne. rewşa tenduristî, germahî û rewşa dîskên hilanînê. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "5 pêvajoyên ku herî zêde CPU dixwe û 5 pêvajoyên ku herî zêde RAM dixwe radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Leza dakêşandin û barkirina Înternetê di demek rast de ragihand. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Rewşa batterê, dema mayî û kincên tenduristiyê radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Asta batterê ya cîhazên Bluetooth-ê yên girêdayî radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Lêpirsîna rewşa dîskê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Lêpirsîna rewşa dîskê li pêş e, ji kerema xwe li bendê bin..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Şêwirmendiya pêvajoyê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Şêwirmendiya pêvajoyê berdewam e, ji kerema xwe li bendê bin..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Testa leza Înternetê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Testa leza înternetê li pêş e, ji kerema xwe li bendê bin..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Lêpirsîna bataryayê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Lêpirsîna bataryayê li pêş e, ji kerema xwe li bendê bin..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Lêgerîna li cîhazên Bluetooth-ê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Lêgerîna cîhazên Bluetooth-ê di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Encam dê li clipboardê were kopî kirin."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Dema ku batarya amûrek Bluetooth kêm be (% 20 an kêmtir) agahdar bike"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Dema ku statûya tora Wi-Fi diguhere (girêdan an veqetandin) agahdar bike"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Hişyarî: Pîl kêm e li ser cîhaza Bluetooth {} li {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Nîşana Wi-Fi: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Dema ku hêza sînyala Wi-Fi diguhere agahdar bikin"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Dema ku pîlê amûrê kêm dibe agahdar bikin"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Ji sedî ji bo hişyariya kêmbûna pîlê amûrê:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Dema ku batarya amûrek Bluetooth kêm dibe agahdar bikin"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Ji sedî ji bo hişyariya kêmbûna bateriya Bluetooth:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Dema ku pîlê amûrê tê barkirin agahdar bikin"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Ji sedî ji bo hişyariya tam pîlê:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Ger germahiya pêvajoyê zêde ye agahdar bikin"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Germahiya ji bo hişyariya zêde germbûna pêvajoyê (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Pîl ji bo {}%. Hûn dikarin şarjê qut bikin."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} bîra {mem}, barkirina pêvajoya grafîkê: {bikarhêner}%, germahî: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} bîra {mem}, barkirina pêvajoya grafîkê: {bikarhêner}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "Barkirina pêvajoya grafîkê: {prefix}: {bikarhêner}%, germahî: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "Barkirina pêvajoya grafîkê ya {prefix}: {bikarhêner}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Ger pirsgirêkên tenduristiyê an cilê krîtîk li ser dîskê (SSD / HDD) werin tespît kirin agahdar bikin"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Ji bo hişyariya SSD ji sedî cilê:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Hişyariya Krîtîk: Dîskê {} pirsgirêkên tenduristiyê pêşkêş dike. Piştgiriyek çêbikin."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Hişyarî: SSD {} gihîştiye {}% cilê jiyanê."
+
+msgid "Disco"
+msgstr "Disk"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Ji bo nakokiyên bi pêvekên din re kontrol bikin..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "HIŞYARÎYÊN HEVKARÎ:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "KOLEZÊN KURTEYÊ DIRECT:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Kontrolkirina Pevçûn - Şopandina Pergalê"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Li ser vê pergalê nakokîyên kurtebirra klavyeyê an pêvekên nakok tune."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Nîşe: Hemî hûrgulî di pelê têketinê ya NVDA de jî hatine tomar kirin."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Nekarî mînaka çalak a Pergala Monitorê bigire."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Çavdêriya Pergalê: Bi pêvekên din re nakokî nehatin dîtin."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Çavdêriya Pergalê: {count} pevçûn an hişyariyên muhtemel hatin dîtin. Ji bo bêtir agahdarî têketina NVDA-yê kontrol bikin."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Bi Monitoravdêriya Pergalê re nakokiyên kurtebirra klavyeyê an pêvekên nakok bibînin."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Analîzkirina dîskê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Analîzkirina pêvajoyê jixwe di pêş de ye, ji kerema xwe li bendê bin..."
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Dispositivo"
+msgstr "Device"
+
+msgid "Dispositivo Bluetooth"
+msgstr "cîhaza Bluetooth"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Kurteçavkanî (RAM û CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Bîra RAM ya fîzîkî û virtual"
+
+msgid "Espacio en unidades de disco"
+msgstr "Cihê ajotinê"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Rewş û agahdariya tora Wi-Fi"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "Frekans û leza CPU"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Guhertoya Windows û mîmarî"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Demjimêra pergalê"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "Performansa GPU û bîranîn"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Tenduristî S.M.A.R.T. û germahiya dîskê"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Pêvajoyên bi xerckirina çavkaniyê mezintir"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Leza torê ya rast-dem"
+
+msgid "Batería avanzada y salud"
+msgstr "Pîl û tenduristî ya pêşkeftî"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Asta bateriya cîhaza Bluetooth"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Çavdêriya Çavkaniyê (heman kurtebirên NVDA+Shift+1 heta 8 û NVDA+Shift+E parve dike, dibe sedem ku ferman werin paşguh kirin an bersivên dubare/îngilîzî werin derxistin)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Pêvajoya Serê (kurteyên li ser dike an reklamên serfkirinê pêvajoyê dike)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (kurteyên agahdariya hardware û pergalê vedigire)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Rewşa Pîlê (kurteyên asta pîlê digire)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "RAM-a bikarhatî û barkirina navînî ya processorê nîşan dide."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Cihê bikar anîn û tevahî ya RAM-a fîzîkî û virtual pêşkêşî dike. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Cihê bikar anîn û tevahî ji bo ajokarên sabît, jêbirin û torê nîşan dide. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Leza û frekansa pêvajoyê ya heyî (GHz), leza bingehîn, û rewşa moda bihêzkirina turbo ragihand. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Rewşa tenduristiyê (S.M.A.R.T), germahî û jiyana kêrhatî ya dîskên fizîkî ragihand. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Pêvajoyên ku niha herî zêde CPU û RAM dixwe radigihîne. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Pîl li {}%. Dewlet: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Tenduristiya pîlê ya rastîn: {} % ji kapasîteya wê ya bingehîn."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Pîl bi tevahî 100%. Hûn dikarin şarjê qut bikin."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Pîl ji bo {}%. Hûn dikarin şarjê qut bikin."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Hişyarî: Pîl kêm bûye heta {}%. Amûrên bi hêzê ve girêdin."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Hişyarî: Pîl kêm e li ser cîhaza Bluetooth {} li {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Hişyarî: SSD {} gihaştiye % {} jiyana jiyanê."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Nîşana Wi-Fi: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "Navbera kontrolkirina pîlê (deqe):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "Navbera kontrolkirina germahiya CPU (deqe):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Navbera kontrolkirina Bluetooth (deqe):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Navbera kontrolkirina dîsk&cos (deqeyan):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Ger germahiya qerta grafîkê (GPU) bilind be, agahdar bikin"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "Germahiya hişyariya zêde germbûna GPU (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "Navbera kontrolkirina germahiya GPU (deqe):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Hişyar: Germahiya {nav} bilind ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Barkirina navînî ya pêvajoyê û barkirina her bingehîn pêşkêşî dike. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
+
+msgid "Carga de CPU al {}%."
+msgstr "Barkirina CPU li {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Barkirina CPU ya navîn li {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "load Processor û core"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "& Yekîneya germahiyê (CPU û GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Germahiya ji bo hişyariya zêde germbûna pêvajoyê:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Germahiya ji bo hişyariya zêde germbûna GPU:"
+

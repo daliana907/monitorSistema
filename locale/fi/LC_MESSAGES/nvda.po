@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2025-09-04 10:35+0000\n"
+"PO-Revision-Date: 2026-01-05 00:35\n"
+"Last-Translator: \n"
+"Language-Team: Finnish\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: fi\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "tavu"
+
+msgid " bytes"
+msgstr "tavua"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Analysoidaan levyjä, odota..."
+
+msgid "Analizando procesos..."
+msgstr "Analysoidaan prosesseja..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa näytönohjaimen muistin (VRAM) hajoamisesta. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Ilmoittaa akun tilan, jäljellä olevan ajan ja terveyden kulumisen."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Ilmoittaa fyysisten levyjen terveydentilan (S.M.A.R.T), lämpötilan ja käyttöiän."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Ilmoittaa yhdistettyjen Bluetooth-laitteiden akun varaustason."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa langattoman verkon nimen (SSID), signaalin voimakkuuden ja suojausprotokollan. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa prosenttiosuuden suorittimen kokonaiskuormituksesta ja kunkin yksittäisen ytimen kuormituksen. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa järjestelmän käytettävyyden. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa asennetun RAM-muistin määrän, käytetyn määrän ja prosenttiosuuden sekä vapaan RAM-muistin määrän. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa järjestelmän kaikkien käytettävissä olevien levyjen kapasiteetin, vapaan tilan ja käytetyn tilan. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa CPU:n maksimitaajuuden ja nykyisen taajuuden. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa näytönohjaimen (GPU) käytetyn muistin, kokonaismäärän ja kuorman. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Ilmoittaa Internetin lataus- ja latausnopeuden reaaliajassa."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa Windows-version ja järjestelmäarkkitehtuurin. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Ilmoittaa prosessit, jotka kuluttavat tällä hetkellä eniten suoritinta ja RAM-muistia."
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth-akku:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Akku {} %. Tila: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Etsitään Bluetooth-laitteita, odota..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Suorittimen kokonaiskuormitus: {} %"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Suorittimen kokonaiskuormitus: {}%. Yksittäiset ytimet: {} ."
+
+msgid "Celsius"
+msgstr "Celsius"
+
+msgid "Conectado a {}"
+msgstr "Yhdistetty verkkoon {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Tarkistetaan akun tilaa, odota..."
+
+msgid "Dañado (Crítico)"
+msgstr "Vaurioitunut (kriittinen)"
+
+msgid "Desconectado de {}"
+msgstr "Yhteys katkaistu verkosta {}"
+
+msgid "Desconocido"
+msgstr "Tuntematon"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Elinajan kuluminen: {} prosenttia (terveys: {} %)."
+
+msgid "Disco desconocido"
+msgstr "tuntematon levy"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Levy {}: Kirjoita {}. Yleinen kunto: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Palvelin esti testin, koska se teki sen liian monta kertaa peräkkäin. Odota muutama minuutti ja yritä uudelleen."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Vaarassa (varoitus)"
+
+msgid "Error al consultar discos."
+msgstr "Virhe kyselyssä levyille."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Virhe kysyttäessä levyjen kuntoa."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Virhe Internetin nopeuden mittauksessa."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Virhe näytönohjaimen tietojen haussa."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Virhe haettaessa muistitietoja näytönohjaimesta."
+
+msgid "Error analizando procesos."
+msgstr "Virhe prosessien analysoinnissa."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Virhe kyselyssä Bluetooth-laitteista."
+
+msgid "Error consultando la batería."
+msgstr "Virhe akun tarkistamisessa."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Nykyinen suorittimen taajuus: {} gigahertsiä"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Suorittimen maksimitaajuus: {gigahertsi}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: näytönohjaimen kuormitus: {}%, lämpötila: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: näytönohjaimen kuormitus: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: muisti {}, näytönohjaimen kuormitus: {}%, lämpötila: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: muisti {}, näytönohjaimen kuormitus: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Helppokäyttöinen resurssien valvonta NVDA:lle. Tarkista reaaliajassa suorittimen kuormitus, live-taajuus, RAM-muisti, levyt, Wi-Fi-verkko, näytönohjain (GPU ja VRAM-muisti), Windows-versio ja käytettävyys."
+
+msgid "Monitor de Sistema"
+msgstr "Järjestelmän valvonta"
+
+msgid "Monitor del Sistema"
+msgstr "Järjestelmän valvonta"
+
+msgid "Monitor del sistema"
+msgstr "Järjestelmän valvonta"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Siinä ei ole akkua tai se on pöytätietokone."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Ei langattomia verkkoyhteyksiä"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Grafiikkakortin tietoja ei ole saatavilla."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Grafiikkakortin muistitietoja ei ole saatavilla."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Ei langattomia verkkolaitteita"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Grafiikkakortin tietoja ei ole saatavilla."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Grafiikkakortin muistitietoja ei ole saatavilla."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Diagnoosia tukevia fyysisiä levyjä ei löytynyt."
+
+msgid "No se encontraron discos."
+msgstr "Levyjä ei löytynyt."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Bluetooth-laitteita ei löytynyt, jotka olisivat ilmoittaneet akusta."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Vapaita levyasemia ei löytynyt."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Prosesseja ei voitu saada."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Järjestelmän käyttöaikaa ei voitu saada."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Tietoja ei saatu muistista."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Grafiikkakortin tietoja ei saatu."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Levyiltä ei saatu tietoja."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Muistitietoja ei voitu hakea näytönohjaimesta."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Prosessi suurimmalla prosessorilla: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Käsittele enemmän RAM-muistia: {} ({} Mt)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Yhteensä RAM: {}. Käytetty: {} ({}%). Ilmaista RAM-muistia: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Suoritetaan tarkkuustestiä (noin 12 sekuntia), odota..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Yhdistetty langaton verkko: {}, signaalin voimakkuus: {}%, suojaustyyppi: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Akun todellinen kunto: {} % alkuperäisestä kapasiteetista."
+
+msgid "Saludable"
+msgstr "Terve"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Langaton verkkolaite on poistettu käytöstä"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Langaton verkkolaite on otettu käyttöön"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Ei tunnistautumista (avoin)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Lämpötila: {} celsiusastetta."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Arvioitu jäljellä oleva aika: {} tuntia ja {} minuuttia."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Grafiikkakortin lämpötilayksikkö:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internetin nopeus. Lataus: {} megatavua sekunnissa. Lataa: {} megatavua sekunnissa."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internetin nopeus. Latenssi: {} millisekuntia. Lataus: {} megatavua sekunnissa. Lataa: {} megatavua sekunnissa."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Arvioitu jäljellä oleva käyttöikä: {} prosenttia."
+
+msgid "conectado"
+msgstr "yhdistetty"
+
+msgid "de red"
+msgstr "verkkoon"
+
+msgid "desconectado"
+msgstr "offline-tilassa"
+
+msgid "día"
+msgstr "päivä"
+
+msgid "días"
+msgstr "päivää"
+
+msgid "estado sólido (SSD)"
+msgstr "solid state (SSD)"
+
+msgid "fijo"
+msgstr "korjattu"
+
+msgid "hora"
+msgstr "tunti"
+
+msgid "horas"
+msgstr "tuntia"
+
+msgid "minuto"
+msgstr "minuutti"
+
+msgid "minutos"
+msgstr "minuuttia"
+
+msgid "rígido (HDD)"
+msgstr "jäykkä (HDD)"
+
+msgid "segundo"
+msgstr "toinen"
+
+msgid "segundos"
+msgstr "sekuntia"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (levy {driveType}): {usedSpace} / {totalSpace} käytetty ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (verkkoasema): ei saatavilla."
+
+msgid "{}: {}%"
+msgstr "{}:{} %"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Levyiltä ei saatu tietoja tai järjestelmänvalvojan käyttöoikeus peruutettiin."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Virhe haettaessa järjestelmän yhteenvetoa."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Virhe haettaessa prosessoritietoja."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Virhe haettaessa tietoja RAM-muistista."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Virhe haettaessa prosessorin taajuutta."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Virhe haettaessa levyaseman tietoja."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Virhe haettaessa langattoman verkon tilaa."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Virhe haettaessa Windows-versiota."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Siinä ei ole akkua tai se on pöytätietokone."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Se esittää prosessorin keskimääräisen kuormituksen, lämpötilan ja kunkin ytimen kuormituksen. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Prosessorin kuormitus, lämpötila ja ytimet"
+
+msgid "temperatura: {}"
+msgstr "lämpötila: {}"
+
+msgid "temperatura no disponible"
+msgstr "lämpötila ei ole saatavilla"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "Suorittimen kuormitus {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Keskimääräinen suorittimen kuormitus {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "celsiusastetta"
+
+msgid "grados Fahrenheit"
+msgstr "Fahrenheit-astetta"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Automaattiset järjestelmähälytykset"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Ilmoita, kun akku on latautunut täyteen (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Ilmoita, kun akku on vähissä (15 % tai vähemmän)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Ilmoita, jos prosessorin lämpötila on erittäin korkea (85 °C tai enemmän)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Akku on ladattu täyteen 100 %:iin. Voit irrottaa laturin."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Varoitus: Akun varaus on alhainen, {} %. Kytke laite virtalähteeseen."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Varoitus: Korkea prosessorin lämpötila ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa S.M.A.R.T. tallennuslevyjen terveydentila, lämpötila ja kunto. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa viisi prosessia, jotka kuluttavat eniten CPU:ta ja 5, jotka kuluttavat eniten RAM-muistia. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa Internetin lataus- ja latausnopeuden reaaliajassa. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa akun tilan, jäljellä olevan ajan ja terveyden kulumisen. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa yhdistettyjen Bluetooth-laitteiden akun varaustason. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Levyn tilan kysely on jo käynnissä, odota..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Levyn tilan kysely on käynnissä, odota..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Prosessineuvottelu on jo käynnissä, odota..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Prosessineuvottelu on käynnissä, odota..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Internetin nopeustesti on jo käynnissä, odota..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Internetin nopeustesti on käynnissä, odota..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Akun kysely on jo käynnissä, odota..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Akun kysely on käynnissä, odota..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Bluetooth-laitteiden haku on jo käynnissä, odota..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Bluetooth-laitteiden haku on käynnissä, odota..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Tulos kopioidaan leikepöydälle."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Ilmoita, kun Bluetooth-laitteen akku on vähissä (20 % tai vähemmän)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Ilmoita, kun Wi-Fi-verkon tila muuttuu (yhteys tai katkaisu)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Varoitus: Bluetooth-laitteen {} akku on vähissä {} %."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi-signaali: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Ilmoita, kun Wi-Fi-signaalin voimakkuus muuttuu"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Ilmoita, kun laitteen akku on vähissä"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Laitteen akun heikon varoituksen prosenttiosuus:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Ilmoita, kun Bluetooth-laitteen akku on vähissä"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Bluetoothin heikon akun varoituksen prosenttiosuus:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Ilmoita, kun laitteen akku on latautunut"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Täyden akun varoituksen prosenttiosuus:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Ilmoita, jos prosessorin lämpötila on korkea"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Prosessorin ylikuumenemisvaroituksen lämpötila (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Akku ladattu {} %:iin. Voit irrottaa laturin."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} muisti {mem}, grafiikkaprosessorin kuorma: {util}%, lämpötila: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} muisti {mem}, näytönohjaimen kuormitus: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} näytönohjaimen kuormitus: {util}%, lämpötila: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} näytönohjaimen kuormitus: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Ilmoita, jos levyillä (SSD / HDD) havaitaan terveysongelmia tai kriittistä kulumista"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD-varoituksen kulumisprosentti:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kriittinen varoitus: Levyssä {} on terveysongelmia. Tee varmuuskopio."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Varoitus: SSD {} on kulunut {} %."
+
+msgid "Disco"
+msgstr "Levy"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Tarkista ristiriidat muiden laajennusten kanssa..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "YHTEENSOPIVUUSVAROITUKSET:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "SUORAT OPKOKOHTAUKSET:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Ristiriitatarkastus - Järjestelmän valvonta"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Tässä järjestelmässä ei ole aktiivisia pikanäppäinristiriitoja tai yhteensopimattomia laajennuksia."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Huomautus: Kaikki tiedot on myös tallennettu NVDA-lokitiedostoon."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "System Monitorin aktiivista ilmentymää ei voitu hakea."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Järjestelmän valvonta: Ei havaittu ristiriitoja muiden laajennusten kanssa."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Järjestelmän valvonta: havaittu {count} mahdollista ristiriitaa tai varoitusta. Katso lisätietoja NVDA:n lokista."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Tarkista System Monitorin pikanäppäinristiriidat tai yhteensopimattomat laajennukset."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Levyn analysointi on jo käynnissä, odota..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Prosessianalyysi on jo käynnissä, odota..."
+
+msgid "Error"
+msgstr "Virhe"
+
+msgid "Dispositivo"
+msgstr "Laite"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth-laite"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Resurssien yhteenveto (RAM ja CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Fyysinen ja virtuaalinen RAM-muisti"
+
+msgid "Espacio en unidades de disco"
+msgstr "Ajaa tilaa"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi-verkon tila ja tiedot"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "Prosessorin taajuus ja nopeus"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows-versio ja arkkitehtuuri"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Järjestelmän käyttöaika"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU:n suorituskyky ja muisti"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Terveys S.M.A.R.T. ja levyn lämpötila"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Prosessit, jotka kuluttavat enemmän resursseja"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Reaaliaikainen verkon nopeus"
+
+msgid "Batería avanzada y salud"
+msgstr "Kehittynyt akku ja terveys"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Bluetooth-laitteen akun varaustaso"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Resurssien valvonta (jakaa samat pikanäppäimet NVDA+Shift+1–8 ja NVDA+Shift+E, jolloin komentoja jätetään huomioimatta tai annetaan päällekkäisiä/englanninkielisiä vastauksia)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Top Process (peittokuvat pikakuvakkeet tai käsittele kulutusmainokset)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (peittokuvat laitteisto- ja järjestelmätietojen pikakuvakkeista)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Akun tila (akun varaustason pikakuvakkeet päällekkäin)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Näyttää käytetyn RAM-muistin ja prosessorin keskimääräisen kuormituksen."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Esittää fyysisen ja virtuaalisen RAM-muistin käytetyn ja kokonaistilan. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Näyttää kiinteiden, irrotettavien ja verkkoasemien käytetyn ja kokonaistilan. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa nykyisen prosessorin nopeuden ja taajuuden (GHz), perusnopeuden ja turbo boost -tilan. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa fyysisten levyjen terveydentilan (S.M.A.R.T), lämpötilan ja käyttöiän. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ilmoittaa prosessit, jotka kuluttavat tällä hetkellä eniten suoritinta ja RAM-muistia. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Akku {} %. Tila: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Akun todellinen kunto: {} % alkuperäisestä kapasiteetista."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Akku on ladattu täyteen 100 %:iin. Voit irrottaa laturin."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Akku ladattu {} %:iin. Voit irrottaa laturin."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Varoitus: Akun varaus on alhainen, {} %. Kytke laite virtalähteeseen."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Varoitus: Bluetooth-laitteen {} akku on vähissä {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Varoitus: SSD:n {} käyttöikä on kulunut {} %."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi-signaali: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Akun tarkistusväli (minuutteina):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU:n lämpötilan tarkistusväli (minuutit):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth-tarkistusväli (minuutit):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Levyn&cos-tarkistusväli (minuutit):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Ilmoita, jos näytönohjaimen (GPU) lämpötila on korkea"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU:n ylikuumenemishälytyslämpötila (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU:n lämpötilan tarkistusväli (minuutit):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Varoitus: Korkea lämpötila {name} ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Esittää prosessorin keskimääräisen kuormituksen ja kunkin ytimen kuormituksen. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
+
+msgid "Carga de CPU al {}%."
+msgstr "Suorittimen kuormitus {} %."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Keskimääräinen suorittimen kuormitus {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Prosessorin kuormitus ja ytimet"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Lämpötilayksikkö (CPU ja GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Prosessorin ylikuumenemisvaroituksen lämpötila:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU:n ylikuumenemisvaroituksen lämpötila:"
+

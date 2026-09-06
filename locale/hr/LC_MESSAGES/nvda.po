@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2025-09-04 10:35+0000\n"
+"PO-Revision-Date: 2026-01-05 00:34\n"
+"Last-Translator: \n"
+"Language-Team: Croatian\n"
+"Language: hr_HR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: hr\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "bajt"
+
+msgid " bytes"
+msgstr "bajtova"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Analiza diskova, molimo pričekajte..."
+
+msgid "Analizando procesos..."
+msgstr "Analiza procesa..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje kvar memorije grafičke kartice (VRAM). Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Najavljuje status baterije, preostalo vrijeme i zdravlje."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Najavljuje zdravstveno stanje (S.M.A.R.T), temperaturu i vijek trajanja fizičkih diskova."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Najavljuje razinu baterije povezanih Bluetooth uređaja."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje naziv bežične mreže (SSID), snagu signala i sigurnosni protokol. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje postotak ukupnog CPU opterećenja i opterećenja svake pojedinačne jezgre. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje vrijeme rada sustava. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Objavljuje količinu instaliranog RAM-a, korištenu količinu i postotak te količinu slobodnog RAM-a. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje kapacitet, slobodni prostor i iskorišteni prostor svih dostupnih diskova na sustavu. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje maksimalnu i trenutnu frekvenciju procesora. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje korištenu memoriju, ukupno i opterećenje grafičkog procesora (GPU). Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Najavljuje brzinu internetskog preuzimanja i slanja u stvarnom vremenu."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje verziju sustava Windows i arhitekturu sustava. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Najavljuje procese koji trenutno troše najviše procesora i RAM-a."
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth baterija:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Baterija na {}%. Država: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Traženje Bluetooth uređaja, pričekajte..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Ukupno opterećenje CPU-a: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Ukupno opterećenje CPU-a: {}%. Pojedinačne jezgre: {} ."
+
+msgid "Celsius"
+msgstr "Celzija"
+
+msgid "Conectado a {}"
+msgstr "Povezano s {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Provjera statusa baterije, pričekajte..."
+
+msgid "Dañado (Crítico)"
+msgstr "Oštećeno (kritično)"
+
+msgid "Desconectado de {}"
+msgstr "Odspjeno od {}"
+
+msgid "Desconocido"
+msgstr "Nepoznato"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Vijek trajanja: {} posto (zdravlje: {}%)."
+
+msgid "Disco desconocido"
+msgstr "nepoznati disk"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Disk {}: Upišite {}. Opće stanje: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Poslužitelj je blokirao test jer ga je izveo previše puta zaredom. Pričekajte nekoliko minuta i pokušajte ponovno."
+
+msgid "En riesgo (Advertencia)"
+msgstr "U opasnosti (upozorenje)"
+
+msgid "Error al consultar discos."
+msgstr "Pogreška pri ispitivanju diskova."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Pogreška pri ispitivanju zdravstvenog statusa diskova."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Greška pri mjerenju brzine interneta."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Pogreška pri dobivanju informacija o grafičkoj kartici."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Pogreška pri dobivanju informacija o memoriji s grafičke kartice."
+
+msgid "Error analizando procesos."
+msgstr "Pogreška pri analizi procesa."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Pogreška pri upitu za Bluetooth uređaje."
+
+msgid "Error consultando la batería."
+msgstr "Pogreška pri provjeri baterije."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Trenutna frekvencija procesora: {} gigaherca"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Maksimalna frekvencija CPU-a: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: opterećenje grafičkog procesora: {}%, temperatura: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: opterećenje grafičkog procesora: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: memorija {}, opterećenje grafičkog procesora: {}%, temperatura: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: memorija {}, opterećenje grafičkog procesora: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvine"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Monitor dostupnih resursa za NVDA. Provjerite u stvarnom vremenu opterećenje CPU-a, frekvenciju uživo, RAM memoriju, diskove, Wi-Fi mrežu, grafičku karticu (GPU i VRAM memorija), verziju sustava Windows i vrijeme rada."
+
+msgid "Monitor de Sistema"
+msgstr "Monitor sustava"
+
+msgid "Monitor del Sistema"
+msgstr "Monitor sustava"
+
+msgid "Monitor del sistema"
+msgstr "Monitor sustava"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Nema baterije ili je stolno računalo."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Nema bežičnih mrežnih veza"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Nema dostupnih podataka o grafičkoj kartici."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Nema dostupnih podataka o memoriji grafičke kartice."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Nema bežičnih mrežnih uređaja"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Nema dostupnih podataka o grafičkoj kartici."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Nema dostupnih podataka o memoriji grafičke kartice."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Nisu pronađeni fizički diskovi koji podržavaju dijagnozu."
+
+msgid "No se encontraron discos."
+msgstr "Nisu pronađeni diskovi."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Nije pronađen nijedan Bluetooth uređaj koji prijavljuje svoju bateriju."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Nisu pronađeni dostupni diskovi."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Procesi se ne mogu dobiti."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Nije moguće dobiti vrijeme rada sustava."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Nije moguće dobiti informacije iz memorije."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Nije moguće dobiti informacije o grafičkoj kartici."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Nije moguće dobiti informacije s diskova."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Nije moguće dobiti podatke o memoriji s grafičke kartice."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Proces s najviše procesora: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Proces s više RAM-a: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Ukupni RAM: {}. Korišteno: {} ({}%). Slobodan RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Izvođenje testa preciznosti (oko 12 sekundi), pričekajte..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Povezana bežična mreža: {}, jačina signala: {}%, vrsta sigurnosti: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Stvarno stanje baterije: {}% izvornog kapaciteta."
+
+msgid "Saludable"
+msgstr "Zdrava"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Bežični mrežni uređaj je onemogućen"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Bežični mrežni uređaj je omogućen"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Bez autentifikacije (otvoreno)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Temperatura: {} stupnjeva Celzijusa."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Procijenjeno preostalo vrijeme: {} sati i {} minuta."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Jedinica temperature grafičke kartice:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Brzina interneta. Preuzimanje: {} megabajta u sekundi. Prijenos: {} megabajta u sekundi."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Brzina interneta. Latencija: {} milisekundi. Preuzimanje: {} megabajta u sekundi. Prijenos: {} megabajta u sekundi."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Procijenjeni preostali vijek trajanja: {} posto."
+
+msgid "conectado"
+msgstr "povezan"
+
+msgid "de red"
+msgstr "mreža"
+
+msgid "desconectado"
+msgstr "izvan mreže"
+
+msgid "día"
+msgstr "dan"
+
+msgid "días"
+msgstr "dana"
+
+msgid "estado sólido (SSD)"
+msgstr "solid state (SSD)"
+
+msgid "fijo"
+msgstr "fiksni"
+
+msgid "hora"
+msgstr "sat"
+
+msgid "horas"
+msgstr "sati"
+
+msgid "minuto"
+msgstr "minuta"
+
+msgid "minutos"
+msgstr "minuta"
+
+msgid "rígido (HDD)"
+msgstr "kruti (HDD)"
+
+msgid "segundo"
+msgstr "drugo"
+
+msgid "segundos"
+msgstr "sekundi"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (disk {driveType}): iskorišteno {usedSpace} od {totalSpace} ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (mrežni pogon): nije dostupno."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Nije moguće dobiti informacije s diskova ili je administratorska dozvola poništena."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Pogreška pri dobivanju sažetka sustava."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Pogreška pri dobivanju informacija o procesoru."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Pogreška pri dobivanju informacija iz RAM memorije."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Pogreška pri dobivanju frekvencije procesora."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Pogreška pri dobivanju podataka o disku."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Pogreška u dobivanju statusa bežične mreže."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Pogreška pri dobivanju verzije sustava Windows."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Nema baterije ili je stolno računalo."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Prikazuje prosječno opterećenje procesora, temperaturu i opterećenje svake jezgre. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Opterećenje procesora, temperatura i jezgre"
+
+msgid "temperatura: {}"
+msgstr "temperatura: {}"
+
+msgid "temperatura no disponible"
+msgstr "temperatura nije dostupna"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU opterećenje na {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Prosječno opterećenje procesora na {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "Celzijevih stupnjeva"
+
+msgid "grados Fahrenheit"
+msgstr "stupnjeva Fahrenheita"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Automatska upozorenja sustava"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Obavijesti kada je baterija potpuno napunjena (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Obavijesti kada je baterija niska (15% ili manje)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Obavijesti ako je temperatura procesora vrlo visoka (85 °C ili više)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Baterija potpuno napunjena do 100%. Možete isključiti punjač."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Upozorenje: Baterija je niska do {}%. Spojite opremu na napajanje."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Upozorenje: visoka temperatura procesora ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje S.M.A.R.T. zdravstveno stanje, temperatura i stanje diskova za pohranu. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje 5 procesa koji troše najviše procesora i 5 procesa koji troše najviše RAM-a. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje brzinu internetskog preuzimanja i slanja u stvarnom vremenu. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje status baterije, preostalo vrijeme i zdravlje. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje razinu baterije povezanih Bluetooth uređaja. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Upit o statusu diska je već u tijeku, pričekajte..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "U tijeku je upit o statusu diska, pričekajte..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Proces savjetovanja je već u tijeku, molimo pričekajte..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Proces savjetovanja je u tijeku, pričekajte..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Test brzine interneta je već u tijeku, pričekajte..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Test brzine interneta je u tijeku, pričekajte..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Upit za bateriju je već u tijeku, pričekajte..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "U tijeku je upit o bateriji, pričekajte..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Traženje Bluetooth uređaja je već u tijeku, pričekajte..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Traženje Bluetooth uređaja je u tijeku, pričekajte..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Rezultat će se kopirati u međuspremnik."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Obavijesti kada je baterija Bluetooth uređaja niska (20% ili manje)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Obavijesti kada se status Wi-Fi mreže promijeni (veza ili prekid)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Upozorenje: Niska baterija na Bluetooth uređaju {} na {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi signal: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Obavijesti kada se promijeni snaga Wi-Fi signala"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Obavijesti kada je baterija uređaja niska"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Postotak za upozorenje o niskoj bateriji uređaja:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Obavijesti kada je baterija Bluetooth uređaja niska"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Postotak za Bluetooth upozorenje o niskoj bateriji:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Obavijesti kada je baterija uređaja napunjena"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Postotak za upozorenje o punoj bateriji:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Obavijesti ako je temperatura procesora visoka"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Temperatura za upozorenje o pregrijavanju procesora (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Baterija napunjena do {}%. Možete isključiti punjač."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} memorija {mem}, opterećenje grafičkog procesora: {util}%, temperatura: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} memorija {mem}, opterećenje grafičkog procesora: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} opterećenje grafičkog procesora: {util}%, temperatura: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} opterećenje grafičkog procesora: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Obavijesti ako se otkriju zdravstveni problemi ili kritično trošenje na diskovima (SSD / HDD)"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Postotak istrošenosti za SSD upozorenje:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kritično upozorenje: Disk {} predstavlja zdravstvene probleme. Napravite sigurnosnu kopiju."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Upozorenje: SSD {} je dosegao {}% vijeka trajanja."
+
+msgid "Disco"
+msgstr "Disk"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Provjeri sukobe s drugim dodacima..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "UPOZORENJA O KOMPATIBILNOSTI:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "IZRAVNI SUDAR PREČICAMA:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Revizija sukoba - Monitor sustava"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Na ovom sustavu nema aktivnih sukoba tipkovničkih prečaca ili nekompatibilnih dodataka."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Napomena: Svi detalji također su zabilježeni u NVDA log datoteci."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Nije moguće dobiti aktivnu instancu System Monitora."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Monitor sustava: Nisu otkriveni sukobi s drugim dodacima."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Monitor sustava: {count} otkrivenih mogućih sukoba ili upozorenja. Za više detalja provjerite zapisnik NVDA."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Provjerite sukobe tipkovnih prečaca ili nekompatibilne dodatke pomoću System Monitora."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Analiza diska je već u tijeku, pričekajte..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Analiza procesa je već u tijeku, pričekajte..."
+
+msgid "Error"
+msgstr "Greška"
+
+msgid "Dispositivo"
+msgstr "Uređaj"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth uređaj"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Sažetak resursa (RAM i CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Fizička i virtualna RAM memorija"
+
+msgid "Espacio en unidades de disco"
+msgstr "Prostor za vožnju"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Status i informacije o Wi-Fi mreži"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU frekvencija i brzina"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows verzija i arhitektura"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Vrijeme rada sustava"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU performanse i memorija"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Zdravlje S.M.A.R.T. i temperaturu diska"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Procesi s većom potrošnjom resursa"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Brzina mreže u stvarnom vremenu"
+
+msgid "Batería avanzada y salud"
+msgstr "Napredna baterija i zdravlje"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Razina baterije Bluetooth uređaja"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Resource Monitor (dijeli iste prečace NVDA+Shift+1 do 8 i NVDA+Shift+E, uzrokujući ignoriranje naredbi ili izdavanje dvostrukih/engleskih odgovora)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Vrhunski proces (prekriva prečace ili oglase za potrošnju procesa)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (prekriva hardverske i sistemske prečace)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Status baterije (prekriva prečace za razinu baterije)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Prikazuje korištenu RAM memoriju i prosječno opterećenje procesora."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Prikazuje korišteni i ukupni prostor fizičkog i virtualnog RAM-a. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Prikazuje iskorišteni i ukupni prostor za fiksne, prijenosne i mrežne pogone. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje trenutnu brzinu i frekvenciju procesora (GHz), osnovnu brzinu i status načina rada Turbo Boost. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje zdravstveno stanje (S.M.A.R.T), temperaturu i vijek trajanja fizičkih diskova. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Najavljuje procese koji trenutno troše najviše procesora i RAM-a. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Baterija na {}%. Država: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Stvarno stanje baterije: {} % izvornog kapaciteta."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Baterija potpuno napunjena do 100%. Možete isključiti punjač."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Baterija napunjena do {}%. Možete isključiti punjač."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Upozorenje: Baterija je niska do {}%. Spojite opremu na napajanje."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Upozorenje: Niska baterija na Bluetooth uređaju {} na {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Upozorenje: SSD {} dosegao je {} % vijeka trajanja."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi signal: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Interval provjere baterije (minute):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "Interval provjere CPU temperature (minute):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Interval Bluetooth provjere (minute):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Interval provjere diskova (minute):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Obavijesti ako je temperatura grafičke kartice (GPU) visoka"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "Temperatura upozorenja o pregrijavanju GPU-a (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "Interval provjere temperature GPU-a (minute):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Upozorenje: visoka {name} temperatura ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Predstavlja prosječno opterećenje procesora i opterećenje svake jezgre. Ako se pritisne dvaput, kopira podatke u međuspremnik."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU opterećenje na {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Prosječno opterećenje CPU-a na {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Opterećenje procesora i jezgri"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Temperaturna jedinica (CPU i GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Temperatura za upozorenje o pregrijavanju procesora:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Temperatura za upozorenje o pregrijavanju GPU-a:"
+

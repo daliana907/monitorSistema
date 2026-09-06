@@ -1,0 +1,716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.1\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2013-03-05 06:00-0800\n"
+"PO-Revision-Date: 2023-01-08 07:24-0800\n"
+"Last-Translator: oaron@nvda.hu\n"
+"Language-Team: HU <LL@li.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "bájt"
+
+msgid " bytes"
+msgstr "bájtok"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Lemezek elemzése, kérjük, várjon..."
+
+msgid "Analizando procesos..."
+msgstr "A folyamatok elemzése..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a grafikus kártya memóriájának (VRAM) meghibásodását. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Bejelenti az akkumulátor állapotát, a hátralévő időt és az egészségügyi kopást."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Bejelenti a fizikai lemezek egészségi állapotát (S.M.A.R.T), hőmérsékletét és hasznos élettartamát."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Bejelenti a csatlakoztatott Bluetooth-eszközök akkumulátor töltöttségi szintjét."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a vezeték nélküli hálózat nevét (SSID), a jelerősséget és a biztonsági protokollt. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a teljes CPU-terhelés százalékos arányát és az egyes magok terhelését. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a rendszer üzemidejét. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a telepített RAM mennyiségét, a felhasznált mennyiséget és százalékot, valamint a szabad RAM mennyiségét. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a rendszer összes elérhető lemezének kapacitását, szabad területét és felhasznált területét. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a CPU maximális és aktuális frekvenciáját. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a felhasznált memóriát, a grafikus processzor (GPU) teljes mennyiségét és terhelését. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Bejelenti az internetes letöltési és feltöltési sebességet valós időben."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a Windows verzióját és a rendszer architektúráját. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Bejelenti azokat a folyamatokat, amelyek jelenleg a legtöbb CPU-t és RAM-ot fogyasztják."
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth akkumulátor:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Az akkumulátor töltöttsége {}%. Állapot: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Bluetooth-eszközök keresése, kérjük, várjon..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Teljes CPU terhelés: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Teljes CPU terhelés: {}%. Egyedi magok: {} ."
+
+msgid "Celsius"
+msgstr "Celsius"
+
+msgid "Conectado a {}"
+msgstr "Csatlakozva a következőhöz: {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Az akkumulátor állapotának ellenőrzése, kérjük, várjon..."
+
+msgid "Dañado (Crítico)"
+msgstr "Sérült (kritikus)"
+
+msgid "Desconectado de {}"
+msgstr "Leválasztva a következőről: {}"
+
+msgid "Desconocido"
+msgstr "Ismeretlen"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Élettartam: {} százalék (Egészség: {}%)."
+
+msgid "Disco desconocido"
+msgstr "ismeretlen lemez"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Lemez {}: Írja be: {}. Általános állapot: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "A szerver blokkolta a tesztet, mert túl sokszor csinálta meg egymás után. Várjon néhány percet, és próbálja újra."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Veszélyben (figyelmeztetés)"
+
+msgid "Error al consultar discos."
+msgstr "Hiba a lemezek lekérdezésekor."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Hiba a lemezek állapotának lekérdezésekor."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Hiba az internet sebességének mérésekor."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Hiba a grafikus kártya információinak lekérésekor."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Hiba a memória információinak lekérésekor a grafikus kártyáról."
+
+msgid "Error analizando procesos."
+msgstr "Hiba a folyamatok elemzése során."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Hiba történt a Bluetooth-eszközök lekérdezésekor."
+
+msgid "Error consultando la batería."
+msgstr "Hiba az akkumulátor ellenőrzése során."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Jelenlegi CPU frekvencia: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Maximális CPU frekvencia: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: grafikus processzor terhelés: {}%, hőmérséklet: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: grafikus processzor terhelés: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: memória {}, grafikus processzor terhelés: {}%, hőmérséklet: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: memória {}, grafikus processzor terhelés: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Hozzáférhető erőforrás-figyelő az NVDA-hoz. Valós időben ellenőrizze a CPU terhelését, az élő frekvenciát, a RAM memóriát, a lemezeket, a Wi-Fi hálózatot, a grafikus kártyát (GPU és VRAM memória), a Windows verziót és az üzemidőt."
+
+msgid "Monitor de Sistema"
+msgstr "Rendszerfigyelő"
+
+msgid "Monitor del Sistema"
+msgstr "Rendszerfigyelő"
+
+msgid "Monitor del sistema"
+msgstr "Rendszerfigyelő"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Nincs akkumulátor, vagy asztali számítógép."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Nincs vezeték nélküli hálózati kapcsolat"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Nem állnak rendelkezésre grafikus kártya adatok."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Nem állnak rendelkezésre grafikus kártya memóriaadatai."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Nincsenek vezeték nélküli hálózati eszközök"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "A grafikus kártya adatai nem állnak rendelkezésre."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Nem áll rendelkezésre információ a grafikus kártya memóriájáról."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Nem találtak olyan fizikai lemezt, amely alátámasztotta volna a diagnózist."
+
+msgid "No se encontraron discos."
+msgstr "Nem található lemez."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Nem találtunk olyan Bluetooth-eszközt, amely jelezte volna az akkumulátort."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Nem található elérhető lemezmeghajtó."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "A folyamatokat nem lehetett beszerezni."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Nem sikerült elérni a rendszer üzemidejét."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Nem sikerült információt szerezni a memóriából."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Nem sikerült beolvasni a grafikus kártya adatait."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Nem sikerült információkat szerezni a lemezekről."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Nem sikerült lekérni a memóriainformációkat a grafikus kártyáról."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Folyamat a legtöbb CPU-val: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Folyamat több RAM-mal: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Teljes RAM: {}. Használt: {} ({}%). Szabad RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Precíziós teszt végrehajtása (kb. 12 másodperc), kérjük, várjon..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Csatlakoztatott vezeték nélküli hálózat: {}, jelerősség: {}%, biztonsági típus: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Az akkumulátor tényleges állapota: az eredeti kapacitás {}%-a."
+
+msgid "Saludable"
+msgstr "Egészséges"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Egy vezeték nélküli hálózati eszköz le van tiltva"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Egy vezeték nélküli hálózati eszköz engedélyezve van"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Nincs hitelesítés (nyitva)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Hőmérséklet: {} Celsius-fok."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Becsült hátralévő idő: {} óra és {} perc."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "A grafikus kártya hőmérsékleti egysége:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internet sebesség. Letöltés: {} megabájt másodpercenként. Feltöltés: {} megabájt másodpercenként."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internet sebesség. Késési idő: {} ezredmásodperc. Letöltés: {} megabájt másodpercenként. Feltöltés: {} megabájt másodpercenként."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Becsült hátralévő hasznos élettartam: {} százalék."
+
+msgid "conectado"
+msgstr "csatlakoztatva"
+
+msgid "de red"
+msgstr "hálózat"
+
+msgid "desconectado"
+msgstr "offline módban"
+
+msgid "día"
+msgstr "napon"
+
+msgid "días"
+msgstr "napokon"
+
+msgid "estado sólido (SSD)"
+msgstr "szilárdtest (SSD)"
+
+msgid "fijo"
+msgstr "rögzített"
+
+msgid "hora"
+msgstr "óra"
+
+msgid "horas"
+msgstr "óra"
+
+msgid "minuto"
+msgstr "perc"
+
+msgid "minutos"
+msgstr "percben"
+
+msgid "rígido (HDD)"
+msgstr "merev (HDD)"
+
+msgid "segundo"
+msgstr "második"
+
+msgid "segundos"
+msgstr "másodpercig"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (lemez {driveType}): {usedSpace}/{totalSpace} használt ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (hálózati meghajtó): nem érhető el."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Nem sikerült információkat szerezni a lemezekről, vagy törölték a rendszergazdai engedélyt."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Hiba a rendszerösszegzés lekérésekor."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Hiba a processzor információinak lekérésekor."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Hiba a RAM-memóriából való információszerzés során."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Hiba a processzor frekvenciájának lekérésekor."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Hiba a lemezmeghajtó információinak lekérésekor."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Hiba a vezeték nélküli hálózat állapotának lekérésekor."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Hiba a Windows verzió lekérésekor."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Nincs akkumulátor, vagy asztali számítógép."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bemutatja az átlagos processzorterhelést, hőmérsékletet és az egyes magok terhelését. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Processzor terhelés, hőmérséklet és magok"
+
+msgid "temperatura: {}"
+msgstr "hőmérséklet: {}"
+
+msgid "temperatura no disponible"
+msgstr "hőmérséklet nem elérhető"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU terhelés: {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Átlagos CPU terhelés: {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "Celsius fok"
+
+msgid "grados Fahrenheit"
+msgstr "Fahrenheit fok"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Automatikus rendszerriasztások"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Értesítés, ha az akkumulátor teljesen feltöltődött (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Értesítés, ha az akkumulátor lemerült (15% vagy kevesebb)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Értesítés, ha a processzor hőmérséklete nagyon magas (85 °C vagy több)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Az akkumulátor teljesen feltöltve 100%-ra. Lekapcsolhatja a töltőt."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Figyelmeztetés: Az akkumulátor lemerült {}%-ra. Csatlakoztassa a berendezést az áramforráshoz."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Figyelmeztetés: Magas processzorhőmérséklet ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti az S.M.A.R.T. a tárolólemezek egészségi állapota, hőmérséklete és állapota. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti az 5 legtöbb CPU-t és 5 legtöbb RAM-ot fogyasztó folyamatot. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti az internetes letöltési és feltöltési sebességet valós időben. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti az akkumulátor állapotát, a hátralévő időt és az egészségügyi kopást. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a csatlakoztatott Bluetooth-eszközök akkumulátor töltöttségi szintjét. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "A lemez állapotának lekérdezése már folyamatban van, kérjük, várjon..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "A lemez állapotának lekérdezése folyamatban van, kérjük, várjon..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "A folyamat egyeztetése már folyamatban van, kérjük, várjon..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "A folyamat egyeztetése folyamatban van, kérjük, várjon..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Az internet sebességének tesztelése már folyamatban van, kérjük, várjon..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Az internet sebességének tesztelése folyamatban van, kérjük, várjon..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Az akkumulátor lekérdezése már folyamatban van, kérjük, várjon..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Az akkumulátor lekérdezése folyamatban van, kérjük, várjon..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "A Bluetooth-eszközök keresése már folyamatban van, kérjük, várjon..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Bluetooth-eszközök keresése folyamatban van, kérjük, várjon..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Az eredmény a vágólapra lesz másolva."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Értesítés, ha egy Bluetooth-eszköz akkumulátora alacsony (20% vagy kevesebb)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Értesítés, ha a Wi-Fi hálózat állapota megváltozik (csatlakozás vagy megszakítás)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Figyelmeztetés: Alacsony akkumulátor töltöttség a(z) {} Bluetooth-eszközön {}%-on."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi jel: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Értesítés a Wi-Fi jelerősség változásáról"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Értesítés, ha a készülék akkumulátora lemerült"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Az eszköz alacsony akkumulátorszintű riasztásának százalékos aránya:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Értesítés, ha egy Bluetooth-eszköz akkumulátora alacsony"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Bluetooth-riasztás százalékos aránya:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Értesítés, ha a készülék akkumulátora feltöltődött"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Százalékos a teljes akkumulátor-figyelmeztetéshez:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Értesítés, ha a processzor hőmérséklete magas"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&A processzor túlmelegedésére figyelmeztető hőmérséklet (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Az akkumulátor {}%-ra feltöltve. Lekapcsolhatja a töltőt."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} memória {mem}, grafikus processzor terhelés: {util}%, hőmérséklet: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} memória {mem}, grafikus processzor terhelés: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} grafikus processzor terhelés: {util}%, hőmérséklet: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} grafikus processzor terhelés: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Értesítés, ha egészségügyi problémákat vagy kritikus kopást észlel a lemezeken (SSD / HDD)"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD-riasztás kopási százaléka:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kritikus figyelmeztetés: A(z) {} lemez egészségügyi problémákat okoz. Készítsen biztonsági másolatot."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Figyelmeztetés: Az SSD {} elérte a {}%-os élettartamot."
+
+msgid "Disco"
+msgstr "Lemez"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Ellenőrizze, hogy nincsenek-e ütközések más beépülő modulokkal..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "KOMPATIBILITÁSI FIGYELMEZTETÉSEK:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "KÖZVETLEN RÖVIDÜTKÖZÉSEK:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Konfliktus-audit – Rendszerfigyelő"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Ezen a rendszeren nincsenek aktív billentyűparancs-ütközések vagy nem kompatibilis bővítmények."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Megjegyzés: A teljes részletet az NVDA naplófájlja is rögzíti."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Nem sikerült lekérni a System Monitor aktív példányát."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Rendszerfigyelő: Nem észleltek ütközéseket más beépülő modulokkal."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Rendszerfigyelő: {count} lehetséges ütközés vagy figyelmeztetés észlelve. További részletekért tekintse meg az NVDA naplóját."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Ellenőrizze a billentyűparancsok ütközését vagy az inkompatibilis beépülő modulokat a System Monitor segítségével."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "A lemezelemzés már folyamatban van, kérjük, várjon..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "A folyamatelemzés már folyamatban van, kérjük, várjon..."
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "Dispositivo"
+msgstr "Eszköz"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth eszköz"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Erőforrás-összefoglaló (RAM és CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Fizikai és virtuális RAM memória"
+
+msgid "Espacio en unidades de disco"
+msgstr "Meghajtó hely"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "A Wi-Fi hálózat állapota és információi"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU frekvencia és sebesség"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows verzió és architektúra"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "A rendszer üzemideje"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU teljesítmény és memória"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Egészségügyi S.M.A.R.T. és a lemez hőmérséklete"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Folyamatok nagyobb erőforrás-felhasználással"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Valós idejű hálózati sebesség"
+
+msgid "Batería avanzada y salud"
+msgstr "Fejlett akkumulátor és egészség"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Bluetooth-eszköz akkumulátorának szintje"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Erőforrásfigyelő (ugyanazokat a billentyűparancsokat használja: NVDA+Shift+1-8 és NVDA+Shift+E, ami a parancsokat figyelmen kívül hagyja, vagy duplikált/angol válaszokat ad ki)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Top Process (fedvények parancsikonok vagy fogyasztási hirdetések feldolgozása)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (hardver- és rendszerinformációs parancsikonok átfedése)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Akkumulátor állapota (átfedje az akkumulátor töltöttségi szintre vonatkozó parancsikonokat)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Bemutatja a felhasznált RAM memóriát és az átlagos processzorterhelést."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bemutatja a fizikai és virtuális RAM felhasznált és teljes területét. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Megjeleníti a rögzített, cserélhető és hálózati meghajtók használt és teljes területét. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a processzor aktuális sebességét és frekvenciáját (GHz), az alapsebességet és a turbónövelő mód állapotát. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti a fizikai lemezek egészségi állapotát (S.M.A.R.T), hőmérsékletét és hasznos élettartamát. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bejelenti azokat a folyamatokat, amelyek jelenleg a legtöbb CPU-t és RAM-ot fogyasztják. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Az akkumulátor töltöttsége {}%. Állapot: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Az akkumulátor tényleges állapota: az eredeti kapacitás {} %-a."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Az akkumulátor teljesen feltöltve 100%-ra. Lekapcsolhatja a töltőt."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Az akkumulátor {}%-ra feltöltve. Lekapcsolhatja a töltőt."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Figyelmeztetés: Az akkumulátor lemerült {}%-ra. Csatlakoztassa a berendezést az áramforráshoz."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Figyelmeztetés: Alacsony akkumulátor töltöttség a(z) {} Bluetooth-eszközön, {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Figyelmeztetés: Az SSD {} elérte a {} %-os élettartamot."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi jel: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Akkumulátor-ellenőrzési időköz (perc):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU hőmérséklet-ellenőrzési intervallum (perc):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth ellenőrzési időköz (perc):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Lemez&cos ellenőrzési időköz (perc):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Értesítés, ha a grafikus kártya (GPU) hőmérséklete magas"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU túlmelegedés riasztási hőmérséklete (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU hőmérséklet-ellenőrzési intervallum (perc):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Figyelmeztetés: Magas {name} hőmérséklet ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bemutatja a processzor átlagos terhelését és az egyes magok terhelését. Ha kétszer megnyomja, az információkat a vágólapra másolja."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU terhelés: {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Átlagos CPU terhelés: {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Processzor terhelés és magok"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Hőmérséklet mértékegysége (CPU és GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&A processzor túlmelegedésére figyelmeztető hőmérséklet:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Hőmérséklet a GPU túlmelegedésére figyelmeztető jelzéshez:"
+

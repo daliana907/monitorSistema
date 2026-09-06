@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-09-04 20:37+0000\n"
+"PO-Revision-Date: 2026-09-04 20:40\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: vi\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "byte"
+
+msgid " bytes"
+msgstr "byte"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Đang phân tích đĩa, vui lòng đợi..."
+
+msgid "Analizando procesos..."
+msgstr "Phân tích quá trình..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo sự cố về bộ nhớ card đồ họa (VRAM). Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Thông báo tình trạng pin, thời gian còn lại và tình trạng hao mòn."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Thông báo tình trạng sức khỏe (S.M.A.R.T), nhiệt độ và thời gian sử dụng của đĩa vật lý."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Thông báo mức pin của các thiết bị Bluetooth được kết nối."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tên mạng không dây (SSID), cường độ tín hiệu và giao thức bảo mật. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tỷ lệ phần trăm của tổng tải CPU và tải của từng lõi riêng lẻ. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo thời gian hoạt động của hệ thống. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo dung lượng RAM được cài đặt, dung lượng đã sử dụng và tỷ lệ phần trăm cũng như dung lượng RAM trống. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo dung lượng, dung lượng trống và dung lượng đã sử dụng của tất cả các đĩa có sẵn trên hệ thống. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tần số CPU tối đa và hiện tại. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo bộ nhớ đã sử dụng, tổng lượng và tải của bộ xử lý đồ họa (GPU). Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Thông báo tốc độ tải xuống và tải lên Internet trong thời gian thực."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Công bố phiên bản Windows và kiến ​​trúc hệ thống. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Thông báo các tiến trình hiện đang tiêu thụ nhiều CPU và RAM nhất."
+
+msgid "Batería Bluetooth: "
+msgstr "Pin Bluetooth:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Pin ở mức {}%. Tình trạng: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Đang tìm kiếm thiết bị Bluetooth, vui lòng đợi..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Tổng tải CPU: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Tổng tải CPU: {}%. Các lõi riêng lẻ: {} ."
+
+msgid "Celsius"
+msgstr "Celsius"
+
+msgid "Conectado a {}"
+msgstr "Đã kết nối đến {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Đang kiểm tra trạng thái pin, vui lòng đợi..."
+
+msgid "Dañado (Crítico)"
+msgstr "Bị hư hỏng (Quan trọng)"
+
+msgid "Desconectado de {}"
+msgstr "Đã ngắt kết nối từ {}"
+
+msgid "Desconocido"
+msgstr "Không xác định"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Tuổi thọ hao mòn: {} phần trăm (Sức khỏe: {}%)."
+
+msgid "Disco desconocido"
+msgstr "đĩa không xác định"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Đĩa {}: Nhập {}. Điều kiện chung: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Máy chủ đã chặn bài kiểm tra do thực hiện quá nhiều lần liên tiếp. Đợi vài phút và thử lại."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Có nguy cơ (Cảnh báo)"
+
+msgid "Error al consultar discos."
+msgstr "Lỗi truy vấn đĩa."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Lỗi khi truy vấn tình trạng sức khỏe của đĩa."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Lỗi khi đo tốc độ Internet."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Lỗi lấy thông tin card đồ họa."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Lỗi lấy thông tin bộ nhớ từ card đồ họa."
+
+msgid "Error analizando procesos."
+msgstr "Quá trình phân tích lỗi."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Lỗi truy vấn thiết bị Bluetooth."
+
+msgid "Error consultando la batería."
+msgstr "Lỗi kiểm tra pin."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Tần số CPU hiện tại: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Tần số CPU tối đa: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: tải bộ xử lý đồ họa: {}%, nhiệt độ: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: tải bộ xử lý đồ họa: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: bộ nhớ {}, tải bộ xử lý đồ họa: {}%, nhiệt độ: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: bộ nhớ {}, tải bộ xử lý đồ họa: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Giám sát tài nguyên có thể truy cập cho NVDA. Kiểm tra thời gian thực tải CPU, tần số trực tiếp, bộ nhớ RAM, ổ đĩa, mạng Wi-Fi, card đồ họa (bộ nhớ GPU và VRAM), phiên bản Windows và thời gian hoạt động."
+
+msgid "Monitor de Sistema"
+msgstr "Giám sát hệ thống"
+
+msgid "Monitor del Sistema"
+msgstr "Giám sát hệ thống"
+
+msgid "Monitor del sistema"
+msgstr "Giám sát hệ thống"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Không có pin hoặc nó là một máy tính để bàn."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Không có kết nối mạng không dây"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Không có dữ liệu card đồ họa."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Không có dữ liệu bộ nhớ card đồ họa."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Không có thiết bị mạng không dây"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Không có thông tin card đồ họa."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Không có thông tin bộ nhớ card đồ họa."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Không có đĩa vật lý nào được tìm thấy hỗ trợ chẩn đoán."
+
+msgid "No se encontraron discos."
+msgstr "Không có đĩa nào được tìm thấy."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Không tìm thấy thiết bị Bluetooth nào báo cáo pin của chúng."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Không có ổ đĩa có sẵn được tìm thấy."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Không thể lấy được các quy trình."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Không thể nhận được thời gian hoạt động của hệ thống."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Không thể lấy thông tin từ bộ nhớ."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Không thể lấy thông tin card đồ họa."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Không thể lấy thông tin từ đĩa."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Không thể lấy thông tin bộ nhớ từ card đồ họa."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Xử lý với nhiều CPU nhất: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Xử lý với nhiều RAM hơn: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Tổng RAM: {}. Đã sử dụng: {} ({}%). RAM trống: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Đang thực hiện kiểm tra độ chính xác (khoảng 12 giây), vui lòng đợi..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Mạng không dây được kết nối: {}, cường độ tín hiệu: {}%, loại bảo mật: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Tình trạng pin thực tế: {}% dung lượng ban đầu."
+
+msgid "Saludable"
+msgstr "khỏe mạnh"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Một thiết bị mạng không dây đã bị vô hiệu hóa"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Một thiết bị mạng không dây đã được kích hoạt"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Không có xác thực (Mở)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Nhiệt độ: {} độ C."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Thời gian còn lại ước tính: {} giờ và {} phút."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Đơn vị nhiệt độ card đồ họa:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Tốc độ Internet. Tải xuống: {} Megabyte mỗi giây. Tải lên: {} Megabyte mỗi giây."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Tốc độ Internet. Độ trễ: {} mili giây. Tải xuống: {} Megabyte mỗi giây. Tải lên: {} Megabyte mỗi giây."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Thời gian sử dụng hữu ích ước tính còn lại: {} phần trăm."
+
+msgid "conectado"
+msgstr "đã kết nối"
+
+msgid "de red"
+msgstr "mạng"
+
+msgid "desconectado"
+msgstr "ngoại tuyến"
+
+msgid "día"
+msgstr "ngày"
+
+msgid "días"
+msgstr "ngày"
+
+msgid "estado sólido (SSD)"
+msgstr "trạng thái rắn (SSD)"
+
+msgid "fijo"
+msgstr "đã sửa"
+
+msgid "hora"
+msgstr "giờ"
+
+msgid "horas"
+msgstr "giờ"
+
+msgid "minuto"
+msgstr "phút"
+
+msgid "minutos"
+msgstr "phút"
+
+msgid "rígido (HDD)"
+msgstr "cứng nhắc (HDD)"
+
+msgid "segundo"
+msgstr "thứ hai"
+
+msgid "segundos"
+msgstr "giây"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (đĩa {driveType}): {usedSpace} trong tổng số {totalSpace} đã sử dụng ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (ổ đĩa mạng): không khả dụng."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Không thể lấy thông tin từ đĩa hoặc quyền quản trị viên đã bị hủy."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Lỗi nhận bản tóm tắt hệ thống."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Lỗi lấy thông tin bộ xử lý."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Lỗi lấy thông tin từ bộ nhớ RAM."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Lỗi lấy tần số bộ xử lý."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Lỗi lấy thông tin ổ đĩa."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Lỗi lấy trạng thái mạng không dây."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Lỗi tải phiên bản Windows."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Không có pin hoặc nó là một máy tính để bàn."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Nó trình bày tải trung bình của bộ xử lý, nhiệt độ và tải của từng lõi. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Tải bộ xử lý, nhiệt độ và lõi"
+
+msgid "temperatura: {}"
+msgstr "nhiệt độ: {}"
+
+msgid "temperatura no disponible"
+msgstr "nhiệt độ không có sẵn"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "Tải CPU ở mức {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Tải CPU trung bình ở mức {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "nhiệt độ Celsius"
+
+msgid "grados Fahrenheit"
+msgstr "nhiệt độ Fahrenheit"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Cảnh báo hệ thống tự động"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Thông báo khi pin được sạc đầy (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Thông báo khi pin yếu (15% trở xuống)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Thông báo nếu nhiệt độ bộ xử lý rất cao (85 °C trở lên)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Pin đã được sạc đầy tới 100%. Bạn có thể ngắt kết nối bộ sạc."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Cảnh báo: Pin yếu đến {}%. Kết nối thiết bị với nguồn điện."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Cảnh báo: Nhiệt độ bộ xử lý cao ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Công bố S.M.A.R.T. tình trạng sức khỏe, nhiệt độ và tình trạng của đĩa lưu trữ. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Công bố 5 quy trình tiêu thụ nhiều CPU nhất và 5 quy trình tiêu tốn nhiều RAM nhất. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tốc độ tải xuống và tải lên Internet trong thời gian thực. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tình trạng pin, thời gian còn lại và tình trạng hao mòn. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo mức pin của các thiết bị Bluetooth được kết nối. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Đang tiến hành truy vấn trạng thái ổ đĩa, vui lòng đợi..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Đang truy vấn trạng thái ổ đĩa, vui lòng đợi..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Quá trình tư vấn đang diễn ra, vui lòng đợi..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Quá trình tư vấn đang diễn ra, vui lòng đợi..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Đang kiểm tra tốc độ Internet, vui lòng đợi..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Đang kiểm tra tốc độ Internet, vui lòng đợi..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Đang tiến hành truy vấn pin, vui lòng đợi..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Đang tiến hành truy vấn pin, vui lòng đợi..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Đang tiến hành tìm kiếm thiết bị Bluetooth, vui lòng đợi..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Đang tìm kiếm thiết bị Bluetooth, vui lòng đợi..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Kết quả sẽ được sao chép vào clipboard."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Thông báo khi pin của thiết bị Bluetooth yếu (20% trở xuống)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Thông báo khi trạng thái mạng Wi-Fi thay đổi (kết nối hoặc ngắt kết nối)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Cảnh báo: Pin trên thiết bị Bluetooth {} ở mức {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Tín hiệu Wi-Fi: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Thông báo khi cường độ tín hiệu Wi-Fi thay đổi"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Thông báo khi pin của thiết bị yếu"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Phần trăm cảnh báo pin yếu của thiết bị:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Thông báo khi pin của thiết bị Bluetooth yếu"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Tỷ lệ cảnh báo pin yếu của Bluetooth:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Thông báo khi pin của thiết bị được sạc"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Phần trăm cảnh báo pin đầy:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Thông báo nếu nhiệt độ bộ xử lý cao"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Nhiệt độ cảnh báo quá nhiệt của bộ xử lý (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Đã sạc pin đến {}%. Bạn có thể ngắt kết nối bộ sạc."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{tiền tố} bộ nhớ {mem}, tải bộ xử lý đồ họa: {util}%, nhiệt độ: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{tiền tố} bộ nhớ {mem}, tải bộ xử lý đồ họa: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} tải bộ xử lý đồ họa: {util}%, nhiệt độ: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} tải bộ xử lý đồ họa: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Thông báo nếu phát hiện vấn đề sức khỏe hoặc tình trạng hao mòn nghiêm trọng trên đĩa (SSD / HDD)"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Tỷ lệ hao mòn cho cảnh báo SSD:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Cảnh báo nghiêm trọng: Đĩa {} có vấn đề về sức khỏe. Tạo một bản sao lưu."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Cảnh báo: SSD {} đã đạt đến mức hao mòn {}%."
+
+msgid "Disco"
+msgstr "Đĩa"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Kiểm tra xung đột với các plugin khác..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "CẢNH BÁO KHẢ NĂNG TƯƠNG THÍCH:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "SỰ va chạm NGẮN TRỰC TIẾP:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Kiểm tra xung đột - Giám sát hệ thống"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Không có xung đột phím tắt hoặc plugin không tương thích đang hoạt động trên hệ thống này."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Lưu ý: Chi tiết đầy đủ cũng đã được ghi lại trong tệp nhật ký NVDA."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Không thể tải phiên bản đang hoạt động của System Monitor."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Giám sát hệ thống: Không phát hiện thấy xung đột với các plugin khác."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Giám sát hệ thống: Đã phát hiện thấy {count} xung đột hoặc cảnh báo có thể xảy ra. Kiểm tra nhật ký NVDA để biết thêm chi tiết."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Kiểm tra xung đột phím tắt hoặc plugin không tương thích bằng System Monitor."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Quá trình phân tích ổ đĩa đang được tiến hành, vui lòng đợi..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Quá trình phân tích đang được tiến hành, vui lòng đợi..."
+
+msgid "Error"
+msgstr "Lỗi"
+
+msgid "Dispositivo"
+msgstr "Thiết bị"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Thiết bị Bluetooth"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Tóm tắt tài nguyên (RAM và CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Bộ nhớ RAM vật lý và ảo"
+
+msgid "Espacio en unidades de disco"
+msgstr "Dung lượng ổ đĩa"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Thông tin và trạng thái mạng Wi-Fi"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "Tần số và tốc độ CPU"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Phiên bản và kiến trúc Windows"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Thời gian hoạt động của hệ thống"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "Hiệu năng và bộ nhớ GPU"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Sức khỏe S.M.A.R.T. và nhiệt độ đĩa"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Các quy trình tiêu thụ tài nguyên lớn hơn"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Tốc độ mạng thời gian thực"
+
+msgid "Batería avanzada y salud"
+msgstr "Pin và sức khỏe nâng cao"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Mức pin của thiết bị Bluetooth"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Resource Monitor (dùng chung phím tắt NVDA+Shift+1 đến 8 và NVDA+Shift+E, khiến các lệnh bị bỏ qua hoặc trùng lặp/trả lời bằng tiếng Anh)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Quy trình hàng đầu (phủ các phím tắt hoặc quảng cáo tiêu thụ quy trình)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (phủ các phím tắt thông tin hệ thống và phần cứng)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Trạng thái pin (phủ các phím tắt mức pin)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Trình bày ram đã sử dụng và tải bộ xử lý trung bình."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Trình bày tổng dung lượng đã sử dụng và tổng dung lượng của RAM vật lý và ảo. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Hiển thị dung lượng đã sử dụng và tổng dung lượng cho các ổ đĩa cố định, di động và mạng. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tốc độ và tần số bộ xử lý hiện tại (GHz), tốc độ cơ bản và trạng thái chế độ tăng tốc turbo. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo tình trạng sức khỏe (S.M.A.R.T), nhiệt độ và thời gian sử dụng của đĩa vật lý. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Thông báo các tiến trình hiện đang tiêu thụ nhiều CPU và RAM nhất. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Pin ở mức {}%. Tình trạng: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Tình trạng pin thực tế: {} % dung lượng ban đầu."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Pin đã được sạc đầy tới 100%. Bạn có thể ngắt kết nối bộ sạc."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Đã sạc pin đến {}%. Bạn có thể ngắt kết nối bộ sạc."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Cảnh báo: Pin yếu đến {}%. Kết nối thiết bị với nguồn điện."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Cảnh báo: Pin trên thiết bị Bluetooth {} ở mức {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Cảnh báo: SSD {} đã đạt đến mức hao mòn {} %."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Tín hiệu Wi-Fi: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Khoảng thời gian kiểm tra pin (phút):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "Khoảng thời gian kiểm tra nhiệt độ CPU (phút):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Khoảng thời gian kiểm tra Bluetooth (phút):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Khoảng thời gian kiểm tra đĩa&cos (phút):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Thông báo nếu nhiệt độ card đồ họa (GPU) cao"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "Nhiệt độ cảnh báo quá nhiệt GPU (° C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "Khoảng thời gian kiểm tra nhiệt độ GPU (phút):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Cảnh báo: Nhiệt độ {name} cao ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Trình bày tải trung bình của bộ xử lý và tải của từng lõi. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
+
+msgid "Carga de CPU al {}%."
+msgstr "Tải CPU ở mức {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Tải CPU trung bình ở mức {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Tải và lõi bộ xử lý"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Đơn vị nhiệt độ (CPU và GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Nhiệt độ để cảnh báo quá nhiệt bộ xử lý:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Nhiệt độ cảnh báo GPU quá nóng:"
+

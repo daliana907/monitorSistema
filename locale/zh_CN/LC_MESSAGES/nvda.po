@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-09-04 20:37+0000\n"
+"PO-Revision-Date: 2026-09-04 20:39\n"
+"Last-Translator: \n"
+"Language-Team: Chinese Simplified\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: zh-CN\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "字节"
+
+msgid " bytes"
+msgstr "字节"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "正在分析磁盘，请稍候..."
+
+msgid "Analizando procesos..."
+msgstr "分析流程..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "宣布显卡内存 (VRAM) 故障。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "公布电池状态、剩余时间和健康状况。"
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "公布物理磁盘的健康状态 (S.M.A.R.T)、温度和使用寿命。"
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "公布所连接的蓝牙设备的电池电量。"
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布无线网络名称 (SSID)、信号强度和安全协议。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布 CPU 总负载百分比以及每个单独核心的负载。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "宣布系统正常运行时间。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布已安装的 RAM 量、已使用的 RAM 量和百分比以及可用 RAM 量。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布系统上所有可用磁盘的容量、可用空间和已用空间。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布最大和当前的 CPU 频率。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布图形处理器 (GPU) 的使用内存、总量和负载。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "实时公布互联网下载和上传速度。"
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布Windows版本和系统架构。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "公布当前消耗最多 CPU 和 RAM 的进程。"
+
+msgid "Batería Bluetooth: "
+msgstr "蓝牙电池："
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "电池电量为 {}%。状态： {}。"
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "正在搜索蓝牙设备，请稍候..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "CPU 总负载：{}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "CPU 总负载：{}%。各个核心：{}。"
+
+msgid "Celsius"
+msgstr "摄氏度"
+
+msgid "Conectado a {}"
+msgstr "{} 已连接"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "正在检查电池状态，请稍候..."
+
+msgid "Dañado (Crítico)"
+msgstr "损坏（严重）"
+
+msgid "Desconectado de {}"
+msgstr "{} 已断开"
+
+msgid "Desconocido"
+msgstr "未知"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "使用寿命磨损：{}%（健康状况：{}%）。"
+
+msgid "Disco desconocido"
+msgstr "未知磁盘"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "磁盘 {}：类型 {}。一般条件：{}。"
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "服务器因连续执行次数过多而阻止了测试。等待几分钟，然后重试。"
+
+msgid "En riesgo (Advertencia)"
+msgstr "有风险（警告）"
+
+msgid "Error al consultar discos."
+msgstr "查询磁盘时出错。"
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "查询磁盘健康状态时出错。"
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "测量互联网速度时出错。"
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "获取显卡信息时出错。"
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "从显卡获取内存信息时出错。"
+
+msgid "Error analizando procesos."
+msgstr "分析过程出错。"
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "查询蓝牙设备时出错。"
+
+msgid "Error consultando la batería."
+msgstr "检查电池时出错。"
+
+msgid "Fahrenheit"
+msgstr "华氏度"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "当前 CPU 频率：{} GHz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "最大CPU频率：{千兆赫}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}：图形处理器负载：{}%，温度：{}。"
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}：图形处理器负载：{}%。"
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}：内存 {}，图形处理器负载：{}%，温度：{}。"
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}：内存 {}，图形处理器负载：{}%。"
+
+msgid "GPU {}: {}."
+msgstr "GPU {}：{}。"
+
+msgid "Kelvin"
+msgstr "开尔文"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "NVDA 的可访问资源监视器。实时检查 CPU 负载、实时频率、RAM 内存、磁盘、Wi-Fi 网络、显卡（GPU 和 VRAM 内存）、Windows 版本和正常运行时间。"
+
+msgid "Monitor de Sistema"
+msgstr "系统监控器"
+
+msgid "Monitor del Sistema"
+msgstr "系统监控器"
+
+msgid "Monitor del sistema"
+msgstr "系统监控器"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "没有电池或者是台式电脑。"
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "没有无线网络连接"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "没有可用的显卡数据。"
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "没有可用的显卡内存数据。"
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "没有无线网络设备"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "没有可用的显卡信息。"
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "没有可用的显卡内存信息。"
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "未找到支持诊断的物理磁盘。"
+
+msgid "No se encontraron discos."
+msgstr "没有找到磁盘。"
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "未发现蓝牙设备报告其电池电量。"
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "未找到可用的磁盘驱动器。"
+
+msgid "No se pudieron obtener los procesos."
+msgstr "无法获取进程。"
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "无法获得系统正常运行时间。"
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "无法从内存中获取信息。"
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "无法获取显卡信息。"
+
+msgid "No se pudo obtener información de los discos."
+msgstr "无法从磁盘获取信息。"
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "无法从显卡获取内存信息。"
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "占用最多 CPU 的进程：{} ({}%)。"
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "使用更多 RAM 的进程：{} ({} MB)。"
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "总 RAM：{}。用过的： {} （{}％）。可用 RAM：{}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "正在进行精度测试（约12秒），请稍候..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "连接的无线网络：{}，信号强度：{}%，安全类型：{}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "实际电池健康状况：其原始容量的 {}%。"
+
+msgid "Saludable"
+msgstr "健康"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "无线网络设备已被禁用"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "无线网络设备已启用"
+
+msgid "Sin autenticación (abierta)"
+msgstr "开放（无需验证）"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "温度：{} 摄氏度。"
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "预计剩余时间：{} 小时 {} 分钟。"
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "显卡温度单位："
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "互联网速度。下载：每秒 {} 兆字节。上传：每秒 {} 兆字节。"
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "互联网速度。延迟：{} 毫秒。下载：每秒 {} 兆字节。上传：每秒 {} 兆字节。"
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "预计剩余使用寿命：百分之{}。"
+
+msgid "conectado"
+msgstr "已连接"
+
+msgid "de red"
+msgstr "网络驱动器"
+
+msgid "desconectado"
+msgstr "离线"
+
+msgid "día"
+msgstr "日"
+
+msgid "días"
+msgstr "天"
+
+msgid "estado sólido (SSD)"
+msgstr "固态硬盘（SSD）"
+
+msgid "fijo"
+msgstr "固定的"
+
+msgid "hora"
+msgstr "小时"
+
+msgid "horas"
+msgstr "小时"
+
+msgid "minuto"
+msgstr "分钟"
+
+msgid "minutos"
+msgstr "分钟"
+
+msgid "rígido (HDD)"
+msgstr "刚性（硬盘驱动器）"
+
+msgid "segundo"
+msgstr "第二"
+
+msgid "segundos"
+msgstr "秒"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName}（磁盘 {driveType}）：已使用 {usedSpace}，共 {totalSpace} ({percent}%)。"
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{}（网络驱动器）：不可用。"
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "无法从磁盘获取信息或管理员权限被取消。"
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "获取系统摘要时出错。"
+
+msgid "Error al obtener la información del procesador."
+msgstr "获取处理器信息时出错。"
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "从 RAM 内存获取信息时出错。"
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "获取处理器频率时出错。"
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "获取磁盘驱动器信息时出错。"
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "获取无线网络状态时出错。"
+
+msgid "Error al obtener la versión de Windows."
+msgstr "获取 Windows 版本时出错。"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "没有电池或者是台式电脑。"
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "它显示了平均处理器负载、温度和每个核心的负载。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "处理器负载、温度和核心"
+
+msgid "temperatura: {}"
+msgstr "温度：{}"
+
+msgid "temperatura no disponible"
+msgstr "温度不可用"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU 负载为 {}%，{}。"
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "平均 CPU 负载为 {}%、{}、{}。"
+
+msgid "grados Celsius"
+msgstr "摄氏度"
+
+msgid "grados Fahrenheit"
+msgstr "华氏度"
+
+msgid "Alertas automáticas del sistema"
+msgstr "自动系统警报"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "电池充满电 (100%) 时发出通知"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "当电池电量低（15% 或更低）时发出通知"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "通知处理器温度是否非常高（85 °C 或更高）"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "电池已充满电至 100%。您可以断开充电器。"
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "警告：电池电量低至 {}%。将设备连接至电源。"
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "警报：处理器温度过高 ({})。"
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "宣布 S.M.A.R.T.存储磁盘的健康状态、温度和状况。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布消耗最多 CPU 的 5 个进程和消耗最多 RAM 的 5 个进程。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "实时公布互联网下载和上传速度。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布电池状态、剩余时间和健康状况。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布所连接的蓝牙设备的电池电量。如果按两次，则将信息复制到剪贴板。"
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "磁盘状态查询已在进行中，请稍候..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "磁盘状态查询正在进行中，请稍候..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "流程咨询已在进行中，请稍候..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "流程咨询正在进行中，请稍候..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "网速测试正在进行中，请稍候..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "网速测试正在进行中，请稍候..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "电池查询已在进行中，请稍候..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "电池查询正在进行中，请稍候..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "正在搜索蓝牙设备，请稍候..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "正在搜索蓝牙设备，请稍候..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "结果将被复制到剪贴板。"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "当蓝牙设备的电池电量不足（20% 或更少）时发出通知"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "当 Wi-Fi 网络状态发生变化（连接或断开）时发出通知"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "警告：蓝牙设备 {} 电量不足，电量为 {}%。"
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi 信号：{}%。"
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "当 Wi-Fi 信号强度发生变化时发出通知"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "当设备电池电量不足时发出通知"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "设备低电量警报百分比(&F):"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "当蓝牙设备的电池电量不足时发出通知"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "蓝牙低电量警报百分比："
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "设备电池充电时发出通知"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "电池充满警报百分比(&F):"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "通知处理器温度是否高"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "处理器过热警报温度 (°C)："
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "电池电量已充至 {}%。您可以断开充电器。"
+
+msgid "GPU:"
+msgstr "图形处理器："
+
+msgid "GPU {}:"
+msgstr "GPU{}："
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} 内存 {mem}，图形处理器负载：{util}%，温度：{temp}。"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix}内存{mem}，图形处理器负载：{util}%。"
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} 图形处理器负载：{util}%，温度：{temp}。"
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} 图形处理器负载：{util}%。"
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "如果在磁盘（SSD / HDD）上检测到健康问题或严重磨损，则发出通知"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD 警报磨损百分比："
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "严重警告：磁盘 {} 存在运行状况问题。进行备份。"
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "警告：SSD {} 的使用寿命已达到 {}%。"
+
+msgid "Disco"
+msgstr "磁盘"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "检查与其他插件的冲突(&C)..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "兼容性警告："
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "直接快捷碰撞："
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "冲突审计 - 系统监视器"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "该系统上不存在键盘快捷键冲突或不兼容的插件。"
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "注意：完整的详细信息也已记录在 NVDA 日志文件中。"
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "无法获取系统监视器的活动实例。"
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "系统监视器：未检测到与其他插件的冲突。"
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "系统监视器：检测到 {count} 个可能的冲突或警告。检查 NVDA 日志以获取更多详细信息。"
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "检查键盘快捷键冲突或与系统监视器不兼容的插件。"
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "磁盘分析已在进行中，请稍候..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "流程分析已在进行中，请稍候..."
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Dispositivo"
+msgstr "装置"
+
+msgid "Dispositivo Bluetooth"
+msgstr "蓝牙设备"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "资源摘要（RAM 和 CPU）"
+
+msgid "Memoria RAM física y virtual"
+msgstr "物理和虚拟 RAM 内存"
+
+msgid "Espacio en unidades de disco"
+msgstr "驱动空间"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi 网络状态和信息"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU频率和速度"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows版本和架构"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "系统正常运行时间"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU性能和内存"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "健康智能和盘温度"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "资源消耗较大的进程"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "实时网速"
+
+msgid "Batería avanzada y salud"
+msgstr "先进的电池和健康"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "蓝牙设备电池电量"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "资源监视器（共享相同的快捷键 NVDA+Shift+1 到 8 和 NVDA+Shift+E，导致命令被忽略或发出重复/英语响应）"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "顶部流程（覆盖快捷方式或流程消费广告）"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo（覆盖硬件和系统信息快捷方式）"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "电池状态（覆盖电池电量快捷方式）"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "读出内存使用率和 CPU 平均负载。"
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "显示物理和虚拟 RAM 的已使用空间和总空间。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "显示固定驱动器、可移动驱动器和网络驱动器的已用空间和总空间。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布当前处理器速度和频率 (GHz)、基本速度和睿频加速模式状态。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布物理磁盘的健康状态 (S.M.A.R.T)、温度和使用寿命。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "公布当前消耗最多 CPU 和 RAM 的进程。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "电池电量为 {}%。状态： {}。"
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "实际电池健康状况：其原始容量的 {}%。"
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "电池已充满电至 100%。您可以断开充电器。"
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "电池电量已充至 {}%。您可以断开充电器。"
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "警告：电池电量低至 {}%。将设备连接至电源。"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "警告：蓝牙设备 {} 电量不足，电量为 {} %。"
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "警告：SSD {} 的使用寿命已达到 {} %。"
+
+msgid "{}: {} %"
+msgstr "{}：{}%"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi 信号：{} %。"
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "电池检查间隔（分钟）："
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU温度检查间隔（分钟）："
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "蓝牙检查间隔（分钟）："
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Disc&cos检查间隔（分钟）："
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "通知显卡 (GPU) 温度是否过高"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU 过热警报温度 (°C)："
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU温度检查间隔（分钟）："
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "警报：{name} 温度较高 ({temp})。"
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "呈现处理器的平均负载和每个核心的负载。如果按两次，则将信息复制到剪贴板。"
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU 负载为 {}%。"
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "平均 CPU 负载为 {}%，{}。"
+
+msgid "Carga y núcleos del procesador"
+msgstr "处理器负载和核心"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "温度单位（CPU 和 GPU）："
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "处理器过热警报温度:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU过热警报温度："
+

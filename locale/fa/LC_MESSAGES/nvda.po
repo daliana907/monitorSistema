@@ -1,0 +1,718 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.3\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-05-21 19:53-0600\n"
+"Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
+"Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "بایت"
+
+msgid " bytes"
+msgstr "بایت ها"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "در حال تجزیه و تحلیل دیسک ها، لطفا صبر کنید..."
+
+msgid "Analizando procesos..."
+msgstr "تجزیه و تحلیل فرآیندهای ..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "خرابی حافظه کارت گرافیک (VRAM) را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "وضعیت باتری، زمان باقی مانده و فرسودگی سلامت را اعلام می کند."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "وضعیت سلامت (S.M.A.R.T)، دما و عمر مفید دیسک های فیزیکی را اعلام می کند."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "سطح باتری دستگاه های بلوتوث متصل را اعلام می کند."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "نام شبکه بی سیم (SSID)، قدرت سیگنال و پروتکل امنیتی را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "درصد بار کل CPU و بار هر هسته جداگانه را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "آپتایم سیستم را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "میزان رم نصب شده، مقدار و درصد استفاده شده و میزان رم رایگان را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "ظرفیت، فضای خالی و فضای استفاده شده تمامی دیسک های موجود در سیستم را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "حداکثر و فرکانس فعلی CPU را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "حافظه استفاده شده، کل و بار پردازنده گرافیکی (GPU) را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "سرعت دانلود و آپلود اینترنت را در زمان واقعی اعلام می کند."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "نسخه ویندوز و معماری سیستم را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "فرآیندهایی را اعلام می کند که در حال حاضر بیشترین مصرف CPU و RAM را دارند."
+
+msgid "Batería Bluetooth: "
+msgstr "باتری بلوتوث:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "باتری در {}%. حالت: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "در حال جستجو برای دستگاه‌های بلوتوث، لطفاً صبر کنید..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "کل بار CPU: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "کل بار CPU: {}%. هسته های منفرد: {} ."
+
+msgid "Celsius"
+msgstr "درجه سانتیگراد"
+
+msgid "Conectado a {}"
+msgstr "به {} متصل شد."
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "در حال بررسی وضعیت باتری، لطفا صبر کنید..."
+
+msgid "Dañado (Crítico)"
+msgstr "آسیب دیده (بحرانی)"
+
+msgid "Desconectado de {}"
+msgstr "ارتباط با {} قطع شد."
+
+msgid "Desconocido"
+msgstr "ناشناس"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "سایش طول عمر: {} درصد (سلامت: {}%)."
+
+msgid "Disco desconocido"
+msgstr "دیسک ناشناخته"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "دیسک {}: تایپ کنید {}. شرایط عمومی: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "سرور آزمایش را به دلیل انجام چندین بار متوالی مسدود کرد. چند دقیقه صبر کنید و دوباره امتحان کنید."
+
+msgid "En riesgo (Advertencia)"
+msgstr "در معرض خطر (هشدار)"
+
+msgid "Error al consultar discos."
+msgstr "خطا در پرس و جو از دیسک ها."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "خطا هنگام پرس و جو از وضعیت سلامت دیسک ها."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "خطا در اندازه گیری سرعت اینترنت."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "خطا در دریافت اطلاعات کارت گرافیک."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "خطا در دریافت اطلاعات حافظه از کارت گرافیک."
+
+msgid "Error analizando procesos."
+msgstr "خطا در تجزیه و تحلیل فرآیندها"
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "خطا در جستجوی دستگاه‌های بلوتوث."
+
+msgid "Error consultando la batería."
+msgstr "خطا در بررسی باتری"
+
+msgid "Fahrenheit"
+msgstr "فارنهایت"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "فرکانس فعلی CPU: {} گیگاهرتز"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "حداکثر فرکانس CPU: {گیگاهرتز}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: بار پردازنده گرافیکی: {}%, دما: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: بار پردازنده گرافیکی: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: حافظه {}، بار پردازنده گرافیکی: {}%, دما: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: حافظه {}، بار پردازنده گرافیکی: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "کلوین"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "مانیتور منبع در دسترس برای NVDA. بار CPU، فرکانس زنده، حافظه رم، دیسک ها، شبکه Wi-Fi، کارت گرافیک (حافظه GPU و VRAM)، نسخه ویندوز و زمان آپدیت را به صورت بلادرنگ بررسی کنید."
+
+msgid "Monitor de Sistema"
+msgstr "مانیتور سیستم"
+
+msgid "Monitor del Sistema"
+msgstr "مانیتور سیستم"
+
+msgid "Monitor del sistema"
+msgstr "مانیتور سیستم"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "باتری وجود ندارد یا یک کامپیوتر رومیزی است."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "بدون اتصال به شبکه بی سیم"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "اطلاعات کارت گرافیک موجود نیست."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "اطلاعات حافظه کارت گرافیک در دسترس نیست."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "دستگاه های شبکه بی سیم وجود ندارد"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "اطلاعات کارت گرافیک موجود نیست"
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "اطلاعات حافظه کارت گرافیک در دسترس نیست."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "هیچ دیسک فیزیکی که از تشخیص پشتیبانی کند پیدا نشد."
+
+msgid "No se encontraron discos."
+msgstr "دیسکی پیدا نشد"
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "هیچ دستگاه بلوتوثی یافت نشد که باتری خود را گزارش کند."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "هیچ درایو دیسکی در دسترس پیدا نشد."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "فرآیندها به دست نیامد."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "آپتایم سیستم دریافت نشد."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "نمی توان اطلاعات را از حافظه دریافت کرد."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "اطلاعات کارت گرافیک دریافت نشد."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "نمی توان اطلاعات را از دیسک ها دریافت کرد."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "نمی توان اطلاعات حافظه را از کارت گرافیک دریافت کرد."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "پردازش با بیشترین CPU: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "پردازش با رم بیشتر: {} ({} مگابایت)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "کل RAM: {}. استفاده شده: {} ({}%). رم رایگان: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "انجام تست دقیق (حدود 12 ثانیه)، لطفا صبر کنید..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "شبکه بی سیم متصل: {}، قدرت سیگنال: {}%, نوع امنیتی: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "سلامت واقعی باتری: {}٪ از ظرفیت اصلی آن."
+
+msgid "Saludable"
+msgstr "سالم"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "یک دستگاه شبکه بی سیم غیرفعال شده است"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "یک دستگاه شبکه بی سیم فعال شده است"
+
+msgid "Sin autenticación (abierta)"
+msgstr "بدونِ احرازِ هویت، (باز)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "دما: {} درجه سانتیگراد."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "زمان تخمینی باقی مانده: {} ساعت و {} دقیقه."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "واحد دمای کارت گرافیک:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "سرعت اینترنت. دانلود: {} مگابایت در ثانیه. آپلود: {} مگابایت در ثانیه."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "سرعت اینترنت. تأخیر: {} میلی ثانیه. دانلود: {} مگابایت در ثانیه. آپلود: {} مگابایت در ثانیه."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "عمر مفید باقیمانده تخمینی: {} درصد."
+
+msgid "conectado"
+msgstr "متصل است"
+
+msgid "de red"
+msgstr "شبکه"
+
+msgid "desconectado"
+msgstr "آفلاین"
+
+msgid "día"
+msgstr "روز"
+
+msgid "días"
+msgstr "روز"
+
+msgid "estado sólido (SSD)"
+msgstr "حالت جامد (SSD)"
+
+msgid "fijo"
+msgstr "ثابت"
+
+msgid "hora"
+msgstr "ساعت"
+
+msgid "horas"
+msgstr "ساعت"
+
+msgid "minuto"
+msgstr "دقیقه"
+
+msgid "minutos"
+msgstr "دقیقه"
+
+msgid "rígido (HDD)"
+msgstr "صلب (HDD)"
+
+msgid "segundo"
+msgstr "دوم"
+
+msgid "segundos"
+msgstr "ثانیه"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (دیسک {driveType}): {usedSpace} از {totalSpace} استفاده شده ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (درایو شبکه): در دسترس نیست."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "اطلاعات از دیسک‌ها دریافت نشد یا مجوز سرپرست لغو شد."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "خطا در دریافت خلاصه سیستم."
+
+msgid "Error al obtener la información del procesador."
+msgstr "خطا در به دست آوردن اطلاعات پردازنده."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "خطا در دریافت اطلاعات از حافظه رم."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "خطا در بدست آوردن فرکانس پردازنده."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "خطا در دریافت اطلاعات درایو دیسک."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "خطا در به دست آوردن وضعیت شبکه بی سیم."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "خطا در دریافت نسخه ویندوز."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "باتری وجود ندارد یا یک کامپیوتر رومیزی است."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "میانگین بار پردازنده، دما و بار هر هسته را نشان می دهد. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "بار پردازنده، دما و هسته ها"
+
+msgid "temperatura: {}"
+msgstr "دما: {}"
+
+msgid "temperatura no disponible"
+msgstr "دما در دسترس نیست"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "بار CPU در {}%، {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "میانگین بار CPU در {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "درجه سانتیگراد"
+
+msgid "grados Fahrenheit"
+msgstr "درجه فارنهایت"
+
+msgid "Alertas automáticas del sistema"
+msgstr "هشدارهای خودکار سیستم"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "هنگامی که باتری کاملاً شارژ شد (100%) اطلاع دهید"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "هنگامی که باتری کم است (15٪ یا کمتر) اطلاع دهید"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "در صورت بالا بودن دمای پردازنده (85 درجه سانتیگراد یا بیشتر) اطلاع دهید."
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "باتری به طور کامل تا 100٪ شارژ شده است. می توانید شارژر را جدا کنید."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "اخطار: باتری کم است تا {}%. تجهیزات را به برق وصل کنید."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "هشدار: دمای بالای پردازنده ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T را اعلام می کند. وضعیت سلامت، دما و وضعیت دیسک های ذخیره سازی. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "5 فرآیندی که بیشترین مصرف CPU را دارند و 5 پردازشی که بیشترین مصرف RAM را دارند را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "سرعت دانلود و آپلود اینترنت را در زمان واقعی اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "وضعیت باتری، زمان باقی مانده و فرسودگی سلامت را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "سطح باتری دستگاه های بلوتوث متصل را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "پرس و جو وضعیت دیسک از قبل در حال انجام است، لطفا صبر کنید..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "درخواست وضعیت دیسک در حال انجام است، لطفا صبر کنید..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "مشاوره فرآیند از قبل در حال انجام است، لطفا صبر کنید..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "مشاوره فرآیند در حال انجام است، لطفا صبر کنید..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "تست سرعت اینترنت در حال انجام است، لطفا صبر کنید..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "تست سرعت اینترنت در حال انجام است لطفا صبر کنید..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "درخواست باتری در حال حاضر در حال انجام است، لطفا صبر کنید..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "درخواست باتری در حال انجام است، لطفا صبر کنید..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "جستجوی دستگاه‌های بلوتوث از قبل در حال انجام است، لطفاً صبر کنید..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "جستجوی دستگاه‌های بلوتوث در حال انجام است، لطفاً صبر کنید..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "نتیجه در کلیپ بورد کپی می شود."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "هنگامی که باتری دستگاه بلوتوث کم است (20٪ یا کمتر) اطلاع دهید"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "هنگامی که وضعیت شبکه Wi-Fi تغییر می کند (اتصال یا قطع) اطلاع دهید"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "هشدار: باتری کم در دستگاه بلوتوث {} در {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "سیگنال Wi-Fi: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "هنگامی که قدرت سیگنال Wi-Fi تغییر می کند اطلاع دهید"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "هنگامی که باتری دستگاه کم است، اطلاع دهید"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&درصد برای هشدار باتری کم دستگاه:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "وقتی باتری دستگاه بلوتوث کم است، اطلاع دهید"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "درصد هشدار باتری کم بلوتوث:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "هنگامی که باتری دستگاه شارژ می شود، اطلاع دهید"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&درصد برای هشدار باتری کامل:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "در صورت بالا بودن دمای پردازنده اطلاع دهید"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&دمای هشدار گرمای بیش از حد پردازنده (درجه سانتیگراد):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "باتری به {}% شارژ شد. می توانید شارژر را جدا کنید."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} حافظه {mem}، بار پردازنده گرافیکی: {util}%, دما: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} حافظه {mem}، بار پردازنده گرافیکی: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{پیشوند} بار پردازنده گرافیکی: {util}%, دما: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "بار پردازنده گرافیکی {prefix}: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "در صورت شناسایی مشکلات سلامتی یا سایش شدید روی دیسک ها (SSD / HDD) اطلاع دهید."
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "درصد سایش برای هشدار SSD:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "هشدار بحرانی: دیسک {} مشکلات سلامتی را نشان می دهد. یک نسخه پشتیبان تهیه کنید."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "هشدار: SSD {} به {}% فرسودگی رسیده است."
+
+msgid "Disco"
+msgstr "دیسک"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&بررسی تداخل با سایر افزونه ها..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "هشدارهای سازگاری:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "برخوردهای میانبر مستقیم:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "حسابرسی تعارض - مانیتور سیستم"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "هیچ تداخل میانبر صفحه کلید یا پلاگین ناسازگاری در این سیستم فعال نیست."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "توجه: جزئیات کامل نیز در فایل گزارش NVDA ثبت شده است."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "نمونه فعال سیستم مانیتور دریافت نشد."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "مانیتور سیستم: هیچ تداخلی با پلاگین های دیگر شناسایی نشده است."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "مانیتور سیستم: {count} درگیری یا هشدارهای احتمالی شناسایی شد. برای جزئیات بیشتر، گزارش NVDA را بررسی کنید."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "تداخل میانبرهای صفحه کلید یا افزونه های ناسازگار را با System Monitor بررسی کنید."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "تجزیه و تحلیل دیسک در حال انجام است، لطفا صبر کنید..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "تجزیه و تحلیل فرآیند از قبل در حال انجام است، لطفا صبر کنید..."
+
+msgid "Error"
+msgstr "خطا"
+
+msgid "Dispositivo"
+msgstr "دستگاه"
+
+msgid "Dispositivo Bluetooth"
+msgstr "دستگاه بلوتوث"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "خلاصه منابع (RAM و CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "حافظه رم فیزیکی و مجازی"
+
+msgid "Espacio en unidades de disco"
+msgstr "فضای رانندگی"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "وضعیت و اطلاعات شبکه Wi-Fi"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "فرکانس و سرعت CPU"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "نسخه و معماری ویندوز"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "آپتایم سیستم"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "عملکرد GPU و حافظه"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "سلامت S.M.A.R.T. و دمای دیسک"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "فرآیندهایی با مصرف بیشتر منابع"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "سرعت شبکه بلادرنگ"
+
+msgid "Batería avanzada y salud"
+msgstr "باتری و سلامت پیشرفته"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "میزان باتری دستگاه بلوتوث"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "مانیتور منابع (میانبرهای مشابه NVDA+Shift+1 تا 8 و NVDA+Shift+E را به اشتراک می‌گذارد که باعث می‌شود دستورات نادیده گرفته شوند یا پاسخ‌های تکراری/انگلیسی صادر شود)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Top Process (میانبرها یا تبلیغات مصرف پردازش را پوشش می دهد)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (پوشش میانبرهای سخت افزاری و اطلاعات سیستم)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "وضعیت باتری (میانبرهای سطح باتری را پوشش می دهد)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "حافظه رم استفاده شده و میانگین بار پردازنده را نشان می دهد."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "فضای استفاده شده و کل رم فیزیکی و مجازی را نشان می دهد. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "فضای استفاده شده و کل را برای درایوهای ثابت، قابل جابجایی و شبکه نمایش می دهد. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "سرعت و فرکانس فعلی پردازنده (گیگاهرتز)، سرعت پایه و وضعیت حالت بوست توربو را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "وضعیت سلامت (S.M.A.R.T)، دما و عمر مفید دیسک های فیزیکی را اعلام می کند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "فرآیندهایی را اعلام می کند که در حال حاضر بیشترین مصرف CPU و RAM را دارند. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "باتری در {}%. حالت: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "سلامت واقعی باتری: {} % از ظرفیت اصلی آن."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "باتری به طور کامل تا 100٪ شارژ شده است. می توانید شارژر را جدا کنید."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "باتری به {}% شارژ شد. می توانید شارژر را جدا کنید."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "اخطار: باتری کم است تا {}%. تجهیزات را به برق وصل کنید."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "هشدار: باتری کم در دستگاه بلوتوث {} در {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "هشدار: SSD {} به {} درصد فرسودگی رسیده است."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "سیگنال Wi-Fi: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "فاصله بررسی باتری (دقیقه):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "فاصله بررسی دمای CPU (دقیقه):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "فاصله بررسی بلوتوث (دقیقه):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "فاصله بررسی دیسک&cos (دقیقه):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "در صورت بالا بودن دمای کارت گرافیک (GPU) اطلاع دهید"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "دمای هشدار گرمای بیش از حد GPU (درجه سانتی گراد):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "فاصله بررسی دمای GPU (دقیقه):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "هشدار: دمای {name} بالا ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "میانگین بار پردازنده و بار هر هسته را نشان می دهد. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
+
+msgid "Carga de CPU al {}%."
+msgstr "بار CPU در {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "میانگین بار CPU در {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "بار پردازنده و هسته ها"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "واحد دما (CPU و GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&دمای هشدار گرمای بیش از حد پردازنده:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "دما برای هشدار گرمای بیش از حد GPU:"
+

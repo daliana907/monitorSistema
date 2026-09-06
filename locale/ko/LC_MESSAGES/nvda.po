@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-09-04 20:37+0000\n"
+"PO-Revision-Date: 2026-09-04 20:39\n"
+"Last-Translator: \n"
+"Language-Team: Korean\n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: ko\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "바이트"
+
+msgid " bytes"
+msgstr "바이트"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "디스크를 분석하는 중입니다. 잠시 기다려 주세요..."
+
+msgid "Analizando procesos..."
+msgstr "프로세스 분석 중..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "그래픽 카드 메모리(VRAM)의 고장을 알립니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "배터리 상태, 남은 시간, 건강 마모를 알려줍니다."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "물리적 디스크의 상태(S.M.A.R.T), 온도 및 사용 수명을 알려줍니다."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "연결된 Bluetooth 장치의 배터리 잔량을 알려줍니다."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "무선 네트워크 이름(SSID), 신호 강도 및 보안 프로토콜을 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "총 CPU 로드 비율과 각 개별 코어 로드를 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "시스템 가동 시간을 알립니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "설치된 RAM의 양, 사용된 양과 비율, 사용 가능한 RAM의 양을 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "시스템에서 사용 가능한 모든 디스크의 용량, 여유 공간 및 사용된 공간을 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "최대 및 현재 CPU 주파수를 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "그래픽 프로세서(GPU)의 사용된 메모리, 전체 및 로드를 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "인터넷 다운로드 및 업로드 속도를 실시간으로 알려줍니다."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Windows 버전 및 시스템 아키텍처를 발표합니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "현재 가장 많은 CPU와 RAM을 소비하는 프로세스를 알립니다."
+
+msgid "Batería Bluetooth: "
+msgstr "블루투스 배터리:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "배터리는 {}%입니다. 상태: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "블루투스 장치를 검색하는 중입니다. 잠시 기다려 주세요..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "총 CPU 로드: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "총 CPU 로드: {}%. 개별 코어: {} ."
+
+msgid "Celsius"
+msgstr "섭씨온도"
+
+msgid "Conectado a {}"
+msgstr "{}에 연결됨"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "배터리 상태를 확인하는 중입니다. 잠시 기다려 주세요..."
+
+msgid "Dañado (Crítico)"
+msgstr "손상됨(심각)"
+
+msgid "Desconectado de {}"
+msgstr "{} 연결 끊킴"
+
+msgid "Desconocido"
+msgstr "알 수 없음"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "수명 마모: {}%(건강: {}%)."
+
+msgid "Disco desconocido"
+msgstr "알 수 없는 디스크"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "디스크 {}: {}를 입력합니다. 일반 조건: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "연속해서 너무 많이 테스트를 수행했기 때문에 서버가 테스트를 차단했습니다. 몇 분 정도 기다렸다가 다시 시도해 보세요."
+
+msgid "En riesgo (Advertencia)"
+msgstr "위험(경고)"
+
+msgid "Error al consultar discos."
+msgstr "디스크를 쿼리하는 중에 오류가 발생했습니다."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "디스크 상태를 쿼리하는 중에 오류가 발생했습니다."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "인터넷 속도 측정 중 오류가 발생했습니다."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "그래픽 카드 정보를 가져오는 동안 오류가 발생했습니다."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "그래픽 카드에서 메모리 정보를 가져오는 동안 오류가 발생했습니다."
+
+msgid "Error analizando procesos."
+msgstr "프로세스를 분석하는 중에 오류가 발생했습니다."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "블루투스 장치를 쿼리하는 중에 오류가 발생했습니다."
+
+msgid "Error consultando la batería."
+msgstr "배터리를 확인하는 중에 오류가 발생했습니다."
+
+msgid "Fahrenheit"
+msgstr "화씨온도"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "현재 CPU 주파수: {}기가헤르츠"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "최대 CPU 주파수: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: 그래픽 프로세서 로드: {}%, 온도: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: 그래픽 프로세서 로드: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: 메모리 {}, 그래픽 프로세서 로드: {}%, 온도: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: 메모리 {}, 그래픽 프로세서 로드: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "켈빈"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "NVDA용 액세스 가능한 리소스 모니터. CPU 부하, 라이브 주파수, RAM 메모리, 디스크, Wi-Fi 네트워크, 그래픽 카드(GPU 및 VRAM 메모리), Windows 버전 및 가동 시간을 실시간으로 확인하세요."
+
+msgid "Monitor de Sistema"
+msgstr "시스템 모니터"
+
+msgid "Monitor del Sistema"
+msgstr "시스템 모니터"
+
+msgid "Monitor del sistema"
+msgstr "시스템 모니터"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "배터리가 없거나 데스크톱 컴퓨터입니다."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "무선 네트워크 연결 없음"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "사용 가능한 그래픽 카드 데이터가 없습니다."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "사용 가능한 그래픽 카드 메모리 데이터가 없습니다."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "무선 네트워크 장치 없음"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "그래픽 카드 정보가 없습니다."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "그래픽 카드 메모리 정보가 없습니다."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "진단을 지원하는 물리적 디스크가 발견되지 않았습니다."
+
+msgid "No se encontraron discos."
+msgstr "디스크를 찾을 수 없습니다."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "배터리를 보고하는 Bluetooth 장치가 없습니다."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "사용 가능한 디스크 드라이브를 찾을 수 없습니다."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "프로세스를 가져올 수 없습니다."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "시스템 가동 시간을 얻을 수 없습니다."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "메모리에서 정보를 가져올 수 없습니다."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "그래픽 카드 정보를 가져올 수 없습니다."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "디스크에서 정보를 가져올 수 없습니다."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "그래픽 카드에서 메모리 정보를 가져올 수 없습니다."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "CPU가 가장 많은 프로세스: {}({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "더 많은 RAM으로 처리: {}({}MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "총 RAM: {}. 사용된: {} ({}%). 여유 RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "정밀 테스트(약 12초)를 수행 중입니다. 잠시 기다려 주십시오..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "연결된 무선 네트워크: {}, 신호 강도: {}%, 보안 유형: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "실제 배터리 상태: 원래 용량의 {}%."
+
+msgid "Saludable"
+msgstr "건강하다"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "무선 네트워크 장치가 비활성화되었습니다."
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "무선 네트워크 장치가 활성화되었습니다"
+
+msgid "Sin autenticación (abierta)"
+msgstr "No authentication (Open)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "온도: 섭씨 {}도."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "남은 예상 시간: {}시간 {}분."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "그래픽 카드 온도 단위:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "인터넷 속도. 다운로드: 초당 {}메가바이트. 업로드: 초당 {} 메가바이트."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "인터넷 속도. 지연 시간: {}밀리초. 다운로드: 초당 {}메가바이트. 업로드: 초당 {} 메가바이트."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "남은 예상 수명: {}퍼센트."
+
+msgid "conectado"
+msgstr "연결됨"
+
+msgid "de red"
+msgstr "network"
+
+msgid "desconectado"
+msgstr "오프라인"
+
+msgid "día"
+msgstr "일"
+
+msgid "días"
+msgstr "일"
+
+msgid "estado sólido (SSD)"
+msgstr "솔리드 스테이트(SSD)"
+
+msgid "fijo"
+msgstr "고정"
+
+msgid "hora"
+msgstr "시간"
+
+msgid "horas"
+msgstr "시간"
+
+msgid "minuto"
+msgstr "분"
+
+msgid "minutos"
+msgstr "분"
+
+msgid "rígido (HDD)"
+msgstr "고정식(HDD)"
+
+msgid "segundo"
+msgstr "둘째"
+
+msgid "segundos"
+msgstr "초"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName}(디스크 {driveType}): {totalSpace} 중 {usedSpace} 사용됨({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{}(네트워크 드라이브): 사용할 수 없습니다."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "디스크에서 정보를 가져올 수 없거나 관리자 권한이 취소되었습니다."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "시스템 요약을 가져오는 중에 오류가 발생했습니다."
+
+msgid "Error al obtener la información del procesador."
+msgstr "프로세서 정보를 가져오는 동안 오류가 발생했습니다."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "RAM 메모리에서 정보를 가져오는 중 오류가 발생했습니다."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "프로세서 주파수를 가져오는 중 오류가 발생했습니다."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "디스크 드라이브 정보를 가져오는 동안 오류가 발생했습니다."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "무선 네트워크 상태를 가져오는 동안 오류가 발생했습니다."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Windows 버전을 가져오는 중에 오류가 발생했습니다."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "배터리가 없거나 데스크톱 컴퓨터입니다."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "이는 평균 프로세서 부하, 온도 및 각 코어의 부하를 나타냅니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "프로세서 로드, 온도 및 코어"
+
+msgid "temperatura: {}"
+msgstr "온도: {}"
+
+msgid "temperatura no disponible"
+msgstr "온도를 사용할 수 없음"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU 로드는 {}%, {}입니다."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "{}%, {}, {}의 평균 CPU 로드."
+
+msgid "grados Celsius"
+msgstr "degrees Celsius"
+
+msgid "grados Fahrenheit"
+msgstr "degrees Fahrenheit"
+
+msgid "Alertas automáticas del sistema"
+msgstr "자동 시스템 경고"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "배터리가 완전히 충전되면 알림(100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "배터리가 부족할 때 알림(15% 이하)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "프로세서 온도가 매우 높은 경우 알림(85°C 이상)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "배터리가 100%까지 완전히 충전되었습니다. 충전기를 분리할 수 있습니다."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "경고: 배터리가 {}% 부족합니다. 장비를 전원에 연결하세요."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "경고: 프로세서 온도가 높습니다({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T 발표 스토리지 디스크의 상태, 온도 및 상태. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "가장 많은 CPU를 소비하는 5개 프로세스와 가장 많은 RAM을 소비하는 5개 프로세스를 발표합니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "인터넷 다운로드 및 업로드 속도를 실시간으로 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "배터리 상태, 남은 시간, 건강 마모를 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "연결된 Bluetooth 장치의 배터리 잔량을 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "디스크 상태 쿼리가 이미 진행 중입니다. 잠시 기다려 주십시오..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "디스크 상태 쿼리가 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "이미 공정상담이 진행중이니 잠시만 기다려주세요..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "진행상담중입니다. 잠시만 기다려주세요..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "인터넷 속도 테스트가 이미 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "인터넷 속도 테스트가 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "배터리 쿼리가 이미 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "배터리 쿼리가 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "블루투스 장치 검색이 이미 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "블루투스 장치를 검색하는 중입니다. 잠시 기다려 주세요..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "결과가 클립보드에 복사됩니다."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Bluetooth 장치의 배터리가 부족할 때 알림(20% 이하)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Wi-Fi 네트워크 상태가 변경되면 알림(연결 또는 연결 해제)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "경고: Bluetooth 기기 {}의 배터리가 {}% 부족합니다."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi 신호: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Wi-Fi 신호 강도가 변경되면 알림"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "기기 배터리가 부족할 때 알림"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "기기 배터리 부족 경고 비율(&R):"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Bluetooth 장치의 배터리가 부족할 때 알림"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Bluetooth 배터리 부족 경고 비율:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "기기 배터리가 충전되면 알림"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "배터리 완충 알림 비율(&%):"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "프로세서 온도가 높으면 알림"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&프로세서 과열 경고 온도(°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "배터리가 {}% 충전되었습니다. 충전기를 분리할 수 있습니다."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} 메모리 {mem}, 그래픽 프로세서 로드: {util}%, 온도: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} 메모리 {mem}, 그래픽 프로세서 로드: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} 그래픽 프로세서 로드: {util}%, 온도: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} 그래픽 프로세서 로드: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "디스크(SSD/HDD)에서 상태 문제 또는 심각한 마모가 감지되면 알림"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD 경고에 대한 마모 비율:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "중요 경고: 디스크 {}에 상태 문제가 있습니다. 백업을 하세요."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "경고: SSD {}의 수명 마모가 {}%에 도달했습니다."
+
+msgid "Disco"
+msgstr "디스크"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&다른 플러그인과의 충돌 확인..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "호환성 경고:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "직접적인 바로가기 충돌:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "충돌 감사 - 시스템 모니터"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "이 시스템에는 키보드 단축키 충돌이나 호환되지 않는 플러그인이 활성화되어 있지 않습니다."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "참고: 자세한 내용은 NVDA 로그 파일에도 기록되어 있습니다."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "시스템 모니터의 활성 인스턴스를 가져올 수 없습니다."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "시스템 모니터: 다른 플러그인과 충돌이 감지되지 않았습니다."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "시스템 모니터: {count}개의 가능한 충돌 또는 경고가 감지되었습니다. 자세한 내용은 NVDA 로그를 확인하세요."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "시스템 모니터에서 키보드 단축키 충돌이나 호환되지 않는 플러그인을 확인하세요."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "디스크 분석이 이미 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "프로세스 분석이 이미 진행 중입니다. 잠시 기다려 주세요..."
+
+msgid "Error"
+msgstr "오류"
+
+msgid "Dispositivo"
+msgstr "장치"
+
+msgid "Dispositivo Bluetooth"
+msgstr "블루투스 장치"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "리소스 요약(RAM 및 CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "물리적 및 가상 RAM 메모리"
+
+msgid "Espacio en unidades de disco"
+msgstr "드라이브 공간"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi 네트워크 상태 및 정보"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU 주파수 및 속도"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows 버전 및 아키텍처"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "시스템 가동 시간"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU 성능 및 메모리"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "건강 S.M.A.R.T. 및 디스크 온도"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "자원 소모가 많은 프로세스"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "실시간 네트워크 속도"
+
+msgid "Batería avanzada y salud"
+msgstr "고급 배터리 및 건강"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Bluetooth 장치 배터리 수준"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "리소스 모니터(동일한 단축키인 NVDA+Shift+1~8 및 NVDA+Shift+E를 공유하여 명령이 무시되거나 중복/영어 응답이 실행됨)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "상위 프로세스(바로가기 또는 프로세스 소비 광고 오버레이)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo(하드웨어 및 시스템 정보 바로가기 오버레이)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "배터리 상태(배터리 잔량 바로가기 오버레이)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "메모리 및 프로세서 사용률에 관한 정보를 제공합니다."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "실제 및 가상 RAM의 사용된 공간과 총 공간을 표시합니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "고정, 이동식 및 네트워크 드라이브에 사용된 공간과 총 공간을 표시합니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "현재 프로세서 속도 및 주파수(GHz), 기본 속도 및 터보 부스트 모드 상태를 발표합니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "물리적 디스크의 상태(S.M.A.R.T), 온도 및 사용 수명을 알려줍니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "현재 가장 많은 CPU와 RAM을 소비하는 프로세스를 알립니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "배터리는 {}%입니다. 상태: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "실제 배터리 상태: 원래 용량의 {}%."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "배터리가 100%까지 완전히 충전되었습니다. 충전기를 분리할 수 있습니다."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "배터리가 {}% 충전되었습니다. 충전기를 분리할 수 있습니다."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "경고: 배터리가 {}% 부족합니다. 장비를 전원에 연결하세요."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "경고: Bluetooth 기기 {}의 배터리가 {}% 부족합니다."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "경고: SSD {}의 수명 마모가 {}%에 도달했습니다."
+
+msgid "{}: {} %"
+msgstr "{}: {}%"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi 신호: {}%."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&배터리 확인 간격(분):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU 온도 확인 간격(분):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth 확인 간격(분):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "디스크 확인 간격(분):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "그래픽 카드(GPU) 온도가 높으면 알림"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU 과열 경고 온도(°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU 온도 확인 간격(분):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "경보: 높은 {name} 기온({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "프로세서의 평균 부하와 각 코어의 부하를 나타냅니다. 두 번 누르면 정보가 클립보드에 복사됩니다."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU 로드는 {}%입니다."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "평균 CPU 로드는 {}%, {}입니다."
+
+msgid "Carga y núcleos del procesador"
+msgstr "프로세서 로드 및 코어"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "온도 단위(CPU 및 GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&프로세서 과열 경고 온도:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU 과열 경고 온도:"
+

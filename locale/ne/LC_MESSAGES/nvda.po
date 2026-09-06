@@ -1,0 +1,716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.1\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
+"POT-Creation-Date: 2013-03-05 06:00-0800\n"
+"PO-Revision-Date: 2019-07-14 20:31-0700\n"
+"Last-Translator: Him Prasad Gautam <drishtibachak@gmail.com>\n"
+"Language-Team: Nepali <drishtibachak@gmail.com>\n"
+"Language: ne\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "बाइट"
+
+msgid " bytes"
+msgstr "बाइट्स"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "डिस्क विश्लेषण गर्दै, कृपया पर्खनुहोस्..."
+
+msgid "Analizando procesos..."
+msgstr "प्रक्रियाहरू विश्लेषण गर्दै..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "ग्राफिक्स कार्ड मेमोरी (VRAM) को ब्रेकडाउन घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "ब्याट्री स्थिति, बाँकी समय र स्वास्थ्य पहिरन घोषणा गर्दछ।"
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "स्वास्थ्य स्थिति (S.M.A.R.T.), तापक्रम र भौतिक डिस्कको उपयोगी जीवन घोषणा गर्दछ।"
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "जडान गरिएका ब्लुटुथ उपकरणहरूको ब्याट्री स्तरको घोषणा गर्दछ।"
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "वायरलेस नेटवर्क नाम (SSID), सिग्नल बल र सुरक्षा प्रोटोकल घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्नुहोस्।"
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "कुल CPU लोडको प्रतिशत र प्रत्येक व्यक्तिगत कोरको लोड घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "प्रणाली अपटाइम घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "स्थापना गरिएको RAM को मात्रा, प्रयोग गरिएको रकम र प्रतिशत, र निःशुल्क RAM को मात्रा घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्नुहोस्।"
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "प्रणालीमा उपलब्ध सबै डिस्कहरूको क्षमता, खाली ठाउँ, र प्रयोग गरिएको ठाउँको घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्नुहोस्।"
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "अधिकतम र हालको CPU फ्रिक्वेन्सी घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "प्रयोग गरिएको मेमोरी, कुल र ग्राफिक्स प्रोसेसर (GPU) को लोड घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्नुहोस्।"
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "वास्तविक समयमा इन्टरनेट डाउनलोड र अपलोड गति घोषणा गर्दछ।"
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "विन्डोज संस्करण र प्रणाली वास्तुकला घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "हाल सबैभन्दा धेरै CPU र RAM खपत गर्ने प्रक्रियाहरू घोषणा गर्दछ।"
+
+msgid "Batería Bluetooth: "
+msgstr "ब्लुटुथ ब्याट्री:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "ब्याट्री {}% मा। राज्य: {}।"
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "ब्लुटुथ उपकरणहरू खोज्दै, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "कुल CPU लोड: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "कुल CPU लोड: {}%। व्यक्तिगत कोर: {}।"
+
+msgid "Celsius"
+msgstr "सेल्सियस"
+
+msgid "Conectado a {}"
+msgstr "{} मा जडान भयो"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "ब्याट्री स्थिति जाँच गर्दै, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "Dañado (Crítico)"
+msgstr "क्षतिग्रस्त (क्रिटिकल)"
+
+msgid "Desconectado de {}"
+msgstr "{} बाट विच्छेद भयो"
+
+msgid "Desconocido"
+msgstr "अज्ञात"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "आजीवन पहिरन: {} प्रतिशत (स्वास्थ्य: {}%)।"
+
+msgid "Disco desconocido"
+msgstr "अज्ञात डिस्क"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "डिस्क {}: टाइप गर्नुहोस् {}। सामान्य अवस्था: {}।"
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "सर्भरले परीक्षणलाई पङ्क्तिमा धेरै पटक गरेको कारणले रोक्यो। केही मिनेट पर्खनुहोस् र पुन: प्रयास गर्नुहोस्।"
+
+msgid "En riesgo (Advertencia)"
+msgstr "जोखिममा (चेतावनी)"
+
+msgid "Error al consultar discos."
+msgstr "डिस्क क्वेरी गर्दा त्रुटि।"
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "डिस्कको स्वास्थ्य स्थिति क्वेरी गर्दा त्रुटि।"
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "इन्टरनेट गति मापन गर्दा त्रुटि।"
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "ग्राफिक्स कार्ड जानकारी प्राप्त गर्दा त्रुटि।"
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "ग्राफिक्स कार्डबाट मेमोरी जानकारी प्राप्त गर्दा त्रुटि भयो।"
+
+msgid "Error analizando procesos."
+msgstr "प्रक्रियाहरू विश्लेषण गर्दा त्रुटि।"
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "ब्लुटुथ उपकरणहरू क्वेरी गर्दा त्रुटि।"
+
+msgid "Error consultando la batería."
+msgstr "ब्याट्री जाँच गर्दा त्रुटि भयो।"
+
+msgid "Fahrenheit"
+msgstr "फरेनहाइट"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "हालको CPU आवृत्ति: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "अधिकतम CPU आवृत्ति: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: ग्राफिक्स प्रोसेसर लोड: {}%, तापमान: {}।"
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: ग्राफिक्स प्रोसेसर लोड: {}%।"
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: मेमोरी {}, ग्राफिक्स प्रोसेसर लोड: {}%, तापमान: {}।"
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: मेमोरी {}, ग्राफिक्स प्रोसेसर लोड: {}%।"
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}।"
+
+msgid "Kelvin"
+msgstr "केल्भिन"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "NVDA को लागि पहुँचयोग्य स्रोत मनिटर। वास्तविक समयमा CPU लोड, लाइभ फ्रिक्वेन्सी, RAM मेमोरी, डिस्क, Wi-Fi नेटवर्क, ग्राफिक्स कार्ड (GPU र VRAM मेमोरी), Windows संस्करण र अपटाइम जाँच गर्नुहोस्।"
+
+msgid "Monitor de Sistema"
+msgstr "प्रणाली मनिटर"
+
+msgid "Monitor del Sistema"
+msgstr "प्रणाली मनिटर"
+
+msgid "Monitor del sistema"
+msgstr "प्रणाली मनिटर"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "त्यहाँ कुनै ब्याट्री छैन वा यो डेस्कटप कम्प्युटर हो।"
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "कुनै वायरलेस नेटवर्क जडान छैन"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "कुनै ग्राफिक्स कार्ड डाटा उपलब्ध छैन।"
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "ग्राफिक्स कार्ड मेमोरी डाटा उपलब्ध छैन।"
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "कुनै वायरलेस नेटवर्क उपकरणहरू छैनन्"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "कुनै ग्राफिक्स कार्ड जानकारी उपलब्ध छैन।"
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "ग्राफिक्स कार्ड मेमोरी जानकारी उपलब्ध छैन।"
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "निदानलाई समर्थन गर्ने कुनै भौतिक डिस्कहरू फेला परेनन्।"
+
+msgid "No se encontraron discos."
+msgstr "कुनै डिस्क फेला परेन।"
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "कुनै पनि ब्लुटुथ यन्त्रहरूले तिनीहरूको ब्याट्री रिपोर्ट गर्दैनन्।"
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "कुनै उपलब्ध डिस्क ड्राइभहरू फेला परेनन्।"
+
+msgid "No se pudieron obtener los procesos."
+msgstr "प्रक्रियाहरू प्राप्त गर्न सकिएन।"
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "प्रणाली अपटाइम प्राप्त गर्न सकेन।"
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "मेमोरीबाट जानकारी प्राप्त गर्न सकेन।"
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "ग्राफिक्स कार्ड जानकारी प्राप्त गर्न सकेन।"
+
+msgid "No se pudo obtener información de los discos."
+msgstr "डिस्कबाट जानकारी प्राप्त गर्न सकेन।"
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "ग्राफिक्स कार्डबाट मेमोरी जानकारी प्राप्त गर्न सकेन।"
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "धेरै CPU संग प्रक्रिया: {} ({}%)।"
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "थप RAM संग प्रक्रिया: {} ({} MB)।"
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "कुल RAM: {}। प्रयोग गरिएको: {} ({}%)। नि:शुल्क RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "परिशुद्धता परीक्षण प्रदर्शन गर्दै (लगभग 12 सेकेन्ड), कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "जडान गरिएको वायरलेस नेटवर्क: {}, सिग्नल बल: {}%, सुरक्षा प्रकार: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "वास्तविक ब्याट्री स्वास्थ्य: यसको मूल क्षमताको {}%।"
+
+msgid "Saludable"
+msgstr "स्वस्थ"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "ताररहित नेटवर्क उपकरण असक्षम गरिएको छ"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "ताररहित नेटवर्क उपकरण सक्षम गरिएको छ"
+
+msgid "Sin autenticación (abierta)"
+msgstr "कुनै प्रमाणीकरण छैन (खुला)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "तापमान: {} डिग्री सेल्सियस।"
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "अनुमानित बाँकी समय: {} घण्टा र {} मिनेट।"
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "ग्राफिक्स कार्ड तापमान एकाइ:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "इन्टरनेट गति। डाउनलोड गर्नुहोस्: {} मेगाबाइट प्रति सेकेन्ड। अपलोड गर्नुहोस्: {} मेगाबाइट प्रति सेकेन्ड।"
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "इन्टरनेट गति। विलम्बता: {} मिलिसेकेन्ड। डाउनलोड गर्नुहोस्: {} मेगाबाइट प्रति सेकेन्ड। अपलोड गर्नुहोस्: {} मेगाबाइट प्रति सेकेन्ड।"
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "अनुमानित बाँकी उपयोगी जीवन: {} प्रतिशत।"
+
+msgid "conectado"
+msgstr "जोडिएको"
+
+msgid "de red"
+msgstr "नेटवर्क"
+
+msgid "desconectado"
+msgstr "अफलाइन"
+
+msgid "día"
+msgstr "दिन"
+
+msgid "días"
+msgstr "दिनहरू"
+
+msgid "estado sólido (SSD)"
+msgstr "ठोस अवस्था (SSD)"
+
+msgid "fijo"
+msgstr "निश्चित"
+
+msgid "hora"
+msgstr "घण्टा"
+
+msgid "horas"
+msgstr "घण्टा"
+
+msgid "minuto"
+msgstr " मिनेट"
+
+msgid "minutos"
+msgstr "मिनेटहरू"
+
+msgid "rígido (HDD)"
+msgstr "कठोर (HDD)"
+
+msgid "segundo"
+msgstr "दोस्रो"
+
+msgid "segundos"
+msgstr "सेकेन्ड"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (डिस्क {driveType}): {totalSpace} को {usedSpace} प्रयोग गरिएको ({percent}%)।"
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (नेटवर्क ड्राइभ): उपलब्ध छैन।"
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "डिस्कबाट जानकारी प्राप्त गर्न सकेन वा प्रशासक अनुमति रद्द गरियो।"
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "प्रणाली सारांश प्राप्त गर्न त्रुटि।"
+
+msgid "Error al obtener la información del procesador."
+msgstr "प्रोसेसर जानकारी प्राप्त गर्दा त्रुटि।"
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "RAM मेमोरीबाट जानकारी प्राप्त गर्दा त्रुटि।"
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "प्रोसेसर फ्रिक्वेन्सी प्राप्त गर्दा त्रुटि।"
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "डिस्क ड्राइभ जानकारी प्राप्त गर्दा त्रुटि।"
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "ताररहित नेटवर्क स्थिति प्राप्त गर्दा त्रुटि।"
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Windows संस्करण प्राप्त गर्न त्रुटि।"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "त्यहाँ कुनै ब्याट्री छैन वा यो डेस्कटप कम्प्युटर हो।"
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "यसले औसत प्रोसेसर लोड, तापमान र प्रत्येक कोरको लोड प्रस्तुत गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "प्रोसेसर लोड, तापमान र कोर"
+
+msgid "temperatura: {}"
+msgstr "तापक्रम: {}"
+
+msgid "temperatura no disponible"
+msgstr "तापमान उपलब्ध छैन"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU लोड {}%, {} मा।"
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "औसत CPU लोड {}%, {}, {} मा।"
+
+msgid "grados Celsius"
+msgstr "डिग्री सेल्सियस"
+
+msgid "grados Fahrenheit"
+msgstr "डिग्री फारेनहाइट"
+
+msgid "Alertas automáticas del sistema"
+msgstr "स्वचालित प्रणाली अलर्ट"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "ब्याट्री पूर्ण चार्ज हुँदा सूचित गर्नुहोस् (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "ब्याट्री कम हुँदा सूचित गर्नुहोस् (१५% वा कम)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "यदि प्रोसेसरको तापक्रम धेरै उच्च छ भने सूचित गर्नुहोस् (८५ डिग्री सेल्सियस वा बढी)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "ब्याट्री 100% मा पूर्ण चार्ज। तपाईं चार्जर विच्छेदन गर्न सक्नुहुन्छ।"
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "चेतावनी: ब्याट्री कम {}%। उपकरणलाई पावरमा जडान गर्नुहोस्।"
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "चेतावनी: उच्च प्रोसेसर तापमान ({})।"
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T. घोषणा गर्दछ स्वास्थ्य स्थिति, तापमान र भण्डारण डिस्क को अवस्था। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "सबैभन्दा धेरै CPU खपत गर्ने ५ प्रक्रियाहरू र सबैभन्दा धेरै RAM खपत गर्ने ५ प्रक्रियाहरूको घोषणा गर्छ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "वास्तविक समयमा इन्टरनेट डाउनलोड र अपलोड गति घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "ब्याट्री स्थिति, बाँकी समय र स्वास्थ्य पहिरन घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "जडान गरिएका ब्लुटुथ उपकरणहरूको ब्याट्री स्तरको घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "डिस्क स्थिति क्वेरी पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "डिस्क स्थिति क्वेरी प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "प्रक्रिया परामर्श पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "प्रक्रिया परामर्श प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "इन्टरनेट गति परीक्षण पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "इन्टरनेट गति परीक्षण चलिरहेको छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "ब्याट्री क्वेरी पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "ब्याट्री क्वेरी प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "ब्लुटुथ उपकरणहरूको लागि खोजी पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "ब्लुटुथ यन्त्रहरूको खोजी भइरहेको छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "परिणाम क्लिपबोर्डमा प्रतिलिपि गरिनेछ।"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "ब्लुटुथ उपकरणको ब्याट्री कम हुँदा सूचित गर्नुहोस् (२०% वा कम)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Wi-Fi नेटवर्क स्थिति परिवर्तन हुँदा सूचित गर्नुहोस् (जडान वा विच्छेदन)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "चेतावनी: ब्लुटुथ उपकरणमा कम ब्याट्री {}% मा।"
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi सिग्नल: {}%।"
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Wi-Fi सिग्नल बल परिवर्तन हुँदा सूचित गर्नुहोस्"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "यन्त्रको ब्याट्री कम हुँदा सूचित गर्नुहोस्"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "यन्त्र कम ब्याट्री अलर्टको लागि र प्रतिशत:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "ब्लुटुथ उपकरणको ब्याट्री कम हुँदा सूचित गर्नुहोस्"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "ब्लुटुथ कम ब्याट्री अलर्ट को लागी प्रतिशत:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "यन्त्रको ब्याट्री चार्ज हुँदा सूचित गर्नुहोस्"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "पूर्ण ब्याट्री अलर्टको लागि र प्रतिशत:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "यदि प्रोसेसरको तापक्रम उच्च छ भने सूचित गर्नुहोस्"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "प्रोसेसर अति तताउने चेतावनीको लागि तापक्रम (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "ब्याट्री चार्ज भयो {}%। तपाईं चार्जर विच्छेदन गर्न सक्नुहुन्छ।"
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} मेमोरी {mem}, ग्राफिक्स प्रोसेसर लोड: {util}%, तापमान: {temp}।"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} मेमोरी {mem}, ग्राफिक्स प्रोसेसर लोड: {util}%।"
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} ग्राफिक्स प्रोसेसर लोड: {util}%, तापमान: {temp}।"
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} ग्राफिक्स प्रोसेसर लोड: {util}%।"
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "यदि डिस्कहरूमा स्वास्थ्य समस्याहरू वा गम्भीर पहिरन पत्ता लगाइयो भने सूचित गर्नुहोस् (SSD / HDD)"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD अलर्टको लागि पहने प्रतिशत:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "महत्वपूर्ण चेतावनी: डिस्क {} ले स्वास्थ्य समस्याहरू प्रस्तुत गर्दछ। ब्याकअप बनाउनुहोस्।"
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "चेतावनी: SSD {} लाइफ वेयर {}% पुगेको छ।"
+
+msgid "Disco"
+msgstr "डिस्क"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "अन्य प्लगइनहरूसँग विवादहरूको लागि जाँच गर्नुहोस्..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "अनुकूलता चेतावनी:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "प्रत्यक्ष सर्टकट टक्करहरू:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "द्वन्द्व अडिट - प्रणाली मनिटर"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "यस प्रणालीमा कुनै किबोर्ड सर्टकट विवादहरू वा असंगत प्लगइनहरू सक्रिय छैनन्।"
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "नोट: पूर्ण विवरणहरू NVDA लग फाइलमा पनि रेकर्ड गरिएको छ।"
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "प्रणाली मनिटरको सक्रिय उदाहरण प्राप्त गर्न सकेन।"
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "प्रणाली मनिटर: अन्य प्लगइनहरूसँग कुनै विवादहरू फेला परेनन्।"
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "प्रणाली मनिटर: {count} सम्भावित विवाद वा चेतावनीहरू पत्ता लाग्यो। थप विवरणहरूको लागि NVDA लग जाँच गर्नुहोस्।"
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "किबोर्ड सर्टकट विवादहरू वा प्रणाली मनिटरसँग असंगत प्लगइनहरूको लागि जाँच गर्नुहोस्।"
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "डिस्क विश्लेषण पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "प्रक्रिया विश्लेषण पहिले नै प्रगतिमा छ, कृपया प्रतीक्षा गर्नुहोस्..."
+
+msgid "Error"
+msgstr "त्रुटि"
+
+msgid "Dispositivo"
+msgstr "यन्त्र"
+
+msgid "Dispositivo Bluetooth"
+msgstr "ब्लुटुथ उपकरण"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "स्रोत सारांश (RAM र CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "भौतिक र भर्चुअल RAM मेमोरी"
+
+msgid "Espacio en unidades de disco"
+msgstr "ड्राइभ स्पेस"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi नेटवर्क स्थिति र जानकारी"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU आवृत्ति र गति"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "विन्डोज संस्करण र वास्तुकला"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "प्रणाली अपटाइम"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU प्रदर्शन र मेमोरी"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "स्वास्थ्य S.M.A.R.T. र डिस्क तापमान"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "अधिक स्रोत खपत संग प्रक्रियाहरु"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "वास्तविक समय नेटवर्क गति"
+
+msgid "Batería avanzada y salud"
+msgstr "उन्नत ब्याट्री र स्वास्थ्य"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "ब्लुटुथ उपकरण ब्याट्री स्तर"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "रिसोर्स मनिटर (उही सर्टकटहरू साझा गर्दछ NVDA+Shift+1 बाट 8 र NVDA+Shift+E, आदेशहरूलाई बेवास्ता गर्न वा नक्कल/अंग्रेजी प्रतिक्रियाहरू जारी गर्नको लागि)।"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "शीर्ष प्रक्रिया (ओभरले सर्टकट वा प्रक्रिया खपत विज्ञापनहरू)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (ओभरले हार्डवेयर र प्रणाली जानकारी सर्टकटहरू)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "ब्याट्री स्थिति (ब्याट्री स्तर सर्टकट ओभरले)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "प्रयोग गरिएको RAM मेमोरी र औसत प्रोसेसर लोड प्रस्तुत गर्दछ।"
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "भौतिक र भर्चुअल RAM को प्रयोग गरिएको र कुल ठाउँ प्रस्तुत गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "निश्चित, हटाउन सकिने, र नेटवर्क ड्राइभहरूको लागि प्रयोग गरिएको र कुल ठाउँ प्रदर्शन गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "हालको प्रोसेसर गति र आवृत्ति (GHz), आधार गति, र टर्बो बूस्ट मोड स्थिति घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "स्वास्थ्य स्थिति (S.M.A.R.T.), तापक्रम र भौतिक डिस्कको उपयोगी जीवन घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "हाल सबैभन्दा धेरै CPU र RAM खपत गर्ने प्रक्रियाहरू घोषणा गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "ब्याट्री {}% मा। राज्य: {}।"
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "वास्तविक ब्याट्री स्वास्थ्य: यसको मूल क्षमताको {} %।"
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "ब्याट्री 100% मा पूर्ण चार्ज। तपाईं चार्जर विच्छेदन गर्न सक्नुहुन्छ।"
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "ब्याट्री चार्ज भयो {}%। तपाईं चार्जर विच्छेदन गर्न सक्नुहुन्छ।"
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "चेतावनी: ब्याट्री कम {}%। उपकरणलाई पावरमा जडान गर्नुहोस्।"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "चेतावनी: ब्लुटुथ उपकरणमा कम ब्याट्री {} % मा।"
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "चेतावनी: SSD {} ले {} % लाईफ वेयर पुगेको छ।"
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi सिग्नल: {} %।"
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "ब्याट्री जाँच अन्तराल (मिनेट):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU तापमान जाँच अन्तराल (मिनेट):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "ब्लुटुथ जाँच अन्तराल (मिनेट):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "डिस्क र कोस जाँच अन्तराल (मिनेट):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "यदि ग्राफिक्स कार्ड (GPU) तापमान उच्च छ भने सूचित गर्नुहोस्"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU अत्यधिक ताप चेतावनी तापमान (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU तापमान जाँच अन्तराल (मिनेट):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "चेतावनी: उच्च {name} तापमान ({temp})।"
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "प्रोसेसरको औसत लोड र प्रत्येक कोरको लोड प्रस्तुत गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU लोड {}% मा।"
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "औसत CPU लोड {}%, {} मा।"
+
+msgid "Carga y núcleos del procesador"
+msgstr "प्रोसेसर लोड र कोर"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "र तापक्रम एकाइ (CPU र GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "प्रोसेसर अति तताउने चेतावनीको लागि तापक्रम:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU अति तताउने चेतावनीको लागि तापमान:"
+

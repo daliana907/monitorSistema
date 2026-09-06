@@ -55,6 +55,7 @@ Configurable from **NVDA > Preferences > Settings > System Monitor**:
 ### Credits & Acknowledgements
 * **Joseph Lee and the Resource Monitor contributors**: For developing the original Resource Monitor add-on for NVDA, which provided the foundational codebase and architecture that inspired this project.
 * **BlueToothBatteryReport** (by Cary-rowen and contributors): For providing a reference implementation for Bluetooth battery queries.
+* **Resource Monitor Translators**: For their foundational community translations across 35 languages.
 * **NVDA Add-on Community**: For making computing accessible and open to everyone.
 
 ---
@@ -71,4 +72,5 @@ Configurable from **NVDA > Preferences > Settings > System Monitor**:
 ### Créditos y Agradecimientos
 * **Joseph Lee y los colaboradores de Resource Monitor**: Por el diseño y la base de código original del monitor de recursos para NVDA que inspiró este proyecto y sirvió como punto de partida.
 * **BlueToothBatteryReport** (por Cary-rowen y colaboradores): Por servir de referencia técnica para la consulta de batería en dispositivos Bluetooth.
+* **Traductores de Resource Monitor**: Por sus traducciones comunitarias base a más de 35 idiomas.
 * **Comunidad de desarrolladores de complementos de NVDA**: Por su continuo esfuerzo en hacer el ecosistema accesible para personas con discapacidad visual en todo el mundo.

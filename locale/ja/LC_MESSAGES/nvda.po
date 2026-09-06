@@ -1,0 +1,716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.2Beta1\n"
+"Report-Msgid-Bugs-To: nvda-translations@freelists.org\n"
+"POT-Creation-Date: 2013-03-21 05:45+0000\n"
+"PO-Revision-Date: 2019-07-14 20:27-0700\n"
+"Last-Translator: Takuya Nishimoto <nishimotz@gmail.com>\n"
+"Language-Team: Japanese <nvdajp@nvda.jp>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.9\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "バイト"
+
+msgid " bytes"
+msgstr "バイト"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "ディスクを分析中です。お待ちください..."
+
+msgid "Analizando procesos..."
+msgstr "プロセスを分析中..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "グラフィックス カード メモリ (VRAM) の内訳を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "バッテリーの状態、残り時間、ヘルスウェアを通知します。"
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "物理ディスクの健全性ステータス (S.M.A.R.T)、温度、耐用年数を発表します。"
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "接続されている Bluetooth デバイスのバッテリー残量を通知します。"
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "ワイヤレス ネットワーク名 (SSID)、信号強度、セキュリティ プロトコルを発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "合計 CPU 負荷の割合と各コアの負荷を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "システム稼働時間を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "インストールされている RAM の量、使用されている量と割合、および空き RAM の量を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "システム上で使用可能なすべてのディスクの容量、空き容量、および使用済み容量を通知します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "最大および現在の CPU 周波数を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "グラフィックス プロセッサ (GPU) の使用メモリ、合計、負荷を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "インターネットのダウンロードとアップロードの速度をリアルタイムで発表します。"
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Windows のバージョンとシステム アーキテクチャを発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "現在 CPU と RAM を最も多く消費しているプロセスを発表します。"
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth バッテリー:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "バッテリー残量は {}% です。州： {}。"
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Bluetooth デバイスを検索しています。お待ちください..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "合計 CPU 負荷: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "合計 CPU 負荷: {}%。個々のコア: {} 。"
+
+msgid "Celsius"
+msgstr "摂氏"
+
+msgid "Conectado a {}"
+msgstr "{} に接続しました"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "バッテリーの状態を確認しています。しばらくお待ちください..."
+
+msgid "Dañado (Crítico)"
+msgstr "破損(クリティカル)"
+
+msgid "Desconectado de {}"
+msgstr "{} から切断されました"
+
+msgid "Desconocido"
+msgstr "不明"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "寿命の摩耗: {} パーセント (健康状態: {}%)。"
+
+msgid "Disco desconocido"
+msgstr "不明なディスク"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "ディスク {}: {} と入力します。一般的な状態: {}。"
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "テストを連続して何度も実行しすぎたため、サーバーはテストをブロックしました。数分待ってからもう一度試してください。"
+
+msgid "En riesgo (Advertencia)"
+msgstr "危険にさらされています (警告)"
+
+msgid "Error al consultar discos."
+msgstr "ディスクのクエリ中にエラーが発生しました。"
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "ディスクの健全性ステータスを照会するときにエラーが発生しました。"
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "インターネット速度の測定中にエラーが発生しました。"
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "グラフィックス カード情報の取得中にエラーが発生しました。"
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "グラフィックス カードからメモリ情報を取得中にエラーが発生しました。"
+
+msgid "Error analizando procesos."
+msgstr "プロセスの分析中にエラーが発生しました。"
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Bluetooth デバイスのクエリ中にエラーが発生しました。"
+
+msgid "Error consultando la batería."
+msgstr "バッテリーチェック中にエラーが発生しました。"
+
+msgid "Fahrenheit"
+msgstr "華氏"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "現在の CPU 周波数: {} ギガヘルツ"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "最大 CPU 周波数: {ギガヘルツ}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: グラフィック プロセッサの負荷: {}%、温度: {}。"
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: グラフィック プロセッサの負荷: {}%。"
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: メモリ {}、グラフィックス プロセッサの負荷: {}%、温度: {}。"
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: メモリ {}、グラフィックス プロセッサの負荷: {}%。"
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}。"
+
+msgid "Kelvin"
+msgstr "ケルビン"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "NVDA のアクセス可能なリソース モニター。 CPU 負荷、ライブ周波数、RAM メモリ、ディスク、Wi-Fi ネットワーク、グラフィックス カード (GPU および VRAM メモリ)、Windows のバージョン、稼働時間をリアルタイムで確認します。"
+
+msgid "Monitor de Sistema"
+msgstr "システムモニター"
+
+msgid "Monitor del Sistema"
+msgstr "システムモニター"
+
+msgid "Monitor del sistema"
+msgstr "システムモニター"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "バッテリーがないか、デスクトップ コンピューターです。"
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "ワイヤレスネットワーク接続がありません"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "利用可能なグラフィックス カード データがありません。"
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "利用可能なグラフィックス カード メモリ データがありません。"
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "ワイヤレスネットワークデバイスがありません"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "グラフィックス カード情報がありません。"
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "グラフィックス カードのメモリ情報がありません。"
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "診断をサポートする物理ディスクが見つかりませんでした。"
+
+msgid "No se encontraron discos."
+msgstr "ディスクが見つかりませんでした。"
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "バッテリーを報告している Bluetooth デバイスは見つかりませんでした。"
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "使用可能なディスク ドライブが見つかりませんでした。"
+
+msgid "No se pudieron obtener los procesos."
+msgstr "プロセスを取得できませんでした。"
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "システムの稼働時間を取得できませんでした。"
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "メモリから情報を取得できませんでした。"
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "グラフィックス カード情報を取得できませんでした。"
+
+msgid "No se pudo obtener información de los discos."
+msgstr "ディスクから情報を取得できませんでした。"
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "グラフィックス カードからメモリ情報を取得できませんでした。"
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "最も多くの CPU を使用するプロセス: {} ({}%)。"
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "より多くの RAM を使用したプロセス: {} ({} MB)。"
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "合計 RAM: {}。使用済み： {} （{}％）。空きRAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "精度テストを実行中 (約 12 秒)、しばらくお待ちください..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "接続されているワイヤレス ネットワーク: {}、信号強度: {}%、セキュリティ タイプ: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "実際のバッテリーの状態: 元の容量の {}%。"
+
+msgid "Saludable"
+msgstr "健康"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "ワイヤレスネットワークデバイスが無効になっています"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "ワイヤレスネットワークデバイスが有効になっています"
+
+msgid "Sin autenticación (abierta)"
+msgstr "認証なし(オープン)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "気温: 摂氏 {} 度。"
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "推定残り時間: {} 時間と {} 分。"
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "グラフィックカード温度単位:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "インターネットの速度。ダウンロード: {} メガバイト/秒。アップロード: 1 秒あたり {} メガバイト。"
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "インターネットの速度。レイテンシ: {} ミリ秒。ダウンロード: {} メガバイト/秒。アップロード: 1 秒あたり {} メガバイト。"
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "推定残り耐用年数: {} パーセント。"
+
+msgid "conectado"
+msgstr "接続されています"
+
+msgid "de red"
+msgstr "ネットワーク"
+
+msgid "desconectado"
+msgstr "オフライン"
+
+msgid "día"
+msgstr "日"
+
+msgid "días"
+msgstr "日"
+
+msgid "estado sólido (SSD)"
+msgstr "ソリッドステート (SSD)"
+
+msgid "fijo"
+msgstr "固定された"
+
+msgid "hora"
+msgstr "時間"
+
+msgid "horas"
+msgstr "時間"
+
+msgid "minuto"
+msgstr "分"
+
+msgid "minutos"
+msgstr "分"
+
+msgid "rígido (HDD)"
+msgstr "リジッド（HDD）"
+
+msgid "segundo"
+msgstr "2番目"
+
+msgid "segundos"
+msgstr "秒"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (ディスク {driveType}): {totalSpace} の {usedSpace} が使用されています ({percent}%)。"
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (ネットワーク ドライブ): 使用できません。"
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "ディスクから情報を取得できなかったか、管理者権限が取り消されました。"
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "システム概要の取得中にエラーが発生しました。"
+
+msgid "Error al obtener la información del procesador."
+msgstr "プロセッサー情報の取得中にエラーが発生しました。"
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "RAM メモリから情報を取得中にエラーが発生しました。"
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "プロセッサ周波数の取得中にエラーが発生しました。"
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "ディスクドライブ情報の取得中にエラーが発生しました。"
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "ワイヤレス ネットワーク ステータスの取得中にエラーが発生しました。"
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Windows バージョンの取得中にエラーが発生しました。"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "バッテリーがないか、デスクトップ コンピューターです。"
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "平均プロセッサ負荷、温度、各コアの負荷が表示されます。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "プロセッサーの負荷、温度、コア"
+
+msgid "temperatura: {}"
+msgstr "温度: {}"
+
+msgid "temperatura no disponible"
+msgstr "温度が利用できません"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU 負荷は {}%、{} です。"
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "平均 CPU 負荷は {}%、{}、{}。"
+
+msgid "grados Celsius"
+msgstr "摂氏"
+
+msgid "grados Fahrenheit"
+msgstr "華氏度"
+
+msgid "Alertas automáticas del sistema"
+msgstr "自動システムアラート"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "バッテリーが完全に充電（100％）されると通知します"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "バッテリー残量が少なくなったとき（15％以下）に通知します"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "プロセッサーの温度が非常に高い (85 °C 以上) 場合に通知します。"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "バッテリーは 100% まで完全に充電されています。充電器を取り外すことができます。"
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "警告: バッテリーが {}% まで低下しています。機器を電源に接続します。"
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "警告: プロセッサーの温度が高くなります ({})。"
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T.を発表ストレージディスクの健康状態、温度、状態。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "CPU を最も消費する 5 つのプロセスと RAM を最も消費する 5 つのプロセスを発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "インターネットのダウンロードとアップロードの速度をリアルタイムで発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "バッテリーの状態、残り時間、ヘルスウェアを通知します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "接続されている Bluetooth デバイスのバッテリー残量を通知します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "ディスク ステータスのクエリはすでに進行中です。お待ちください..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "ディスクステータスのクエリが進行中です。お待ちください..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "プロセスコンサルテーションはすでに進行中です。お待ちください..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "プロセスコンサルテーションが進行中です。お待ちください..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "インターネット速度テストはすでに進行中です。お待ちください..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "インターネット速度テストが進行中です。お待ちください..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "バッテリーのクエリはすでに進行中です。お待ちください..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "バッテリーのクエリが進行中です。お待ちください..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Bluetooth デバイスの検索はすでに進行中です。お待ちください..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Bluetooth デバイスの検索が進行中です。お待ちください..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "結果はクリップボードにコピーされます。"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Bluetooth デバイスのバッテリーが低下した場合 (20% 以下) に通知します。"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Wi-Fiネットワークの状態変化（接続・切断）を通知"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "警告: Bluetooth デバイス {} のバッテリー残量が {}% で低下しています。"
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi 信号: {}%。"
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Wi-Fi信号強度が変化したときに通知する"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "デバイスのバッテリーが低下したときに通知する"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "デバイスのバッテリー残量低下アラートの割合(&P):"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Bluetooth デバイスのバッテリーが低下したときに通知する"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Bluetooth バッテリー低下アラートの割合:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "デバイスのバッテリーが充電されたときに通知する"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "バッテリー残量警告のパーセンテージ(&P):"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "プロセッサーの温度が高い場合に通知する"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "プロセッサ過熱警告の温度(℃):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "バッテリーは {}% まで充電されました。充電器を取り外すことができます。"
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} メモリ {mem}、グラフィック プロセッサ負荷: {util}%、温度: {temp}。"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} メモリ {mem}、グラフィックス プロセッサ負荷: {util}%。"
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} グラフィックス プロセッサの負荷: {util}%、温度: {temp}。"
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} グラフィックス プロセッサの負荷: {util}%。"
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "ディスク (SSD / HDD) で健康上の問題または重大な摩耗が検出された場合に通知します"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD アラートの摩耗パーセンテージ:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "重大な警告: ディスク {} には健康上の問題があります。バックアップを作成します。"
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "警告: SSD {} は寿命摩耗率 {}% に達しました。"
+
+msgid "Disco"
+msgstr "ディスク"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "他のプラグインとの競合をチェックする(&C)..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "互換性に関する警告:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "ショートカットの直接衝突:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "競合監査 - システム モニター"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "このシステムでは、キーボード ショートカットの競合や互換性のないプラグインがアクティブになっていません。"
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "注: 完全な詳細は NVDA ログ ファイルにも記録されています。"
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "システム モニターのアクティブなインスタンスを取得できませんでした。"
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "システム モニター: 他のプラグインとの競合は検出されませんでした。"
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "システム モニター: {count} 個の競合または警告の可能性が検出されました。詳細については、NVDA ログを確認してください。"
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "システム モニターを使用して、キーボード ショートカットの競合や互換性のないプラグインを確認します。"
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "ディスク分析はすでに進行中です。お待ちください..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "プロセス分析はすでに進行中です。お待ちください..."
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Dispositivo"
+msgstr "デバイス"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth デバイス"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "リソースの概要 (RAM と CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "物理および仮想 RAM メモリ"
+
+msgid "Espacio en unidades de disco"
+msgstr "ドライブスペース"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi ネットワークのステータスと情報"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPUの周波数と速度"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows のバージョンとアーキテクチャ"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "システム稼働時間"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPUのパフォーマンスとメモリ"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "ヘルスS.M.A.R.T.とディスク温度"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "リソース消費量が多いプロセス"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "リアルタイムのネットワーク速度"
+
+msgid "Batería avanzada y salud"
+msgstr "先進的なバッテリーと健康状態"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Bluetooth デバイスのバッテリー残量"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "リソースモニター (同じショートカット NVDA+Shift+1 から 8 および NVDA+Shift+E を共有するため、コマンドが無視されるか、重複した/英語の応答が発行されます)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "トッププロセス (オーバーレイショートカットまたはプロセス消費広告)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (ハードウェアおよびシステム情報のショートカットをオーバーレイ)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "バッテリーステータス (バッテリーレベルのショートカットをオーバーレイします)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "使用されている RAM メモリと平均プロセッサ負荷を示します。"
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "物理 RAM と仮想 RAM の使用済みスペースと合計スペースを表示します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "固定ドライブ、リムーバブルドライブ、ネットワークドライブの使用容量と合計容量を表示します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "現在のプロセッサの速度と周波数 (GHz)、ベース速度、ターボ ブースト モードのステータスを発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "物理ディスクの健全性ステータス (S.M.A.R.T)、温度、耐用年数を発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "現在 CPU と RAM を最も多く消費しているプロセスを発表します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "バッテリー残量は {}% です。州： {}。"
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "実際のバッテリーの状態: 元の容量の {} %。"
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "バッテリーは 100% まで完全に充電されています。充電器を取り外すことができます。"
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "バッテリーは {}% まで充電されました。充電器を取り外すことができます。"
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "警告: バッテリーが {}% まで低下しています。機器を電源に接続します。"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "警告: Bluetooth デバイス {} のバッテリー残量が {} % で低下しています。"
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "警告: SSD {} は寿命摩耗率 {} % に達しました。"
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi 信号: {} %。"
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "バッテリーチェック間隔(分)(&B):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU温度チェック間隔(分):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth チェック間隔 (分):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "ディスクチェック間隔(分):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "グラフィックス カード (GPU) の温度が高い場合に通知する"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU 過熱警告温度 (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU 温度チェック間隔 (分):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "警告: {name} の温度が高い ({temp})。"
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "プロセッサーの平均負荷と各コアの負荷を表示します。 2 回押すと、情報がクリップボードにコピーされます。"
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU 負荷は {}% です。"
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "平均 CPU 負荷は {}%、{}。"
+
+msgid "Carga y núcleos del procesador"
+msgstr "プロセッサーの負荷とコア"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "温度単位(CPU および GPU)(&T):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "プロセッサ過熱警告の温度(&T):"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU 過熱アラートの温度:"
+

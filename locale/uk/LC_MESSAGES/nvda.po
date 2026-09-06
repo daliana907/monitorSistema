@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-09-04 20:37+0000\n"
+"PO-Revision-Date: 2026-09-04 20:40\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: uk\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "байт"
+
+msgid " bytes"
+msgstr "байтів"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Аналіз дисків, зачекайте..."
+
+msgid "Analizando procesos..."
+msgstr "Аналіз процесів..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує про вихід з ладу пам’яті графічної карти (VRAM). Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Оголошує стан батареї, час, що залишився, і медичний одяг."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Оголошує стан справності (S.M.A.R.T), температуру та термін служби фізичних дисків."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Оголошує рівень заряду акумулятора підключених пристроїв Bluetooth."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує назву бездротової мережі (SSID), силу сигналу та протокол безпеки. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує відсоток загального навантаження ЦП і навантаження кожного окремого ядра. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує час роботи системи. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує обсяг встановленої оперативної пам’яті, використаний обсяг і відсоток, а також обсяг вільної оперативної пам’яті. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує ємність, вільний простір і використаний простір усіх доступних дисків у системі. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує максимальну та поточну частоту ЦП. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує використану пам'ять, загальну кількість і навантаження графічного процесора (GPU). Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Оголошує швидкість завантаження та завантаження в Інтернеті в реальному часі."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує версію Windows і архітектуру системи. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Оголошує процеси, які наразі споживають найбільше процесора та оперативної пам’яті."
+
+msgid "Batería Bluetooth: "
+msgstr "Акумулятор Bluetooth:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Акумулятор на {}%. Стан: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Пошук пристроїв Bluetooth, зачекайте..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Загальне навантаження ЦП: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Загальне навантаження на ЦП: {}%. Окремі ядра: {} ."
+
+msgid "Celsius"
+msgstr "Цельсія"
+
+msgid "Conectado a {}"
+msgstr "Підключено до {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Перевірка стану акумулятора, зачекайте..."
+
+msgid "Dañado (Crítico)"
+msgstr "Пошкоджено (критично)"
+
+msgid "Desconectado de {}"
+msgstr "Відключено від {}"
+
+msgid "Desconocido"
+msgstr "Невідомий"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Тривалість зносу: {} відсотків (здоров’я: {}%)."
+
+msgid "Disco desconocido"
+msgstr "невідомий диск"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Диск {}: введіть {}. Загальний стан: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Сервер заблокував тест за виконання його занадто багато разів поспіль. Зачекайте кілька хвилин і повторіть спробу."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Під загрозою (Попередження)"
+
+msgid "Error al consultar discos."
+msgstr "Помилка запиту дисків."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Помилка під час запиту стану справності дисків."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Помилка при вимірюванні швидкості інтернету."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Помилка отримання інформації про відеокарту."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Помилка отримання інформації про пам'ять від відеокарти."
+
+msgid "Error analizando procesos."
+msgstr "Помилка аналізу процесів."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Помилка запиту пристроїв Bluetooth."
+
+msgid "Error consultando la batería."
+msgstr "Помилка перевірки акумулятора."
+
+msgid "Fahrenheit"
+msgstr "Фаренгейта"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Поточна частота ЦП: {} гігагерц"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Максимальна частота ЦП: {гігагерц}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: навантаження на графічний процесор: {}%, температура: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: навантаження на графічний процесор: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: пам'ять {}, навантаження на графічний процесор: {}%, температура: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: пам'ять {}, навантаження на графічний процесор: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Кельвін"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Монітор доступних ресурсів для NVDA. Перевіряйте в режимі реального часу навантаження ЦП, живу частоту, оперативну пам’ять, диски, мережу Wi-Fi, графічну карту (пам’ять GPU та VRAM), версію Windows і час роботи."
+
+msgid "Monitor de Sistema"
+msgstr "Системний монітор"
+
+msgid "Monitor del Sistema"
+msgstr "Системний монітор"
+
+msgid "Monitor del sistema"
+msgstr "Системний монітор"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Немає акумулятора або це настільний комп'ютер."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Немає підключень до бездротової мережі"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Дані відеокарти відсутні."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Немає даних пам’яті відеокарти."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Немає бездротових мережевих пристроїв"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Немає інформації про відеокарту."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Інформація про пам'ять відеокарти недоступна."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Жодних фізичних дисків, що підтверджують діагноз, не знайдено."
+
+msgid "No se encontraron discos."
+msgstr "Дисків не знайдено."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Не знайдено жодного пристрою Bluetooth, який повідомляє про свій акумулятор."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Не знайдено доступних дисків."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Не вдалося отримати процеси."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Не вдалося отримати час роботи системи."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Не вдалося отримати інформацію з пам'яті."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Не вдалося отримати інформацію про відеокарту."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Не вдалося отримати інформацію з дисків."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Не вдалося отримати інформацію про пам’ять із відеокарти."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Процес із найбільшою кількістю ЦП: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Процес із додатковою пам’яттю: {} ({} МБ)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Загальна кількість оперативної пам’яті: {}. Використано: {} ({}%). Вільна оперативна пам'ять: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Виконання перевірки точності (приблизно 12 секунд), зачекайте..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Підключена бездротова мережа: {}, потужність сигналу: {}%, тип безпеки: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Фактичний стан батареї: {}% від початкової ємності."
+
+msgid "Saludable"
+msgstr "Здоровий"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Пристрій бездротової мережі вимкнено"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Бездротовий мережевий пристрій увімкнено"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Без автентифікації (Відкрито)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Температура: {} градусів Цельсія."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Приблизний час, що залишився: {} годин і {} хвилин."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Одиниця температури відеокарти:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "швидкість інтернету. Завантаження: {} мегабайт за секунду. Завантаження: {} мегабайт на секунду."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "швидкість інтернету. Затримка: {} мілісекунд. Завантаження: {} мегабайт за секунду. Завантаження: {} мегабайт на секунду."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Розрахунковий залишковий термін корисного використання: {} відсотків."
+
+msgid "conectado"
+msgstr "підключений"
+
+msgid "de red"
+msgstr "мережа"
+
+msgid "desconectado"
+msgstr "офлайн"
+
+msgid "día"
+msgstr "день"
+
+msgid "días"
+msgstr "днів"
+
+msgid "estado sólido (SSD)"
+msgstr "твердотільний (SSD)"
+
+msgid "fijo"
+msgstr "фіксований"
+
+msgid "hora"
+msgstr "година"
+
+msgid "horas"
+msgstr "години"
+
+msgid "minuto"
+msgstr "хвилина"
+
+msgid "minutos"
+msgstr "хвилин"
+
+msgid "rígido (HDD)"
+msgstr "жорсткий (HDD)"
+
+msgid "segundo"
+msgstr "другий"
+
+msgid "segundos"
+msgstr "секунд"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (диск {driveType}): використано {usedSpace} із {totalSpace} ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (мережевий диск): недоступний."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Не вдалося отримати інформацію з дисків або скасовано дозвіл адміністратора."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Помилка отримання системного підсумку."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Помилка отримання інформації про процесор."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Помилка отримання інформації з оперативної пам'яті."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Помилка отримання частоти процесора."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Помилка отримання інформації про дисковод."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Помилка отримання стану бездротової мережі."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Помилка отримання версії Windows."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Немає акумулятора або це настільний комп'ютер."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Він представляє середнє навантаження на процесор, температуру і навантаження кожного ядра. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Навантаження на процесор, температура і ядра"
+
+msgid "temperatura: {}"
+msgstr "температура: {}"
+
+msgid "temperatura no disponible"
+msgstr "температура недоступна"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "Завантаження ЦП становить {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Середнє навантаження ЦП на рівні {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "градусів Цельсія"
+
+msgid "grados Fahrenheit"
+msgstr "градусів Фаренгейта"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Автоматичні оповіщення системи"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Повідомити, коли батарея повністю заряджена (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Повідомляти, коли заряд батареї низький (15% або менше)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Повідомити, якщо температура процесора дуже висока (85 °C або вище)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Акумулятор повністю заряджений на 100%. Можна від'єднати зарядний пристрій."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Попередження: заряд батареї низький до {}%. Підключіть обладнання до джерела живлення."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Попередження: висока температура процесора ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Анонсує S.M.A.R.T. стан працездатності, температура та стан накопичувачів. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує 5 процесів, які споживають найбільше ЦП, і 5, які споживають найбільше оперативної пам’яті. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує швидкість завантаження та завантаження в Інтернеті в реальному часі. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує стан батареї, час, що залишився, і медичний одяг. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує рівень заряду акумулятора підключених пристроїв Bluetooth. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Запит стану диска вже виконується, зачекайте..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Виконується запит стану диска, зачекайте..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Процес консультації вже триває, зачекайте..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Процес консультації триває, зачекайте..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Тест швидкості Інтернету вже триває, зачекайте..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Виконується перевірка швидкості Інтернету, зачекайте..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Запит акумулятора вже виконується, зачекайте..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Виконується запит батареї, зачекайте..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Пошук пристроїв Bluetooth уже триває, зачекайте..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Виконується пошук пристроїв Bluetooth, зачекайте..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Результат буде скопійовано в буфер обміну."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Сповіщати про низький рівень заряду акумулятора пристрою Bluetooth (20% або менше)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Повідомляти, коли змінюється статус мережі Wi-Fi (підключення або відключення)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Попередження: низький заряд акумулятора на пристрої Bluetooth {} на рівні {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Сигнал Wi-Fi: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Сповіщати про зміну рівня сигналу Wi-Fi"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Повідомляти про низький заряд акумулятора пристрою"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Відсоток для сповіщення про низький заряд акумулятора пристрою:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Сповіщати про низький заряд батареї пристрою Bluetooth"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Відсоток для сповіщення про низький заряд акумулятора Bluetooth:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Повідомити, коли батарея пристрою заряджена"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Відсоток для сповіщення про повний заряд батареї:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Повідомити, якщо температура процесора висока"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Температура для сповіщення про перегрів процесора (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Акумулятор заряджено до {}%. Можна від'єднати зарядний пристрій."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} пам'ять {mem}, навантаження графічного процесора: {util}%, температура: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{префікс} пам'ять {пам'ять}, навантаження на графічний процесор: {корисне}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} навантаження на графічний процесор: {util}%, температура: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} навантаження на графічний процесор: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Повідомляти, якщо на дисках (SSD / HDD) виявлені проблеми зі здоров'ям або критичний знос"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Відсоток зносу для оповіщення SSD:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Критичне попередження: диск {} представляє проблеми зі здоров'ям. Зробіть резервну копію."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Попередження: ресурс SSD {} досяг {}% зносу."
+
+msgid "Disco"
+msgstr "диск"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Перевірити конфлікти з іншими плагінами..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "ПОПЕРЕДЖЕННЯ ПРО СУМІСНІСТЬ:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "ПРЯМІ ЯРЛИКИ ЗІТКНЕННЯ:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Аудит конфліктів - системний монітор"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "У цій системі немає конфліктів комбінацій клавіш або несумісних плагінів."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Примітка: повну інформацію також було записано у файл журналу NVDA."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Не вдалося отримати активний екземпляр системного монітора."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Системний монітор: конфліктів з іншими плагінами не виявлено."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Системний монітор: виявлено {count} можливих конфліктів або попереджень. Перевірте журнал NVDA для отримання додаткової інформації."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Перевірте наявність конфліктів комбінацій клавіш або несумісних плагінів за допомогою системного монітора."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Аналіз диска вже триває, зачекайте..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Аналіз процесу вже триває, зачекайте..."
+
+msgid "Error"
+msgstr "Помилка"
+
+msgid "Dispositivo"
+msgstr "пристрій"
+
+msgid "Dispositivo Bluetooth"
+msgstr "пристрій Bluetooth"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Підсумок ресурсів (RAM і CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Фізична та віртуальна RAM пам'ять"
+
+msgid "Espacio en unidades de disco"
+msgstr "Дисковий простір"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Стан мережі Wi-Fi та інформація"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "Частота і швидкість процесора"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Версія та архітектура Windows"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Час роботи системи"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "Продуктивність GPU та пам'ять"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Здоров'я S.M.A.R.T. і температура диска"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Процеси з більшою витратою ресурсів"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Швидкість мережі в реальному часі"
+
+msgid "Batería avanzada y salud"
+msgstr "Розширений акумулятор і здоров'я"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Рівень батареї пристрою Bluetooth"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Монітор ресурсів (спільно використовує ті самі комбінації клавіш NVDA+Shift+1–8 і NVDA+Shift+E, через що команди ігноруються або видаються дублікати/відповіді англійською мовою)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Верхній процес (накладає ярлики або оголошення про використання процесу)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (накладає ярлики інформації про обладнання та систему)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Стан акумулятора (накладає ярлики рівня заряду акумулятора)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Надає інформацію про використану оперативну пам'ять та середнє навантаження на процесор."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Представляє використаний і загальний простір фізичної та віртуальної оперативної пам’яті. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Відображає використаний і загальний простір для фіксованих, знімних і мережевих дисків. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує поточну швидкість і частоту процесора (ГГц), базову швидкість і статус режиму Turbo Boost. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує стан справності (S.M.A.R.T), температуру та термін служби фізичних дисків. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Оголошує процеси, які наразі споживають найбільше процесора та оперативної пам’яті. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Акумулятор на {}%. Стан: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Фактичний стан батареї: {} % від початкової ємності."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Акумулятор повністю заряджений на 100%. Можна від'єднати зарядний пристрій."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Акумулятор заряджено до {}%. Можна від'єднати зарядний пристрій."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Попередження: заряд батареї низький до {}%. Підключіть обладнання до джерела живлення."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Попередження: низький заряд акумулятора на пристрої Bluetooth {} на рівні {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Попередження: SSD {} досяг {} % терміну експлуатації."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Сигнал Wi-Fi: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Інтервал перевірки батареї (хвилини):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "Інтервал перевірки температури процесора (хвилини):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Інтервал перевірки Bluetooth (хвилини):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Інтервал перевірки Disc&Cos (хвилини):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Повідомити, якщо висока температура графічної карти (GPU)."
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "Температура сповіщення про перегрів GPU (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "Інтервал перевірки температури GPU (хвилини):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Сповіщення: висока температура {name} ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Представлено середнє навантаження процесора і навантаження кожного ядра. Якщо натиснути двічі, копіює інформацію в буфер обміну."
+
+msgid "Carga de CPU al {}%."
+msgstr "Завантаження ЦП становить {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Середнє навантаження на ЦП становить {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Завантаження процесора і ядер"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Одиниця температури (CPU та GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Температура сповіщення про перегрів процесора:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Температура для сповіщення про перегрів GPU:"
+

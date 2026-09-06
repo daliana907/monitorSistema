@@ -1,0 +1,716 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nvdaaddons\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-09-04 20:37+0000\n"
+"PO-Revision-Date: 2026-09-04 20:40\n"
+"Last-Translator: \n"
+"Language-Team: Turkish\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-Project: nvdaaddons\n"
+"X-Crowdin-Project-ID: 780748\n"
+"X-Crowdin-Language: tr\n"
+"X-Crowdin-File: resourceMonitor.pot\n"
+"X-Crowdin-File-ID: 214\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "bayt"
+
+msgid " bytes"
+msgstr "bayt"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Diskler analiz ediliyor, lütfen bekleyin..."
+
+msgid "Analizando procesos..."
+msgstr "Süreçler analiz ediliyor..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Grafik kartı belleğinin (VRAM) dökümünü duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Pil durumunu, kalan süreyi ve sağlık durumunu duyurur."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Fiziksel disklerin sağlık durumunu (S.M.A.R.T), sıcaklığını ve kullanım ömrünü duyurur."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Bağlı Bluetooth cihazlarının pil seviyesini duyurur."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kablosuz ağ adını (SSID), sinyal gücünü ve güvenlik protokolünü duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Toplam CPU yükünün yüzdesini ve her bir çekirdeğin yükünü duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Sistemin çalışma süresini duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kurulu RAM miktarını, kullanılan miktar ve yüzdeyi ve boş RAM miktarını duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Sistemdeki tüm kullanılabilir disklerin kapasitesini, boş alanını ve kullanılan alanını duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Maksimum ve mevcut CPU frekansını duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Grafik işlemcisinin (GPU) kullanılan belleği, toplamını ve yükünü duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "İnternet indirme ve yükleme hızını gerçek zamanlı olarak duyurur."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Windows sürümünü ve sistem mimarisini duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Şu anda en fazla CPU ve RAM tüketen işlemleri duyurur."
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth Pil:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Pil %{} seviyesinde. Durum: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Bluetooth cihazları aranıyor, lütfen bekleyin..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Toplam CPU yükü: %{}"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Toplam CPU yükü: %{}. Bireysel çekirdekler: {} ."
+
+msgid "Celsius"
+msgstr "Santigrat"
+
+msgid "Conectado a {}"
+msgstr "{} ağına bağlanıldı"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Pil durumu kontrol ediliyor, lütfen bekleyin..."
+
+msgid "Dañado (Crítico)"
+msgstr "Hasarlı (Kritik)"
+
+msgid "Desconectado de {}"
+msgstr "{} ağ bağlantısı kesildi"
+
+msgid "Desconocido"
+msgstr "Bilinmiyor"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Kullanım ömrü: yüzde {} (Sağlık: %{})."
+
+msgid "Disco desconocido"
+msgstr "bilinmeyen disk"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Disk {}: {} yazın. Genel durum: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Sunucu, testi art arda çok fazla kez yaptığı için engelledi. Birkaç dakika bekleyip tekrar deneyin."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Risk altında (Uyarı)"
+
+msgid "Error al consultar discos."
+msgstr "Diskler sorgulanırken hata oluştu."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Disklerin sağlık durumu sorgulanırken hata oluştu."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "İnternet hızını ölçerken hata oluştu."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Grafik kartı bilgileri alınırken hata oluştu."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Grafik kartından bellek bilgisi alınırken hata oluştu."
+
+msgid "Error analizando procesos."
+msgstr "Süreçleri analiz ederken hata oluştu."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Bluetooth cihazları sorgulanırken hata oluştu."
+
+msgid "Error consultando la batería."
+msgstr "Pil kontrol edilirken hata oluştu."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Mevcut CPU frekansı: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Maksimum CPU frekansı: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: grafik işlemci yükü: %{}, sıcaklık: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: grafik işlemci yükü: %{}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: bellek {}, grafik işlemci yükü: %{}, sıcaklık: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: bellek {}, grafik işlemci yükü: %{}."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "NVDA için erişilebilir kaynak monitörü. CPU yükünü, canlı frekansı, RAM belleğini, diskleri, Wi-Fi ağını, grafik kartını (GPU ve VRAM belleği), Windows sürümünü ve çalışma süresini gerçek zamanlı olarak kontrol edin."
+
+msgid "Monitor de Sistema"
+msgstr "Sistem Monitörü"
+
+msgid "Monitor del Sistema"
+msgstr "Sistem Monitörü"
+
+msgid "Monitor del sistema"
+msgstr "Sistem Monitörü"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Pil yok veya masaüstü bilgisayar."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Kablosuz ağ bağlantısı yok"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Grafik kartı verisi yok."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Grafik kartı belleği verisi yok."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Kablosuz ağ cihazı yok"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Grafik kartı bilgisi mevcut değil."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Grafik kartı hafıza bilgisi mevcut değil."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Teşhisi destekleyen hiçbir fiziksel disk bulunamadı."
+
+msgid "No se encontraron discos."
+msgstr "Hiçbir disk bulunamadı."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Pillerini bildiren hiçbir Bluetooth cihazı bulunamadı."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Kullanılabilir disk sürücüsü bulunamadı."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "İşlemler alınamadı."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Sistem çalışma süresi alınamadı."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Bellekten bilgi alınamadı."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Grafik kartı bilgisi alınamadı."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Disklerden bilgi alınamadı."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Grafik kartından hafıza bilgisi alınamadı."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "En fazla CPU ile işlem yapın: {} (%{})."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Daha fazla RAM ile işlem yapın: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Toplam RAM: {}. Kullanılmış: {} ({}%). Boş RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Hassasiyet testi gerçekleştiriliyor (yaklaşık 12 saniye), lütfen bekleyin..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Bağlı kablosuz ağ: {}, sinyal gücü: %{}, güvenlik türü: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Gerçek pil sağlığı: Orijinal kapasitesinin %{}'si."
+
+msgid "Saludable"
+msgstr "Sağlıklı"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Bir kablosuz ağ aygıtı devre dışı bırakıldı"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Bir kablosuz ağ cihazı etkinleştirildi"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Kimlik doğrulama yok (Açık)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Sıcaklık: {} santigrat derece."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Tahmini kalan süre: {} saat ve {} dakika."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Grafik kartı sıcaklık birimi:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "İnternet hızı. İndirme: Saniyede {} Megabayt. Yükleme: Saniyede {} Megabayt."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "İnternet hızı. Gecikme: {} milisaniye. İndirme: Saniyede {} Megabayt. Yükleme: Saniyede {} Megabayt."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Tahmini kalan faydalı ömür: yüzde {}."
+
+msgid "conectado"
+msgstr "bağlı"
+
+msgid "de red"
+msgstr "ağ"
+
+msgid "desconectado"
+msgstr "çevrimdışı"
+
+msgid "día"
+msgstr "gün"
+
+msgid "días"
+msgstr "günler"
+
+msgid "estado sólido (SSD)"
+msgstr "katı hal (SSD)"
+
+msgid "fijo"
+msgstr "sabit"
+
+msgid "hora"
+msgstr "saat"
+
+msgid "horas"
+msgstr "saat"
+
+msgid "minuto"
+msgstr "dakika"
+
+msgid "minutos"
+msgstr "dakika"
+
+msgid "rígido (HDD)"
+msgstr "sert (HDD)"
+
+msgid "segundo"
+msgstr "ikinci"
+
+msgid "segundos"
+msgstr "saniye"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (disk {driveType}): Kullanılan {totalSpace} alanının {usedSpace} tanesi (%{percent})."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (ağ sürücüsü): kullanılamıyor."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Disklerden bilgi alınamadı veya yönetici izni iptal edildi."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Sistem özeti alınırken hata oluştu."
+
+msgid "Error al obtener la información del procesador."
+msgstr "İşlemci bilgileri alınırken hata oluştu."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "RAM belleğinden bilgi alınırken hata oluştu."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "İşlemci frekansı alınırken hata oluştu."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Disk sürücüsü bilgileri alınırken hata oluştu."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Kablosuz ağ durumu alınırken hata oluştu."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Windows sürümü alınırken hata oluştu."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Pil yok veya masaüstü bilgisayar."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Ortalama işlemci yükünü, sıcaklığını ve her bir çekirdeğin yükünü sunar. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "İşlemci yükü, sıcaklık ve çekirdekler"
+
+msgid "temperatura: {}"
+msgstr "sıcaklık: {}"
+
+msgid "temperatura no disponible"
+msgstr "sıcaklık mevcut değil"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU yükü %{}, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Ortalama CPU yükü %{}, {}, {}."
+
+msgid "grados Celsius"
+msgstr "santigrat derece"
+
+msgid "grados Fahrenheit"
+msgstr "derece Fahrenheit"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Otomatik sistem uyarıları"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Pil tamamen şarj olduğunda bildirim (%100)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Pil azaldığında bildir (%15 veya daha az)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "İşlemci sıcaklığı çok yüksekse (85 °C veya daha fazla) bildir"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Pil %100'e kadar tamamen şarj edildi. Şarj cihazının bağlantısını kesebilirsiniz."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Uyarı: Pil %{}'ye kadar düşük. Ekipmanı güce bağlayın."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Uyarı: Yüksek işlemci sıcaklığı ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T.'yi duyurdu. depolama disklerinin sağlık durumu, sıcaklığı ve durumu. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "En çok CPU tüketen 5 işlemi ve en çok RAM tüketen 5 işlemi duyurdu. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "İnternet indirme ve yükleme hızını gerçek zamanlı olarak duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Pil durumunu, kalan süreyi ve sağlık durumunu duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Bağlı Bluetooth cihazlarının pil seviyesini duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Disk durumu sorgulaması zaten devam ediyor, lütfen bekleyin..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Disk durumu sorgulaması devam ediyor, lütfen bekleyin..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Süreç danışmanlığı zaten devam ediyor, lütfen bekleyin..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Süreç danışmanlığı devam ediyor, lütfen bekleyin..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "İnternet hız testi zaten yapılıyor, lütfen bekleyin..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "İnternet hız testi yapılıyor, lütfen bekleyin..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Pil sorgusu zaten devam ediyor, lütfen bekleyin..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Pil sorgusu devam ediyor, lütfen bekleyin..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Bluetooth cihazlarının aranması zaten devam ediyor, lütfen bekleyin..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Bluetooth cihazları aranıyor, lütfen bekleyin..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Sonuç panoya kopyalanacaktır."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Bluetooth cihazının pili azaldığında (%20 veya daha az) bildirim alın"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Wi-Fi ağ durumu değiştiğinde (bağlantı veya bağlantı kesilmesi) bildirim gönder"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Uyarı: Bluetooth cihazının {} pil seviyesi %{} seviyesinde zayıf."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Kablosuz sinyali: %{}."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Wi-Fi sinyal gücü değiştiğinde bildirim gönder"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Cihazın pili azaldığında bildirim gönder"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Cihazın düşük pil uyarısı yüzdesi:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Bluetooth cihazının pili azaldığında bildirim alın"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Bluetooth düşük pil uyarısı yüzdesi:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Cihazın pili şarj olduğunda bildirim gönder"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Dolu pil uyarısı yüzdesi:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "İşlemci sıcaklığı yüksekse bildirim"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&İşlemci aşırı ısınma uyarısı için sıcaklık (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Pil %{}'ye kadar şarj edildi. Şarj cihazının bağlantısını kesebilirsiniz."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} bellek {mem}, grafik işlemci yükü: %{util}, sıcaklık: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} bellek {mem}, grafik işlemci yükü: %{util}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} grafik işlemci yükü: %{util}, sıcaklık: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} grafik işlemci yükü: %{util}."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Disklerde (SSD / HDD) sağlık sorunları veya kritik aşınma tespit edilirse bildirimde bulunun"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD uyarısı için aşınma yüzdesi:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kritik Uyarı: {} diski sağlık sorunları sunuyor. Yedekleme yapın."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Uyarı: SSD {} %{} aşınma ömrüne ulaştı."
+
+msgid "Disco"
+msgstr "disk"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Diğer eklentilerle çakışmaları kontrol edin..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "UYUMLULUK UYARILARI:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "DOĞRUDAN KISAYOL ÇARPIŞMALARI:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Çatışma Denetimi - Sistem Monitörü"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Bu sistemde etkin olan hiçbir klavye kısayolu çakışması veya uyumsuz eklenti yok."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Not: Tüm ayrıntılar NVDA günlük dosyasına da kaydedilmiştir."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Sistem Monitörü'nün etkin örneği alınamadı."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Sistem Monitörü: Diğer eklentilerle çakışma algılanmadı."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Sistem Monitörü: {count} olası çakışma veya uyarı algılandı. Daha fazla ayrıntı için NVDA günlüğünü kontrol edin."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Sistem Monitörü ile klavye kısayolu çakışmalarını veya uyumsuz eklentileri kontrol edin."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Disk analizi zaten devam ediyor, lütfen bekleyin..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Süreç analizi zaten yapılıyor, lütfen bekleyin..."
+
+msgid "Error"
+msgstr "Hata"
+
+msgid "Dispositivo"
+msgstr "Cihaz"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth cihazı"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Kaynak Özeti (RAM ve CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Fiziksel ve sanal RAM belleği"
+
+msgid "Espacio en unidades de disco"
+msgstr "Alanı genişletin"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi ağ durumu ve bilgileri"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU frekansı ve hızı"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows sürümü ve mimarisi"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Sistem çalışma süresi"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU performansı ve bellek"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Sağlık S.M.A.R.T. ve disk sıcaklığı"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Daha fazla kaynak tüketimi olan süreçler"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Gerçek zamanlı ağ hızı"
+
+msgid "Batería avanzada y salud"
+msgstr "Gelişmiş pil ve sağlık"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Bluetooth aygıtının pil düzeyi"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Kaynak Monitörü (NVDA+Shift+1'den 8'e ve NVDA+Shift+E ile aynı kısayolları paylaşır, komutların göz ardı edilmesine veya yinelenen/İngilizce yanıtların verilmesine neden olur)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "En İyi İşlem (kısayolları veya işlem tüketimi reklamlarını kaplar)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (donanım ve sistem bilgileri kısayollarını kaplar)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Pil Durumu (pil seviyesi kısayollarını kaplar)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Kullanılan ram ve ortalama işlemci yükünü bildirir."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Fiziksel ve sanal RAM'in kullanılan ve toplam alanını sunar. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Sabit, çıkarılabilir ve ağ sürücüleri için kullanılan ve toplam alanı görüntüler. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Geçerli işlemci hızını ve frekansını (GHz), temel hızı ve turbo yükseltme modu durumunu duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Fiziksel disklerin sağlık durumunu (S.M.A.R.T), sıcaklığını ve kullanım ömrünü duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Şu anda en fazla CPU ve RAM tüketen işlemleri duyurur. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Pil %{} seviyesinde. Durum: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Gerçek pil sağlığı: Orijinal kapasitesinin %{}'si."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Pil %100'e kadar tamamen şarj edildi. Şarj cihazının bağlantısını kesebilirsiniz."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Pil %{}'ye kadar şarj edildi. Şarj cihazının bağlantısını kesebilirsiniz."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Uyarı: Pil %{}'ye kadar düşük. Ekipmanı güce bağlayın."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Uyarı: Bluetooth cihazının {} pil seviyesi %{} seviyesinde zayıf."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Uyarı: SSD {} %{} aşınma ömrüne ulaştı."
+
+msgid "{}: {} %"
+msgstr "{}: %{}"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi sinyali: %{}."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Pil kontrol aralığı (dakika):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU sıcaklığı kontrol aralığı (dakika):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth kontrol aralığı (dakika):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Disc&cos kontrol aralığı (dakika):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Grafik kartı (GPU) sıcaklığı yüksekse bildirim"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU Aşırı Isınma Uyarısı Sıcaklığı (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU sıcaklığı kontrol aralığı (dakika):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Uyarı: Yüksek {name} sıcaklığı ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "İşlemcinin ortalama yükünü ve her bir çekirdeğin yükünü sunar. İki kez basıldığında bilgiler panoya kopyalanır."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU yükü %{} seviyesinde."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Ortalama CPU yükü %{}, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "İşlemci yükü ve çekirdekler"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Sıcaklık birimi (CPU ve GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&İşlemci aşırı ısınma uyarısı için sıcaklık:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU aşırı ısınma uyarısı için sıcaklık:"
+

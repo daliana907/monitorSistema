@@ -1,0 +1,715 @@
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-05-21 20:10-0600\n"
+"Last-Translator: DINAKAR T.D. <td.dinkar@gmail.com>\n"
+"Language-Team: DINAKAR T.D. <td.dinkar@gmail.com>\n"
+"Language: ta_IN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "பைட்"
+
+msgid " bytes"
+msgstr "பைட்டுகள்"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "வட்டுகளை பகுப்பாய்வு செய்கிறது, காத்திருக்கவும்..."
+
+msgid "Analizando procesos..."
+msgstr "செயல்முறைகளை பகுப்பாய்வு செய்கிறது..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "கிராபிக்ஸ் கார்டு நினைவகத்தின் (VRAM) முறிவை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "பேட்டரி நிலை, மீதமுள்ள நேரம் மற்றும் ஆரோக்கிய உடைகள் ஆகியவற்றை அறிவிக்கிறது."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "உடல் வட்டுகளின் ஆரோக்கிய நிலை (S.M.A.R.T), வெப்பநிலை மற்றும் பயனுள்ள வாழ்க்கை ஆகியவற்றை அறிவிக்கிறது."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "இணைக்கப்பட்ட புளூடூத் சாதனங்களின் பேட்டரி அளவை அறிவிக்கிறது."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "வயர்லெஸ் நெட்வொர்க் பெயர் (SSID), சமிக்ஞை வலிமை மற்றும் பாதுகாப்பு நெறிமுறை ஆகியவற்றை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "மொத்த CPU சுமையின் சதவீதத்தையும் ஒவ்வொரு தனி மையத்தின் சுமையையும் அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "கணினி இயக்க நேரத்தை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "நிறுவப்பட்ட ரேமின் அளவு, பயன்படுத்தப்பட்ட அளவு மற்றும் சதவீதம் மற்றும் இலவச ரேமின் அளவு ஆகியவற்றை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "கணினியில் கிடைக்கும் அனைத்து வட்டுகளின் திறன், இலவச இடம் மற்றும் பயன்படுத்தப்பட்ட இடம் ஆகியவற்றை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "அதிகபட்ச மற்றும் தற்போதைய CPU அதிர்வெண்ணை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "கிராபிக்ஸ் செயலியின் (GPU) பயன்படுத்தப்பட்ட நினைவகம், மொத்த மற்றும் சுமை ஆகியவற்றை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "உண்மையான நேரத்தில் இணைய பதிவிறக்கம் மற்றும் பதிவேற்ற வேகத்தை அறிவிக்கிறது."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "விண்டோஸ் பதிப்பு மற்றும் கணினி கட்டமைப்பை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "தற்போது அதிக CPU மற்றும் RAM ஐ பயன்படுத்தும் செயல்முறைகளை அறிவிக்கிறது."
+
+msgid "Batería Bluetooth: "
+msgstr "புளூடூத் பேட்டரி:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "பேட்டரி {}%. மாநிலம்: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "புளூடூத் சாதனங்களைத் தேடுகிறது, காத்திருக்கவும்..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "மொத்த CPU ஏற்றம்: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "மொத்த CPU ஏற்றம்: {}%. தனிப்பட்ட கோர்கள்: {} ."
+
+msgid "Celsius"
+msgstr "செல்சியஸ்"
+
+msgid "Conectado a {}"
+msgstr "இதனுடன் இணைக்கப்பட்டுள்ளது: {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "பேட்டரி நிலையைச் சரிபார்க்கிறது, காத்திருக்கவும்..."
+
+msgid "Dañado (Crítico)"
+msgstr "சேதமடைந்தது (முக்கியமானது)"
+
+msgid "Desconectado de {}"
+msgstr "இதனிடமிருந்து துண்டிக்கப்பட்டுள்ளது: {}"
+
+msgid "Desconocido"
+msgstr "தெரியவில்லை"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "ஆயுட்காலம் உடைகள்: {} சதவீதம் (உடல்நலம்: {}%)."
+
+msgid "Disco desconocido"
+msgstr "தெரியாத வட்டு"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "வட்டு {}: வகை {}. பொதுவான நிலை: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "தொடர்ச்சியாக பலமுறை சோதனை செய்ததால், சர்வர் சோதனையைத் தடுத்துள்ளது. சில நிமிடங்கள் காத்திருந்து மீண்டும் முயற்சிக்கவும்."
+
+msgid "En riesgo (Advertencia)"
+msgstr "ஆபத்தில் (எச்சரிக்கை)"
+
+msgid "Error al consultar discos."
+msgstr "வட்டுகளை வினவுவதில் பிழை."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "வட்டுகளின் ஆரோக்கிய நிலையை வினவும்போது பிழை."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "இணைய வேகத்தை அளவிடுவதில் பிழை."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "கிராபிக்ஸ் அட்டை தகவலைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "கிராபிக்ஸ் கார்டிலிருந்து நினைவகத் தகவலைப் பெறுவதில் பிழை."
+
+msgid "Error analizando procesos."
+msgstr "செயல்முறைகளை பகுப்பாய்வு செய்வதில் பிழை."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "புளூடூத் சாதனங்களை வினவுவதில் பிழை."
+
+msgid "Error consultando la batería."
+msgstr "பேட்டரியைச் சரிபார்ப்பதில் பிழை."
+
+msgid "Fahrenheit"
+msgstr "பாரன்ஹீட்"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "தற்போதைய CPU அதிர்வெண்: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "அதிகபட்ச CPU அதிர்வெண்: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: கிராபிக்ஸ் செயலி ஏற்றம்: {}%, வெப்பநிலை: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: கிராபிக்ஸ் செயலி ஏற்றம்: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: நினைவகம் {}, கிராபிக்ஸ் செயலி ஏற்றம்: {}%, வெப்பநிலை: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: நினைவகம் {}, கிராபிக்ஸ் செயலி ஏற்றம்: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "கெல்வின்"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "என்விடிஏவிற்கான அணுகக்கூடிய ஆதார மானிட்டர். CPU சுமை, நேரலை அதிர்வெண், ரேம் நினைவகம், வட்டுகள், Wi-Fi நெட்வொர்க், கிராபிக்ஸ் அட்டை (GPU மற்றும் VRAM நினைவகம்), விண்டோஸ் பதிப்பு மற்றும் இயக்க நேரம் ஆகியவற்றை நிகழ்நேரத்தில் சரிபார்க்கவும்."
+
+msgid "Monitor de Sistema"
+msgstr "சிஸ்டம் மானிட்டர்"
+
+msgid "Monitor del Sistema"
+msgstr "சிஸ்டம் மானிட்டர்"
+
+msgid "Monitor del sistema"
+msgstr "சிஸ்டம் மானிட்டர்"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "பேட்டரி இல்லை அல்லது அது டெஸ்க்டாப் கணினி."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "வயர்லெஸ் நெட்வொர்க் இணைப்புகள் இல்லை"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "கிராபிக்ஸ் அட்டை தரவு இல்லை."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "கிராபிக்ஸ் கார்டு நினைவக தரவு இல்லை."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "வயர்லெஸ் நெட்வொர்க் சாதனங்கள் இல்லை"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "கிராபிக்ஸ் அட்டை தகவல் இல்லை."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "கிராபிக்ஸ் கார்டு நினைவக தகவல் இல்லை."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "நோயறிதலை ஆதரிக்கும் உடல் வட்டுகள் எதுவும் கண்டறியப்படவில்லை."
+
+msgid "No se encontraron discos."
+msgstr "வட்டுகள் எதுவும் காணப்படவில்லை."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "எந்த புளூடூத் சாதனங்களும் அவற்றின் பேட்டரியைப் புகாரளிக்கவில்லை."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "கிடைக்கக்கூடிய வட்டு இயக்கிகள் எதுவும் காணப்படவில்லை."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "செயல்முறைகளைப் பெற முடியவில்லை."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "கணினி இயக்க நேரத்தைப் பெற முடியவில்லை."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "நினைவகத்திலிருந்து தகவலைப் பெற முடியவில்லை."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "கிராபிக்ஸ் அட்டை தகவலைப் பெற முடியவில்லை."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "வட்டுகளிலிருந்து தகவலைப் பெற முடியவில்லை."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "கிராபிக்ஸ் கார்டில் இருந்து நினைவகத் தகவலைப் பெற முடியவில்லை."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "அதிக CPU கொண்ட செயல்முறை: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "அதிக ரேம் கொண்ட செயல்முறை: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "மொத்த ரேம்: {}. பயன்படுத்தப்பட்டது: {} ({}%). இலவச ரேம்: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "துல்லியமான சோதனையைச் செய்கிறது (சுமார் 12 வினாடிகள்), தயவுசெய்து காத்திருக்கவும்..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "இணைக்கப்பட்ட வயர்லெஸ் நெட்வொர்க்: {}, சிக்னல் வலிமை: {}%, பாதுகாப்பு வகை: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "உண்மையான பேட்டரி ஆரோக்கியம்: அதன் அசல் திறனில் {}%."
+
+msgid "Saludable"
+msgstr "ஆரோக்கியமான"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "வயர்லெஸ் நெட்வொர்க் சாதனம் முடக்கப்பட்டுள்ளது"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "வயர்லெஸ் நெட்வொர்க் சாதனம் இயக்கப்பட்டது"
+
+msgid "Sin autenticación (abierta)"
+msgstr "அங்கீகாரம் ஏதுமில்லை (திறந்தநிலை)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "வெப்பநிலை: {} டிகிரி செல்சியஸ்."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "மதிப்பிடப்பட்ட மீதமுள்ள நேரம்: {} மணிநேரம் மற்றும் {} நிமிடங்கள்."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "கிராபிக்ஸ் அட்டை வெப்பநிலை அலகு:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "இணைய வேகம். பதிவிறக்கம்: {} ஒரு வினாடிக்கு மெகாபைட்ஸ். பதிவேற்றம்: {} ஒரு வினாடிக்கு மெகாபைட்கள்."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "இணைய வேகம். தாமதம்: {} மில்லி விநாடிகள். பதிவிறக்கம்: {} ஒரு வினாடிக்கு மெகாபைட்ஸ். பதிவேற்றம்: {} ஒரு வினாடிக்கு மெகாபைட்கள்."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "மதிப்பிடப்பட்ட மீதமுள்ள பயனுள்ள ஆயுள்: {} சதவீதம்."
+
+msgid "conectado"
+msgstr "இணைக்கப்பட்டுள்ளது"
+
+msgid "de red"
+msgstr "நெட்வொர்க்"
+
+msgid "desconectado"
+msgstr "ஆஃப்லைனில்"
+
+msgid "día"
+msgstr "நாள்"
+
+msgid "días"
+msgstr "நாட்கள்"
+
+msgid "estado sólido (SSD)"
+msgstr "திட நிலை (SSD)"
+
+msgid "fijo"
+msgstr "சரி செய்யப்பட்டது"
+
+msgid "hora"
+msgstr "மணி"
+
+msgid "horas"
+msgstr "மணி"
+
+msgid "minuto"
+msgstr "நிமிடம்"
+
+msgid "minutos"
+msgstr "நிமிடங்கள்"
+
+msgid "rígido (HDD)"
+msgstr "திடமான (HDD)"
+
+msgid "segundo"
+msgstr "இரண்டாவது"
+
+msgid "segundos"
+msgstr "வினாடிகள்"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (வட்டு {driveType}): {totalSpace} இல் {usedSpace} பயன்படுத்தப்பட்டது ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (நெட்வொர்க் டிரைவ்): கிடைக்கவில்லை."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "வட்டுகளிலிருந்து தகவலைப் பெற முடியவில்லை அல்லது நிர்வாகி அனுமதி ரத்து செய்யப்பட்டது."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "கணினி சுருக்கத்தைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener la información del procesador."
+msgstr "செயலி தகவலைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "RAM நினைவகத்திலிருந்து தகவலைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "செயலி அதிர்வெண்ணைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "வட்டு இயக்கி தகவலைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "வயர்லெஸ் நெட்வொர்க் நிலையைப் பெறுவதில் பிழை."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "விண்டோஸ் பதிப்பைப் பெறுவதில் பிழை."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "பேட்டரி இல்லை அல்லது அது டெஸ்க்டாப் கணினி."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "இது சராசரி செயலி சுமை, வெப்பநிலை மற்றும் ஒவ்வொரு மையத்தின் சுமையையும் வழங்குகிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "செயலி சுமை, வெப்பநிலை மற்றும் கோர்கள்"
+
+msgid "temperatura: {}"
+msgstr "வெப்பநிலை: {}"
+
+msgid "temperatura no disponible"
+msgstr "வெப்பநிலை கிடைக்கவில்லை"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU ஏற்றம் {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "சராசரி CPU ஏற்றம் {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "டிகிரி செல்சியஸ்"
+
+msgid "grados Fahrenheit"
+msgstr "டிகிரி பாரன்ஹீட்"
+
+msgid "Alertas automáticas del sistema"
+msgstr "தானியங்கி அமைப்பு எச்சரிக்கைகள்"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "பேட்டரி முழுவதுமாக சார்ஜ் ஆனவுடன் தெரிவிக்கவும் (100%)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "பேட்டரி குறைவாக இருக்கும்போது தெரிவிக்கவும் (15% அல்லது குறைவாக)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "செயலி வெப்பநிலை மிக அதிகமாக இருந்தால் (85 °C அல்லது அதற்கு மேல்)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "பேட்டரி முழுமையாக 100% சார்ஜ் செய்யப்பட்டது. நீங்கள் சார்ஜரைத் துண்டிக்கலாம்."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "எச்சரிக்கை: பேட்டரி குறைந்தது {}%. சாதனத்தை சக்தியுடன் இணைக்கவும்."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "எச்சரிக்கை: உயர் செயலி வெப்பநிலை ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "S.M.A.R.T அறிவிக்கிறது. சுகாதார நிலை, வெப்பநிலை மற்றும் சேமிப்பு வட்டுகளின் நிலை. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "அதிக CPU ஐ உட்கொள்ளும் 5 செயல்முறைகள் மற்றும் அதிக RAM ஐ பயன்படுத்தும் 5 செயல்முறைகளை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "உண்மையான நேரத்தில் இணைய பதிவிறக்கம் மற்றும் பதிவேற்ற வேகத்தை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "பேட்டரி நிலை, மீதமுள்ள நேரம் மற்றும் ஆரோக்கிய உடைகள் ஆகியவற்றை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "இணைக்கப்பட்ட புளூடூத் சாதனங்களின் பேட்டரி அளவை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "வட்டு நிலை வினவல் ஏற்கனவே செயலில் உள்ளது, காத்திருக்கவும்..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "வட்டு நிலை வினவல் செயலில் உள்ளது, காத்திருக்கவும்..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "செயல்முறை கலந்தாய்வு ஏற்கனவே நடந்து கொண்டிருக்கிறது, காத்திருக்கவும்..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "செயல்முறை கலந்தாய்வு நடந்து கொண்டிருக்கிறது, காத்திருக்கவும்..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "இணைய வேக சோதனை ஏற்கனவே நடந்து கொண்டிருக்கிறது, தயவுசெய்து காத்திருக்கவும்..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "இணைய வேக சோதனை நடந்து கொண்டிருக்கிறது, காத்திருக்கவும்..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "பேட்டரி வினவல் ஏற்கனவே செயலில் உள்ளது, காத்திருக்கவும்..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "பேட்டரி வினவல் செயலில் உள்ளது, காத்திருக்கவும்..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "புளூடூத் சாதனங்களைத் தேடுவது ஏற்கனவே செயலில் உள்ளது, காத்திருக்கவும்..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "புளூடூத் சாதனங்களைத் தேடுவது செயலில் உள்ளது, காத்திருக்கவும்..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "முடிவு கிளிப்போர்டுக்கு நகலெடுக்கப்படும்."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "புளூடூத் சாதனத்தின் பேட்டரி குறைவாக இருக்கும்போது தெரிவிக்கவும் (20% அல்லது அதற்கும் குறைவாக)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "வைஃபை நெட்வொர்க் நிலை மாறும்போது தெரிவிக்கவும் (இணைப்பு அல்லது துண்டிப்பு)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "எச்சரிக்கை: புளூடூத் சாதனத்தில் {} பேட்டரி குறைவாக உள்ளது {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "வைஃபை சிக்னல்: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "வைஃபை சிக்னல் வலிமை மாறும்போது தெரிவிக்கவும்"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "சாதனத்தின் பேட்டரி குறைவாக இருக்கும்போது தெரிவிக்கவும்"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&சாதனத்தின் குறைந்த பேட்டரி எச்சரிக்கைக்கான சதவீதம்:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "புளூடூத் சாதனத்தின் பேட்டரி குறைவாக இருக்கும்போது தெரிவிக்கவும்"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "புளூடூத் குறைந்த பேட்டரி எச்சரிக்கைக்கான சதவீதம்:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "சாதனத்தின் பேட்டரி சார்ஜ் ஆகும் போது தெரிவிக்கவும்"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&முழு பேட்டரி எச்சரிக்கைக்கான சதவீதம்:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "செயலியின் வெப்பநிலை அதிகமாக இருந்தால் தெரிவிக்கவும்"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&செயலி வெப்பமூட்டும் எச்சரிக்கைக்கான வெப்பநிலை (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "பேட்டரி சார்ஜ் ஆனது {}%. நீங்கள் சார்ஜரைத் துண்டிக்கலாம்."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} நினைவகம் {mem}, கிராபிக்ஸ் செயலி ஏற்றம்: {util}%, வெப்பநிலை: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} நினைவகம் {mem}, கிராபிக்ஸ் செயலி ஏற்றம்: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} கிராபிக்ஸ் செயலி ஏற்றம்: {util}%, வெப்பநிலை: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} கிராபிக்ஸ் செயலி ஏற்றம்: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "வட்டுகளில் (SSD / HDD) உடல்நலப் பிரச்சினைகள் அல்லது முக்கியமான உடைகள் கண்டறியப்பட்டால் தெரிவிக்கவும்"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "SSD விழிப்பூட்டலுக்கான வீர் சதவீதம்:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "முக்கியமான எச்சரிக்கை: வட்டு {} உடல்நலப் பிரச்சினைகளை முன்வைக்கிறது. காப்புப்பிரதியை உருவாக்கவும்."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "எச்சரிக்கை: SSD {} ஆனது {}% லைஃப் வேரை எட்டிவிட்டது."
+
+msgid "Disco"
+msgstr "வட்டு"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&பிற செருகுநிரல்களுடன் முரண்பாடுகளைச் சரிபார்க்கவும்..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "இணக்க எச்சரிக்கைகள்:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "நேரடி ஷார்ட்கட் மோதல்கள்:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "மோதல் தணிக்கை - சிஸ்டம் மானிட்டர்"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "விசைப்பலகை குறுக்குவழி முரண்பாடுகள் அல்லது பொருந்தாத செருகுநிரல்கள் இந்த அமைப்பில் செயலில் இல்லை."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "குறிப்பு: என்விடிஏ பதிவுக் கோப்பிலும் முழு விவரங்கள் பதிவு செய்யப்பட்டுள்ளன."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "சிஸ்டம் மானிட்டரின் செயலில் உள்ள நிகழ்வைப் பெற முடியவில்லை."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "சிஸ்டம் மானிட்டர்: பிற செருகுநிரல்களுடன் முரண்பாடுகள் எதுவும் கண்டறியப்படவில்லை."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "சிஸ்டம் மானிட்டர்: {count} சாத்தியமான முரண்பாடுகள் அல்லது எச்சரிக்கைகள் கண்டறியப்பட்டன. மேலும் விவரங்களுக்கு என்விடிஏ பதிவைப் பார்க்கவும்."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "விசைப்பலகை குறுக்குவழி முரண்பாடுகள் அல்லது சிஸ்டம் மானிட்டருடன் பொருந்தாத செருகுநிரல்களைச் சரிபார்க்கவும்."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "வட்டு பகுப்பாய்வு ஏற்கனவே நடந்து கொண்டிருக்கிறது, காத்திருக்கவும்..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "செயல்முறை பகுப்பாய்வு ஏற்கனவே நடந்து கொண்டிருக்கிறது, காத்திருக்கவும்..."
+
+msgid "Error"
+msgstr "பிழை"
+
+msgid "Dispositivo"
+msgstr "சாதனம்"
+
+msgid "Dispositivo Bluetooth"
+msgstr "புளூடூத் சாதனம்"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "ஆதாரச் சுருக்கம் (RAM மற்றும் CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "உடல் மற்றும் மெய்நிகர் ரேம் நினைவகம்"
+
+msgid "Espacio en unidades de disco"
+msgstr "ஓட்டு இடம்"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "வைஃபை நெட்வொர்க் நிலை மற்றும் தகவல்"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU அதிர்வெண் மற்றும் வேகம்"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "விண்டோஸ் பதிப்பு மற்றும் கட்டிடக்கலை"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "கணினி இயக்க நேரம்"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU செயல்திறன் மற்றும் நினைவகம்"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "சுகாதார எஸ்.எம்.ஏ.ஆர்.டி. மற்றும் வட்டு வெப்பநிலை"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "அதிக வள நுகர்வு கொண்ட செயல்முறைகள்"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "நிகழ்நேர நெட்வொர்க் வேகம்"
+
+msgid "Batería avanzada y salud"
+msgstr "மேம்பட்ட பேட்டரி மற்றும் ஆரோக்கியம்"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "புளூடூத் சாதனத்தின் பேட்டரி நிலை"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "ரிசோர்ஸ் மானிட்டர் (NVDA+Shift+1 முதல் 8 வரை மற்றும் NVDA+Shift+E போன்ற குறுக்குவழிகளைப் பகிர்ந்து கொள்கிறது, இதனால் கட்டளைகள் புறக்கணிக்கப்படும் அல்லது பிரதி/ஆங்கில பதில்கள் வழங்கப்படுகின்றன)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "சிறந்த செயல்முறை (மேலடுக்குகள் குறுக்குவழிகள் அல்லது செயல்முறை நுகர்வு விளம்பரங்கள்)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (வன்பொருள் மற்றும் கணினி தகவல் குறுக்குவழிகளை மேலெழுதுகிறது)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "பேட்டரி நிலை (பேட்டரி நிலை குறுக்குவழிகளை மேலெழுதுகிறது)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "பயன்படுத்தப்படும் ரேம் நினைவகம் மற்றும் சராசரி செயலி சுமை ஆகியவற்றை வழங்குகிறது."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "உடல் மற்றும் மெய்நிகர் ரேமின் பயன்படுத்தப்பட்ட மற்றும் மொத்த இடத்தை வழங்குகிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "நிலையான, நீக்கக்கூடிய மற்றும் நெட்வொர்க் டிரைவ்களுக்கான பயன்படுத்தப்பட்ட மற்றும் மொத்த இடத்தைக் காட்டுகிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "தற்போதைய செயலி வேகம் மற்றும் அதிர்வெண் (GHz), அடிப்படை வேகம் மற்றும் டர்போ பூஸ்ட் பயன்முறை நிலையை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "உடல் வட்டுகளின் ஆரோக்கிய நிலை (S.M.A.R.T), வெப்பநிலை மற்றும் பயனுள்ள வாழ்க்கை ஆகியவற்றை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "தற்போது அதிக CPU மற்றும் RAM ஐ பயன்படுத்தும் செயல்முறைகளை அறிவிக்கிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "பேட்டரி {}%. மாநிலம்: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "உண்மையான பேட்டரி ஆரோக்கியம்: அதன் அசல் திறனில் {} %."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "பேட்டரி முழுமையாக 100% சார்ஜ் செய்யப்பட்டது. நீங்கள் சார்ஜரைத் துண்டிக்கலாம்."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "பேட்டரி சார்ஜ் ஆனது {}%. நீங்கள் சார்ஜரைத் துண்டிக்கலாம்."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "எச்சரிக்கை: பேட்டரி குறைந்தது {}%. சாதனத்தை சக்தியுடன் இணைக்கவும்."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "எச்சரிக்கை: புளூடூத் சாதனத்தில் குறைந்த பேட்டரி {} % இல் உள்ளது."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "எச்சரிக்கை: SSD {} ஆனது {} % ஆயுள் உடையை அடைந்துள்ளது."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "வைஃபை சிக்னல்: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&பேட்டரி சோதனை இடைவெளி (நிமிடங்கள்):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU வெப்பநிலை சரிபார்ப்பு இடைவெளி (நிமிடங்கள்):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "புளூடூத் சோதனை இடைவெளி (நிமிடங்கள்):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "டிஸ்க்&காஸ் சரிபார்ப்பு இடைவெளி (நிமிடங்கள்):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "கிராபிக்ஸ் கார்டு (GPU) வெப்பநிலை அதிகமாக இருந்தால் தெரிவிக்கவும்"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU ஓவர் ஹீட் அலர்ட் வெப்பநிலை (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU வெப்பநிலை சரிபார்ப்பு இடைவெளி (நிமிடங்கள்):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "எச்சரிக்கை: அதிக {name} வெப்பநிலை ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "செயலியின் சராசரி சுமை மற்றும் ஒவ்வொரு மையத்தின் சுமையையும் வழங்குகிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU ஏற்றம் {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "சராசரி CPU ஏற்றம் {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "செயலி சுமை மற்றும் கோர்கள்"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&வெப்பநிலை அலகு (CPU மற்றும் GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&செயலி வெப்பமூட்டும் எச்சரிக்கைக்கான வெப்பநிலை:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "GPU வெப்பமூட்டும் எச்சரிக்கைக்கான வெப்பநிலை:"
+

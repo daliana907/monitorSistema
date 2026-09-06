@@ -1,0 +1,716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2021-07-09 12:31-0700\n"
+"PO-Revision-Date: 2023-01-08 07:36-0800\n"
+"Last-Translator: Robert Hänggi <aarjay.robert@gmail.com>\n"
+"Language-Team: \n"
+"Language: de_CH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "Byte"
+
+msgid " bytes"
+msgstr "Bytes"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Datenträger werden analysiert, bitte warten..."
+
+msgid "Analizando procesos..."
+msgstr "Prozesse analysieren..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kündigt den Ausfall des Grafikkartenspeichers (VRAM) an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Zeigt Batteriestatus, verbleibende Zeit und Gesundheitszustand an."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Gibt den Gesundheitszustand (S.M.A.R.T), die Temperatur und die Nutzungsdauer physischer Festplatten bekannt."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Zeigt den Akkuladestand verbundener Bluetooth-Geräte an."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt den Namen des drahtlosen Netzwerks (SSID), die Signalstärke und das Sicherheitsprotokoll bekannt. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt den Prozentsatz der gesamten CPU-Auslastung und die Auslastung jedes einzelnen Kerns an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kündigt die Systemverfügbarkeit an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt die Menge des installierten RAM, die genutzte Menge und den Prozentsatz sowie die Menge des freien RAM an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt die Kapazität, den freien Speicherplatz und den belegten Speicherplatz aller verfügbaren Festplatten im System bekannt. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt die maximale und aktuelle CPU-Frequenz an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt den verwendeten Speicher, die Gesamtzahl und die Auslastung des Grafikprozessors (GPU) an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Kündigt die Download- und Upload-Geschwindigkeit im Internet in Echtzeit an."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kündigt die Windows-Version und Systemarchitektur an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Gibt die Prozesse bekannt, die derzeit die meiste CPU und RAM verbrauchen."
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth-Akku:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Batterie bei {} %. Zustand: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Suche nach Bluetooth-Geräten, bitte warten..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Gesamt-CPU-Last: {} %"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Gesamt-CPU-Auslastung: {} %. Einzelne Kerne: {} ."
+
+msgid "Celsius"
+msgstr "Celsius"
+
+msgid "Conectado a {}"
+msgstr ""
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Batteriestatus wird überprüft, bitte warten..."
+
+msgid "Dañado (Crítico)"
+msgstr "Beschädigt (kritisch)"
+
+msgid "Desconectado de {}"
+msgstr ""
+
+msgid "Desconocido"
+msgstr "Unbekannt"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Lebensdauerverschleiß: {} Prozent (Gesundheit: {} %)."
+
+msgid "Disco desconocido"
+msgstr "unbekannte Festplatte"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Datenträger {}: Geben Sie {} ein. Allgemeiner Zustand: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Der Server hat den Test blockiert, weil er ihn zu oft hintereinander durchgeführt hat. Warten Sie ein paar Minuten und versuchen Sie es erneut."
+
+msgid "En riesgo (Advertencia)"
+msgstr "Gefährdet (Warnung)"
+
+msgid "Error al consultar discos."
+msgstr "Fehler beim Abfragen der Datenträger."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Fehler beim Abfragen des Integritätsstatus der Datenträger."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Fehler beim Messen der Internetgeschwindigkeit."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Fehler beim Abrufen der Grafikkarteninformationen."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Fehler beim Abrufen der Speicherinformationen von der Grafikkarte."
+
+msgid "Error analizando procesos."
+msgstr "Fehler bei der Analyse von Prozessen."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Fehler beim Abfragen von Bluetooth-Geräten."
+
+msgid "Error consultando la batería."
+msgstr "Fehler beim Überprüfen der Batterie."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Aktuelle CPU-Frequenz: {} Gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Maximale CPU-Frequenz: {Gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: Grafikprozessorauslastung: {} %, Temperatur: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: Grafikprozessorauslastung: {} %."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: Speicher {}, Grafikprozessorauslastung: {} %, Temperatur: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: Speicher {}, Grafikprozessorauslastung: {} %."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Zugänglicher Ressourcenmonitor für NVDA. Überprüfen Sie in Echtzeit die CPU-Auslastung, die Live-Frequenz, den RAM-Speicher, Festplatten, das Wi-Fi-Netzwerk, die Grafikkarte (GPU- und VRAM-Speicher), die Windows-Version und die Betriebszeit."
+
+msgid "Monitor de Sistema"
+msgstr "Systemmonitor"
+
+msgid "Monitor del Sistema"
+msgstr "Systemmonitor"
+
+msgid "Monitor del sistema"
+msgstr "Systemmonitor"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Es ist kein Akku vorhanden oder es handelt sich um einen Desktop-Computer."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Keine drahtlosen Netzwerkverbindungen"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Keine Grafikkartendaten verfügbar."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Es sind keine Daten zum Grafikkartenspeicher verfügbar."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Keine drahtlosen Netzwerkgeräte"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Keine Grafikkarteninformationen verfügbar."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Es sind keine Informationen zum Grafikkartenspeicher verfügbar."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Es wurden keine physischen Datenträger gefunden, die die Diagnose unterstützen."
+
+msgid "No se encontraron discos."
+msgstr "Es wurden keine Datenträger gefunden."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Es wurden keine Bluetooth-Geräte gefunden, die ihren Akku melden."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Es wurden keine verfügbaren Festplattenlaufwerke gefunden."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Prozesse konnten nicht abgerufen werden."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Die Systemverfügbarkeit konnte nicht ermittelt werden."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Es konnten keine Informationen aus dem Speicher abgerufen werden."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Grafikkarteninformationen konnten nicht abgerufen werden."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Es konnten keine Informationen von den Datenträgern abgerufen werden."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Es konnten keine Speicherinformationen von der Grafikkarte abgerufen werden."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Prozess mit der meisten CPU: {} ({} %)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Prozess mit mehr RAM: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Gesamt-RAM: {}. Gebraucht: {} ({}%). Freier RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Präzisionstest wird durchgeführt (ca. 12 Sekunden), bitte warten..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Verbundenes drahtloses Netzwerk: {}, Signalstärke: {} %, Sicherheitstyp: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Tatsächlicher Batteriezustand: {} % seiner ursprünglichen Kapazität."
+
+msgid "Saludable"
+msgstr "Gesund"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Ein drahtloses Netzwerkgerät wurde deaktiviert"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Ein drahtloses Netzwerkgerät wurde aktiviert"
+
+msgid "Sin autenticación (abierta)"
+msgstr ""
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Temperatur: {} Grad Celsius."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Geschätzte verbleibende Zeit: {} Stunden und {} Minuten."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Grafikkarten-Temperatureinheit:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internetgeschwindigkeit. Download: {} Megabyte pro Sekunde. Hochladen: {} Megabyte pro Sekunde."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internetgeschwindigkeit. Latenz: {} Millisekunden. Download: {} Megabyte pro Sekunde. Hochladen: {} Megabyte pro Sekunde."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Geschätzte verbleibende Nutzungsdauer: {} Prozent."
+
+msgid "conectado"
+msgstr "verbunden"
+
+msgid "de red"
+msgstr "Netzwerk"
+
+msgid "desconectado"
+msgstr "offline"
+
+msgid "día"
+msgstr "Tag"
+
+msgid "días"
+msgstr "Tage"
+
+msgid "estado sólido (SSD)"
+msgstr "Festkörper (SSD)"
+
+msgid "fijo"
+msgstr "behoben"
+
+msgid "hora"
+msgstr "Stunde"
+
+msgid "horas"
+msgstr "Stunden"
+
+msgid "minuto"
+msgstr "Minute"
+
+msgid "minutos"
+msgstr "Minuten"
+
+msgid "rígido (HDD)"
+msgstr "starr (HDD)"
+
+msgid "segundo"
+msgstr "zweitens"
+
+msgid "segundos"
+msgstr "Sekunden"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (Datenträger {driveType}): {usedSpace} von {totalSpace} verwendet ({percent} %)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (Netzlaufwerk): nicht verfügbar."
+
+msgid "{}: {}%"
+msgstr "{}:{}%"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Es konnten keine Informationen von den Datenträgern abgerufen werden oder die Administratorberechtigung wurde widerrufen."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Fehler beim Abrufen der Systemzusammenfassung."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Fehler beim Abrufen der Prozessorinformationen."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Fehler beim Abrufen von Informationen aus dem RAM-Speicher."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Fehler beim Abrufen der Prozessorfrequenz."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Fehler beim Abrufen der Laufwerksinformationen."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Fehler beim Abrufen des WLAN-Status."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Fehler beim Abrufen der Windows-Version."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Es ist kein Akku vorhanden oder es handelt sich um einen Desktop-Computer."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Es zeigt die durchschnittliche Prozessorlast, Temperatur und die Auslastung jedes Kerns an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Prozessorauslastung, Temperatur und Kerne"
+
+msgid "temperatura: {}"
+msgstr "Temperatur: {}"
+
+msgid "temperatura no disponible"
+msgstr "Temperatur nicht verfügbar"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU-Auslastung bei {} %, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Durchschnittliche CPU-Auslastung bei {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "Grad Celsius"
+
+msgid "grados Fahrenheit"
+msgstr "Grad Fahrenheit"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Automatische Systemwarnungen"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Benachrichtigen Sie, wenn der Akku vollständig geladen ist (100 %)."
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Benachrichtigen, wenn der Akku fast leer ist (15 % oder weniger)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Benachrichtigen, wenn die Prozessortemperatur sehr hoch ist (85 °C oder mehr)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Der Akku ist zu 100 % vollständig aufgeladen. Sie können das Ladegerät trennen."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Warnung: Der Batteriestand liegt bei {} %. Schließen Sie das Gerät an die Stromversorgung an."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Warnung: Hohe Prozessortemperatur ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "kündigt S.M.A.R.T. an Gesundheitszustand, Temperatur und Zustand der Speicherplatten. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt die 5 Prozesse bekannt, die die meiste CPU verbrauchen, und die 5, die den meisten RAM verbrauchen. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Kündigt die Download- und Upload-Geschwindigkeit im Internet in Echtzeit an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Zeigt Batteriestatus, verbleibende Zeit und Gesundheitszustand an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Zeigt den Akkuladestand verbundener Bluetooth-Geräte an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Die Abfrage des Festplattenstatus läuft bereits, bitte warten..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Die Abfrage des Festplattenstatus läuft, bitte warten..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Die Prozessberatung läuft bereits, bitte warten..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Die Prozessberatung läuft, bitte warten..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Der Internet-Geschwindigkeitstest läuft bereits, bitte warten..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Internet-Geschwindigkeitstest läuft, bitte warten..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Die Batterieabfrage läuft bereits, bitte warten..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Batterieabfrage läuft, bitte warten..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Die Suche nach Bluetooth-Geräten läuft bereits, bitte warten..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Die Suche nach Bluetooth-Geräten läuft, bitte warten..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Das Ergebnis wird in die Zwischenablage kopiert."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Benachrichtigen, wenn der Akku eines Bluetooth-Geräts schwach ist (20 % oder weniger)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Benachrichtigen, wenn sich der Wi-Fi-Netzwerkstatus ändert (Verbindung oder Trennung)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Warnung: Der Akku des Bluetooth-Geräts {} ist um {} % schwach."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "WLAN-Signal: {} %."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Benachrichtigen, wenn sich die WLAN-Signalstärke ändert"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Benachrichtigen Sie, wenn der Akku des Geräts schwach ist"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Prozentsatz für Warnung bei niedrigem Batteriestand des Geräts:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Benachrichtigen Sie, wenn der Akku eines Bluetooth-Geräts schwach ist"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Prozentsatz für Bluetooth-Warnung bei niedrigem Batteriestand:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Benachrichtigen Sie, wenn der Akku des Geräts aufgeladen ist"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Prozentsatz für Warnung bei vollem Akku:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Benachrichtigen, wenn die Prozessortemperatur hoch ist"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Temperatur für Prozessorüberhitzungsalarm (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Akku zu {} % geladen. Sie können das Ladegerät trennen."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} Speicher {mem}, Grafikprozessorauslastung: {util} %, Temperatur: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} Speicher {mem}, Grafikprozessorauslastung: {util} %."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} Grafikprozessorauslastung: {util} %, Temperatur: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} Grafikprozessorauslastung: {util} %."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Benachrichtigen Sie, wenn Gesundheitsprobleme oder kritischer Verschleiß auf Festplatten (SSD/HDD) festgestellt werden."
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Verschleißprozentsatz für SSD-Warnung:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kritische Warnung: Der Datenträger {} weist Gesundheitsprobleme auf. Erstellen Sie ein Backup."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Warnung: Die SSD {} hat {} % Lebensdauerverschleiß erreicht."
+
+msgid "Disco"
+msgstr "Diskette"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Auf Konflikte mit anderen Plugins prüfen..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "Kompatibilitätswarnungen:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "DIREKTE ABKÜRZUNGSKOLLISIONEN:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Konfliktaudit – Systemmonitor"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Auf diesem System sind keine Tastaturkürzelkonflikte oder inkompatible Plugins aktiv."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Hinweis: Die vollständigen Details wurden auch in der NVDA-Protokolldatei aufgezeichnet."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Die aktive Instanz von System Monitor konnte nicht abgerufen werden."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Systemmonitor: Keine Konflikte mit anderen Plugins festgestellt."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Systemmonitor: {count} mögliche Konflikte oder Warnungen erkannt. Weitere Details finden Sie im NVDA-Protokoll."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Suchen Sie mit System Monitor nach Tastaturkürzelkonflikten oder inkompatiblen Plugins."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Die Festplattenanalyse läuft bereits, bitte warten..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Die Prozessanalyse läuft bereits, bitte warten..."
+
+msgid "Error"
+msgstr "Fehler"
+
+msgid "Dispositivo"
+msgstr "Gerät"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth-Gerät"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Ressourcenübersicht (RAM und CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Physischer und virtueller RAM-Speicher"
+
+msgid "Espacio en unidades de disco"
+msgstr "Platz auf dem Laufwerk"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Status und Informationen zum Wi-Fi-Netzwerk"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU-Frequenz und -Geschwindigkeit"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows-Version und -Architektur"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Systemverfügbarkeit"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU-Leistung und Speicher"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Gesundheit S.M.A.R.T. und Scheibentemperatur"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Prozesse mit höherem Ressourcenverbrauch"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Netzwerkgeschwindigkeit in Echtzeit"
+
+msgid "Batería avanzada y salud"
+msgstr "Erweiterte Batterie und Gesundheit"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Akkustand des Bluetooth-Geräts"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Ressourcenmonitor (verwendet die gleichen Tastenkombinationen NVDA+Umschalt+1 bis 8 und NVDA+Umschalt+E, wodurch Befehle ignoriert oder doppelte/englische Antworten ausgegeben werden)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Top-Prozess (überlagert Verknüpfungen oder Prozessverbrauchsanzeigen)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (überlagert Hardware- und Systeminformationsverknüpfungen)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Batteriestatus (überlagert Verknüpfungen zum Batteriestand)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Zeigt den verwendeten RAM-Speicher und die durchschnittliche Prozessorlast an."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Zeigt den genutzten und gesamten Speicherplatz des physischen und virtuellen RAM an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Zeigt den belegten und gesamten Speicherplatz für Fest-, Wechsel- und Netzlaufwerke an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt die aktuelle Prozessorgeschwindigkeit und -frequenz (GHz), die Grundgeschwindigkeit und den Status des Turbo-Boost-Modus bekannt. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt den Gesundheitszustand (S.M.A.R.T), die Temperatur und die Nutzungsdauer physischer Festplatten bekannt. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Gibt die Prozesse bekannt, die derzeit die meiste CPU und RAM verbrauchen. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Batterie bei {} %. Zustand: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Tatsächlicher Batteriezustand: {} % seiner ursprünglichen Kapazität."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Der Akku ist zu 100 % vollständig aufgeladen. Sie können das Ladegerät trennen."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Akku zu {} % geladen. Sie können das Ladegerät trennen."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Warnung: Der Batteriestand liegt bei {} %. Schließen Sie das Gerät an die Stromversorgung an."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Warnung: Der Akku des Bluetooth-Geräts {} ist um {} % schwach."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Warnung: Die SSD {} hat {} % Lebensdauerverschleiß erreicht."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "WLAN-Signal: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Batterieprüfintervall (Minuten):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "Überprüfungsintervall der CPU-Temperatur (Minuten):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth-Prüfintervall (Minuten):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Disc&cos-Prüfintervall (Minuten):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Benachrichtigen, wenn die Temperatur der Grafikkarte (GPU) hoch ist"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU-Überhitzungsalarmtemperatur (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU-Temperaturprüfintervall (Minuten):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Warnung: Hohe {name}-Temperatur ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Zeigt die durchschnittliche Auslastung des Prozessors und die Auslastung jedes Kerns an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU-Auslastung bei {} %."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Durchschnittliche CPU-Auslastung bei {} %, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Prozessorauslastung und Kerne"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Temperatureinheit (CPU und GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Temperatur für Prozessor-Überhitzungswarnung:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Temperatur für GPU-Überhitzungswarnung:"
+

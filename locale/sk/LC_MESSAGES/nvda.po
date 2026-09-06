@@ -1,0 +1,717 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-05-21 20:10-0600\n"
+"Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
+"Language-Team: \n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
+"X-Generator: Poedit 3.6\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "byte"
+
+msgid " bytes"
+msgstr "bajtov"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Prebieha analýza diskov, čakajte..."
+
+msgid "Analizando procesos..."
+msgstr "Analýza procesov..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje poruchu pamäte grafickej karty (VRAM). Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Oznamuje stav batérie, zostávajúci čas a zdravotné opotrebovanie."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Oznamuje zdravotný stav (S.M.A.R.T), teplotu a životnosť fyzických diskov."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Oznamuje úroveň nabitia batérie pripojených zariadení Bluetooth."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje názov bezdrôtovej siete (SSID), silu signálu a bezpečnostný protokol. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje percento celkovej záťaže CPU a záťaž každého jednotlivého jadra. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje dostupnosť systému. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje množstvo nainštalovanej pamäte RAM, použité množstvo a percento a množstvo voľnej pamäte RAM. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje kapacitu, voľné miesto a využité miesto všetkých dostupných diskov v systéme. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje maximálnu a aktuálnu frekvenciu CPU. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje využitú pamäť, súčet a zaťaženie grafického procesora (GPU). Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Oznamuje rýchlosť sťahovania a nahrávania z internetu v reálnom čase."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje verziu systému Windows a architektúru systému. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Oznamuje procesy, ktoré momentálne spotrebúvajú najviac CPU a RAM."
+
+msgid "Batería Bluetooth: "
+msgstr "Batéria Bluetooth:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Batéria na {} %. Štát: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Hľadajú sa zariadenia Bluetooth, čakajte..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Celkové zaťaženie procesora: {} %"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Celkové zaťaženie procesora: {} %. Jednotlivé jadrá: {} ."
+
+msgid "Celsius"
+msgstr "Celzia"
+
+msgid "Conectado a {}"
+msgstr "Pripojené k sieti {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Kontroluje sa stav batérie, čakajte..."
+
+msgid "Dañado (Crítico)"
+msgstr "Poškodené (kritické)"
+
+msgid "Desconectado de {}"
+msgstr "Odpojené od siete {}"
+
+msgid "Desconocido"
+msgstr "Neznámy"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Životnosť opotrebovania: {} percent (Zdravie: {} %)."
+
+msgid "Disco desconocido"
+msgstr "neznámy disk"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Disk {}: Napíšte {}. Všeobecný stav: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Server zablokoval test, pretože ho vykonal príliš veľakrát za sebou. Počkajte niekoľko minút a skúste to znova."
+
+msgid "En riesgo (Advertencia)"
+msgstr "V ohrození (varovanie)"
+
+msgid "Error al consultar discos."
+msgstr "Chyba pri dotazovaní na disky."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Chyba pri dotazovaní na zdravotný stav diskov."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Chyba pri meraní rýchlosti internetu."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Chyba pri získavaní informácií o grafickej karte."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Chyba pri získavaní informácií o pamäti z grafickej karty."
+
+msgid "Error analizando procesos."
+msgstr "Chyba pri analýze procesov."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Chyba pri dopytovaní zariadení Bluetooth."
+
+msgid "Error consultando la batería."
+msgstr "Chyba pri kontrole batérie."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheita"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Aktuálna frekvencia procesora: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Maximálna frekvencia procesora: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: zaťaženie grafického procesora: {} %, teplota: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: zaťaženie grafického procesora: {} %."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: pamäť {}, zaťaženie grafického procesora: {} %, teplota: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: pamäť {}, zaťaženie grafického procesora: {} %."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Prístupný monitor zdrojov pre NVDA. Skontrolujte v reálnom čase zaťaženie procesora, aktuálnu frekvenciu, pamäť RAM, disky, sieť Wi-Fi, grafickú kartu (pamäť GPU a VRAM), verziu systému Windows a dobu prevádzky."
+
+msgid "Monitor de Sistema"
+msgstr "Monitor systému"
+
+msgid "Monitor del Sistema"
+msgstr "Monitor systému"
+
+msgid "Monitor del sistema"
+msgstr "Monitor systému"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Nie je tam batéria alebo ide o stolný počítač."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Žiadne bezdrôtové sieťové pripojenia"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Nie sú k dispozícii žiadne údaje grafickej karty."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Nie sú k dispozícii žiadne údaje o pamäti grafickej karty."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Žiadne bezdrôtové sieťové zariadenia"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Nie sú k dispozícii žiadne informácie o grafickej karte."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Nie sú k dispozícii žiadne informácie o pamäti grafickej karty."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Nenašli sa žiadne fyzické disky podporujúce diagnózu."
+
+msgid "No se encontraron discos."
+msgstr "Nenašli sa žiadne disky."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Nenašli sa žiadne zariadenia Bluetooth, ktoré by hlásili svoju batériu."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Nenašli sa žiadne dostupné diskové jednotky."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Procesy sa nepodarilo získať."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Nepodarilo sa získať dostupnosť systému."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Nepodarilo sa získať informácie z pamäte."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Nepodarilo sa získať informácie o grafickej karte."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Nepodarilo sa získať informácie z diskov."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Nepodarilo sa získať informácie o pamäti z grafickej karty."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Proces s najväčším počtom CPU: {} ({} %)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Proces s viac RAM: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Celková RAM: {}. Použité: {} ({} %). Voľná RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Prebieha test presnosti (asi 12 sekúnd), čakajte..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Pripojená bezdrôtová sieť: {}, sila signálu: {} %, typ zabezpečenia: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Skutočný stav batérie: {} % pôvodnej kapacity."
+
+msgid "Saludable"
+msgstr "Zdravý"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "Bezdrôtové sieťové zariadenie bolo vypnuté"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "Bezdrôtové sieťové zariadenie bolo povolené"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Žiadne zabezpečenie (Bez hesla)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Teplota: {} stupňov Celzia."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Odhadovaný zostávajúci čas: {} hodín a {} minút."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Jednotka teploty grafickej karty:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Rýchlosť internetu. Sťahovanie: {} megabajtov za sekundu. Odovzdanie: {} megabajtov za sekundu."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Rýchlosť internetu. Latencia: {} milisekúnd. Sťahovanie: {} megabajtov za sekundu. Odovzdanie: {} megabajtov za sekundu."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Odhadovaná zostávajúca životnosť: {} percent."
+
+msgid "conectado"
+msgstr "pripojený"
+
+msgid "de red"
+msgstr "siete"
+
+msgid "desconectado"
+msgstr "offline"
+
+msgid "día"
+msgstr "deň"
+
+msgid "días"
+msgstr "dní"
+
+msgid "estado sólido (SSD)"
+msgstr "polovodičový (SSD)"
+
+msgid "fijo"
+msgstr "pevné"
+
+msgid "hora"
+msgstr "hodina"
+
+msgid "horas"
+msgstr "hodiny"
+
+msgid "minuto"
+msgstr "minútu"
+
+msgid "minutos"
+msgstr "minút"
+
+msgid "rígido (HDD)"
+msgstr "pevný (HDD)"
+
+msgid "segundo"
+msgstr "druhý"
+
+msgid "segundos"
+msgstr "sekúnd"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (disk {driveType}): využitý {usedSpace} z {totalSpace} ({percent} %)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (sieťová jednotka): nedostupné."
+
+msgid "{}: {}%"
+msgstr "{}:{} %"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Nepodarilo sa získať informácie z diskov alebo bolo zrušené oprávnenie správcu."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Chyba pri získavaní súhrnu systému."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Chyba pri získavaní informácií o procesore."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Chyba pri získavaní informácií z pamäte RAM."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Chyba pri získavaní frekvencie procesora."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Chyba pri získavaní informácií o diskovej jednotke."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Chyba pri získavaní stavu bezdrôtovej siete."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Chyba pri získavaní verzie systému Windows."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Nie je tam batéria alebo ide o stolný počítač."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Prezentuje priemernú záťaž procesora, teplotu a záťaž každého jadra. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Zaťaženie procesora, teplota a jadrá"
+
+msgid "temperatura: {}"
+msgstr "teplota: {}"
+
+msgid "temperatura no disponible"
+msgstr "teplota nie je k dispozícii"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "Zaťaženie procesora na {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Priemerné zaťaženie procesora pri {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "stupňov Celzia"
+
+msgid "grados Fahrenheit"
+msgstr "stupňov Fahrenheita"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Automatické systémové upozornenia"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Upozorniť, keď je batéria úplne nabitá (100 %)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Upozorniť, keď je batéria takmer vybitá (15 % alebo menej)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Upozorniť, ak je teplota procesora veľmi vysoká (85 °C alebo viac)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Batéria je plne nabitá na 100 %. Nabíjačku môžete odpojiť."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Upozornenie: Batéria je takmer vybitá na {} %. Pripojte zariadenie k napájaniu."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Upozornenie: Vysoká teplota procesora ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje S.M.A.R.T. zdravotný stav, teplota a stav úložných diskov. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje 5 procesov, ktoré spotrebúvajú najviac CPU a 5, ktoré spotrebúvajú najviac RAM. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje rýchlosť sťahovania a nahrávania z internetu v reálnom čase. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje stav batérie, zostávajúci čas a zdravotné opotrebovanie. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje úroveň nabitia batérie pripojených zariadení Bluetooth. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Dotaz na stav disku už prebieha, čakajte prosím..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Prebieha dotaz na stav disku, čakajte prosím..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Proces konzultácie už prebieha, čakajte prosím..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Prebieha konzultácia procesu, čakajte prosím..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Test rýchlosti internetu už prebieha, čakajte prosím..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Prebieha test rýchlosti internetu, čakajte prosím..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Dotaz na batériu už prebieha, čakajte prosím..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Prebieha dotaz na batériu, čakajte prosím..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Vyhľadávanie zariadení Bluetooth už prebieha, čakajte..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Prebieha vyhľadávanie zariadení Bluetooth, čakajte prosím..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Výsledok sa skopíruje do schránky."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Upozorniť, keď je batéria zariadenia Bluetooth takmer vybitá (20 % alebo menej)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Upozorniť na zmenu stavu siete Wi-Fi (pripojenie alebo odpojenie)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Upozornenie: Slabá batéria na zariadení Bluetooth {} pri {} %."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Signál Wi-Fi: {} %."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Upozorniť na zmenu sily signálu Wi-Fi"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Upozorniť, keď je batéria zariadenia takmer vybitá"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Percento upozornenia na slabú batériu zariadenia:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Upozorniť, keď je batéria zariadenia Bluetooth takmer vybitá"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Percento upozornenia na slabú batériu Bluetooth:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Upozorniť, keď je batéria zariadenia nabitá"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Percento upozornenia na plnú batériu:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Upozornite, ak je teplota procesora vysoká"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Teplota upozornenia na prehriatie procesora (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Batéria nabitá na {} %. Nabíjačku môžete odpojiť."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} pamäť {mem}, zaťaženie grafického procesora: {util}%, teplota: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} pamäť {mem}, zaťaženie grafického procesora: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} zaťaženie grafického procesora: {util}%, teplota: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} zaťaženie grafického procesora: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Upozorniť, ak sa na diskoch (SSD / HDD) zistia zdravotné problémy alebo kritické opotrebovanie"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Percento opotrebovania pre upozornenie SSD:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kritické upozornenie: Disk {} predstavuje zdravotné problémy. Urobte zálohu."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Upozornenie: SSD {} dosiahlo {}% životnosti opotrebovania."
+
+msgid "Disco"
+msgstr "Disk"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Skontrolovať konflikty s inými doplnkami..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "UPOZORNENIA O KOMPATIBILITE:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "KOLÍZIE PRIAMYCH SKRATKOV:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Audit konfliktov - Monitor systému"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "V tomto systéme nie sú aktívne žiadne konflikty klávesových skratiek ani nekompatibilné doplnky."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Poznámka: Všetky podrobnosti boli zaznamenané aj v súbore denníka NVDA."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Nepodarilo sa získať aktívnu inštanciu nástroja System Monitor."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "Monitor systému: Nezistili sa žiadne konflikty s inými doplnkami."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "System Monitor: Počet zistených možných konfliktov alebo upozornení: {count}. Viac podrobností nájdete v protokole NVDA."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Skontrolujte konflikty klávesových skratiek alebo nekompatibilné doplnky pomocou nástroja System Monitor."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Analýza disku už prebieha, čakajte prosím..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Procesná analýza už prebieha, čakajte prosím..."
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Dispositivo"
+msgstr "Zariadenie"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth zariadenie"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Súhrn zdrojov (RAM a CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Fyzická a virtuálna pamäť RAM"
+
+msgid "Espacio en unidades de disco"
+msgstr "Priestor na disku"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Stav a informácie o sieti Wi-Fi"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "Frekvencia a rýchlosť procesora"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Verzia a architektúra systému Windows"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Doba prevádzkyschopnosti systému"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "Výkon a pamäť GPU"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Zdravie S.M.A.R.T. a teplotu disku"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Procesy s vyššou spotrebou zdrojov"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Rýchlosť siete v reálnom čase"
+
+msgid "Batería avanzada y salud"
+msgstr "Pokročilá batéria a zdravie"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Úroveň batérie zariadenia Bluetooth"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Monitor zdrojov (zdieľa rovnaké skratky NVDA+Shift+1 až 8 a NVDA+Shift+E, čo spôsobuje ignorovanie príkazov alebo vydávanie duplicitných/anglických odpovedí)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Horný proces (prekrýva odkazy alebo reklamy na spotrebu procesov)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (prekrýva skratky hardvéru a systémových informácií)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Stav batérie (prekrýva skratky úrovne batérie)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Zobrazuje použitú pamäť RAM a priemerné zaťaženie procesora."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Predstavuje využitý a celkový priestor fyzickej a virtuálnej pamäte RAM. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Zobrazuje využitý a celkový priestor pre pevné, vymeniteľné a sieťové disky. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje aktuálnu rýchlosť a frekvenciu procesora (GHz), základnú rýchlosť a stav režimu turbo boost. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje zdravotný stav (S.M.A.R.T), teplotu a životnosť fyzických diskov. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Oznamuje procesy, ktoré momentálne spotrebúvajú najviac CPU a RAM. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Batéria na {} %. Štát: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Skutočný stav batérie: {} % jej pôvodnej kapacity."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Batéria je plne nabitá na 100 %. Nabíjačku môžete odpojiť."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Batéria nabitá na {} %. Nabíjačku môžete odpojiť."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Upozornenie: Batéria je takmer vybitá na {} %. Pripojte zariadenie k napájaniu."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Upozornenie: Slabá batéria na zariadení Bluetooth {} pri {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Upozornenie: SSD {} dosiahlo {} % životnosti."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Signál Wi-Fi: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Interval kontroly batérie (minúty):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "Interval kontroly teploty CPU (v minútach):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Interval kontroly Bluetooth (v minútach):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Interval kontroly Disc&cos (minúty):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Upozornite, ak je teplota grafickej karty (GPU) vysoká"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "Teplota upozornenia na prehriatie GPU (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "Interval kontroly teploty GPU (minúty):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Upozornenie: Vysoká teplota {name} ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Predstavuje priemernú záťaž procesora a záťaž každého jadra. Ak ho stlačíte dvakrát, informácie sa skopírujú do schránky."
+
+msgid "Carga de CPU al {}%."
+msgstr "Zaťaženie procesora na {} %."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Priemerné zaťaženie procesora na {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Zaťaženie procesora a jadrá"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Jednotka teploty (CPU a GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Upozornenie na teplotu prehriatia procesora:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Teplota pre upozornenie na prehriatie GPU:"
+

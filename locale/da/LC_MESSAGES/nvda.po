@@ -1,0 +1,717 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: resourceMonitor 2.3\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-05-21 19:54-0600\n"
+"Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
+"Language-Team: Dansk NVDA <dansk@nvda.dk>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+# Additional translations for Monitor del Sistema: Daliana
+
+msgid " byte"
+msgstr "byte"
+
+msgid " bytes"
+msgstr "bytes"
+
+msgid "Analizando discos, por favor espera..."
+msgstr "Analyserer diske, vent venligst..."
+
+msgid "Analizando procesos..."
+msgstr "Analyse af processer..."
+
+msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler nedbrydningen af grafikkorthukommelsen (VRAM). Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+msgstr "Meddeler batteristatus, resterende tid og sundhedsslid."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
+msgstr "Meddeler sundhedsstatus (S.M.A.R.T), temperatur og levetid for fysiske diske."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+msgstr "Meddeler batteriniveauet for tilsluttede Bluetooth-enheder."
+
+msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Annoncerer det trådløse netværksnavn (SSID), signalstyrke og sikkerhedsprotokol. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler procentdelen af ​​den samlede CPU-belastning og belastningen af ​​hver enkelt kerne. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler systemets oppetid. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler mængden af ​​installeret RAM, den brugte mængde og procentdelen og mængden af ​​ledig RAM. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler kapaciteten, ledig plads og brugt plads på alle tilgængelige diske på systemet. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler den maksimale og aktuelle CPU-frekvens. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler den anvendte hukommelse, total og belastning af grafikprocessoren (GPU). Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+msgstr "Annoncerer internetdownload- og uploadhastighed i realtid."
+
+msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Annoncerer Windows-versionen og systemarkitekturen. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+msgstr "Annoncerer de processer, der i øjeblikket bruger mest CPU og RAM."
+
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth batteri:"
+
+msgid "Batería al {}%. Estado: {}."
+msgstr "Batteri ved {}%. Tilstand: {}."
+
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Søger efter Bluetooth-enheder, vent venligst..."
+
+msgid "Carga total de la CPU: {}%"
+msgstr "Samlet CPU-belastning: {}%"
+
+msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+msgstr "Samlet CPU-belastning: {}%. Individuelle kerner: {} ."
+
+msgid "Celsius"
+msgstr "Celsius"
+
+msgid "Conectado a {}"
+msgstr "Forbundet til {}"
+
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Kontrollerer batteristatus, vent venligst..."
+
+msgid "Dañado (Crítico)"
+msgstr "Beskadiget (kritisk)"
+
+msgid "Desconectado de {}"
+msgstr "Afbrudt forbindelse til {}"
+
+msgid "Desconocido"
+msgstr "Ukendt"
+
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Levetid slid: {} procent (Sundhed: {}%)."
+
+msgid "Disco desconocido"
+msgstr "ukendt disk"
+
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Disk {}: Skriv {}. Generel tilstand: {}."
+
+msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
+msgstr "Serveren blokerede testen for at gøre den for mange gange i træk. Vent et par minutter, og prøv igen."
+
+msgid "En riesgo (Advertencia)"
+msgstr "I fare (Advarsel)"
+
+msgid "Error al consultar discos."
+msgstr "Fejl ved forespørgsel på diske."
+
+msgid "Error al consultar el estado de salud de los discos."
+msgstr "Fejl ved forespørgsel om diskenes sundhedsstatus."
+
+msgid "Error al medir la velocidad de Internet."
+msgstr "Fejl ved måling af internethastighed."
+
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Fejl under indhentning af grafikkortoplysninger."
+
+msgid "Error al obtener información de memoria de la tarjeta gráfica."
+msgstr "Fejl ved hentning af hukommelsesoplysninger fra grafikkort."
+
+msgid "Error analizando procesos."
+msgstr "Fejl ved analyse af processer."
+
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Fejl under forespørgsel om Bluetooth-enheder."
+
+msgid "Error consultando la batería."
+msgstr "Fejl ved kontrol af batteriet."
+
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+msgid "Frecuencia actual de la CPU: {} gigahercios"
+msgstr "Aktuel CPU-frekvens: {} gigahertz"
+
+msgid "Frecuencia máxima de la CPU: {} gigahercios"
+msgstr "Maksimal CPU-frekvens: {gigahertz}"
+
+msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: grafikprocessorbelastning: {}%, temperatur: {}."
+
+msgid "GPU {}: carga del procesador gráfico: {}%."
+msgstr "GPU {}: grafikprocessorbelastning: {}%."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+msgstr "GPU {}: hukommelse {}, grafikprocessorbelastning: {}%, temperatur: {}."
+
+msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+msgstr "GPU {}: hukommelse {}, grafikprocessorbelastning: {}%."
+
+msgid "GPU {}: {}."
+msgstr "GPU {}: {}."
+
+msgid "Kelvin"
+msgstr "Kelvin"
+
+msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+msgstr "Tilgængelig ressourcemonitor for NVDA. Tjek i realtid CPU-belastning, live-frekvens, RAM-hukommelse, diske, Wi-Fi-netværk, grafikkort (GPU og VRAM-hukommelse), Windows-version og oppetid."
+
+msgid "Monitor de Sistema"
+msgstr "Systemmonitor"
+
+msgid "Monitor del Sistema"
+msgstr "Systemmonitor"
+
+msgid "Monitor del sistema"
+msgstr "Systemmonitor"
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Der er intet batteri, eller det er en stationær computer."
+
+msgid "No hay conexiones de red inalámbrica"
+msgstr "Ingen trådløse netværksforbindelser"
+
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "Ingen tilgængelige grafikkortdata."
+
+msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+msgstr "Ingen grafikkorthukommelsesdata tilgængelige."
+
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "Ingen trådløse netværksenheder"
+
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "Ingen grafikkortoplysninger tilgængelige."
+
+msgid "No hay información de memoria de la tarjeta gráfica disponible."
+msgstr "Ingen grafikkorthukommelsesinformation tilgængelig."
+
+msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+msgstr "Der blev ikke fundet nogen fysiske diske, der understøtter diagnosen."
+
+msgid "No se encontraron discos."
+msgstr "Der blev ikke fundet nogen diske."
+
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "Der blev ikke fundet nogen Bluetooth-enheder, der rapporterede deres batteri."
+
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "Der blev ikke fundet nogen tilgængelige diskdrev."
+
+msgid "No se pudieron obtener los procesos."
+msgstr "Processer kunne ikke opnås."
+
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Systemets oppetid kunne ikke hentes."
+
+msgid "No se pudo obtener información de la memoria."
+msgstr "Kunne ikke hente information fra hukommelsen."
+
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Kunne ikke hente grafikkortoplysninger."
+
+msgid "No se pudo obtener información de los discos."
+msgstr "Kunne ikke hente information fra diskene."
+
+msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+msgstr "Kunne ikke hente hukommelsesoplysninger fra grafikkortet."
+
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Proces med mest CPU: {} ({}%)."
+
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Proces med mere RAM: {} ({} MB)."
+
+msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+msgstr "Samlet RAM: {}. Brugt: {} ({}%). Gratis RAM: {}"
+
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Udfører præcisionstest (ca. 12 sekunder), vent venligst..."
+
+msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
+msgstr "Forbundet trådløst netværk: {}, signalstyrke: {}%, sikkerhedstype: {}"
+
+msgid "Salud real de la batería: {}% de su capacidad original."
+msgstr "Faktisk batteritilstand: {} % af dets oprindelige kapacitet."
+
+msgid "Saludable"
+msgstr "Sundt"
+
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "En trådløs netværksenhed er blevet deaktiveret"
+
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "En trådløs netværksenhed er blevet aktiveret"
+
+msgid "Sin autenticación (abierta)"
+msgstr "Ingen godkendelse (åben)"
+
+msgid "Temperatura: {} grados celsius."
+msgstr "Temperatur: {} grader Celsius."
+
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Estimeret resterende tid: {} timer og {} minutter."
+
+msgid "Unidad de temperatura de la tarjeta gráfica:"
+msgstr "Grafikkort temperaturenhed:"
+
+msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internethastighed. Download: {} megabyte pr. sekund. Upload: {} megabyte pr. sekund."
+
+msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
+msgstr "Internethastighed. Latency: {} millisekunder. Download: {} megabyte pr. sekund. Upload: {} megabyte pr. sekund."
+
+msgid "Vida útil restante estimada: {} por ciento."
+msgstr "Estimeret resterende brugstid: {} procent."
+
+msgid "conectado"
+msgstr "tilsluttet"
+
+msgid "de red"
+msgstr "netværk"
+
+msgid "desconectado"
+msgstr "offline"
+
+msgid "día"
+msgstr "dag"
+
+msgid "días"
+msgstr "dage"
+
+msgid "estado sólido (SSD)"
+msgstr "solid state (SSD)"
+
+msgid "fijo"
+msgstr "fast"
+
+msgid "hora"
+msgstr "time"
+
+msgid "horas"
+msgstr "timer"
+
+msgid "minuto"
+msgstr "minut"
+
+msgid "minutos"
+msgstr "minutter"
+
+msgid "rígido (HDD)"
+msgstr "stiv (HDD)"
+
+msgid "segundo"
+msgstr "sekund"
+
+msgid "segundos"
+msgstr "sekunder"
+
+msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
+msgstr "{driveName} (disk {driveType}): {usedSpace} af {totalSpace} brugt ({percent}%)."
+
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (netværksdrev): ikke tilgængelig."
+
+msgid "{}: {}%"
+msgstr "{}:{} %"
+
+msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
+msgstr "Kunne ikke hente oplysninger fra diske, eller administratortilladelsen blev annulleret."
+
+msgid "Error al obtener el resumen del sistema."
+msgstr "Fejl ved hentning af systemoversigt."
+
+msgid "Error al obtener la información del procesador."
+msgstr "Fejl under indhentning af processoroplysninger."
+
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Fejl under indhentning af information fra RAM-hukommelse."
+
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Fejl under opnåelse af processorfrekvens."
+
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Fejl under indhentning af diskdrevoplysninger."
+
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Fejl under opnåelse af trådløs netværksstatus."
+
+msgid "Error al obtener la versión de Windows."
+msgstr "Fejl ved hentning af Windows-version."
+
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "Der er intet batteri, eller det er en stationær computer."
+
+msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Den viser den gennemsnitlige processorbelastning, temperatur og belastningen af ​​hver kerne. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Carga, temperatura y núcleos del procesador"
+msgstr "Processorbelastning, temperatur og kerner"
+
+msgid "temperatura: {}"
+msgstr "temperatur: {}"
+
+msgid "temperatura no disponible"
+msgstr "temperatur ikke tilgængelig"
+
+msgid "Carga de CPU al {}%, {}."
+msgstr "CPU-belastning ved {}%, {}."
+
+msgid "Carga media de CPU al {}%, {}, {}."
+msgstr "Gennemsnitlig CPU-belastning på {}%, {}, {}."
+
+msgid "grados Celsius"
+msgstr "grader celsius"
+
+msgid "grados Fahrenheit"
+msgstr "grader Fahrenheit"
+
+msgid "Alertas automáticas del sistema"
+msgstr "Automatiske systemadvarsler"
+
+msgid "Avisar cuando la batería esté completamente cargada (100%)"
+msgstr "Giv besked, når batteriet er fuldt opladet (100 %)"
+
+msgid "Avisar cuando la batería esté baja (15% o menos)"
+msgstr "Giv besked, når batteriet er lavt (15 % eller mindre)"
+
+msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+msgstr "Giv besked, hvis processortemperaturen er meget høj (85 °C eller mere)"
+
+msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+msgstr "Batteri fuldt opladet til 100%. Du kan frakoble opladeren."
+
+msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+msgstr "Advarsel: Lavt batteriniveau til {}%. Tilslut udstyret til strømmen."
+
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Advarsel: Høj processortemperatur ({})."
+
+msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler S.M.A.R.T. sundhedsstatus, temperatur og tilstand af lagerdiske. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Annoncerer de 5 processer, der bruger mest CPU og de 5, der bruger mest RAM. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Annoncerer internetdownload- og uploadhastighed i realtid. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler batteristatus, resterende tid og sundhedsslid. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler batteriniveauet for tilsluttede Bluetooth-enheder. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "La consulta de estado de discos ya está en curso, por favor espera..."
+msgstr "Diskstatusforespørgslen er allerede i gang, vent venligst..."
+
+msgid "La consulta de estado de discos está en curso, por favor espera..."
+msgstr "Diskstatusforespørgsel er i gang, vent venligst..."
+
+msgid "La consulta de procesos ya está en curso, por favor espera..."
+msgstr "Proceskonsultationen er allerede i gang, vent venligst..."
+
+msgid "La consulta de procesos está en curso, por favor espera..."
+msgstr "Proceskonsultationen er i gang, vent venligst..."
+
+msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Internethastighedstest er allerede i gang, vent venligst..."
+
+msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
+msgstr "Internethastighedstest er i gang, vent venligst..."
+
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Batteriforespørgslen er allerede i gang, vent venligst..."
+
+msgid "La consulta de batería está en curso, por favor espera..."
+msgstr "Batteriforespørgsel er i gang, vent venligst..."
+
+msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Søgning efter Bluetooth-enheder er allerede i gang. Vent venligst..."
+
+msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+msgstr "Søgning efter Bluetooth-enheder er i gang. Vent venligst..."
+
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Resultatet vil blive kopieret til udklipsholderen."
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
+msgstr "Giv besked, når batteriet på en Bluetooth-enhed er lavt (20 % eller mindre)"
+
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Giv besked, når Wi-Fi-netværkets status ændres (tilslutning eller afbrydelse)"
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+msgstr "Advarsel: Lavt batteri på Bluetooth-enhed {} ved {}%."
+
+msgid "Señal de Wi-Fi: {}%."
+msgstr "Wi-Fi-signal: {}%."
+
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Giv besked, når Wi-Fi-signalstyrken ændres"
+
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Giv besked, når enhedens batteri er lavt"
+
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Procentdel for alarm ved lav batterispænding:"
+
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Giv besked, når batteriet i en Bluetooth-enhed er lavt"
+
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "Procentdel for alarm om lavt batteriniveau for Bluetooth:"
+
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Giv besked, når enhedens batteri er opladet"
+
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Procent for fuld batteriadvarsel:"
+
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Giv besked, hvis processortemperaturen er høj"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+msgstr "&Temperatur for advarsel om overophedning af processor (°C):"
+
+msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+msgstr "Batteri opladet til {} %. Du kan frakoble opladeren."
+
+msgid "GPU:"
+msgstr "GPU:"
+
+msgid "GPU {}:"
+msgstr "GPU{}:"
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} hukommelse {mem}, grafikprocessorbelastning: {util}%, temperatur: {temp}."
+
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} hukommelse {mem}, grafikprocessorbelastning: {util}%."
+
+msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+msgstr "{prefix} grafikprocessorbelastning: {util}%, temperatur: {temp}."
+
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} grafikprocessorbelastning: {util}%."
+
+msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
+msgstr "Giv besked, hvis der registreres sundhedsproblemer eller kritisk slitage på diske (SSD / HDD)"
+
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "Slidprocent for SSD-alarm:"
+
+msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
+msgstr "Kritisk advarsel: Disken {} præsenterer sundhedsproblemer. Lav en sikkerhedskopi."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
+msgstr "Advarsel: SSD'en {} har nået {}% levetidsslid."
+
+msgid "Disco"
+msgstr "Disk"
+
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Tjek for konflikter med andre plugins..."
+
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "KOMPATIBILITET ADVARSLER:"
+
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "DIREKTE GENVEJSKOLLISIONER:"
+
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Konfliktrevision - Systemmonitor"
+
+msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
+msgstr "Der er ingen tastaturgenvejskonflikter eller inkompatible plugins aktive på dette system."
+
+msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
+msgstr "Bemærk: Alle detaljer er også blevet registreret i NVDA-logfilen."
+
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Kunne ikke hente den aktive forekomst af System Monitor."
+
+msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "System Monitor: Ingen konflikter fundet med andre plugins."
+
+msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgstr "Systemovervågning: {count} mulige konflikter eller advarsler registreret. Se NVDA-loggen for flere detaljer."
+
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgstr "Tjek for tastaturgenvejskonflikter eller inkompatible plugins med System Monitor."
+
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Diskanalyse er allerede i gang, vent venligst..."
+
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Procesanalyse er allerede i gang, vent venligst..."
+
+msgid "Error"
+msgstr "Fejl"
+
+msgid "Dispositivo"
+msgstr "Enhed"
+
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth-enhed"
+
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Ressourceoversigt (RAM og CPU)"
+
+msgid "Memoria RAM física y virtual"
+msgstr "Fysisk og virtuel RAM-hukommelse"
+
+msgid "Espacio en unidades de disco"
+msgstr "Kør plads"
+
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi-netværksstatus og information"
+
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU frekvens og hastighed"
+
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows version og arkitektur"
+
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "Systemets oppetid"
+
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU-ydeevne og hukommelse"
+
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "Sundhed S.M.A.R.T. og diskens temperatur"
+
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Processer med større ressourceforbrug"
+
+msgid "Velocidad de red en tiempo real"
+msgstr "Netværkshastighed i realtid"
+
+msgid "Batería avanzada y salud"
+msgstr "Avanceret batteri og sundhed"
+
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Bluetooth-enhedens batteriniveau"
+
+msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
+msgstr "Resource Monitor (deler de samme genveje NVDA+Shift+1 til 8 og NVDA+Shift+E, hvilket forårsager, at kommandoer ignoreres eller udsendes dublerede/engelske svar)"
+
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Topproces (overlejringsgenveje eller procesforbrugsannoncer)"
+
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (overlejrer hardware- og systeminformationsgenveje)"
+
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Batteristatus (overlejrer genveje til batteriniveau)"
+
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Præsenterer den anvendte RAM-hukommelse og den gennemsnitlige processorbelastning."
+
+msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Præsenterer det brugte og samlede rum af fysisk og virtuel RAM. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Viser den brugte og samlede plads til faste, flytbare og netværksdrev. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler den aktuelle processorhastighed og -frekvens (GHz), basishastighed og turbo boost-tilstandsstatus. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Meddeler sundhedsstatus (S.M.A.R.T), temperatur og levetid for fysiske diske. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Annoncerer de processer, der i øjeblikket bruger mest CPU og RAM. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Batería al {} %. Estado: {}."
+msgstr "Batteri ved {}%. Tilstand: {}."
+
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Faktisk batteritilstand: {} % af dets oprindelige kapacitet."
+
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Batteri fuldt opladet til 100%. Du kan frakoble opladeren."
+
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Batteri opladet til {} %. Du kan frakoble opladeren."
+
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Advarsel: Lavt batteriniveau til {}%. Tilslut udstyret til strømmen."
+
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Advarsel: Lavt batteri på Bluetooth-enhed {} ved {} %."
+
+msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
+msgstr "Advarsel: SSD'en {} har nået {} % levetidsslid."
+
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi-signal: {} %."
+
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "&Batterikontrolinterval (minutter):"
+
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU temperaturkontrolinterval (minutter):"
+
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth-tjekinterval (minutter):"
+
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Disk&cos kontrolinterval (minutter):"
+
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Giv besked, hvis temperaturen på grafikkortet (GPU) er høj"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+msgstr "GPU-overophedningsadvarselstemperatur (°C):"
+
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU temperaturkontrolinterval (minutter):"
+
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Advarsel: Høj {navn} temperatur ({temp})."
+
+msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr "Viser den gennemsnitlige belastning af processoren og belastningen af ​​hver kerne. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
+
+msgid "Carga de CPU al {}%."
+msgstr "CPU-belastning ved {}%."
+
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Gennemsnitlig CPU-belastning på {}%, {}."
+
+msgid "Carga y núcleos del procesador"
+msgstr "Processorbelastning og kerner"
+
+msgid "&Unidad de temperatura (CPU y GPU):"
+msgstr "&Temperaturenhed (CPU og GPU):"
+
+msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
+msgstr "&Temperatur for advarsel om overophedning af processor:"
+
+msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
+msgstr "Temperatur for GPU-overophedningsadvarsel:"
+
