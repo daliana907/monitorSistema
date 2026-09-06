@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Monitor del Sistema - Documentación</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 860px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { color: #1a5276; border-bottom: 2px solid #1a5276; padding-bottom: 8px; }
+  h2 { color: #1f618d; margin-top: 32px; }
+  h3 { color: #2874a6; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th { background: #1a5276; color: white; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #aed6f1; padding: 7px 12px; }
+  tr:nth-child(even) td { background: #eaf4fb; }
+  code { background: #eaf4fb; padding: 2px 6px; border-radius: 3px; font-size: 0.97em; }
+  .aviso { background: #fef9e7; border-left: 4px solid #f4d03f; padding: 10px 14px; margin: 16px 0; }
+  ul li { margin: 5px 0; }
+</style>
+</head>
+<body>
+
+<h1>Monitor del Sistema</h1>
+<p><strong>Versión:</strong> 2.3 &nbsp;|&nbsp; <strong>Autora:</strong> Daliana &nbsp;|&nbsp; <strong>Compatibilidad:</strong> NVDA 2019.3 o superior</p>
+
+<p>Este complemento proporciona información accesible en tiempo real sobre el uso de la memoria RAM, la carga del procesador (CPU), la velocidad/frecuencia del procesador, el espacio en disco, la salud de la batería, conexión de red Wi-Fi, velocidad de Internet, la versión de Windows, el tiempo de actividad y el estado de la tarjeta gráfica (GPU y VRAM).</p>
+
+<div class="aviso">
+  <strong>Nota de la Autora:</strong> Este proyecto nació tomando como punto de partida el clásico complemento <em>Resource Monitor</em> para NVDA. Al ver que la idea original tenía un potencial enorme, decidí reescribirlo y expandirlo masivamente para crear esta nueva versión definitiva, incorporando un motor completamente nuevo con herramientas avanzadas (como salud de discos, métricas de GPU, test de velocidad, baterías Bluetooth y desgaste real), llevando el monitoreo del sistema a un nivel muy superior.
+</div>
+
+
+<hr>
+
+<h2>Atajos de teclado</h2>
+
+<h3>Monitor Básico</h3>
+<table>
+  <tr><th>Atajo</th><th>Función</th></tr>
+  <tr><td><code>NVDA + Shift + E</code></td><td>Porcentaje de RAM utilizada y carga promedio del procesador</td></tr>
+  <tr><td><code>NVDA + Shift + 1</code></td><td>Carga de procesador y núcleos</td></tr>
+  <tr><td><code>NVDA + Shift + 2</code></td><td>Memoria RAM física y virtual (utilizada, total y porcentaje)</td></tr>
+  <tr><td><code>NVDA + Shift + 3</code></td><td>Espacio utilizado y libre en discos duros, extraíbles y red</td></tr>
+  <tr><td><code>NVDA + Shift + 4</code></td><td>Información Wi-Fi (SSID, señal y seguridad)</td></tr>
+  <tr><td><code>NVDA + Shift + 5</code></td><td>Velocidad y frecuencia del procesador, estado del Turbo Boost</td></tr>
+  <tr><td><code>NVDA + Shift + 6</code></td><td>Versión de Windows, compilación y arquitectura</td></tr>
+  <tr><td><code>NVDA + Shift + 7</code></td><td>Tiempo de actividad del sistema</td></tr>
+  <tr><td><code>NVDA + Shift + 8</code></td><td>Carga de GPU y memoria de video utilizada</td></tr>
+  <tr><td><code>NVDA + Control + Shift + 8</code></td><td>Desglose detallado de la memoria gráfica (VRAM)</td></tr>
+</table>
+
+<h3>Herramientas Avanzadas</h3>
+<table>
+  <tr><th>Atajo</th><th>Función</th></tr>
+  <tr><td><code>NVDA + Shift + Control + 1</code></td><td>Salud de disco (S.M.A.R.T), temperatura y desgaste (SSD/HDD)</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 2</code></td><td>Top Procesos (programas que más CPU/RAM consumen)</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 3</code></td><td>Test de velocidad y latencia de Internet (Ping en ms, Descarga/Subida en MB/s)</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 4</code></td><td>Estado avanzado de batería, tiempo restante y salud real</td></tr>
+  <tr><td><code>NVDA + Shift + Control + 5</code></td><td>Batería de dispositivos Bluetooth (mandos, auriculares, etc.)</td></tr>
+</table>
+
+<div class="aviso">
+  <strong>Nota:</strong> Al pulsar cualquiera de estos atajos dos veces consecutivas, la información se copiará directamente al portapapeles. En las herramientas avanzadas que realizan pruebas intensivas, la doble pulsación copia al instante el resultado obtenido previamente sin repetir la prueba ni consumir ancho de banda o recursos de forma innecesaria.
+</div>
+
+<h3>Alertas automáticas del sistema</h3>
+<p>El complemento puede supervisar en segundo plano eventos clave del ordenador y avisarte mediante un tono acústico suave y una locución de voz:</p>
+<ul>
+  <li><strong>Batería cargada del equipo:</strong> Te avisa cuando la batería completa su carga o alcanza el porcentaje configurado (por defecto 100%) para que puedas desconectar el cargador si lo deseas.</li>
+  <li><strong>Batería baja del equipo:</strong> Te advierte a tiempo cuando la batería de tu ordenador desciende del porcentaje que hayas elegido (por defecto 15%) y no está conectado a la corriente.</li>
+  <li><strong>Sobrecalentamiento del procesador (CPU):</strong> Te notifica si la CPU alcanza el límite térmico configurado (por defecto 85 °C).</li>
+  <li><strong>Sobrecalentamiento de la tarjeta gráfica (GPU):</strong> Te notifica si la GPU alcanza el límite térmico configurado (por defecto 80 °C).</li>
+  <li><strong>Batería baja en dispositivos Bluetooth:</strong> Te avisa con antelación si tus auriculares o accesorios Bluetooth caen por debajo del porcentaje configurado (por defecto 15%) antes de que se apaguen de golpe.</li>
+  <li><strong>Estado de la red Wi-Fi (conexión o desconexión):</strong> Te notifica de inmediato con voz y sonido reproducido directamente por el dispositivo de audio de NVDA cuando te conectas o desconectas de una red Wi-Fi.</li>
+  <li><strong>Cambio en la intensidad de la señal Wi-Fi:</strong> Te avisa con un tono sonoro proporcional y la locución del nuevo porcentaje únicamente cuando sube o baja la cobertura, manteniéndose completamente en silencio mientras no cambie.</li>
+  <li><strong>Salud y desgaste crítico en discos (SSD / HDD):</strong> Supervisa periódicamente en segundo plano el estado S.M.A.R.T. de tus unidades y te advierte de inmediato si algún disco mecánico o sólido entra en estado de degradación o advertencia. En unidades de estado sólido (SSD), también supervisa el límite de desgaste de vida útil que configures (por defecto 80%).</li>
+</ul>
+<p>Todas estas alertas pueden activarse o desactivarse individualmente desde el menú de opciones de NVDA (<strong>NVDA &gt; Preferencias &gt; Opciones &gt; Monitor del Sistema</strong>). Al activar las alertas de batería, temperatura y desgaste de SSD, se muestran barras deslizadoras interactivas para elegir el valor exacto de aviso, las cuales se ocultan si la alerta correspondiente está desmarcada manteniendo su valor predeterminado.</p>
+
+<h3>Auditoría y Detección de Conflictos</h3>
+<p>El complemento audita automáticamente durante el arranque de NVDA si existen otros complementos en colisión (por ejemplo, atajos de teclado duplicados o complementos superpuestos como <em>Resource Monitor</em>).</p>
+<ul>
+  <li>Puedes comprobar el estado en cualquier momento desde el menú <strong>NVDA &gt; Preferencias &gt; Opciones &gt; Monitor del Sistema</strong>, pulsando el botón <strong>Comprobar conflictos con otros complementos...</strong>.</li>
+  <li>También puedes asignar un atajo directo a esta función desde el diálogo <strong>Gestos de entrada</strong> de NVDA (categoría <em>Monitor del sistema</em>).</li>
+</ul>
+
+<h2>Compatibilidad de Tarjetas Gráficas (GPU)</h2>
+<ul>
+  <li>Compatible de forma nativa y universal con tarjetas gráficas <strong>AMD Radeon</strong>, <strong>Intel (UHD / Iris / Arc)</strong> y <strong>NVIDIA</strong>. Con soporte para lectura de temperatura en GPUs NVIDIA y AMD Radeon mediante sus bibliotecas nativas (<code>nvapi.dll</code> y <code>atiadlxx.dll</code>).</li>
+</ul>
+
+<h2>Declaración sobre el uso de inteligencia artificial</h2>
+<p>He utilizado herramientas de inteligencia artificial como ayuda para escribir y organizar el código de este complemento.</p>
+<p>Como autora (<strong>Daliana</strong>), he guiado todo el desarrollo, decidido qué funciones incluir y probado cada una de ellas directamente en mi ordenador para asegurarme de que funcione bien, sea cómoda de usar con NVDA y no cause problemas.</p>
+
+<h2>Uso de servicios y datos de terceros</h2>
+<p><em>En cumplimiento del criterio 1.6 de la Guía de revisión de complementos de NVDA en español:</em></p>
+<p>Este complemento no utiliza técnicas de ingeniería inversa, claves API no autorizadas ni accesos ilícitos. Para las métricas del sistema, interactúa exclusivamente con interfaces de programación de aplicaciones (APIs) y subsistemas documentados de Microsoft Windows (<code>SetupAPI</code>, <code>CfgMgr32</code>, <code>WLAN API</code>, <code>PDH</code>, <code>WMI</code> y <code>psutil</code>). Para la lectura de sensores de tarjetas gráficas, utiliza las bibliotecas oficiales de los fabricantes (<code>nvapi.dll</code> y <code>atiadlxx.dll</code>). Para la prueba de velocidad de Internet, realiza peticiones estándar a puntos de enlace públicos de diagnóstico de red mediante HTTPS sin recopilar datos personales.</p>
+
+<h2>Historial de cambios</h2>
+
+<h3>Versión 2.3</h3>
+<ul>
+  <li><strong>Alertas automáticas configurables en segundo plano:</strong> Sistema integral de supervisión de eventos clave en el panel de opciones de NVDA (<strong>Preferencias &gt; Opciones &gt; Monitor del Sistema</strong>) para estado de red Wi-Fi (conexión/desconexión con sonido en el canal de audio de NVDA), variación en la intensidad de la señal Wi-Fi (tono y locución únicamente al variar la cobertura), salud y desgaste crítico en discos (supervisión periódica de anomalías S.M.A.R.T. en HDD/SSD y límite de desgaste en SSD), alertas de sobrecalentamiento de CPU (por defecto 85 °C) y GPU (por defecto 80 °C), batería cargada (por defecto 100%), batería baja del equipo (por defecto 15%), batería baja en Bluetooth (por defecto 15%) y desgaste límite en SSD (por defecto 80%), todas con controles interactivos y accesibles para elegir el valor exacto de aviso e intervalos de supervisión periódica (desde 1 minuto), con visibilidad dinámica y respuesta inmediata.</li>
+  <li><strong>Copia automática con doble pulsación:</strong> En todos los comandos avanzados (NVDA + Shift + Control + 1 al 5), al pulsar dos veces se programa la copia automática para que al finalizar la prueba se copie de inmediato al portapapeles, o se copia instantáneamente si la medición ya existía, evitando ejecuciones redundantes.</li>
+  <li><strong>Detección precisa y optimizada de GPU:</strong> Se excluye el adaptador virtual por software de Windows (<em>Microsoft Basic Render Driver</em>) para evitar reportar GPUs ficticias, y se homogeniza la locución con el prefijo oficial «GPU:» en equipos con una sola GPU física.</li>
+  <li><strong>Detección universal y fiable de batería Bluetooth:</strong> Integración del subsistema nativo de Bluetooth clásico (<code>bthprops.cpl</code>) y verificación de estado DevNode/PnP (<code>DEVPKEY_Device_DevNodeStatus</code>), asegurando la detección precisa de batería en auriculares, manos libres y altavoces de audio clásicos (como JLab, Sony, JBL, etc.) así como dispositivos BLE, resolviendo falsos descartes por desconexión.</li>
+</ul>
+
+<h3>Versión 2.2</h3>
+<ul>
+  <li><strong>Protección contra pruebas duplicadas:</strong> Bloqueo preventivo de ejecuciones simultáneas accidentales en tareas pesadas (velocidad de Internet, salud S.M.A.R.T. y consultas WMI).</li>
+  <li><strong>Sistema de registro exhaustivo:</strong> Registro minucioso en <code>nvda.log</code> de cada consulta, atajo, datos intermedios y locuciones enviadas al usuario o al portapapeles.</li>
+  <li><strong>Trazas completas de excepciones:</strong> Información técnica ampliada con <code>exc_info=True</code> para resolución de incidencias.</li>
+</ul>
+
+<h3>Versión 2.1</h3>
+<ul>
+  <li><strong>Auditoría automática de conflictos:</strong> Detección inteligente de complementos incompatibles o superpuestos (como Resource Monitor) y colisiones directas de atajos de teclado globales.</li>
+  <li><strong>Panel de opciones enriquecido:</strong> Botón interactivo y accesible para comprobar la compatibilidad y conflictos en cualquier momento.</li>
+  <li><strong>Comando en Gestos de entrada:</strong> Nuevo script configurable para auditar conflictos bajo demanda.</li>
+  <li><strong>Pitidos de espera responsivos:</strong> Integración de tonos de progreso periódicos sin bloqueo en consultas lentas (Bluetooth, batería avanzada, salud S.M.A.R.T. de discos y test de velocidad).</li>
+  <li><strong>Corrección de enumeración DXGI:</strong> Resuelta la detección de salidas de vídeo en adaptadores gráficos híbridos.</li>
+  <li><strong>Compatibilidad actualizada:</strong> Verificado y probado para NVDA 2026.2.</li>
+</ul>
+
+<h3>Versión 2.0</h3>
+<ul>
+  <li><strong>Detección avanzada de batería Bluetooth:</strong> Nuevo motor nativo ultrarrápido mediante APIs del sistema (<code>SetupAPI</code> y <code>CfgMgr32</code>) con soporte para auriculares de audio clásicos (perfil manos libres / HFP) y dispositivos de bajo consumo (BLE), resolviendo automáticamente el nombre comercial real de cada dispositivo.</li>
+  <li><strong>Mensaje de inicio y tonos de espera:</strong> Se añadieron pitidos periódicos suaves de progreso y mensaje de aviso al buscar dispositivos Bluetooth.</li>
+  <li><strong>Corrección de bloqueo en PCs de sobremesa:</strong> Detección síncrona instantánea que evita congelamientos de NVDA al pulsar el atajo de batería avanzada en equipos de escritorio.</li>
+  <li><strong>Internacionalización:</strong> Traducción completa al inglés de todos los mensajes, atajos y descripciones.</li>
+</ul>
+
+</body>
+</html>
