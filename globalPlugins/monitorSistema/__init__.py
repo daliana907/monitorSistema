@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
-# Monitor del Sistema para NVDA
-# Consulta el uso de CPU, frecuencia en tiempo real, memoria RAM, discos, red Wi-Fi, tarjeta gráfica (GPU/VRAM) y recursos del sistema.
-# Desarrollado para NVDA por Daliana.
+# System Monitor (Monitor del Sistema) for NVDA
+#
+# A system resource and hardware monitoring add-on for NVDA.
+# Based on Resource Monitor for NVDA.
+#
+# Original work Copyright 2013-2026 Joseph Lee, Alex Hall, Beqa Gozalishvili and Resource Monitor contributors.
+# Modifications, extensions and new features Copyright 2026 Daliana.
+# Released under the GNU General Public License version 2 (GPLv2).
+
 
 import logging
 import functools

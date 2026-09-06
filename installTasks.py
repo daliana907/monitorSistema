@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# Monitor del Sistema para NVDA
-# Tareas de instalación y desinstalación limpia
+# System Monitor (Monitor del Sistema) for NVDA - Install Tasks
+# Copyright 2026 Daliana, released under the GNU General Public License version 2 (GPLv2).
+
 
 import config
 from logHandler import log

@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
-# Resource Monitor for NVDA
-# Presents GPU information
-# Copyright 2026 Kevin Derome, Joseph Lee, released under GPL
+# System Monitor (Monitor del Sistema) for NVDA - GPU Information module
+#
+# Original work Copyright 2026 Kevin Derome, Joseph Lee and Resource Monitor contributors.
+# Multi-vendor GPU support (AMD Radeon, Intel UHD/Iris/Arc), temperature and extensions Copyright 2026 Daliana.
+# Released under the GNU General Public License version 2 (GPLv2).
+
 
 import os
 import os.path

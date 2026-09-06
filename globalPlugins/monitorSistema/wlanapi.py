@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+# System Monitor (Monitor del Sistema) for NVDA - WLAN API module
+#
 # Original source: https://github.com/kvark128/WlanReporter
-# Fork copyright 2024 Joseph Lee and contributors, released under GPL
-# IMPORTANT: the original source/wlanapi.py had geopolitical declarations deemed offensive
-# whereas this fork can be used anywhere.
+# Fork copyright 2024 Joseph Lee and contributors.
+# Integration and updates Copyright 2026 Daliana.
+# Released under the GNU General Public License version 2 (GPLv2).
+
 
 from comtypes import GUID
 from ctypes import windll, Structure, c_void_p, POINTER, c_long, c_ulong, WinError, c_uint, CFUNCTYPE, c_char, c_wchar
