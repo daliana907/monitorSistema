@@ -16,10 +16,19 @@ import addonHandler
 addonHandler.initTranslation()
 log = logging.getLogger(__name__)
 
+import os
 import os.path
 import time
 import winsound
 import ctypes
+import tones
+import subprocess
+import json
+import re
+import tempfile
+import base64
+import urllib.request
+import winreg
 from ctypes import (
 	addressof,
 	byref,
@@ -124,7 +133,6 @@ def message(text: str, fileName: str) -> None:
 			pass
 	if not played:
 		try:
-			import tones
 			if "connect" in fileName:
 				tones.beep(660, 80); tones.beep(880, 100)
 			else:
@@ -709,7 +717,6 @@ def getWinVer() -> str:
 	revision = getattr(currentWinVer, "revision", None)
 	if revision is None:
 		try:
-			import winreg
 			with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Windows NT\CurrentVersion") as key:
 				revision = winreg.QueryValueEx(key, "UBR")[0]
 		except Exception:
@@ -790,10 +797,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._bluetoothRunning = False
 		self._copyBluetoothOnFinish = False
 
-		import threading
 		self._stopAlertsEvent = threading.Event()
 		threading.Thread(target=self._startupBackgroundWorker, daemon=True).start()
 		threading.Thread(target=self._runAlertsLoop, daemon=True).start()
+
+	def _startProgressBeeper(self, freq: int = 440, interval: float = 0.6) -> threading.Event:
+		"""Inicia un hilo de pitidos periódicos para operaciones en segundo plano y devuelve el stop_event."""
+		stop_event = threading.Event()
+		def beeper():
+			try:
+				tones.beep(freq, 40)
+			except Exception:
+				pass
+			while not stop_event.wait(interval):
+				try:
+					tones.beep(freq, 40)
+				except Exception:
+					pass
+		threading.Thread(target=beeper, daemon=True).start()
+		return stop_event
 
 	def _startupBackgroundWorker(self):
 		log.info(f"Monitor del Sistema: Iniciando worker de fondo (CPU núcleos físicos={psutil.cpu_count(logical=False)}, hilos lógicos={psutil.cpu_count(logical=True)})...")
@@ -848,7 +870,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._maxTurboGhz = 4.00
 		self._lastCpuCollectTime = 0
 		try:
-			import winreg
 			procName = ""
 			try:
 				with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"HARDWARE\DESCRIPTION\System\CentralProcessor\0") as key:
@@ -911,7 +932,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _queryDiskHealthSilent(self) -> list:
 		try:
-			import subprocess, json
 			ps_code = (
 				"Get-PhysicalDisk | ForEach-Object {"
 				"$rel = $_ | Get-StorageReliabilityCounter -ErrorAction SilentlyContinue;"
@@ -959,7 +979,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		return gpus
 
 	def _runAlertsLoop(self):
-		import time, tones
 		last_cpu_hot_thresh = None
 		last_cpu_interval = None
 		last_cpu_check_time = 0.0
@@ -982,7 +1001,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				wx.CallAfter(ui.message, text)
 
 		# Esperar 8 segundos tras arrancar NVDA
-		for wait_idx in range(8):
+		for _ in range(8):
 			if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.is_set():
 				return
 			time.sleep(1.0)
@@ -1899,17 +1918,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message("Error al obtener información de la tarjeta gráfica.")
 
 	def _getDiskHealth(self):
-		import subprocess, json, threading, tempfile, os, base64, time, ctypes, tones
 		self._diskHealthRunning = True
 		def worker():
-			stop_event = threading.Event()
-			def beeper():
-				try: tones.beep(440, 40)
-				except Exception: pass
-				while not stop_event.wait(0.6):
-					try: tones.beep(440, 40)
-					except Exception: pass
-			threading.Thread(target=beeper, daemon=True).start()
+			stop_event = self._startProgressBeeper(440)
 			log.info("MonitorSistema: Iniciando escaneo elevado de salud de discos...")
 			try:
 				tmp_file = os.path.join(tempfile.gettempdir(), "nvda_disk_health.json")
@@ -2028,7 +2039,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._getDiskHealth()
 
 	def _getTopProcesses(self):
-		import psutil, threading, wx, ui, time
 		self._topProcessesRunning = True
 		def worker():
 			log.info("MonitorSistema: Iniciando análisis de Top Procesos...")
@@ -2088,17 +2098,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._getTopProcesses()
 
 	def _getNetworkSpeed(self):
-		import threading, wx, ui, time, urllib.request, os, tones, subprocess, re
 		self._netSpeedRunning = True
 		def worker():
-			stop_event = threading.Event()
-			def beeper():
-				try: tones.beep(880, 40)
-				except Exception: pass
-				while not stop_event.wait(0.6):
-					try: tones.beep(880, 40)
-					except Exception: pass
-			threading.Thread(target=beeper, daemon=True).start()
+			stop_event = self._startProgressBeeper(880)
 			log.info("MonitorSistema: Iniciando Speedtest de red...")
 			msg = _("Error al medir la velocidad de Internet.")
 			try:
@@ -2233,20 +2235,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._getNetworkSpeed()
 
 	def _getAdvancedBattery(self):
-		import psutil, threading, wx, subprocess, tones
 		ui.message(_("Consultando estado de la batería, por favor espera..."))
 		self._advBatteryRunning = True
 
 		def worker():
-			stop_event = threading.Event()
-			def beeper():
-				try: tones.beep(660, 40)
-				except Exception: pass
-				while not stop_event.wait(0.6):
-					try: tones.beep(660, 40)
-					except Exception: pass
-			threading.Thread(target=beeper, daemon=True).start()
-
+			stop_event = self._startProgressBeeper(660)
 			log.info("MonitorSistema: Consultando batería avanzada (porcentaje, tiempo restante, salud WMI)...")
 			msg = _("Error consultando la batería.")
 			try:
@@ -2565,7 +2558,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				log.error("MonitorSistema: SetupDiGetClassDevs devolvió un manejador inválido.")
 				return []
 
-			import re
 			root_names = {}
 			root_dev_insts = {}
 			candidates = []
@@ -2610,7 +2602,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						root_names[addr] = name
 
 					# Comprobar si este nodo reporta nivel de batería
-					for kname, pkey in BATTERY_KEYS:
+					for _, pkey in BATTERY_KEYS:
 						try:
 							b_buf = (ctypes.c_ubyte * 64)()
 							b_size = wintypes.ULONG(len(b_buf))
@@ -2711,20 +2703,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return []
 
 	def _getBluetoothBattery(self):
-		import threading, wx, ui, tones
 		ui.message(_("Buscando dispositivos Bluetooth, por favor espera..."))
 		self._bluetoothRunning = True
 
 		def worker():
-			stop_event = threading.Event()
-			def beeper():
-				try: tones.beep(550, 40)
-				except Exception: pass
-				while not stop_event.wait(0.6):
-					try: tones.beep(550, 40)
-					except Exception: pass
-			threading.Thread(target=beeper, daemon=True).start()
-
+			stop_event = self._startProgressBeeper(550)
 			log.info("MonitorSistema: Ejecutando comando de batería Bluetooth...")
 			msg = _("Error consultando dispositivos Bluetooth.")
 			try:
