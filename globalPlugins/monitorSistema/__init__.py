@@ -45,6 +45,7 @@ import inputCore
 import ui
 import winVersion
 import wx
+import gui
 from gui import blockAction, guiHelper, messageBox
 from gui.settingsDialogs import NVDASettingsDialog, SettingsPanel
 import psutil
@@ -741,7 +742,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self):
 		super().__init__()
-		log.info("Monitor del Sistema: Inicializando complemento (v2.3)...")
+		log.info("Monitor del Sistema: Inicializando complemento (v2.4)...")
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._client_handle = None
@@ -749,7 +750,31 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._gpuProviders: list[BaseGpuProvider] = getGpuProviders()
 		NVDASettingsDialog.categoryClasses.append(MonitorSistemaSettingsPanel)
 
-		self._lastDiskHealthResult = None
+		# Submenú en el menú Herramientas de NVDA
+		try:
+			self._toolsMenu = gui.mainFrame.sysTrayIcon.toolsMenu
+			self._subMenu = wx.Menu()
+			self._itemConfig = self._subMenu.Append(
+				wx.ID_ANY,
+				_("&Configuración..."),
+				_("Abre las opciones y alertas de Monitor del Sistema")
+			)
+			self._itemDoc = self._subMenu.Append(
+				wx.ID_ANY,
+				_("&Documentación"),
+				_("Abre la guía y documentación de Monitor del Sistema")
+			)
+			gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self._onMenuConfig, self._itemConfig)
+			gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self._onMenuDoc, self._itemDoc)
+			self._subMenuItem = self._toolsMenu.AppendSubMenu(
+				self._subMenu,
+				_("&Monitor del Sistema"),
+				_("Opciones y ayuda de Monitor del Sistema")
+			)
+			log.info("Monitor del Sistema: Submenú registrado en Herramientas exitosamente.")
+		except Exception as e:
+			log.error(f"Monitor del Sistema: No se pudo registrar el submenú en Herramientas: {e}", exc_info=True)
+			self._subMenuItem = None
 		self._diskHealthRunning = False
 		self._copyDiskHealthOnFinish = False
 		self._lastTopProcessesResult = None
@@ -1178,6 +1203,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		log.info("Monitor del Sistema: Finalizando complemento...")
 		if hasattr(self, "_stopAlertsEvent"):
 			self._stopAlertsEvent.set()
+		try:
+			if hasattr(self, "_itemConfig") and self._itemConfig:
+				gui.mainFrame.sysTrayIcon.Unbind(wx.EVT_MENU, source=self._itemConfig)
+			if hasattr(self, "_itemDoc") and self._itemDoc:
+				gui.mainFrame.sysTrayIcon.Unbind(wx.EVT_MENU, source=self._itemDoc)
+			if hasattr(self, "_subMenuItem") and self._subMenuItem:
+				self._toolsMenu.Remove(self._subMenuItem)
+		except Exception as e:
+			log.debug(f"Monitor del Sistema: Error retirando submenú en terminate: {e}")
 		super().terminate()
 		self._gpuProviders.clear()
 		if MonitorSistemaSettingsPanel in NVDASettingsDialog.categoryClasses:
@@ -1208,6 +1242,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			except OSError:
 				pass
 		log.info("Monitor del Sistema: Recursos y manejadores liberados, complemento finalizado limpiamente.")
+
+	def _onMenuConfig(self, event):
+		log.info("Monitor del Sistema: Abriendo configuración desde el menú Herramientas...")
+		wx.CallAfter(gui.mainFrame.onOpenSettings, None, MonitorSistemaSettingsPanel)
+
+	def _onMenuDoc(self, event):
+		log.info("Monitor del Sistema: Abriendo documentación desde el menú Herramientas...")
+		doc_dir = os.path.normpath(os.path.join(MODULE_DIR, "..", "..", "doc"))
+		try:
+			lang = addonHandler.getLanguage()
+		except Exception:
+			lang = "es"
+		candidates = [lang, lang.split('_')[0] if lang and '_' in lang else None, "es", "en"]
+		for l in candidates:
+			if not l:
+				continue
+			p = os.path.join(doc_dir, l, "readme.html")
+			if os.path.exists(p):
+				os.startfile(p)
+				return
+		ui.message(_("No se encontró el archivo de documentación."))
 
 	@scriptHandler.script(
 		description=_("Presenta la memoria RAM utilizada y la carga promedio del procesador."), category=scriptCategory,

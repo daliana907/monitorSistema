@@ -1,76 +1,94 @@
-# System Monitor (Monitor del Sistema) for NVDA
+# Monitor del Sistema para NVDA (System Monitor)
 
-* **Author:** Daliana
-* **Version:** 2.4
-* **Compatibility:** NVDA 2019.3 or later
-* **License:** GNU General Public License v2.0 (GPLv2)
+Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
+Versión: 2.4
+Compatibilidad: NVDA 2019.3 en adelante
+Licencia: GNU GPL v2
 
-[Versión en español más abajo](#versión-en-español)
-
----
-
-## English
-
-**System Monitor** is an accessible system performance and hardware monitoring add-on for the NVDA screen reader. It provides real-time announcements for RAM usage, CPU load, CPU core metrics, clock frequency/turbo boost, disk space, battery status and health, Wi-Fi connection and signal strength, internet speed, Windows build information, system uptime, and multi-vendor GPU/VRAM performance.
-
-### Origin and Acknowledgements
-> **Fork Notice & Attribution:**  
-> This project is an extended fork inspired by and built upon the foundational work of **Joseph Lee and the Resource Monitor add-on contributors** for the NVDA community.  
-> We have expanded upon that architecture to incorporate multi-vendor GPU monitoring (AMD, Intel, NVIDIA), S.M.A.R.T. disk health analysis, Bluetooth peripheral battery reporting (classic audio & BLE), internet speed testing, and configurable real-time background event alerts, creating a unified all-in-one hardware suite for screen reader users.
-
-### Key Shortcuts
-
-#### Basic Monitor
-* **NVDA + Shift + E**: Announces used RAM percentage and overall CPU load.
-* **NVDA + Shift + 1**: Announces CPU load and per-core usage.
-* **NVDA + Shift + 2**: Announces physical and virtual RAM (used, total, and percentage).
-* **NVDA + Shift + 3**: Announces disk space for local, removable, and network drives.
-* **NVDA + Shift + 4**: Announces Wi-Fi SSID, signal strength percentage, and security type.
-* **NVDA + Shift + 5**: Announces CPU current frequency (GHz), base clock, and turbo status.
-* **NVDA + Shift + 6**: Announces Windows version, build number, and CPU architecture.
-* **NVDA + Shift + 7**: Announces system uptime (days, hours, minutes, seconds).
-* **NVDA + Shift + 8**: Announces GPU load, memory used, and temperature (NVIDIA/AMD/Intel).
-* **NVDA + Control + Shift + 8**: Detailed GPU and dedicated VRAM breakdown.
-
-#### Advanced Tools
-* **NVDA + Shift + Control + 1**: S.M.A.R.T. disk health diagnostic, drive temperature, and wear level.
-* **NVDA + Shift + Control + 2**: Identifies top resource-consuming processes (CPU and RAM).
-* **NVDA + Shift + Control + 3**: Internet speed and ping latency test.
-* **NVDA + Shift + Control + 4**: Advanced battery metrics (capacity, discharge rate, wear percentage).
-* **NVDA + Shift + Control + 5**: Battery levels for connected Bluetooth peripherals (headphones, controllers, BLE devices).
-
-*Note: Pressing any of these shortcuts twice will copy the announced result to the clipboard.*
-
-### Background Alerts & Monitoring
-Configurable from **NVDA > Preferences > Settings > System Monitor**:
-* Battery full notification (default 100%)
-* Low PC battery alert (default 15%)
-* CPU thermal alert (default 85 °C)
-* GPU thermal alert (default 80 °C)
-* Bluetooth accessory low battery alert (default 15%)
-* Wi-Fi connection and disconnection chime & speech
-* Wi-Fi signal level changes
-* S.M.A.R.T. disk failure degradation and SSD wear threshold warning (default 80%)
-
-### Credits & Acknowledgements
-* **Joseph Lee and the Resource Monitor contributors**: For developing the original Resource Monitor add-on for NVDA, which provided the foundational codebase and architecture that inspired this project.
-* **BlueToothBatteryReport** (by Cary-rowen and contributors): For providing a reference implementation for Bluetooth battery queries.
-* **Resource Monitor Translators**: For their foundational community translations across 35 languages.
-* **NVDA Add-on Community**: For making computing accessible and open to everyone.
+[Read in English below](#english-version)
 
 ---
 
 ## Versión en Español
 
-**Monitor del Sistema** es un complemento de supervisión de rendimiento y hardware para el lector de pantalla NVDA. Proporciona información accesible en tiempo real sobre el uso de memoria RAM, carga de CPU y por núcleo, frecuencia de reloj, espacio en disco, estado y salud de la batería, conexión e intensidad Wi-Fi, velocidad de Internet, versión de Windows, tiempo de actividad y estado de la tarjeta gráfica (GPU y VRAM).
+Monitor del Sistema reúne en un solo lugar todas las herramientas para conocer el estado y rendimiento de tu equipo, batería, periféricos y conexión a internet mediante atajos de teclado rápidos y accesibles.
 
-### Origen y Reconocimiento
-> **Bifurcación y Atribución:**  
-> Este proyecto es una bifurcación (fork) ampliada que toma como base e inspiración el extraordinario trabajo de **Joseph Lee y los colaboradores del complemento Resource Monitor** para la comunidad de NVDA.  
-> Se amplió el diseño original incorporando nuevas capacidades complementarias (monitorización multi-fabricante de GPU/VRAM para AMD, Intel y NVIDIA, salud de discos S.M.A.R.T., batería de dispositivos Bluetooth clásicos y BLE, test de velocidad y un sistema configurable de alertas automáticas en segundo plano) para ofrecer una suite accesible todo-en-uno.
+### Atajos de teclado básicos (NVDA + Shift + tecla)
+- NVDA + Shift + E: Resumen de recursos (porcentaje de memoria RAM en uso y carga de CPU).
+- NVDA + Shift + 1: Carga promedio del procesador (CPU) y uso de cada núcleo.
+- NVDA + Shift + 2: Memoria RAM física y virtual (usada, libre, total y porcentaje).
+- NVDA + Shift + 3: Espacio libre, usado y total en todas las unidades de disco.
+- NVDA + Shift + 4: Estado de la red Wi-Fi (nombre de red SSID, intensidad de señal y seguridad).
+- NVDA + Shift + 5: Frecuencia y velocidad del procesador (reloj en GHz, velocidad base y turbo).
+- NVDA + Shift + 6: Versión, compilación y arquitectura de Windows.
+- NVDA + Shift + 7: Tiempo de actividad del sistema (cuánto lleva encendido el ordenador).
+- NVDA + Shift + 8: Tarjeta gráfica (GPU): memoria utilizada, total, porcentaje de carga y temperatura.
+
+### Diagnósticos avanzados (NVDA + Shift + Control + número)
+Si pulsas el atajo una vez, se anuncia el informe por voz. Si lo pulsas dos veces seguidas rápidamente, el resultado se copia directamente al portapapeles sin tener que repetir el análisis.
+- NVDA + Shift + Control + 1: Estado de salud S.M.A.R.T., temperatura y desgaste de discos SSD y mecánicos.
+- NVDA + Shift + Control + 2: Procesos con mayor consumo de recursos (programas que más CPU y RAM están gastando).
+- NVDA + Shift + Control + 3: Medición de velocidad de internet en tiempo real (latencia/ping, descarga y subida).
+- NVDA + Shift + Control + 4: Diagnóstico avanzado de batería del equipo (nivel, tiempo restante, capacidad de diseño y desgaste).
+- NVDA + Shift + Control + 5: Nivel de batería de auriculares y dispositivos Bluetooth conectados.
+
+### Alertas automáticas en segundo plano
+En el menú de NVDA > Preferencias > Opciones > Monitor del Sistema, puedes activar avisos con sonido o voz para:
+- Temperatura elevada de CPU o GPU.
+- Nivel bajo o carga completa de la batería de la laptop.
+- Batería baja en auriculares y dispositivos Bluetooth conectados.
+- Pérdida de conexión o cambios en la señal Wi-Fi.
+- Desgaste crítico en discos de estado sólido (SSD).
+
+### Menú en Herramientas de NVDA
+Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitor del Sistema:
+- Configuración...: Abre directamente el panel de opciones y alertas de Monitor del Sistema.
+- Documentación: Abre este manual de ayuda en tu navegador.
 
 ### Créditos y Agradecimientos
-* **Joseph Lee y los colaboradores de Resource Monitor**: Por el diseño y la base de código original del monitor de recursos para NVDA que inspiró este proyecto y sirvió como punto de partida.
-* **BlueToothBatteryReport** (por Cary-rowen y colaboradores): Por servir de referencia técnica para la consulta de batería en dispositivos Bluetooth.
-* **Traductores de Resource Monitor**: Por sus traducciones comunitarias base a más de 35 idiomas.
-* **Comunidad de desarrolladores de complementos de NVDA**: Por su continuo esfuerzo en hacer el ecosistema accesible para personas con discapacidad visual en todo el mundo.
+- Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores.
+- Módulo de baterías Bluetooth inspirado en ideas de BlueToothBatteryReport.
+- Contiene 35 traducciones comunitarias preservando los créditos de sus traductores originales.
+
+---
+
+## English Version
+
+System Monitor is an accessible all-in-one resource, hardware, and network monitor for NVDA.
+
+### Basic Shortcuts (NVDA + Shift + key)
+- NVDA + Shift + E: Resource summary (RAM usage and overall CPU load).
+- NVDA + Shift + 1: CPU load average and per-core load.
+- NVDA + Shift + 2: Physical and virtual RAM (used, total, and percentage).
+- NVDA + Shift + 3: Disk space across all fixed, removable, and network drives.
+- NVDA + Shift + 4: Wi-Fi status (SSID name, signal strength, and security cipher).
+- NVDA + Shift + 5: CPU clock speed (current GHz, base clock, and turbo status).
+- NVDA + Shift + 6: Windows edition, version, and architecture.
+- NVDA + Shift + 7: System uptime.
+- NVDA + Shift + 8: Dedicated GPU status (memory usage, core load, and temperature).
+
+### Advanced Diagnostics (NVDA + Shift + Control + number)
+Press once to hear the report spoken. Press twice quickly to copy the report directly to the clipboard.
+- NVDA + Shift + Control + 1: Drive health (S.M.A.R.T.), temperature, and SSD wear percentage.
+- NVDA + Shift + Control + 2: Top resource-consuming processes (highest CPU and RAM usage).
+- NVDA + Shift + Control + 3: Real-time internet speed test (ping, download, and upload speeds).
+- NVDA + Shift + Control + 4: Advanced laptop battery health, runtime, and design capacity wear.
+- NVDA + Shift + Control + 5: Connected Bluetooth devices and audio peripheral battery levels.
+
+### Automated Background Alerts
+Configurable under NVDA Menu > Preferences > Settings > System Monitor:
+- High CPU or GPU temperatures.
+- Low laptop battery or battery full notification.
+- Low battery alerts for connected Bluetooth audio devices.
+- Wi-Fi disconnect and signal strength change notifications.
+- Critical wear threshold alerts for SSDs.
+
+### NVDA Tools Menu
+You can access the add-on from NVDA > Tools > System Monitor:
+- Settings...: Opens the System Monitor configuration panel directly.
+- Documentation: Opens this user guide.
+
+### Credits
+- Based on Resource Monitor by Joseph Lee and contributors.
+- Bluetooth battery logic inspired by BlueToothBatteryReport.
+- Preserves 35 community localizations with original translator attributions.
