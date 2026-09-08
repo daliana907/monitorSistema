@@ -1,0 +1,1 @@
+===== monitorSistema: rehacer el guardado sin los archivos de trabajo =====

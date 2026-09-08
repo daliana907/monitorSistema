@@ -1,2 +1,10 @@
 __pycache__/
 *.pyc
+
+# Archivos de trabajo que no forman parte del complemento.
+# resultado_github.txt puede contener contrasenas: nunca debe subirse.
+resultado_github.txt
+1_limpiar_token.bat
+2_subir_todo.bat
+3_terminar.bat
+reintentar_subida.bat
