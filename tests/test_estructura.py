@@ -223,5 +223,51 @@ class MetodosYDecoradores(unittest.TestCase):
                          "linea en blanco:\n  " + "\n  ".join(despegados))
 
 
+class EsperasConLimite(unittest.TestCase):
+    """Toda espera a un programa externo debe tener un tiempo maximo.
+
+    Existe porque habia cinco sitios sin limite: si el programa al que se
+    llamaba se colgaba, la espera no terminaba nunca. No llega a congelar NVDA,
+    pero el aviso de progreso sigue sonando y la operacion no acaba jamas.
+    """
+
+    ESPERAS = ("run", "communicate", "urlopen", "wait")
+
+    def test_toda_llamada_a_un_programa_externo_tiene_limite(self):
+        sinLimite = []
+        for ruta in archivosPython():
+            for nodo in ast.walk(arbol(ruta)):
+                if not isinstance(nodo, ast.Call):
+                    continue
+                nombre = getattr(nodo.func, "attr", getattr(nodo.func, "id", ""))
+                if nombre not in self.ESPERAS:
+                    continue
+                if any(clave.arg == "timeout" for clave in nodo.keywords):
+                    continue
+                # wait() y communicate() admiten el limite como primer argumento
+                if nombre in ("wait", "communicate") and nodo.args:
+                    continue
+                sinLimite.append(f"{os.path.basename(ruta)}:{nodo.lineno}  {nombre}()")
+        self.assertFalse(sinLimite, f"{len(sinLimite)} esperas sin tiempo maximo "
+                         "(si el programa se cuelga, no terminan nunca):\n  "
+                         + "\n  ".join(sinLimite))
+
+    def test_los_hilos_dejan_cerrar_nvda(self):
+        """Un hilo que no sea 'daemon' puede impedir que NVDA se cierre."""
+        sueltos = []
+        for ruta in archivosPython():
+            for nodo in ast.walk(arbol(ruta)):
+                if not (isinstance(nodo, ast.Call)
+                        and getattr(nodo.func, "attr", "") == "Thread"):
+                    continue
+                esDemonio = any(clave.arg == "daemon"
+                                and getattr(clave.value, "value", False) is True
+                                for clave in nodo.keywords)
+                if not esDemonio:
+                    sueltos.append(f"{os.path.basename(ruta)}:{nodo.lineno}")
+        self.assertFalse(sueltos, "estos hilos no estan marcados como 'daemon' y "
+                         "pueden impedir que NVDA se cierre:\n  " + "\n  ".join(sueltos))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

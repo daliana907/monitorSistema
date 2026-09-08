@@ -1,0 +1,30 @@
+# Cada vez que se sube algo a GitHub, GitHub ejecuta por su cuenta las pruebas
+# del complemento y marca el resultado con un tic verde o una cruz roja. Quien
+# entre al repositorio lo ve sin instalar nada.
+#
+# Las pruebas no necesitan NVDA ni Windows: la carpeta tests trae un NVDA de
+# mentira que imita lo que el complemento le pide.
+
+name: Pruebas
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pruebas:
+    name: Pasar las pruebas del complemento
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Traer el codigo
+        uses: actions/checkout@v7
+
+      - name: Preparar Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Ejecutar las pruebas
+        run: python -m unittest discover -s tests -v

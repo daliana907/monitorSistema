@@ -2571,6 +2571,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				capture_output=True,
 				text=True,
 				creationflags=creationflags,
+				# Dos intentos de un segundo tardan tres a lo sumo. Sin este limite,
+				# un ping que se cuelga deja la prueba de velocidad sin terminar.
+				timeout=10,
 			)
 			m = (
 				re.search(r'Media = (\d+)ms', res_ping.stdout, re.IGNORECASE)
