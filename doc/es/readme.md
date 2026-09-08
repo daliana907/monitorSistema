@@ -1,7 +1,7 @@
 # Monitor del Sistema para NVDA (System Monitor)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.4
+Versión: 2.5
 Compatibilidad: NVDA 2019.3 en adelante
 Licencia: GNU GPL v2
 
@@ -44,6 +44,30 @@ En el menú de NVDA > Preferencias > Opciones > Monitor del Sistema, puedes acti
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitor del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitor del Sistema.
 - Documentación: Abre este manual de ayuda en tu navegador.
+
+## Novedades de la versión 2.5 (8 de septiembre de 2026)
+
+### Corregido
+
+- Los avisos automáticos de temperatura, batería, discos y Bluetooth no llegaban a saltar nunca. Un fallo interno detenía el vigilante en su primera vuelta.
+- Un procesador Intel Core i5-13600K se confundía con un AMD Ryzen 5 3600 y se anunciaba con 4,2 GHz máximos en vez de 5,0.
+- La configuración no se abría desde el menú Herramientas.
+- El aviso de temperatura del procesador y el de la gráfica podían quedarse con umbrales de prueba sin que nada lo indicara.
+- Cuatro fallos que ocurrían en silencio ahora quedan anotados en el registro de NVDA.
+- La medición del ping y las consultas al sistema podían quedarse esperando indefinidamente si el programa consultado se colgaba.
+- Un mensaje aparecía dos veces en los 34 archivos de idioma, lo que impedía a las herramientas de traducción abrirlos.
+
+### Cambios internos
+
+- La velocidad máxima de cada procesador conocido pasa de 117 condiciones encadenadas a una tabla de datos, más fácil de ampliar.
+- El escaneo de dispositivos Bluetooth, que ocupaba 382 líneas seguidas, se repartió en siete piezas con nombre propio.
+- El vigilante de avisos, de 239 líneas, se repartió en cinco vigilancias independientes.
+- La prueba de velocidad de internet y la consulta de salud de discos separan ahora medir de interpretar.
+- La ventana de opciones, la búsqueda de conflictos y las consultas al procesador se agruparon por secciones.
+- Se añadieron 30 comprobaciones automáticas que se ejecutan solas en GitHub con cada cambio.
+
+El listado completo de todas las versiones está en el archivo CHANGELOG.md
+del repositorio del complemento.
 
 ### Créditos y Agradecimientos
 - Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores.

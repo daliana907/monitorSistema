@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>System Monitor for NVDA</h1>
-<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.4 | Compatibility: NVDA 2019.3 or later</p>
+<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.5 | Compatibility: NVDA 2019.3 or later</p>
 
 <p>System Monitor gives you immediate, accessible insights into your computer's hardware, battery, peripherals, and network performance.</p>
 
@@ -61,6 +61,27 @@
   <li><strong>Documentation</strong>: Opens this user guide.</li>
 </ul>
 
+<h2>What's new in 2.5 (8 September 2026)</h2>
+<h3>Fixed</h3>
+<ul>
+  <li>Automatic alerts for temperature, battery, disks and Bluetooth never fired. An internal error stopped the watcher on its first pass.</li>
+  <li>An Intel Core i5-13600K was mistaken for an AMD Ryzen 5 3600 and reported 4.2 GHz max instead of 5.0.</li>
+  <li>Settings would not open from the Tools menu.</li>
+  <li>CPU and GPU temperature alerts could keep test thresholds with nothing indicating it.</li>
+  <li>Four failures that happened silently are now recorded in the NVDA log.</li>
+  <li>Ping measurement and system queries could wait forever if the program being queried hung.</li>
+  <li>One message appeared twice in all 34 language files, which stopped translation tools from opening them.</li>
+</ul>
+<h3>Internal changes</h3>
+<ul>
+  <li>Maximum speed for each known processor moved from 117 chained conditions to a data table that is easier to extend.</li>
+  <li>The Bluetooth device scan, 382 lines in a single block, was split into seven named pieces.</li>
+  <li>The alert watcher, 239 lines, was split into five independent watches.</li>
+  <li>The internet speed test and the disk health query now separate measuring from interpreting.</li>
+  <li>The settings window, the conflict check and the processor queries were grouped into sections.</li>
+  <li>Added 30 automatic checks that run on their own on GitHub with every change.</li>
+</ul>
+<p>The full history of every version is in the CHANGELOG.md file of the add-on repository.</p>
 <h2>Credits</h2>
 <p>Derived from Resource Monitor by Joseph Lee and contributors. Bluetooth battery logic inspired by BlueToothBatteryReport. Preserves 35 community translations with original translator attributions.</p>
 

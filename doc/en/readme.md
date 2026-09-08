@@ -1,7 +1,7 @@
 # System Monitor for NVDA
 
 Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-Version: 2.4
+Version: 2.5
 Compatibility: NVDA 2019.3 or later
 License: GNU GPL v2
 
@@ -38,6 +38,30 @@ Configurable under NVDA Menu > Preferences > Settings > System Monitor:
 You can access the add-on from NVDA > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Documentation: Opens this user guide.
+
+## What's new in 2.5 (8 September 2026)
+
+### Fixed
+
+- Automatic alerts for temperature, battery, disks and Bluetooth never fired. An internal error stopped the watcher on its first pass.
+- An Intel Core i5-13600K was mistaken for an AMD Ryzen 5 3600 and reported 4.2 GHz max instead of 5.0.
+- Settings would not open from the Tools menu.
+- CPU and GPU temperature alerts could keep test thresholds with nothing indicating it.
+- Four failures that happened silently are now recorded in the NVDA log.
+- Ping measurement and system queries could wait forever if the program being queried hung.
+- One message appeared twice in all 34 language files, which stopped translation tools from opening them.
+
+### Internal changes
+
+- Maximum speed for each known processor moved from 117 chained conditions to a data table that is easier to extend.
+- The Bluetooth device scan, 382 lines in a single block, was split into seven named pieces.
+- The alert watcher, 239 lines, was split into five independent watches.
+- The internet speed test and the disk health query now separate measuring from interpreting.
+- The settings window, the conflict check and the processor queries were grouped into sections.
+- Added 30 automatic checks that run on their own on GitHub with every change.
+
+The full history of every version is in the CHANGELOG.md file of the
+add-on repository.
 
 ### Credits
 - Based on Resource Monitor by Joseph Lee and contributors.

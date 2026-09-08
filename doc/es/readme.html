@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>Monitor del Sistema para NVDA</h1>
-<p>Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores) | Versión 2.4 | Compatible con NVDA 2019.3 en adelante</p>
+<p>Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores) | Versión 2.5 | Compatible con NVDA 2019.3 en adelante</p>
 
 <p>Monitor del Sistema reúne en un solo lugar todas las herramientas para conocer el estado y rendimiento de tu equipo, batería, periféricos y conexión a internet mediante atajos de teclado rápidos y accesibles.</p>
 
@@ -61,6 +61,27 @@
   <li><strong>Documentación</strong>: Abre esta guía de ayuda.</li>
 </ul>
 
+<h2>Novedades de la versión 2.5 (8 de septiembre de 2026)</h2>
+<h3>Corregido</h3>
+<ul>
+  <li>Los avisos automáticos de temperatura, batería, discos y Bluetooth no llegaban a saltar nunca. Un fallo interno detenía el vigilante en su primera vuelta.</li>
+  <li>Un procesador Intel Core i5-13600K se confundía con un AMD Ryzen 5 3600 y se anunciaba con 4,2 GHz máximos en vez de 5,0.</li>
+  <li>La configuración no se abría desde el menú Herramientas.</li>
+  <li>El aviso de temperatura del procesador y el de la gráfica podían quedarse con umbrales de prueba sin que nada lo indicara.</li>
+  <li>Cuatro fallos que ocurrían en silencio ahora quedan anotados en el registro de NVDA.</li>
+  <li>La medición del ping y las consultas al sistema podían quedarse esperando indefinidamente si el programa consultado se colgaba.</li>
+  <li>Un mensaje aparecía dos veces en los 34 archivos de idioma, lo que impedía a las herramientas de traducción abrirlos.</li>
+</ul>
+<h3>Cambios internos</h3>
+<ul>
+  <li>La velocidad máxima de cada procesador conocido pasa de 117 condiciones encadenadas a una tabla de datos, más fácil de ampliar.</li>
+  <li>El escaneo de dispositivos Bluetooth, que ocupaba 382 líneas seguidas, se repartió en siete piezas con nombre propio.</li>
+  <li>El vigilante de avisos, de 239 líneas, se repartió en cinco vigilancias independientes.</li>
+  <li>La prueba de velocidad de internet y la consulta de salud de discos separan ahora medir de interpretar.</li>
+  <li>La ventana de opciones, la búsqueda de conflictos y las consultas al procesador se agruparon por secciones.</li>
+  <li>Se añadieron 30 comprobaciones automáticas que se ejecutan solas en GitHub con cada cambio.</li>
+</ul>
+<p>El listado completo de todas las versiones está en el archivo CHANGELOG.md del repositorio del complemento.</p>
 <h2>Créditos y Agradecimientos</h2>
 <p>Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores. Módulo de baterías Bluetooth inspirado en ideas de BlueToothBatteryReport. Contiene 35 traducciones comunitarias preservando los créditos de sus traductores originales.</p>
 
