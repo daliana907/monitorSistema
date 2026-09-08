@@ -358,9 +358,6 @@ msgstr "Fejl under opnåelse af trådløs netværksstatus."
 msgid "Error al obtener la versión de Windows."
 msgstr "Fejl ved hentning af Windows-version."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Der er intet batteri, eller det er en stationær computer."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Den viser den gennemsnitlige processorbelastning, temperatur og belastningen af ​​hver kerne. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."
 

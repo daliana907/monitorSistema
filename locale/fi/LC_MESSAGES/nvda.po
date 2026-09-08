@@ -357,9 +357,6 @@ msgstr "Virhe haettaessa langattoman verkon tilaa."
 msgid "Error al obtener la versión de Windows."
 msgstr "Virhe haettaessa Windows-versiota."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Siinä ei ole akkua tai se on pöytätietokone."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Se esittää prosessorin keskimääräisen kuormituksen, lämpötilan ja kunkin ytimen kuormituksen. Jos painat kahdesti, tiedot kopioidaan leikepöydälle."
 

@@ -357,9 +357,6 @@ msgstr "Di bidestxistina rewşa tora bêtêlê de çewtî."
 msgid "Error al obtener la versión de Windows."
 msgstr "Di guhertoya Windows-ê de çewtî."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Pîl tune an jî komputerek sermaseyê ye."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Ew barkirina navînî ya pêvajoyê, germahî û barkirina her bingehê destnîşan dike. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."
 

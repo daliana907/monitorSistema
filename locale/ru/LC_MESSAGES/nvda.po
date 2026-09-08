@@ -357,9 +357,6 @@ msgstr "Ошибка получения статуса беспроводной 
 msgid "Error al obtener la versión de Windows."
 msgstr "Ошибка получения версии Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Аккумулятора нет или это настольный компьютер."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Там представлена ​​средняя загрузка процессора, температура и загрузка каждого ядра. При двойном нажатии информация копируется в буфер обмена."
 

@@ -358,9 +358,6 @@ msgstr "Errore durante l'ottenimento dello stato della rete wireless."
 msgid "Error al obtener la versión de Windows."
 msgstr "Errore durante il recupero della versione di Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Non c'è batteria o è un computer desktop."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Presenta il carico medio del processore, la temperatura e il carico di ciascun core. Se premuto due volte, copia le informazioni negli appunti."
 

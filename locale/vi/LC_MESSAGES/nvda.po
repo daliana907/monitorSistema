@@ -357,9 +357,6 @@ msgstr "Lỗi lấy trạng thái mạng không dây."
 msgid "Error al obtener la versión de Windows."
 msgstr "Lỗi tải phiên bản Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Không có pin hoặc nó là một máy tính để bàn."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Nó trình bày tải trung bình của bộ xử lý, nhiệt độ và tải của từng lõi. Nếu nhấn hai lần, hãy sao chép thông tin vào bảng nhớ tạm."
 

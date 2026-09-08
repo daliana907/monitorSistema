@@ -357,9 +357,6 @@ msgstr "Fehler beim Abrufen des WLAN-Status."
 msgid "Error al obtener la versión de Windows."
 msgstr "Fehler beim Abrufen der Windows-Version."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Es ist kein Akku vorhanden oder es handelt sich um einen Desktop-Computer."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Es zeigt die durchschnittliche Prozessorlast, Temperatur und die Auslastung jedes Kerns an. Bei zweimaligem Drücken werden die Informationen in die Zwischenablage kopiert."
 

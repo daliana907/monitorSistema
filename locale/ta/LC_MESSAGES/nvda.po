@@ -356,9 +356,6 @@ msgstr "வயர்லெஸ் நெட்வொர்க் நிலைய�
 msgid "Error al obtener la versión de Windows."
 msgstr "விண்டோஸ் பதிப்பைப் பெறுவதில் பிழை."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "பேட்டரி இல்லை அல்லது அது டெஸ்க்டாப் கணினி."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "இது சராசரி செயலி சுமை, வெப்பநிலை மற்றும் ஒவ்வொரு மையத்தின் சுமையையும் வழங்குகிறது. இரண்டு முறை அழுத்தினால், தகவலை கிளிப்போர்டுக்கு நகலெடுக்கிறது."
 

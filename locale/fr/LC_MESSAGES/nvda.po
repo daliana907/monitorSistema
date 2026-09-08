@@ -358,9 +358,6 @@ msgstr "Erreur lors de l'obtention de l'état du réseau sans fil."
 msgid "Error al obtener la versión de Windows."
 msgstr "Erreur lors de l'obtention de la version de Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Il n'y a pas de batterie ou c'est un ordinateur de bureau."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Il présente la charge moyenne du processeur, la température et la charge de chaque cœur. Si vous appuyez deux fois, copie les informations dans le presse-papiers."
 

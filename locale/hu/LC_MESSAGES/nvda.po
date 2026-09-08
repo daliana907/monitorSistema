@@ -357,9 +357,6 @@ msgstr "Hiba a vezeték nélküli hálózat állapotának lekérésekor."
 msgid "Error al obtener la versión de Windows."
 msgstr "Hiba a Windows verzió lekérésekor."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Nincs akkumulátor, vagy asztali számítógép."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Bemutatja az átlagos processzorterhelést, hőmérsékletet és az egyes magok terhelését. Ha kétszer megnyomja, az információkat a vágólapra másolja."
 

@@ -357,9 +357,6 @@ msgstr "Помилка отримання стану бездротової ме
 msgid "Error al obtener la versión de Windows."
 msgstr "Помилка отримання версії Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Немає акумулятора або це настільний комп'ютер."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Він представляє середнє навантаження на процесор, температуру і навантаження кожного ядра. Якщо натиснути двічі, копіює інформацію в буфер обміну."
 

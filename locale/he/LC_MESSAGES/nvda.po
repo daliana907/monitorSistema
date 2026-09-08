@@ -358,9 +358,6 @@ msgstr "שגיאה בהשגת מצב הרשת האלחוטית."
 msgid "Error al obtener la versión de Windows."
 msgstr "שגיאה בקבלת גרסת Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "אין סוללה או שזה מחשב שולחני."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "הוא מציג את העומס הממוצע של המעבד, הטמפרטורה והעומס של כל ליבה. אם לוחצים עליו פעמיים, מעתיק את המידע ללוח."
 

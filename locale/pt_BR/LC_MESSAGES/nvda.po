@@ -362,9 +362,6 @@ msgstr "Erro ao obter o status da rede sem fio."
 msgid "Error al obtener la versión de Windows."
 msgstr "Erro ao obter a versão do Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Não há bateria ou é um computador desktop."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Apresenta a carga média do processador, a temperatura e a carga de cada núcleo. Se pressionado duas vezes, copia as informações para a área de transferência."
 

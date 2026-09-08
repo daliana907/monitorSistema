@@ -357,9 +357,6 @@ msgstr "Error al obtener el estado de la red inalámbrica."
 msgid "Error al obtener la versión de Windows."
 msgstr "Error al obtener la versión de Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "No hay batería o es un equipo de sobremesa."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 

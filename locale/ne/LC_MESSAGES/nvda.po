@@ -357,9 +357,6 @@ msgstr "ताररहित नेटवर्क स्थिति प्र
 msgid "Error al obtener la versión de Windows."
 msgstr "Windows संस्करण प्राप्त गर्न त्रुटि।"
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "त्यहाँ कुनै ब्याट्री छैन वा यो डेस्कटप कम्प्युटर हो।"
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "यसले औसत प्रोसेसर लोड, तापमान र प्रत्येक कोरको लोड प्रस्तुत गर्दछ। यदि दुई पटक थिच्नुभयो भने, क्लिपबोर्डमा जानकारी प्रतिलिपि गर्दछ।"
 

@@ -359,9 +359,6 @@ msgstr "Błąd podczas uzyskiwania stanu sieci bezprzewodowej."
 msgid "Error al obtener la versión de Windows."
 msgstr "Błąd podczas pobierania wersji systemu Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Nie ma baterii lub jest to komputer stacjonarny."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Prezentuje średnie obciążenie procesora, temperaturę i obciążenie każdego rdzenia. Dwukrotne naciśnięcie kopiuje informacje do schowka."
 

@@ -357,9 +357,6 @@ msgstr "ワイヤレス ネットワーク ステータスの取得中にエラ�
 msgid "Error al obtener la versión de Windows."
 msgstr "Windows バージョンの取得中にエラーが発生しました。"
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "バッテリーがないか、デスクトップ コンピューターです。"
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "平均プロセッサ負荷、温度、各コアの負荷が表示されます。 2 回押すと、情報がクリップボードにコピーされます。"
 

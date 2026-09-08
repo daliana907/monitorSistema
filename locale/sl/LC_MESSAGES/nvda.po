@@ -357,9 +357,6 @@ msgstr "Napaka pri pridobivanju stanja brezžičnega omrežja."
 msgid "Error al obtener la versión de Windows."
 msgstr "Napaka pri pridobivanju različice sistema Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Ni baterije ali pa je namizni računalnik."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Predstavlja povprečno obremenitev procesorja, temperaturo in obremenitev posameznega jedra. Če pritisnete dvakrat, kopira informacije v odložišče."
 

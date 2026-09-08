@@ -357,9 +357,6 @@ msgstr "Pogreška u dobivanju statusa bežične mreže."
 msgid "Error al obtener la versión de Windows."
 msgstr "Pogreška pri dobivanju verzije sustava Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Nema baterije ili je stolno računalo."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Prikazuje prosječno opterećenje procesora, temperaturu i opterećenje svake jezgre. Ako se pritisne dvaput, kopira podatke u međuspremnik."
 

@@ -357,9 +357,6 @@ msgstr "حدث خطأ أثناء الحصول على حالة الشبكة ال�
 msgid "Error al obtener la versión de Windows."
 msgstr "خطأ في الحصول على نسخة ويندوز."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "لا توجد بطارية أو أنه كمبيوتر مكتبي."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "ويعرض متوسط ​​حمل المعالج ودرجة الحرارة وحمل كل نواة. إذا تم الضغط عليه مرتين، قم بنسخ المعلومات إلى الحافظة."
 

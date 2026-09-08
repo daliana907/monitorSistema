@@ -357,9 +357,6 @@ msgstr "Грешка при получаване на състоянието н�
 msgid "Error al obtener la versión de Windows."
 msgstr "Грешка при получаване на версия на Windows."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Няма батерия или е настолен компютър."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Той представя средното натоварване на процесора, температурата и натоварването на всяко ядро. Ако се натисне два пъти, копира информацията в клипборда."
 

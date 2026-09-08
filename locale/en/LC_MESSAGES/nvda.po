@@ -3,7 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: monitorSistema 1.0\n"
-"POT-Creation-Date: 2026-09-05 12:00+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-08 06:42+0000\n"
 "PO-Revision-Date: 2026-09-05 12:00+0000\n"
 "Last-Translator: Daliana\n"
 "Language-Team: English\n"
@@ -12,704 +13,1104 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid " byte"
-msgstr " byte"
-
-msgid " bytes"
-msgstr " bytes"
-
-msgid "Analizando discos, por favor espera..."
-msgstr "Analyzing disks, please wait..."
-
-msgid "Analizando procesos..."
-msgstr "Analyzing processes..."
-
-msgid "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces graphics card memory (VRAM) breakdown. Press twice to copy information to the clipboard."
-
-msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
-msgstr "Announces battery status, remaining time, and health wear."
-
-msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos."
-msgstr "Announces health state (S.M.A.R.T), temperature and remaining life of physical disks."
-
-msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
-msgstr "Announces battery level of connected Bluetooth devices."
-
-msgid "Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces wireless network name (SSID), signal strength, and security protocol. Press twice to copy information to the clipboard."
-
-msgid "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo individual. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces total CPU load percentage and individual core load. Press twice to copy information to the clipboard."
-
-msgid "Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces system uptime. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces installed RAM, used amount and percentage, and free RAM. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la capacidad, el espacio libre y el espacio usado de todos los discos disponibles del sistema. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces capacity, free space, and used space of all available system disks. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces maximum and current CPU frequency. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces used memory, total memory, and GPU load. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
-msgstr "Announces real-time Internet download and upload speed."
-
-msgid "Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces Windows version and system architecture. Press twice to copy information to the clipboard."
-
-msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
-msgstr "Announces the processes currently consuming the most CPU and RAM."
-
-msgid "Batería Bluetooth: "
-msgstr "Bluetooth battery: "
-
-msgid "Batería al {}%. Estado: {}."
-msgstr "Battery at {}%. Status: {}."
-
-msgid "Buscando dispositivos Bluetooth, por favor espera..."
-msgstr "Searching for Bluetooth devices, please wait..."
-
-msgid "Carga total de la CPU: {}%"
-msgstr "Total CPU load: {}%"
-
-msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
-msgstr "Total CPU load: {}%. Individual cores: {} ."
-
-msgid "Celsius"
-msgstr "Celsius"
-
-msgid "Conectado a {}"
-msgstr "Connected to {}"
-
-msgid "Consultando estado de la batería, por favor espera..."
-msgstr "Checking battery status, please wait..."
-
-msgid "Dañado (Crítico)"
-msgstr "Damaged (Critical)"
-
-msgid "Desconectado de {}"
-msgstr "Disconnected from {}"
-
-msgid "Desconocido"
-msgstr "Unknown"
-
-msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
-msgstr "Wear level: {} percent (Health: {}%)."
-
-msgid "Disco desconocido"
-msgstr "Unknown disk"
-
-msgid "Disco {}: Tipo {}. Estado general: {}."
-msgstr "Disk {}: Type {}. General state: {}."
-
-msgid "El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo."
-msgstr "The server temporarily blocked the speed test due to too many requests. Wait a few minutes and try again."
-
-msgid "En riesgo (Advertencia)"
-msgstr "At risk (Warning)"
-
-msgid "Error al consultar discos."
-msgstr "Error querying disks."
-
-msgid "Error al consultar el estado de salud de los discos."
-msgstr "Error querying disk health state."
-
-msgid "Error al medir la velocidad de Internet."
-msgstr "Error measuring Internet speed."
-
-msgid "Error al obtener información de la tarjeta gráfica."
-msgstr "Error getting graphics card information."
-
-msgid "Error al obtener información de memoria de la tarjeta gráfica."
-msgstr "Error getting graphics card memory information."
-
-msgid "Error analizando procesos."
-msgstr "Error analyzing processes."
-
-msgid "Error consultando dispositivos Bluetooth."
-msgstr "Error querying Bluetooth devices."
-
-msgid "Error consultando la batería."
-msgstr "Error querying battery."
-
-msgid "Fahrenheit"
-msgstr "Fahrenheit"
-
-msgid "Frecuencia actual de la CPU: {} gigahercios"
-msgstr "Current CPU frequency: {} GHz"
-
-msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "Maximum CPU frequency: {} GHz"
-
-msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
-msgstr "GPU {}: GPU load: {}%, temperature: {}."
-
-msgid "GPU {}: carga del procesador gráfico: {}%."
-msgstr "GPU {}: GPU load: {}%."
-
-msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
-msgstr "GPU {}: memory {}, GPU load: {}%, temperature: {}."
-
-msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
-msgstr "GPU {}: memory {}, GPU load: {}%."
-
-msgid "GPU {}: {}."
-msgstr "GPU {}: {}."
-
-msgid "Kelvin"
-msgstr "Kelvin"
-
-msgid "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
-msgstr "Accessible resource monitor for NVDA. Check real-time CPU load, live frequency, RAM, disks, Wi-Fi network, graphics card (GPU and VRAM), Windows version, and system uptime."
-
-msgid "Monitor de Sistema"
-msgstr "System Monitor"
-
-msgid "Monitor del Sistema"
-msgstr "System Monitor"
-
-msgid "Monitor del sistema"
-msgstr "System Monitor"
-
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "No battery found or this is a desktop computer."
-
-msgid "No hay conexiones de red inalámbrica"
-msgstr "No wireless network connections"
-
-msgid "No hay datos de la tarjeta gráfica disponibles."
-msgstr "No graphics card data available."
-
-msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
-msgstr "No graphics card memory data available."
-
-msgid "No hay dispositivos de red inalámbrica"
-msgstr "No wireless network devices"
-
-msgid "No hay información de la tarjeta gráfica disponible."
-msgstr "No graphics card information available."
-
-msgid "No hay información de memoria de la tarjeta gráfica disponible."
-msgstr "No graphics card memory information available."
-
-msgid "No se encontraron discos físicos compatibles con el diagnóstico."
-msgstr "No physical disks compatible with diagnostics found."
-
-msgid "No se encontraron discos."
-msgstr "No disks found."
-
-msgid "No se encontraron dispositivos Bluetooth informando su batería."
-msgstr "No Bluetooth devices found reporting battery level."
-
-msgid "No se encontraron unidades de disco disponibles."
-msgstr "No available disk drives found."
-
-msgid "No se pudieron obtener los procesos."
-msgstr "Could not retrieve processes."
-
-msgid "No se pudo obtener el tiempo de actividad del sistema."
-msgstr "Could not get system uptime."
-
-msgid "No se pudo obtener información de la memoria."
-msgstr "Could not get memory information."
-
-msgid "No se pudo obtener información de la tarjeta gráfica."
-msgstr "Could not get graphics card information."
-
-msgid "No se pudo obtener información de los discos."
-msgstr "Could not get disk information."
-
-msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
-msgstr "Could not get graphics card memory information."
-
-msgid "Proceso con más CPU: {} ({}%)."
-msgstr "Top CPU process: {} ({}%)."
-
-msgid "Proceso con más RAM: {} ({} MB)."
-msgstr "Top RAM process: {} ({} MB)."
-
-msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
-msgstr "Total RAM: {}. Used: {} ({}%). Free RAM: {}"
-
-msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
-msgstr "Running precision test (about 12 seconds), please wait..."
-
-msgid "Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}"
-msgstr "Wireless network connected: {}, signal strength: {}%, security type: {}"
-
-msgid "Salud real de la batería: {}% de su capacidad original."
-msgstr "Real battery health: {}% of its original capacity."
-
-msgid "Saludable"
-msgstr "Healthy"
-
-msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
-msgstr "A wireless network device has been disabled"
-
-msgid "Se ha habilitado un dispositivo de red inalámbrica"
-msgstr "A wireless network device has been enabled"
-
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:146
 msgid "Sin autenticación (abierta)"
 msgstr "No authentication (Open)"
 
-msgid "Temperatura: {} grados celsius."
-msgstr "Temperature: {} degrees celsius."
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:172
+msgid "Conectado a {}"
+msgstr "Connected to {}"
 
-msgid "Tiempo restante estimado: {} horas y {} minutos."
-msgstr "Estimated remaining time: {} hours and {} minutes."
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:182
+msgid "Desconectado de {}"
+msgstr "Disconnected from {}"
 
-msgid "Unidad de temperatura de la tarjeta gráfica:"
-msgstr "Graphics card temperature unit:"
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:187
+msgid "Se ha habilitado un dispositivo de red inalámbrica"
+msgstr "A wireless network device has been enabled"
 
-msgid "Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
-msgstr "Internet speed. Download: {} Megabytes per second. Upload: {} Megabytes per second."
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:193
+msgid "Se ha deshabilitado un dispositivo de red inalámbrica"
+msgstr "A wireless network device has been disabled"
 
-msgid "Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo."
-msgstr "Internet speed. Latency: {} milliseconds. Download: {} Megabytes per second. Upload: {} Megabytes per second."
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:219
+msgid " byte"
+msgstr " byte"
 
-msgid "Vida útil restante estimada: {} por ciento."
-msgstr "Estimated remaining life: {} percent."
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:219
+msgid " bytes"
+msgstr " bytes"
 
-msgid "conectado"
-msgstr "connected"
-
-msgid "de red"
-msgstr "network"
-
-msgid "desconectado"
-msgstr "disconnected"
-
-msgid "día"
-msgstr "day"
-
-msgid "días"
-msgstr "days"
-
-msgid "estado sólido (SSD)"
-msgstr "solid state (SSD)"
-
-msgid "fijo"
-msgstr "fixed"
-
-msgid "hora"
-msgstr "hour"
-
-msgid "horas"
-msgstr "hours"
-
-msgid "minuto"
-msgstr "minute"
-
-msgid "minutos"
-msgstr "minutes"
-
-msgid "rígido (HDD)"
-msgstr "hard drive (HDD)"
-
-msgid "segundo"
-msgstr "second"
-
-msgid "segundos"
-msgstr "seconds"
-
-msgid "{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%)."
-msgstr "{driveName} ({driveType} disk): {usedSpace} of {totalSpace} used ({percent}%)."
-
-msgid "{} (unidad de red): no disponible."
-msgstr "{} (network drive): unavailable."
-
-msgid "{}: {}%"
-msgstr "{}: {}%"
-
-msgid "No se pudo obtener información de los discos o se canceló el permiso de administrador."
-msgstr "Could not obtain disk information or administrator permission was cancelled."
-
-msgid "Error al obtener el resumen del sistema."
-msgstr "Error getting system summary."
-
-msgid "Error al obtener la información del procesador."
-msgstr "Error getting processor information."
-
-msgid "Error al obtener la información de la memoria RAM."
-msgstr "Error getting RAM information."
-
-msgid "Error al obtener la frecuencia del procesador."
-msgstr "Error getting processor frequency."
-
-msgid "Error al obtener la información de las unidades de disco."
-msgstr "Error getting drive information."
-
-msgid "Error al obtener el estado de la red inalámbrica."
-msgstr "Error getting wireless network status."
-
-msgid "Error al obtener la versión de Windows."
-msgstr "Error getting Windows version."
-
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "No battery detected or this is a desktop computer."
-
-
-msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Presents processor average load, temperature, and individual core load. Press twice to copy information to the clipboard."
-
-msgid "Carga, temperatura y núcleos del procesador"
-msgstr "Processor load, temperature, and cores"
-
-msgid "temperatura: {}"
-msgstr "temperature: {}"
-
-msgid "temperatura no disponible"
-msgstr "temperature not available"
-
-msgid "Carga de CPU al {}%, {}."
-msgstr "CPU load at {}%, {}."
-
-msgid "Carga media de CPU al {}%, {}, {}."
-msgstr "Average CPU load at {}%, {}, {}."
-
-msgid "grados Celsius"
-msgstr "degrees Celsius"
-
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:252
 msgid "grados Fahrenheit"
 msgstr "degrees Fahrenheit"
 
-
-msgid "Alertas automáticas del sistema"
-msgstr "Automatic system alerts"
-
-msgid "Avisar cuando la batería esté completamente cargada (100%)"
-msgstr "Alert when battery is fully charged (100%)"
-
-msgid "Avisar cuando la batería esté baja (15% o menos)"
-msgstr "Alert when battery is low (15% or less)"
-
-msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
-msgstr "Alert if processor temperature is high (85 °C or more)"
-
-msgid "Batería completamente cargada al 100%. Puedes desconectar el cargador."
-msgstr "Battery fully charged at 100%. You can disconnect the charger."
-
-msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
-msgstr "Warning: Battery low at {}%. Connect the computer to power."
-
-msgid "Alerta: Temperatura del procesador alta ({})."
-msgstr "Alert: High processor temperature ({})."
-
-msgid "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los discos de almacenamiento. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces S.M.A.R.T. health, temperature, and condition of storage drives. Press twice to copy information to the clipboard."
-
-msgid "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces top 5 CPU consuming processes and top 5 RAM consuming processes. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces real-time Internet download and upload speed. Press twice to copy information to the clipboard."
-
-msgid "Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces battery status, estimated remaining time, and health wear. Press twice to copy information to the clipboard."
-
-msgid "Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces the battery level of connected Bluetooth devices. Press twice to copy information to the clipboard."
-
-msgid "La consulta de estado de discos ya está en curso, por favor espera..."
-msgstr "Disk health check is already in progress, please wait..."
-
-msgid "La consulta de estado de discos está en curso, por favor espera..."
-msgstr "Disk health check is in progress, please wait..."
-
-msgid "La consulta de procesos ya está en curso, por favor espera..."
-msgstr "Process check is already in progress, please wait..."
-
-msgid "La consulta de procesos está en curso, por favor espera..."
-msgstr "Process check is in progress, please wait..."
-
-msgid "La prueba de velocidad de Internet ya está en curso, por favor espera..."
-msgstr "Internet speed test is already in progress, please wait..."
-
-msgid "La prueba de velocidad de Internet está en curso, por favor espera..."
-msgstr "Internet speed test is in progress, please wait..."
-
-msgid "La consulta de batería ya está en curso, por favor espera..."
-msgstr "Battery check is already in progress, please wait..."
-
-msgid "La consulta de batería está en curso, por favor espera..."
-msgstr "Battery check is in progress, please wait..."
-
-msgid "La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
-msgstr "Bluetooth device search is already in progress, please wait..."
-
-msgid "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
-msgstr "Bluetooth device search is in progress, please wait..."
-
-
-msgid "Se copiará el resultado al portapapeles."
-msgstr "Result will be copied to clipboard."
-
-
-msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o menos)"
-msgstr "Alert when a Bluetooth device battery is low (20% or less)"
-
-msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
-msgstr "Alert when Wi-Fi network state changes (connection or disconnection)"
-
-msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
-msgstr "Warning: Low battery on Bluetooth device {} at {}%."
-
-msgid "Señal de Wi-Fi: {}%."
-msgstr "Wi-Fi signal: {}%."
-
-msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
-msgstr "Alert when Wi-Fi signal strength changes"
-
-msgid "Avisar cuando la batería del equipo esté baja"
-msgstr "Alert when computer battery is low"
-
-msgid "&Porcentaje para la alerta de batería baja del equipo:"
-msgstr "&Percentage for computer low battery alert:"
-
-msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
-msgstr "Alert when a Bluetooth device battery is low"
-
-msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
-msgstr "P&ercentage for Bluetooth low battery alert:"
-
-msgid "Avisar cuando la batería del equipo esté cargada"
-msgstr "Alert when computer battery is charged"
-
-msgid "&Porcentaje para la alerta de batería cargada:"
-msgstr "&Percentage for battery charged alert:"
-
-msgid "Avisar si la temperatura del procesador es alta"
-msgstr "Alert if processor temperature is high"
-
-msgid "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
-msgstr "&Temperature for processor overheating alert (°C):"
-
-msgid "Batería cargada al {}%. Puedes desconectar el cargador."
-msgstr "Battery charged at {}%. You can disconnect the charger."
-
-msgid "GPU:"
-msgstr "GPU:"
-
-msgid "GPU {}:"
-msgstr "GPU {}:"
-
-msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
-msgstr "{prefix} memory {mem}, GPU load: {util}%, temperature: {temp}."
-
-msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
-msgstr "{prefix} memory {mem}, GPU load: {util}%."
-
-msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
-msgstr "{prefix} GPU load: {util}%, temperature: {temp}."
-
-msgid "{prefix} carga del procesador gráfico: {util}%."
-msgstr "{prefix} GPU load: {util}%."
-
-msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
-msgstr "Alert if health issues or critical wear are detected on disks (SSD / HDD)"
-
-msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
-msgstr "&Wear percentage for SSD disk alert:"
-
-msgid "Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad."
-msgstr "Critical warning: Disk {} has health issues. Make a backup."
-
-msgid "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida útil."
-msgstr "Warning: SSD disk {} has reached {}% of its wear life."
-
-msgid "Disco"
-msgstr "Disk"
-
-
-
-msgid "&Comprobar conflictos con otros complementos..."
-msgstr "&Check conflicts with other add-ons..."
-
-msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
-msgstr "COMPATIBILITY WARNINGS:"
-
-msgid "COLISIONES DIRECTAS DE ATAJOS:"
-msgstr "DIRECT SHORTCUT COLLISIONS:"
-
-msgid "Auditoría de conflictos - Monitor del Sistema"
-msgstr "Conflict Audit - System Monitor"
-
-msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
-msgstr "No keyboard shortcut conflicts or active incompatible add-ons detected on this system."
-
-msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
-msgstr "Note: Full details have also been logged to the NVDA log file."
-
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
-msgstr "Could not obtain the active instance of System Monitor."
-
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
-msgstr "System Monitor: No conflicts detected with other add-ons."
-
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
-msgstr "System Monitor: {count} possible conflicts or warnings detected. Check NVDA log for details."
-
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
-msgstr "Checks for keyboard shortcut conflicts or add-ons incompatible with System Monitor."
-
-msgid "El análisis de discos ya está en curso, por favor espera..."
-msgstr "Disk analysis is already in progress, please wait..."
-
-msgid "El análisis de procesos ya está en curso, por favor espera..."
-msgstr "Process analysis is already in progress, please wait..."
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Dispositivo"
-msgstr "Device"
-
-msgid "Dispositivo Bluetooth"
-msgstr "Bluetooth device"
-
-msgid "Resumen de recursos (RAM y CPU)"
-msgstr "Resource summary (RAM and CPU)"
-
-msgid "Memoria RAM física y virtual"
-msgstr "Physical and virtual RAM"
-
-msgid "Espacio en unidades de disco"
-msgstr "Disk drive space"
-
-msgid "Estado e información de red Wi-Fi"
-msgstr "Wi-Fi network status and information"
-
-msgid "Frecuencia y velocidad de CPU"
-msgstr "CPU speed and frequency"
-
-msgid "Versión y arquitectura de Windows"
-msgstr "Windows version and architecture"
-
-msgid "Tiempo de actividad del sistema (uptime)"
-msgstr "System uptime"
-
-msgid "Rendimiento y memoria de GPU"
-msgstr "GPU performance and memory"
-
-msgid "Salud S.M.A.R.T. y temperatura de discos"
-msgstr "S.M.A.R.T. health and disk temperature"
-
-msgid "Procesos con mayor consumo de recursos"
-msgstr "Processes with highest resource consumption"
-
-msgid "Velocidad de red en tiempo real"
-msgstr "Real-time network speed"
-
-msgid "Batería avanzada y salud"
-msgstr "Advanced battery and health"
-
-msgid "Nivel de batería de dispositivos Bluetooth"
-msgstr "Battery level of Bluetooth devices"
-
-msgid "Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas duplicadas/en inglés)"
-msgstr "Resource Monitor (shares the same shortcuts NVDA+Shift+1 to 8 and NVDA+Shift+E, causing ignored commands or duplicate responses)"
-
-msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
-msgstr "Top Process (overlaps shortcuts or process consumption announcements)"
-
-msgid "SysInfo (superpone atajos de información de hardware y sistema)"
-msgstr "SysInfo (overlaps hardware and system information shortcuts)"
-
-msgid "Battery Status (superpone atajos de nivel de batería)"
-msgstr "Battery Status (overlaps battery level shortcuts)"
-
-msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
-msgstr "Presents used RAM and average processor load."
-
-msgid "Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Presents used and total physical and virtual RAM. Press twice to copy information to the clipboard."
-
-msgid "Presenta el espacio utilizado y total de las unidades de disco fijas, extraíbles y de red. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Presents used and total space of fixed, removable, and network drives. Press twice to copy information to the clipboard."
-
-msgid "Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad base y estado del modo turbo boost. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces current and base processor speed (GHz) and turbo boost status. Press twice to copy information to the clipboard."
-
-msgid "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces health status (S.M.A.R.T), temperature, and remaining life of physical disks. Press twice to copy information to the clipboard."
-
-msgid "Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Announces the processes currently consuming the most CPU and RAM. Press twice to copy information to the clipboard."
-
-msgid "Batería al {} %. Estado: {}."
-msgstr "Battery at {} %. Status: {}."
-
-msgid "Salud real de la batería: {} % de su capacidad original."
-msgstr "Real battery health: {} % of original capacity."
-
-msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
-msgstr "Battery fully charged at 100 %. You can unplug the charger."
-
-msgid "Batería cargada al {} %. Puedes desconectar el cargador."
-msgstr "Battery charged at {} %. You can unplug the charger."
-
-msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
-msgstr "Warning: Battery low at {} %. Connect the computer to power."
-
-msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
-msgstr "Warning: Low battery on Bluetooth device {} at {} %."
-
-msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
-msgstr "Warning: SSD disk {} has reached {} % wear of its lifespan."
-
-msgid "{}: {} %"
-msgstr "{}: {} %"
-
-msgid "Señal de Wi-Fi: {} %."
-msgstr "Wi-Fi signal: {} %."
-
-msgid "&Intervalo de comprobación de la batería (minutos):"
-msgstr "Battery check &interval (minutes):"
-
-msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
-msgstr "CPU temperature check i&nterval (minutes):"
-
-msgid "In&tervalo de comprobación de Bluetooth (minutos):"
-msgstr "Bluetooth check in&terval (minutes):"
-
-msgid "Intervalo de comprobación de dis&cos (minutos):"
-msgstr "Disk check interval (&minutes):"
-
-msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
-msgstr "Warn if graphics card (GPU) temperature is high"
-
-msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
-msgstr "Temperat&ure for GPU overheating alert (°C):"
-
-msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
-msgstr "GPU temperature check inter&val (minutes):"
-
-msgid "Alerta: Temperatura de {name} alta ({temp})."
-msgstr "Alert: {name} temperature high ({temp})."
-
-msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
-msgstr "Presents average processor load and the load of each core. If pressed twice, copies the information to clipboard."
-
-msgid "Carga de CPU al {}%."
-msgstr "CPU load at {}%."
-
-msgid "Carga media de CPU al {}%, {}."
-msgstr "Average CPU load at {}%, {}."
-
-msgid "Carga y núcleos del procesador"
-msgstr "Processor load and cores"
-
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:255
+msgid "grados Celsius"
+msgstr "degrees Celsius"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:272
+#, python-brace-format
+msgid "{used} de {total} utilizados ({percent}%)"
+msgstr "{used} of {total} used ({percent}%)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:278
+#, python-brace-format
+msgid "{used} utilizados"
+msgstr "{used} used"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:287
 msgid "&Unidad de temperatura (CPU y GPU):"
 msgstr "Temperature &unit (CPU and GPU):"
 
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:305
+msgid "Avisar cuando la batería del equipo esté cargada"
+msgstr "Alert when computer battery is charged"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:313
+msgid "&Porcentaje para la alerta de batería cargada:"
+msgstr "&Percentage for battery charged alert:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:321
+msgid "Avisar cuando la batería del equipo esté baja"
+msgstr "Alert when computer battery is low"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:329
+msgid "&Porcentaje para la alerta de batería baja del equipo:"
+msgstr "&Percentage for computer low battery alert:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:337
+msgid "&Intervalo de comprobación de la batería (minutos):"
+msgstr "Battery check &interval (minutes):"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:345
+msgid "Avisar si la temperatura del procesador es alta"
+msgstr "Alert if processor temperature is high"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:358
 msgid "&Temperatura para la alerta de sobrecalentamiento del procesador:"
 msgstr "&Temperature for processor overheating alert:"
 
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:366
+msgid "I&ntervalo de comprobación de temperatura de CPU (minutos):"
+msgstr "CPU temperature check i&nterval (minutes):"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:374
+msgid "Avisar si la temperatura de la tarjeta gráfica (GPU) es alta"
+msgstr "Warn if graphics card (GPU) temperature is high"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:387
 msgid "Temperat&ura para la alerta de sobrecalentamiento de la GPU:"
 msgstr "Temperat&ure for GPU overheating alert:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:395
+msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
+msgstr "GPU temperature check inter&val (minutes):"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:403
+msgid "Avisar cuando la batería de un dispositivo Bluetooth esté baja"
+msgstr "Alert when a Bluetooth device battery is low"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:411
+msgid "P&orcentaje para la alerta de batería baja en Bluetooth:"
+msgstr "P&ercentage for Bluetooth low battery alert:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:419
+msgid "In&tervalo de comprobación de Bluetooth (minutos):"
+msgstr "Bluetooth check in&terval (minutes):"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:427
+msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)"
+msgstr "Alert when Wi-Fi network state changes (connection or disconnection)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:434
+msgid "Avisar cuando cambie la intensidad de la señal Wi-Fi"
+msgstr "Alert when Wi-Fi signal strength changes"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:441
+msgid ""
+"Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / "
+"HDD)"
+msgstr ""
+"Alert if health issues or critical wear are detected on disks (SSD / HDD)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:449
+msgid "Porcentaje de des&gaste para la alerta de discos SSD:"
+msgstr "&Wear percentage for SSD disk alert:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:457
+msgid "Intervalo de comprobación de dis&cos (minutos):"
+msgstr "Disk check interval (&minutes):"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:465
+msgid "&Comprobar conflictos con otros complementos..."
+msgstr "&Check conflicts with other add-ons..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:585
+msgid ""
+"No se han detectado conflictos de atajos de teclado ni complementos "
+"incompatibles activos en este sistema."
+msgstr ""
+"No keyboard shortcut conflicts or active incompatible add-ons detected on "
+"this system."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:586
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:606
+msgid "Auditoría de conflictos - Monitor del Sistema"
+msgstr "Conflict Audit - System Monitor"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:593
+msgid "COLISIONES DIRECTAS DE ATAJOS:"
+msgstr "DIRECT SHORTCUT COLLISIONS:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:599
+msgid "ADVERTENCIAS DE COMPATIBILIDAD:"
+msgstr "COMPATIBILITY WARNINGS:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:603
+msgid ""
+"Nota: Los detalles completos también se han registrado en el archivo de log "
+"de NVDA."
+msgstr "Note: Full details have also been logged to the NVDA log file."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:612
+msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgstr "Could not obtain the active instance of System Monitor."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:613
+msgid "Error"
+msgstr "Error"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:702
+msgid "Monitor del sistema"
+msgstr "System Monitor"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:720
+msgid "&Configuración..."
+msgstr "&Settings..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:721
+msgid "Abre las opciones y alertas de Monitor del Sistema"
+msgstr "Opens the System Monitor settings and alerts"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:725
+msgid "&Documentación"
+msgstr "&Documentation"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:726
+msgid "Abre la guía y documentación de Monitor del Sistema"
+msgstr "Opens the System Monitor guide and documentation"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:732
+msgid "&Monitor del Sistema"
+msgstr "&System Monitor"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:733
+msgid "Opciones y ayuda de Monitor del Sistema"
+msgstr "System Monitor settings and help"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:925
+msgid "GPU"
+msgstr "GPU"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:925
+msgid "GPU {}"
+msgstr "GPU {}"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:997
+msgid "Batería completamente cargada al 100 %. Puedes desconectar el cargador."
+msgstr "Battery fully charged at 100 %. You can unplug the charger."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:999
+msgid "Batería cargada al {} %. Puedes desconectar el cargador."
+msgstr "Battery charged at {} %. You can unplug the charger."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1008
+msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
+msgstr "Warning: Battery low at {} %. Connect the computer to power."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1033
+msgid "Alerta: Temperatura del procesador alta ({})."
+msgstr "Alert: High processor temperature ({})."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1059
+#, python-brace-format
+msgid "Alerta: Temperatura de {name} alta ({temp})."
+msgstr "Alert: {name} temperature high ({temp})."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1085
+msgid "Dispositivo Bluetooth"
+msgstr "Bluetooth device"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1088
+msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
+msgstr "Warning: Low battery on Bluetooth device {} at {} %."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1110
+msgid "Disco"
+msgstr "Disk"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1121
+msgid ""
+"Advertencia crítica: El disco {} presenta problemas de salud. Realiza una "
+"copia de seguridad."
+msgstr "Critical warning: Disk {} has health issues. Make a backup."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1132
+#, python-format
+msgid ""
+"Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida "
+"útil."
+msgstr "Warning: SSD {} has reached {} % of its lifespan wear."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1162
+msgid "Señal de Wi-Fi: {} %."
+msgstr "Wi-Fi signal: {} %."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1241
+msgid "No se encontró el archivo de documentación."
+msgstr "The documentation file was not found."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1244
+msgid "Presenta la memoria RAM utilizada y la carga promedio del procesador."
+msgstr "Presents used RAM and average processor load."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1250
+msgid "{}% de RAM utilizada, CPU al {}%."
+msgstr "{}% of RAM in use, CPU at {}%."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1257
+msgid "Error al obtener el resumen del sistema."
+msgstr "Error getting system summary."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1339
+msgid ""
+"Presenta la carga promedio del procesador y la carga de cada núcleo. Si se "
+"pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Presents average processor load and the load of each core. If pressed twice, "
+"copies the information to clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1348
+msgid "Núcleo {}: {}%"
+msgstr "Core {}: {}%"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1353
+msgid "Carga de CPU al {}%."
+msgstr "CPU load at {}%."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1355
+msgid "Carga media de CPU al {}%, {}."
+msgstr "Average CPU load at {}%, {}."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1366
+msgid "Error al obtener la información del procesador."
+msgstr "Error getting processor information."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1369
+msgid ""
+"Presenta el espacio utilizado y total de la memoria RAM física y virtual. Si "
+"se pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Presents used and total physical and virtual RAM. Press twice to copy "
+"information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1377
+#, python-brace-format
+msgid ""
+"Física: {physicalUsed} de {physicalTotal} utilizada ({physicalPercent}%). "
+msgstr "Physical: {physicalUsed} of {physicalTotal} used ({physicalPercent}%). "
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1384
+#, python-brace-format
+msgid "Virtual: {virtualUsed} de {virtualTotal} utilizada ({virtualPercent}%)."
+msgstr "Virtual: {virtualUsed} of {virtualTotal} used ({virtualPercent}%)."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1397
+msgid "Error al obtener la información de la memoria RAM."
+msgstr "Error getting RAM information."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1604
+#, python-brace-format
+msgid "{curr:.2f} GHz de {maxTurbo:.2f} GHz máximos ({pct}%), turbo activo."
+msgstr "{curr:.2f} GHz of {maxTurbo:.2f} GHz maximum ({pct}%), turbo active."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1609
+#, python-brace-format
+msgid "{curr:.2f} GHz de {base:.2f} GHz velocidad base ({pct}%)."
+msgstr "{curr:.2f} GHz of {base:.2f} GHz base speed ({pct}%)."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1613
+msgid "No se pudo obtener la velocidad del procesador en tiempo real."
+msgstr "The real-time processor speed could not be obtained."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1616
+msgid ""
+"Anuncia la velocidad y frecuencia actual del procesador (GHz), velocidad "
+"base y estado del modo turbo boost. Si se pulsa dos veces, copia la "
+"información al portapapeles."
+msgstr ""
+"Announces current and base processor speed (GHz) and turbo boost status. "
+"Press twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1631
+msgid "Error al obtener la frecuencia del procesador."
+msgstr "Error getting processor frequency."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1634
+msgid ""
+"Presenta el espacio utilizado y total de las unidades de disco fijas, "
+"extraíbles y de red. Si se pulsa dos veces, copia la información al "
+"portapapeles."
+msgstr ""
+"Presents used and total space of fixed, removable, and network drives. Press "
+"twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1649
+msgid "{} (unidad de red): no disponible."
+msgstr "{} (network drive): unavailable."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1651
+msgid "de red"
+msgstr "network"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1651
+msgid "fijo"
+msgstr "fixed"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1653
+#, python-brace-format
+msgid ""
+"{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados "
+"({percent}%)."
+msgstr ""
+"{driveName} ({driveType} disk): {usedSpace} of {totalSpace} used "
+"({percent}%)."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1661
+msgid "No se encontraron unidades de disco disponibles."
+msgstr "No available disk drives found."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1670
+msgid "Error al obtener la información de las unidades de disco."
+msgstr "Error getting drive information."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1674
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1681
+msgid "No hay dispositivos de red inalámbrica"
+msgstr "No wireless network devices"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1683
+msgid "No hay conexiones de red inalámbrica"
+msgstr "No wireless network connections"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1698
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1940
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1941
+msgid "Desconocido"
+msgstr "Unknown"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1701
+msgid ""
+"Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: "
+"{}"
+msgstr ""
+"Wireless network connected: {}, signal strength: {}%, security type: {}"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1747
+msgid ""
+"Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y "
+"protocolo de seguridad. Si se pulsa dos veces, copia la información al "
+"portapapeles."
+msgstr ""
+"Announces wireless network name (SSID), signal strength, and security "
+"protocol. Press twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1759
+msgid "Error al obtener el estado de la red inalámbrica."
+msgstr "Error getting wireless network status."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1769
+msgid ""
+"Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos "
+"veces, copia la información al portapapeles."
+msgstr ""
+"Announces Windows version and system architecture. Press twice to copy "
+"information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1784
+msgid "Error al obtener la versión de Windows."
+msgstr "Error getting Windows version."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1806
+msgid ""
+"Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la "
+"información al portapapeles."
+msgstr ""
+"Announces system uptime. Press twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1821
+msgid "No se pudo obtener el tiempo de actividad del sistema."
+msgstr "Could not get system uptime."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1838
+msgid "GPU:"
+msgstr "GPU:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1838
+msgid "GPU {}:"
+msgstr "GPU {}:"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1841
+#, python-brace-format
+msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
+msgstr "{prefix} memory {mem}, GPU load: {util}%."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1845
+#, python-brace-format
+msgid "{prefix} carga del procesador gráfico: {util}%."
+msgstr "{prefix} GPU load: {util}%."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1853
+msgid "No hay información de la tarjeta gráfica disponible."
+msgstr "No graphics card information available."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1855
+msgid "No se pudo obtener información de la tarjeta gráfica."
+msgstr "Could not get graphics card information."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1856
+msgid "No hay datos de la tarjeta gráfica disponibles."
+msgstr "No graphics card data available."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1859
+msgid ""
+"Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si "
+"se pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Announces used memory, total memory, and GPU load. Press twice to copy "
+"information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1875
+msgid "Error al obtener información de la tarjeta gráfica."
+msgstr "Error getting graphics card information."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1918
+msgid ""
+"No se pudo obtener información de los discos o se canceló el permiso de "
+"administrador."
+msgstr ""
+"Could not obtain disk information or administrator permission was cancelled."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1929
+msgid "No se pudo obtener información de los discos."
+msgstr "Could not get disk information."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1939
+msgid "Disco desconocido"
+msgstr "Unknown disk"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1944
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1953
+msgid "estado sólido (SSD)"
+msgstr "solid state (SSD)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1945
+msgid "rígido (HDD)"
+msgstr "hard drive (HDD)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1946
+msgid "Saludable"
+msgstr "Healthy"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1947
+msgid "En riesgo (Advertencia)"
+msgstr "At risk (Warning)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1948
+msgid "Dañado (Crítico)"
+msgstr "Damaged (Critical)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1950
+msgid "Disco {}: Tipo {}. Estado general: {}."
+msgstr "Disk {}: Type {}. General state: {}."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1952
+msgid "Temperatura: {} grados celsius."
+msgstr "Temperature: {} degrees celsius."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1955
+msgid "Desgaste de vida útil: {} por ciento (Salud: {}%)."
+msgstr "Wear level: {} percent (Health: {}%)."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1958
+msgid "No se encontraron discos."
+msgstr "No disks found."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1967
+msgid "Error al consultar discos."
+msgstr "Error querying disks."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1971
+msgid "Analizando discos, por favor espera..."
+msgstr "Analyzing disks, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1988
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:1995
+msgid "Se copiará el resultado al portapapeles."
+msgstr "Result will be copied to clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2005
+msgid ""
+"Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los "
+"discos físicos. Si se pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Announces health status (S.M.A.R.T), temperature, and remaining life of "
+"physical disks. Press twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2013
+msgid "El análisis de discos ya está en curso, por favor espera..."
+msgstr "Disk analysis is already in progress, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2034
+msgid "Proceso con más CPU: {} ({}%)."
+msgstr "Top CPU process: {} ({}%)."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2035
+msgid "Proceso con más RAM: {} ({} MB)."
+msgstr "Top RAM process: {} ({} MB)."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2036
+msgid "No se pudieron obtener los procesos."
+msgstr "Could not retrieve processes."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2041
+msgid "Error analizando procesos."
+msgstr "Error analyzing processes."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2048
+msgid "Analizando procesos..."
+msgstr "Analyzing processes..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2052
+msgid ""
+"Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos "
+"veces, copia la información al portapapeles."
+msgstr ""
+"Announces the processes currently consuming the most CPU and RAM. Press "
+"twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2060
+msgid "El análisis de procesos ya está en curso, por favor espera..."
+msgstr "Process analysis is already in progress, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2068
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2164
+msgid "Error al medir la velocidad de Internet."
+msgstr "Error measuring Internet speed."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2154
+msgid ""
+"Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por "
+"segundo. Subida: {} Megabytes por segundo."
+msgstr ""
+"Internet speed. Latency: {} milliseconds. Download: {} Megabytes per second. "
+"Upload: {} Megabytes per second."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2156
+msgid ""
+"Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} "
+"Megabytes por segundo."
+msgstr ""
+"Internet speed. Download: {} Megabytes per second. Upload: {} Megabytes per "
+"second."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2162
+msgid ""
+"El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos "
+"minutos y vuelve a intentarlo."
+msgstr ""
+"The server temporarily blocked the speed test due to too many requests. Wait "
+"a few minutes and try again."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2173
+msgid "Realizando prueba de precisión (unos 12 segundos), por favor espera..."
+msgstr "Running precision test (about 12 seconds), please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2177
+msgid ""
+"Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se "
+"pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Announces real-time Internet download and upload speed. Press twice to copy "
+"information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2185
+msgid ""
+"La prueba de velocidad de Internet ya está en curso, por favor espera..."
+msgstr "Internet speed test is already in progress, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2189
+msgid "Consultando estado de la batería, por favor espera..."
+msgstr "Checking battery status, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2195
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2236
+msgid "Error consultando la batería."
+msgstr "Error querying battery."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2206
+msgid "No hay batería o es un equipo de sobremesa."
+msgstr "No battery detected or this is a desktop computer."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2209
+msgid "conectado"
+msgstr "connected"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2209
+msgid "desconectado"
+msgstr "disconnected"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2210
+msgid "Batería al {} %. Estado: {}."
+msgstr "Battery at {} %. Status: {}."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2213
+msgid "Tiempo restante estimado: {} horas y {} minutos."
+msgstr "Estimated remaining time: {} hours and {} minutes."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2230
+#, python-format
+msgid "Salud real de la batería: {} % de su capacidad original."
+msgstr "Real battery health: {} % of original capacity."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2249
+msgid ""
+"Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se "
+"pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Announces battery status, estimated remaining time, and health wear. Press "
+"twice to copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2257
+msgid "La consulta de batería ya está en curso, por favor espera..."
+msgstr "Battery check is already in progress, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2645
+msgid "Buscando dispositivos Bluetooth, por favor espera..."
+msgstr "Searching for Bluetooth devices, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2651
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2664
+msgid "Error consultando dispositivos Bluetooth."
+msgstr "Error querying Bluetooth devices."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2655
+msgid "No se encontraron dispositivos Bluetooth informando su batería."
+msgstr "No Bluetooth devices found reporting battery level."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2658
+msgid "{}: {} %"
+msgstr "{}: {} %"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2658
+msgid "Dispositivo"
+msgstr "Device"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2659
+msgid "Batería Bluetooth: "
+msgstr "Bluetooth battery: "
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2676
+msgid ""
+"Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se "
+"pulsa dos veces, copia la información al portapapeles."
+msgstr ""
+"Announces the battery level of connected Bluetooth devices. Press twice to "
+"copy information to the clipboard."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2684
+msgid ""
+"La búsqueda de dispositivos Bluetooth ya está en curso, por favor espera..."
+msgstr "Bluetooth device search is already in progress, please wait..."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2697
+msgid "Resumen de recursos (RAM y CPU)"
+msgstr "Resource summary (RAM and CPU)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2698
+msgid "Carga y núcleos del procesador"
+msgstr "Processor load and cores"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2699
+msgid "Memoria RAM física y virtual"
+msgstr "Physical and virtual RAM"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2700
+msgid "Espacio en unidades de disco"
+msgstr "Disk drive space"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2701
+msgid "Estado e información de red Wi-Fi"
+msgstr "Wi-Fi network status and information"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2702
+msgid "Frecuencia y velocidad de CPU"
+msgstr "CPU speed and frequency"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2703
+msgid "Versión y arquitectura de Windows"
+msgstr "Windows version and architecture"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2704
+msgid "Tiempo de actividad del sistema (uptime)"
+msgstr "System uptime"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2705
+msgid "Rendimiento y memoria de GPU"
+msgstr "GPU performance and memory"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2706
+msgid "Salud S.M.A.R.T. y temperatura de discos"
+msgstr "S.M.A.R.T. health and disk temperature"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2707
+msgid "Procesos con mayor consumo de recursos"
+msgstr "Processes with highest resource consumption"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2708
+msgid "Velocidad de red en tiempo real"
+msgstr "Real-time network speed"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2709
+msgid "Batería avanzada y salud"
+msgstr "Advanced battery and health"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2710
+msgid "Nivel de batería de dispositivos Bluetooth"
+msgstr "Battery level of Bluetooth devices"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2717
+msgid ""
+"Resource Monitor (comparte los mismos atajos NVDA+Shift+1 al 8 y "
+"NVDA+Shift+E, causando que se ignoren comandos o se emitan respuestas "
+"duplicadas/en inglés)"
+msgstr ""
+"Resource Monitor (shares the same shortcuts NVDA+Shift+1 to 8 and "
+"NVDA+Shift+E, causing ignored commands or duplicate responses)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2718
+msgid "Top Process (superpone atajos o anuncios de consumo de procesos)"
+msgstr "Top Process (overlaps shortcuts or process consumption announcements)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2719
+msgid "SysInfo (superpone atajos de información de hardware y sistema)"
+msgstr "SysInfo (overlaps hardware and system information shortcuts)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2720
+msgid "Battery Status (superpone atajos de nivel de batería)"
+msgstr "Battery Status (overlaps battery level shortcuts)"
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2794
+msgid ""
+"Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgstr "System Monitor: No conflicts detected with other add-ons."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2797
+#, python-brace-format
+msgid ""
+"Monitor del Sistema: Se detectaron {count} posibles conflictos o "
+"advertencias. Revise el registro de NVDA para más detalles."
+msgstr ""
+"System Monitor: {count} possible conflicts or warnings detected. Check NVDA "
+"log for details."
+
+#: monitorSistema/globalPlugins/monitorSistema/__init__.py:2801
+msgid ""
+"Comprueba si existen conflictos de atajos de teclado o complementos "
+"incompatibles con Monitor del Sistema."
+msgstr ""
+"Checks for keyboard shortcut conflicts or add-ons incompatible with System "
+"Monitor."
+
+#~ msgid ""
+#~ "Anuncia el desglose de memoria de la tarjeta gráfica (VRAM). Si se pulsa "
+#~ "dos veces, copia la información al portapapeles."
+#~ msgstr ""
+#~ "Announces graphics card memory (VRAM) breakdown. Press twice to copy "
+#~ "information to the clipboard."
+
+#~ msgid ""
+#~ "Anuncia el estado de la batería, tiempo restante y desgaste de salud."
+#~ msgstr "Announces battery status, remaining time, and health wear."
+
+#~ msgid ""
+#~ "Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los "
+#~ "discos físicos."
+#~ msgstr ""
+#~ "Announces health state (S.M.A.R.T), temperature and remaining life of "
+#~ "physical disks."
+
+#~ msgid ""
+#~ "Anuncia el nivel de batería de los dispositivos Bluetooth conectados."
+#~ msgstr "Announces battery level of connected Bluetooth devices."
+
+#~ msgid ""
+#~ "Anuncia el porcentaje de carga total de la CPU y la carga de cada núcleo "
+#~ "individual. Si se pulsa dos veces, copia la información al portapapeles."
+#~ msgstr ""
+#~ "Announces total CPU load percentage and individual core load. Press twice "
+#~ "to copy information to the clipboard."
+
+#~ msgid ""
+#~ "Anuncia la cantidad de memoria RAM instalada, la cantidad usada y el "
+#~ "porcentaje, y la cantidad de RAM libre. Si se pulsa dos veces, copia la "
+#~ "información al portapapeles."
+#~ msgstr ""
+#~ "Announces installed RAM, used amount and percentage, and free RAM. Press "
+#~ "twice to copy information to the clipboard."
+
+#~ msgid ""
+#~ "Anuncia la capacidad, el espacio libre y el espacio usado de todos los "
+#~ "discos disponibles del sistema. Si se pulsa dos veces, copia la "
+#~ "información al portapapeles."
+#~ msgstr ""
+#~ "Announces capacity, free space, and used space of all available system "
+#~ "disks. Press twice to copy information to the clipboard."
+
+#~ msgid ""
+#~ "Anuncia la frecuencia máxima de la CPU y la actual. Si se pulsa dos "
+#~ "veces, copia la información al portapapeles."
+#~ msgstr ""
+#~ "Announces maximum and current CPU frequency. Press twice to copy "
+#~ "information to the clipboard."
+
+#~ msgid ""
+#~ "Anuncia la velocidad de descarga y subida de Internet en tiempo real."
+#~ msgstr "Announces real-time Internet download and upload speed."
+
+#~ msgid "Anuncia los procesos que más CPU y RAM consumen actualmente."
+#~ msgstr "Announces the processes currently consuming the most CPU and RAM."
+
+#~ msgid "Batería al {}%. Estado: {}."
+#~ msgstr "Battery at {}%. Status: {}."
+
+#~ msgid "Carga total de la CPU: {}%"
+#~ msgstr "Total CPU load: {}%"
+
+#~ msgid "Carga total de la CPU: {}%. Núcleos individuales: {} ."
+#~ msgstr "Total CPU load: {}%. Individual cores: {} ."
+
+#~ msgid "Celsius"
+#~ msgstr "Celsius"
+
+#~ msgid "Error al consultar el estado de salud de los discos."
+#~ msgstr "Error querying disk health state."
+
+#~ msgid "Error al obtener información de memoria de la tarjeta gráfica."
+#~ msgstr "Error getting graphics card memory information."
+
+#~ msgid "Fahrenheit"
+#~ msgstr "Fahrenheit"
+
+#~ msgid "Frecuencia actual de la CPU: {} gigahercios"
+#~ msgstr "Current CPU frequency: {} GHz"
+
+#~ msgid "Frecuencia máxima de la CPU: {} gigahercios"
+#~ msgstr "Maximum CPU frequency: {} GHz"
+
+#~ msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
+#~ msgstr "GPU {}: GPU load: {}%, temperature: {}."
+
+#~ msgid "GPU {}: carga del procesador gráfico: {}%."
+#~ msgstr "GPU {}: GPU load: {}%."
+
+#~ msgid ""
+#~ "GPU {}: memoria {}, carga del procesador gráfico: {}%, temperatura: {}."
+#~ msgstr "GPU {}: memory {}, GPU load: {}%, temperature: {}."
+
+#~ msgid "GPU {}: memoria {}, carga del procesador gráfico: {}%."
+#~ msgstr "GPU {}: memory {}, GPU load: {}%."
+
+#~ msgid "GPU {}: {}."
+#~ msgstr "GPU {}: {}."
+
+#~ msgid "Kelvin"
+#~ msgstr "Kelvin"
+
+#~ msgid ""
+#~ "Monitor accesible de recursos para NVDA. Consulta en tiempo real la carga "
+#~ "de la CPU, frecuencia en vivo, memoria RAM, discos, red Wi-Fi, tarjeta "
+#~ "grafica (GPU y memoria VRAM), version de Windows y tiempo de actividad."
+#~ msgstr ""
+#~ "Accessible resource monitor for NVDA. Check real-time CPU load, live "
+#~ "frequency, RAM, disks, Wi-Fi network, graphics card (GPU and VRAM), "
+#~ "Windows version, and system uptime."
+
+#~ msgid "Monitor de Sistema"
+#~ msgstr "System Monitor"
+
+#~ msgid "No hay datos de memoria de la tarjeta gráfica disponibles."
+#~ msgstr "No graphics card memory data available."
+
+#~ msgid "No hay información de memoria de la tarjeta gráfica disponible."
+#~ msgstr "No graphics card memory information available."
+
+#~ msgid "No se encontraron discos físicos compatibles con el diagnóstico."
+#~ msgstr "No physical disks compatible with diagnostics found."
+
+#~ msgid "No se pudo obtener información de la memoria."
+#~ msgstr "Could not get memory information."
+
+#~ msgid "No se pudo obtener información de memoria de la tarjeta gráfica."
+#~ msgstr "Could not get graphics card memory information."
+
+#~ msgid "RAM total: {}. Utilizada: {} ({}%). RAM libre: {}"
+#~ msgstr "Total RAM: {}. Used: {} ({}%). Free RAM: {}"
+
+#~ msgid "Salud real de la batería: {}% de su capacidad original."
+#~ msgstr "Real battery health: {}% of its original capacity."
+
+#~ msgid "Unidad de temperatura de la tarjeta gráfica:"
+#~ msgstr "Graphics card temperature unit:"
+
+#~ msgid "Vida útil restante estimada: {} por ciento."
+#~ msgstr "Estimated remaining life: {} percent."
+
+#~ msgid "día"
+#~ msgstr "day"
+
+#~ msgid "días"
+#~ msgstr "days"
+
+#~ msgid "hora"
+#~ msgstr "hour"
+
+#~ msgid "horas"
+#~ msgstr "hours"
+
+#~ msgid "minuto"
+#~ msgstr "minute"
+
+#~ msgid "minutos"
+#~ msgstr "minutes"
+
+#~ msgid "segundo"
+#~ msgstr "second"
+
+#~ msgid "segundos"
+#~ msgstr "seconds"
+
+#~ msgid ""
+#~ "Presenta la carga promedio del procesador, temperatura y la carga de cada "
+#~ "núcleo. Si se pulsa dos veces, copia la información al portapapeles."
+#~ msgstr ""
+#~ "Presents processor average load, temperature, and individual core load. "
+#~ "Press twice to copy information to the clipboard."
+
+#~ msgid "Carga, temperatura y núcleos del procesador"
+#~ msgstr "Processor load, temperature, and cores"
+
+#~ msgid "temperatura: {}"
+#~ msgstr "temperature: {}"
+
+#~ msgid "temperatura no disponible"
+#~ msgstr "temperature not available"
+
+#~ msgid "Carga de CPU al {}%, {}."
+#~ msgstr "CPU load at {}%, {}."
+
+#~ msgid "Carga media de CPU al {}%, {}, {}."
+#~ msgstr "Average CPU load at {}%, {}, {}."
+
+#~ msgid "Alertas automáticas del sistema"
+#~ msgstr "Automatic system alerts"
+
+#~ msgid "Avisar cuando la batería esté completamente cargada (100%)"
+#~ msgstr "Alert when battery is fully charged (100%)"
+
+#~ msgid "Avisar cuando la batería esté baja (15% o menos)"
+#~ msgstr "Alert when battery is low (15% or less)"
+
+#~ msgid "Avisar si la temperatura del procesador es muy alta (85 °C o más)"
+#~ msgstr "Alert if processor temperature is high (85 °C or more)"
+
+#~ msgid ""
+#~ "Batería completamente cargada al 100%. Puedes desconectar el cargador."
+#~ msgstr "Battery fully charged at 100%. You can disconnect the charger."
+
+#~ msgid "Advertencia: Batería baja al {}%. Conecta el equipo a la corriente."
+#~ msgstr "Warning: Battery low at {}%. Connect the computer to power."
+
+#~ msgid ""
+#~ "Anuncia el estado de salud S.M.A.R.T., temperatura y condición de los "
+#~ "discos de almacenamiento. Si se pulsa dos veces, copia la información al "
+#~ "portapapeles."
+#~ msgstr ""
+#~ "Announces S.M.A.R.T. health, temperature, and condition of storage "
+#~ "drives. Press twice to copy information to the clipboard."
+
+#~ msgid ""
+#~ "Anuncia los 5 procesos que consumen más CPU y los 5 que consumen más "
+#~ "memoria RAM. Si se pulsa dos veces, copia la información al portapapeles."
+#~ msgstr ""
+#~ "Announces top 5 CPU consuming processes and top 5 RAM consuming "
+#~ "processes. Press twice to copy information to the clipboard."
+
+#~ msgid ""
+#~ "La consulta de estado de discos ya está en curso, por favor espera..."
+#~ msgstr "Disk health check is already in progress, please wait..."
+
+#~ msgid "La consulta de estado de discos está en curso, por favor espera..."
+#~ msgstr "Disk health check is in progress, please wait..."
+
+#~ msgid "La consulta de procesos ya está en curso, por favor espera..."
+#~ msgstr "Process check is already in progress, please wait..."
+
+#~ msgid "La consulta de procesos está en curso, por favor espera..."
+#~ msgstr "Process check is in progress, please wait..."
+
+#~ msgid ""
+#~ "La prueba de velocidad de Internet está en curso, por favor espera..."
+#~ msgstr "Internet speed test is in progress, please wait..."
+
+#~ msgid "La consulta de batería está en curso, por favor espera..."
+#~ msgstr "Battery check is in progress, please wait..."
+
+#~ msgid ""
+#~ "La búsqueda de dispositivos Bluetooth está en curso, por favor espera..."
+#~ msgstr "Bluetooth device search is in progress, please wait..."
+
+#~ msgid ""
+#~ "Avisar cuando la batería de un dispositivo Bluetooth esté baja (20% o "
+#~ "menos)"
+#~ msgstr "Alert when a Bluetooth device battery is low (20% or less)"
+
+#~ msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
+#~ msgstr "Warning: Low battery on Bluetooth device {} at {}%."
+
+#~ msgid "Señal de Wi-Fi: {}%."
+#~ msgstr "Wi-Fi signal: {}%."
+
+#~ msgid ""
+#~ "&Temperatura para la alerta de sobrecalentamiento del procesador (°C):"
+#~ msgstr "&Temperature for processor overheating alert (°C):"
+
+#~ msgid "Batería cargada al {}%. Puedes desconectar el cargador."
+#~ msgstr "Battery charged at {}%. You can disconnect the charger."
+
+#~ msgid ""
+#~ "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, "
+#~ "temperatura: {temp}."
+#~ msgstr "{prefix} memory {mem}, GPU load: {util}%, temperature: {temp}."
+
+#~ msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
+#~ msgstr "{prefix} GPU load: {util}%, temperature: {temp}."
+
+#~ msgid ""
+#~ "Advertencia: El disco SSD {} ha alcanzado un {}% de desgaste de su vida "
+#~ "útil."
+#~ msgstr "Warning: SSD disk {} has reached {}% of its wear life."
+
+#~ msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
+#~ msgstr "Temperat&ure for GPU overheating alert (°C):"

@@ -357,9 +357,6 @@ msgstr "获取无线网络状态时出错。"
 msgid "Error al obtener la versión de Windows."
 msgstr "获取 Windows 版本时出错。"
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "没有电池或者是台式电脑。"
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "它显示了平均处理器负载、温度和每个核心的负载。如果按两次，则将信息复制到剪贴板。"
 

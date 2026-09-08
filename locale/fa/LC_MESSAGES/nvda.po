@@ -359,9 +359,6 @@ msgstr "خطا در به دست آوردن وضعیت شبکه بی سیم."
 msgid "Error al obtener la versión de Windows."
 msgstr "خطا در دریافت نسخه ویندوز."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "باتری وجود ندارد یا یک کامپیوتر رومیزی است."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "میانگین بار پردازنده، دما و بار هر هسته را نشان می دهد. اگر دو بار فشار داده شود، اطلاعات را در کلیپ بورد کپی می کند."
 

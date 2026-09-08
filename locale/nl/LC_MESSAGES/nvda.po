@@ -357,9 +357,6 @@ msgstr "Fout bij het verkrijgen van de status van het draadloze netwerk."
 msgid "Error al obtener la versión de Windows."
 msgstr "Fout bij het ophalen van de Windows-versie."
 
-msgid "No hay batería o es un equipo de sobremesa."
-msgstr "Er is geen batterij of het is een desktopcomputer."
-
 msgid "Presenta la carga promedio del procesador, temperatura y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Het presenteert de gemiddelde processorbelasting, temperatuur en de belasting van elke kern. Als u twee keer drukt, wordt de informatie naar het klembord gekopieerd."
 
