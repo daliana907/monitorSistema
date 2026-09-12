@@ -1,0 +1,86 @@
+# Empaqueta y publica automaticamente el complemento en GitHub Releases.
+# Se activa cuando se crea una etiqueta de version (por ejemplo al crear una version en Git)
+# o manualmente desde la pestana Actions en la web de GitHub (boton "Run workflow").
+
+name: Publicar complemento
+
+on:
+  push:
+    tags:
+      - '[0-9]+.[0-9]+*'
+      - 'v[0-9]+.[0-9]+*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    name: Empaquetar y publicar en Releases
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v7
+
+      - name: Preparar Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Pasar pruebas unitarias
+        run: python -m unittest discover -s tests -v
+
+      - name: Crear archivo .nvda-addon
+        id: empaquetar
+        run: |
+          python -c "
+          import os, zipfile, re, shutil
+
+          with open('manifest.ini', encoding='utf-8') as f:
+              text = f.read()
+
+          name = re.search(r'^\s*name\s*=\s*"?([^"
+]+)"?', text, re.M).group(1).strip()
+          ver = re.search(r'^\s*version\s*=\s*"?([^"
+]+)"?', text, re.M).group(1).strip()
+
+          versioned = f'{name}-{ver}.nvda-addon'
+          unversioned = f'{name}.nvda-addon'
+          exclude_dirs = {'__pycache__', '.git', '.github', 'tests'}
+          exclude_exts = {'.pyc', '.tmp', '.bat', '.ps1', '.yml'}
+          exclude_files = {'README.md', 'CHANGELOG.md', '.gitignore', 'resultado_github.txt', 'EN_CRISTIANO.md'}
+
+          with zipfile.ZipFile(versioned, 'w', zipfile.ZIP_DEFLATED) as z:
+              for root, dirs, files in os.walk('.'):
+                  dirs[:] = [d for d in dirs if d not in exclude_dirs]
+                  for f in files:
+                      ext = os.path.splitext(f)[1].lower()
+                      if ext in exclude_exts or f in exclude_files or f.endswith('.nvda-addon'):
+                          continue
+                      full_path = os.path.join(root, f)
+                      rel_path = os.path.relpath(full_path, '.')
+                      z.write(full_path, rel_path)
+
+          shutil.copyfile(versioned, unversioned)
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f'version={ver}\n')
+              out.write(f'name={name}\n')
+              out.write(f'file_versioned={versioned}\n')
+              out.write(f'file_unversioned={unversioned}\n')
+          "
+
+      - name: Publicar en GitHub Releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ github.ref_name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            TAG="${{ steps.empaquetar.outputs.version }}"
+          fi
+          TITLE="${{ steps.empaquetar.outputs.name }} ${{ steps.empaquetar.outputs.version }}"
+          gh release upload "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" "${{ steps.empaquetar.outputs.file_unversioned }}" --clobber || \
+          gh release create "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" "${{ steps.empaquetar.outputs.file_unversioned }}" \
+            --title "$TITLE" \
+            --generate-notes
