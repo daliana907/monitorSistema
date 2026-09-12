@@ -1,7 +1,3 @@
-# Empaqueta y publica automaticamente el complemento en GitHub Releases.
-# Se activa cuando se crea una etiqueta de version (por ejemplo al crear una version en Git)
-# o manualmente desde la pestana Actions en la web de GitHub (boton "Run workflow").
-
 name: Publicar complemento
 
 on:
@@ -21,12 +17,12 @@ jobs:
 
     steps:
       - name: Descargar codigo
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Preparar Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
+          python-version: '3.12'
 
       - name: Pasar pruebas unitarias
         run: python -m unittest discover -s tests -v
@@ -40,10 +36,8 @@ jobs:
           with open('manifest.ini', encoding='utf-8') as f:
               text = f.read()
 
-          name = re.search(r'^\s*name\s*=\s*"?([^"
-]+)"?', text, re.M).group(1).strip()
-          ver = re.search(r'^\s*version\s*=\s*"?([^"
-]+)"?', text, re.M).group(1).strip()
+          name = re.search(r'^\s*name\s*=\s*\"?([^\"\r\n]+)\"?', text, re.M).group(1).strip()
+          ver = re.search(r'^\s*version\s*=\s*\"?([^\"\r\n]+)\"?', text, re.M).group(1).strip()
 
           versioned = f'{name}-{ver}.nvda-addon'
           exclude_dirs = {'__pycache__', '.git', '.github', 'tests'}
@@ -61,22 +55,15 @@ jobs:
                       rel_path = os.path.relpath(full_path, '.')
                       z.write(full_path, rel_path)
 
+          print(f'VERSIONED_NAME={versioned}')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write(f'filename={versioned}\n')
               out.write(f'version={ver}\n')
-              out.write(f'name={name}\n')
-              out.write(f'file_versioned={versioned}\n')
           "
 
       - name: Publicar en GitHub Releases
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG="${{ github.ref_name }}"
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            TAG="${{ steps.empaquetar.outputs.version }}"
-          fi
-          TITLE="${{ steps.empaquetar.outputs.name }} ${{ steps.empaquetar.outputs.version }}"
-          gh release upload "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" --clobber || \
-          gh release create "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" \
-            --title "$TITLE" \
-            --generate-notes
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "${ steps.empaquetar.outputs.filename }"
+          files: ${ steps.empaquetar.outputs.filename }
+          generate_release_notes: true
