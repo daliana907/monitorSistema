@@ -49,9 +49,9 @@ Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitor del 
 
 ### Novedades
 
-- **Alerta independiente de disco caliente**: Nueva sección en Opciones de NVDA para supervisar la temperatura de los discos duros y SSD, con umbral térmico (30 a 90 °C) e intervalo en minutos personalizables.
-- **Anuncio limpio de discos**: Se retiró el anuncio automático de temperatura del atajo general de discos para que la lectura de unidades y espacio libre sea rápida y no sature de datos.
-- **Acceso directo de bajo nivel (IOCTL)**: La temperatura de los discos se consulta directamente al controlador de hardware sin requerir permisos de administrador ni ralentizaciones de PowerShell.
+- Se añadió un apartado propio en las opciones de NVDA para avisar si la temperatura de un disco sube demasiado, con umbral térmico (30 a 90 °C) e intervalo en minutos personalizables.
+- Se retiró el anuncio automático de temperatura del atajo general de discos para que la lectura de unidades y espacio libre sea rápida y no sature de datos.
+- La temperatura de los discos se consulta directamente al controlador de hardware sin requerir permisos de administrador ni depender de comandos lentos de PowerShell.
 
 ---
 

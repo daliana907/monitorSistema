@@ -43,9 +43,9 @@ You can access the add-on from NVDA > Tools > System Monitor:
 
 ### What's New
 
-- **Dedicated Hot Disk Alert**: Added a dedicated section in NVDA Settings to monitor drive temperatures with customizable thermal thresholds (30 to 90 °C) and check intervals.
-- **Streamlined Disk Announcement**: Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.
-- **Low-level Driver Access (IOCTL)**: Drive temperatures are queried directly from the hardware controller using standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.
+- Added a dedicated section in NVDA Settings to monitor drive temperatures with customizable thermal thresholds (30 to 90 °C) and check intervals.
+- Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.
+- Drive temperatures are queried directly from the hardware controller using standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.
 
 ---
 
