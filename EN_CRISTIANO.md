@@ -29,9 +29,10 @@ propio.
 Una sola vez, y solo si tú lo pides: cuando usas el atajo que da el **informe
 completo de salud de los discos**.
 
-El motivo es que Windows solo le cuenta a un programa con permisos cuál es la
-temperatura de un disco y cuánta vida útil le queda. Sin permisos devuelve esos
-campos vacíos.
+El motivo es que Windows solo le cuenta a un programa con permisos cuánta vida
+útil le queda al disco y los datos SMART profundos. Para la temperatura ya no
+hace falta: el complemento se la pide directamente al disco con llamadas del
+sistema sin pedirte permisos de administrador.
 
 Lo importante: **la vigilancia automática, la que corre sola en segundo plano,
 nunca pide permisos**. Se conforma con menos datos precisamente para no
