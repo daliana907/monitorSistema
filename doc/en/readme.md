@@ -1,7 +1,7 @@
 # System Monitor for NVDA
 
 Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-Version: 2.7
+Version: 2.8
 Compatibility: NVDA 2023.1 or later
 License: GNU GPL v2
 
