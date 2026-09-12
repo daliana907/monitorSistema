@@ -1,4 +1,4 @@
-# Monitor del Sistema, explicado en cristiano
+# Monitoreo del Sistema, explicado en cristiano
 
 Esto es para cualquiera que quiera saber qué hace este complemento antes de
 instalarlo, sin necesidad de saber programar.

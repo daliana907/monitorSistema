@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Pruebas de la lógica pura de Monitor del Sistema.
+"""Pruebas de la lógica pura de Monitoreo del Sistema.
 
 Este complemento no se puede importar fuera de Windows: su módulo de Wi-Fi
 define estructuras de C que dependen de bibliotecas del sistema. En vez de
@@ -15,7 +15,7 @@ from types import SimpleNamespace
 from ctypes import POINTER, byref, wintypes, Structure
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PRINCIPAL = os.path.join(RAIZ, "globalPlugins", "monitorSistema", "__init__.py")
+PRINCIPAL = os.path.join(RAIZ, "globalPlugins", "monitoreoSistema", "__init__.py")
 
 
 def extraer(nombreFuncion, ruta=PRINCIPAL):

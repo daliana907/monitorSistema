@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: ko\n"
 "X-Crowdin-File: resourceMonitor.pot\n"
 "X-Crowdin-File-ID: 214\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "바이트"
@@ -177,10 +177,10 @@ msgstr "NVDA용 액세스 가능한 리소스 모니터. CPU 부하, 라이브 �
 msgid "Monitor de Sistema"
 msgstr "시스템 모니터"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "시스템 모니터"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "시스템 모니터"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -534,7 +534,7 @@ msgstr "호환성 경고:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "직접적인 바로가기 충돌:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "충돌 감사 - 시스템 모니터"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -543,16 +543,16 @@ msgstr "이 시스템에는 키보드 단축키 충돌이나 호환되지 않는
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "참고: 자세한 내용은 NVDA 로그 파일에도 기록되어 있습니다."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "시스템 모니터의 활성 인스턴스를 가져올 수 없습니다."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "시스템 모니터: 다른 플러그인과 충돌이 감지되지 않았습니다."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "시스템 모니터: {count}개의 가능한 충돌 또는 경고가 감지되었습니다. 자세한 내용은 NVDA 로그를 확인하세요."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "시스템 모니터에서 키보드 단축키 충돌이나 호환되지 않는 플러그인을 확인하세요."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

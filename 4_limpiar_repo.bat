@@ -10,7 +10,7 @@ echo.
 pause
 (
 echo ===== que contiene el archivo que se subio =====
-cd /d "%BASE%\monitorSistema"
+cd /d "%BASE%\monitoreoSistema"
 git show HEAD:resultado_github.txt
 echo.
 echo ===== quitando los archivos de trabajo del repositorio =====

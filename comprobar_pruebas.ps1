@@ -2,7 +2,7 @@
 # No hace falta contrasena: los repositorios publicos se pueden consultar libremente.
 
 $cabeceras = @{ "User-Agent" = "nvda-addons-daliana" }
-$repos = @("monitorSistema", "climaAccesible", "biosManager")
+$repos = @("monitoreoSistema", "climaAccesible", "biosManager")
 
 foreach ($repo in $repos) {
     Write-Output "===== $repo ====="

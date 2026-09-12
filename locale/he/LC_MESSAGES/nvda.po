@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.0.1\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "בייט"
@@ -178,10 +178,10 @@ msgstr "צג משאבים נגיש עבור NVDA. בדוק בזמן אמת את 
 msgid "Monitor de Sistema"
 msgstr "צג מערכת"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "צג מערכת"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "צג מערכת"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -535,7 +535,7 @@ msgstr "אזהרות תאימות:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "התנגשויות קיצור ישיר:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "ביקורת קונפליקט - ניטור מערכת"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -544,16 +544,16 @@ msgstr "There are no keyboard shortcut conflicts or incompatible plugins active 
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "Note: Full details have also been recorded in the NVDA log file."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "Could not get the active instance of System Monitor."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "System Monitor: No conflicts detected with other plugins."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "System Monitor: {count} possible conflicts or warnings detected. עיין ביומן NVDA לפרטים נוספים."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "Check for keyboard shortcut conflicts or incompatible plugins with System Monitor."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

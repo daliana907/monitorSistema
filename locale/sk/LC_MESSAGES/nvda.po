@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 3;\n"
 "X-Generator: Poedit 3.6\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "byte"
@@ -178,10 +178,10 @@ msgstr "Prístupný monitor zdrojov pre NVDA. Skontrolujte v reálnom čase zať
 msgid "Monitor de Sistema"
 msgstr "Monitor systému"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "Monitor systému"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "Monitor systému"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -535,7 +535,7 @@ msgstr "UPOZORNENIA O KOMPATIBILITE:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "KOLÍZIE PRIAMYCH SKRATKOV:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "Audit konfliktov - Monitor systému"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -544,16 +544,16 @@ msgstr "V tomto systéme nie sú aktívne žiadne konflikty klávesových skrati
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "Poznámka: Všetky podrobnosti boli zaznamenané aj v súbore denníka NVDA."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "Nepodarilo sa získať aktívnu inštanciu nástroja System Monitor."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "Monitor systému: Nezistili sa žiadne konflikty s inými doplnkami."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "System Monitor: Počet zistených možných konfliktov alebo upozornení: {count}. Viac podrobností nájdete v protokole NVDA."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "Skontrolujte konflikty klávesových skratiek alebo nekompatibilné doplnky pomocou nástroja System Monitor."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

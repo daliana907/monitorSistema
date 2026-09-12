@@ -1,4 +1,4 @@
-# Monitor del Sistema para NVDA (System Monitor)
+# Monitoreo del Sistema para NVDA (System Monitor)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
 Versión: 2.8
@@ -11,7 +11,7 @@ Licencia: GNU GPL v2
 
 ## Versión en Español
 
-Monitor del Sistema reúne en un solo lugar todas las herramientas para conocer el estado y rendimiento de tu equipo, batería, periféricos y conexión a internet mediante atajos de teclado rápidos y accesibles.
+Monitoreo del Sistema reúne en un solo lugar todas las herramientas para conocer el estado y rendimiento de tu equipo, batería, periféricos y conexión a internet mediante atajos de teclado rápidos y accesibles.
 
 ### Atajos de teclado básicos (NVDA + Shift + tecla)
 - NVDA + Shift + E: Resumen de recursos (porcentaje de memoria RAM en uso y carga de CPU).
@@ -33,7 +33,7 @@ Si pulsas el atajo una vez, se anuncia el informe por voz. Si lo pulsas dos vece
 - NVDA + Shift + Control + 5: Nivel de batería de auriculares y dispositivos Bluetooth conectados.
 
 ### Alertas automáticas en segundo plano
-En el menú de NVDA > Preferencias > Opciones > Monitor del Sistema, puedes activar avisos con sonido o voz para:
+En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes activar avisos con sonido o voz para:
 - Temperatura elevada de CPU o GPU.
 - Nivel bajo o carga completa de la batería de la laptop.
 - Batería baja en auriculares y dispositivos Bluetooth conectados.
@@ -41,8 +41,8 @@ En el menú de NVDA > Preferencias > Opciones > Monitor del Sistema, puedes acti
 - Desgaste crítico en discos de estado sólido (SSD).
 
 ### Menú en Herramientas de NVDA
-Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitor del Sistema:
-- Configuración...: Abre directamente el panel de opciones y alertas de Monitor del Sistema.
+Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo del Sistema:
+- Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.
 - Documentación: Abre este manual de ayuda en tu navegador.
 
 ## Novedades de la versión 2.7 (12 de septiembre de 2026)

@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: vi\n"
 "X-Crowdin-File: resourceMonitor.pot\n"
 "X-Crowdin-File-ID: 214\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "byte"
@@ -177,10 +177,10 @@ msgstr "Giám sát tài nguyên có thể truy cập cho NVDA. Kiểm tra thời
 msgid "Monitor de Sistema"
 msgstr "Giám sát hệ thống"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "Giám sát hệ thống"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "Giám sát hệ thống"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -534,7 +534,7 @@ msgstr "CẢNH BÁO KHẢ NĂNG TƯƠNG THÍCH:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "SỰ va chạm NGẮN TRỰC TIẾP:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "Kiểm tra xung đột - Giám sát hệ thống"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -543,16 +543,16 @@ msgstr "Không có xung đột phím tắt hoặc plugin không tương thích �
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "Lưu ý: Chi tiết đầy đủ cũng đã được ghi lại trong tệp nhật ký NVDA."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "Không thể tải phiên bản đang hoạt động của System Monitor."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "Giám sát hệ thống: Không phát hiện thấy xung đột với các plugin khác."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "Giám sát hệ thống: Đã phát hiện thấy {count} xung đột hoặc cảnh báo có thể xảy ra. Kiểm tra nhật ký NVDA để biết thêm chi tiết."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "Kiểm tra xung đột phím tắt hoặc plugin không tương thích bằng System Monitor."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

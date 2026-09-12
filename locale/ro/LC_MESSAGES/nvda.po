@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && "
 "n%100<=19) ? 1 : 2);\n"
 "X-Generator: Poedit 3.6\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "octet"
@@ -179,10 +179,10 @@ msgstr "Monitor de resurse accesibil pentru NVDA. Verificați în timp real înc
 msgid "Monitor de Sistema"
 msgstr "Monitor de sistem"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "Monitor de sistem"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "Monitor de sistem"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -536,7 +536,7 @@ msgstr "AVERTIZARI DE COMPATIBILITATE:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "COLIZIUNI DIRECTE SCURTĂTOARE:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "Audit de conflict - Monitor de sistem"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -545,16 +545,16 @@ msgstr "Nu există conflicte de comenzi rapide de la tastatură sau pluginuri in
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "Notă: Detaliile complete au fost înregistrate și în fișierul jurnal NVDA."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "Nu s-a putut obține instanța activă a System Monitor."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "Monitor de sistem: nu au fost detectate conflicte cu alte plugin-uri."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "Monitor sistem: {count} posibile conflicte sau avertismente detectate. Verificați jurnalul NVDA pentru mai multe detalii."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "Verificați dacă există conflicte de comenzi rapide de la tastatură sau pluginuri incompatibile cu System Monitor."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

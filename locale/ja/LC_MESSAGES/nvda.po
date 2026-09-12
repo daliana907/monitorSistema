@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.9\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "バイト"
@@ -177,10 +177,10 @@ msgstr "NVDA のアクセス可能なリソース モニター。 CPU 負荷、�
 msgid "Monitor de Sistema"
 msgstr "システムモニター"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "システムモニター"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "システムモニター"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -534,7 +534,7 @@ msgstr "互換性に関する警告:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "ショートカットの直接衝突:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "競合監査 - システム モニター"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -543,16 +543,16 @@ msgstr "このシステムでは、キーボード ショートカットの競�
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "注: 完全な詳細は NVDA ログ ファイルにも記録されています。"
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "システム モニターのアクティブなインスタンスを取得できませんでした。"
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "システム モニター: 他のプラグインとの競合は検出されませんでした。"
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "システム モニター: {count} 個の競合または警告の可能性が検出されました。詳細については、NVDA ログを確認してください。"
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "システム モニターを使用して、キーボード ショートカットの競合や互換性のないプラグインを確認します。"
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

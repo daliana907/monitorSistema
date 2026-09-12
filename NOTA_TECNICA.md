@@ -1,4 +1,4 @@
-# Nota técnica para revisores — Monitor del Sistema
+# Nota técnica para revisores — Monitoreo del Sistema
 
 *Versión 2.7 · Complemento para NVDA · Autora: Daliana*
 
@@ -10,7 +10,7 @@ publicarlo.
 
 ## Alcance
 
-Monitor del Sistema anuncia por voz el estado del equipo: procesador, memoria,
+Monitoreo del Sistema anuncia por voz el estado del equipo: procesador, memoria,
 discos, tarjeta gráfica, batería, red inalámbrica y aparatos Bluetooth. Además
 puede avisar automáticamente cuando algo se sale de los límites que la usuaria
 configure (batería baja, procesador caliente, disco desgastado, disco caliente, etc.).
@@ -106,7 +106,7 @@ comprobación de actualizaciones.
 ## Almacenamiento
 
 La configuración se guarda en la configuración propia de NVDA, bajo la sección
-`monitorSistema`. El complemento no crea ningún archivo de configuración aparte.
+`monitoreoSistema`. El complemento no crea ningún archivo de configuración aparte.
 
 El único archivo que escribe es el informe temporal de discos descrito arriba,
 en la carpeta temporal de Windows, que se borra tras leerlo.
@@ -238,7 +238,7 @@ API keys, no telemetry, no update checks.
 
 ## Storage
 
-Settings are stored in NVDA's own configuration, under the `monitorSistema`
+Settings are stored in NVDA's own configuration, under the `monitoreoSistema`
 section. The add-on creates no separate configuration file.
 
 The only file it writes is the temporary drive report described above, in the

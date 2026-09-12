@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: zh-TW\n"
 "X-Crowdin-File: resourceMonitor.pot\n"
 "X-Crowdin-File-ID: 214\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "位元組"
@@ -177,10 +177,10 @@ msgstr "NVDA 的可存取資源監視器。即時檢查 CPU 負載、即時頻�
 msgid "Monitor de Sistema"
 msgstr "系統監控器"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "系統監控器"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "系統監控器"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -534,7 +534,7 @@ msgstr "相容性警告："
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "直接快捷碰撞："
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "衝突審計 - 系統監視器"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -543,16 +543,16 @@ msgstr "此系統上不存在鍵盤快速鍵衝突或不相容的插件。"
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "注意：完整的詳細資訊也已記錄在 NVDA 日誌檔案中。"
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "無法取得系統監視器的活動實例。"
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "系統監視器：未偵測到與其他插件的衝突。"
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "系統監視器：偵測到 {count} 個可能的衝突或警告。檢查 NVDA 日誌以取得更多詳細資訊。"
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "檢查鍵盤快速鍵衝突或與系統監視器不相容的插件。"
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

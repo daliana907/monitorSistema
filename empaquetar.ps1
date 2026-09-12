@@ -7,7 +7,7 @@
 
 $carpetaAddons = Join-Path $env:APPDATA "nvda\addons"
 $destino = Join-Path $env:USERPROFILE "Desktop"
-$complementos = @("monitorSistema", "climaAccesible", "biosManager")
+$complementos = @("monitoreoSistema", "climaAccesible", "biosManager")
 
 # Lo que NO se copia al paquete
 $fuera = @(".git", ".github", "tests", "__pycache__")

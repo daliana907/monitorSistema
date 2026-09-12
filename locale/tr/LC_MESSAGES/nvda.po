@@ -16,7 +16,7 @@ msgstr ""
 "X-Crowdin-Language: tr\n"
 "X-Crowdin-File: resourceMonitor.pot\n"
 "X-Crowdin-File-ID: 214\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "bayt"
@@ -177,10 +177,10 @@ msgstr "NVDA için erişilebilir kaynak monitörü. CPU yükünü, canlı frekan
 msgid "Monitor de Sistema"
 msgstr "Sistem Monitörü"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "Sistem Monitörü"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "Sistem Monitörü"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -534,7 +534,7 @@ msgstr "UYUMLULUK UYARILARI:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "DOĞRUDAN KISAYOL ÇARPIŞMALARI:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "Çatışma Denetimi - Sistem Monitörü"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -543,16 +543,16 @@ msgstr "Bu sistemde etkin olan hiçbir klavye kısayolu çakışması veya uyums
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "Not: Tüm ayrıntılar NVDA günlük dosyasına da kaydedilmiştir."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "Sistem Monitörü'nün etkin örneği alınamadı."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "Sistem Monitörü: Diğer eklentilerle çakışma algılanmadı."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "Sistem Monitörü: {count} olası çakışma veya uyarı algılandı. Daha fazla ayrıntı için NVDA günlüğünü kontrol edin."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "Sistem Monitörü ile klavye kısayolu çakışmalarını veya uyumsuz eklentileri kontrol edin."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

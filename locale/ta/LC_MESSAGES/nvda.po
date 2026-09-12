@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
-# Additional translations for Monitor del Sistema: Daliana
+# Additional translations for Monitoreo del Sistema: Daliana
 
 msgid " byte"
 msgstr "பைட்"
@@ -176,10 +176,10 @@ msgstr "என்விடிஏவிற்கான அணுகக்கூ�
 msgid "Monitor de Sistema"
 msgstr "சிஸ்டம் மானிட்டர்"
 
-msgid "Monitor del Sistema"
+msgid "Monitoreo del Sistema"
 msgstr "சிஸ்டம் மானிட்டர்"
 
-msgid "Monitor del sistema"
+msgid "Monitoreo del sistema"
 msgstr "சிஸ்டம் மானிட்டர்"
 
 msgid "No hay batería o es un equipo de sobremesa."
@@ -533,7 +533,7 @@ msgstr "இணக்க எச்சரிக்கைகள்:"
 msgid "COLISIONES DIRECTAS DE ATAJOS:"
 msgstr "நேரடி ஷார்ட்கட் மோதல்கள்:"
 
-msgid "Auditoría de conflictos - Monitor del Sistema"
+msgid "Auditoría de conflictos - Monitoreo del Sistema"
 msgstr "மோதல் தணிக்கை - சிஸ்டம் மானிட்டர்"
 
 msgid "No se han detectado conflictos de atajos de teclado ni complementos incompatibles activos en este sistema."
@@ -542,16 +542,16 @@ msgstr "விசைப்பலகை குறுக்குவழி மு�
 msgid "Nota: Los detalles completos también se han registrado en el archivo de log de NVDA."
 msgstr "குறிப்பு: என்விடிஏ பதிவுக் கோப்பிலும் முழு விவரங்கள் பதிவு செய்யப்பட்டுள்ளன."
 
-msgid "No se pudo obtener la instancia activa de Monitor del Sistema."
+msgid "No se pudo obtener la instancia activa de Monitoreo del Sistema."
 msgstr "சிஸ்டம் மானிட்டரின் செயலில் உள்ள நிகழ்வைப் பெற முடியவில்லை."
 
-msgid "Monitor del Sistema: No se detectaron conflictos con otros complementos."
+msgid "Monitoreo del Sistema: No se detectaron conflictos con otros complementos."
 msgstr "சிஸ்டம் மானிட்டர்: பிற செருகுநிரல்களுடன் முரண்பாடுகள் எதுவும் கண்டறியப்படவில்லை."
 
-msgid "Monitor del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
+msgid "Monitoreo del Sistema: Se detectaron {count} posibles conflictos o advertencias. Revise el registro de NVDA para más detalles."
 msgstr "சிஸ்டம் மானிட்டர்: {count} சாத்தியமான முரண்பாடுகள் அல்லது எச்சரிக்கைகள் கண்டறியப்பட்டன. மேலும் விவரங்களுக்கு என்விடிஏ பதிவைப் பார்க்கவும்."
 
-msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitor del Sistema."
+msgid "Comprueba si existen conflictos de atajos de teclado o complementos incompatibles con Monitoreo del Sistema."
 msgstr "விசைப்பலகை குறுக்குவழி முரண்பாடுகள் அல்லது சிஸ்டம் மானிட்டருடன் பொருந்தாத செருகுநிரல்களைச் சரிபார்க்கவும்."
 
 msgid "El análisis de discos ya está en curso, por favor espera..."

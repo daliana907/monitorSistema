@@ -1,6 +1,6 @@
 # Registro de cambios / Changelog
 
-Todos los cambios importantes de **Monitor del Sistema**.
+Todos los cambios importantes de **Monitoreo del Sistema**.
 Lo más reciente, arriba. En español primero y en inglés después.
 
 *All notable changes to **System Monitor**. Newest on top. Spanish first, English below.*
