@@ -2,7 +2,7 @@
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
 Versión: 2.7
-Compatibilidad: NVDA 2019.3 en adelante
+Compatibilidad: NVDA 2023.1 en adelante
 Licencia: GNU GPL v2
 
 [Read in English below](#english-version)

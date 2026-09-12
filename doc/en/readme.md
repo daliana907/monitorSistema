@@ -2,7 +2,7 @@
 
 Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
 Version: 2.7
-Compatibility: NVDA 2019.3 or later
+Compatibility: NVDA 2023.1 or later
 License: GNU GPL v2
 
 System Monitor is an accessible all-in-one resource, hardware, and network monitor for NVDA.

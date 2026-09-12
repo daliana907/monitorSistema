@@ -52,6 +52,7 @@ from typing import Any
 import api
 import config
 import globalPluginHandler
+import globalVars
 import queueHandler
 import scriptHandler
 import inputCore
@@ -1360,6 +1361,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		prepara el sistema y el que vigila los avisos.
 		"""
 		super().__init__()
+		if getattr(globalVars.appArgs, "secureMode", False):
+			log.warning("Monitor del Sistema: NVDA en modo seguro. Se cancela la carga del complemento por seguridad.")
+			raise globalPluginHandler.ActionCancelled()
 		log.info("Monitor del Sistema: Inicializando complemento (v2.7)...")
 		self._cpuQuery = None
 		self._cpuCounter = None
@@ -2041,8 +2045,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				continue
 			p = os.path.join(doc_dir, l, "readme.html")
 			if os.path.exists(p):
-				os.startfile(p)
-				return
+				try:
+					gui.openDocumentation(p)
+					return
+				except Exception as e:
+					log.error(f"Monitor del Sistema: No se pudo abrir la documentación con gui.openDocumentation: {e}", exc_info=True)
+					# Translators: Mensaje de error cuando no se puede abrir la documentación del complemento.
+					gui.messageBox(
+						_("No se pudo abrir la documentación: {error}").format(error=e),
+						# Translators: Título de la ventana de error al abrir la documentación.
+						_("Error - Monitor del Sistema"),
+						wx.OK | wx.ICON_ERROR
+					)
+					return
+		# Translators: Mensaje cuando no se encuentra el archivo de ayuda de Monitor del Sistema.
 		ui.message(_("No se encontró el archivo de documentación."))
 
 	@scriptHandler.script(
