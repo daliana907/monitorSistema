@@ -1381,17 +1381,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				_("&Configuración..."),
 				_("Abre las opciones y alertas de Monitoreo del Sistema")
 			)
-			self._itemDoc = self._subMenu.Append(
-				wx.ID_ANY,
-				_("&Documentación"),
-				_("Abre la guía y documentación de Monitoreo del Sistema")
-			)
 			gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self._onMenuConfig, self._itemConfig)
-			gui.mainFrame.sysTrayIcon.Bind(wx.EVT_MENU, self._onMenuDoc, self._itemDoc)
 			self._subMenuItem = self._toolsMenu.AppendSubMenu(
 				self._subMenu,
 				_("&Monitoreo del Sistema"),
-				_("Opciones y ayuda de Monitoreo del Sistema")
+				_("Opciones y configuración de Monitoreo del Sistema")
 			)
 			log.info("Monitoreo del Sistema: Submenú registrado en Herramientas exitosamente.")
 		except Exception as e:
@@ -1985,8 +1979,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		try:
 			if hasattr(self, "_itemConfig") and self._itemConfig:
 				gui.mainFrame.sysTrayIcon.Unbind(wx.EVT_MENU, source=self._itemConfig)
-			if hasattr(self, "_itemDoc") and self._itemDoc:
-				gui.mainFrame.sysTrayIcon.Unbind(wx.EVT_MENU, source=self._itemDoc)
 			if hasattr(self, "_subMenuItem") and self._subMenuItem:
 				try:
 					self._toolsMenu.DestroyItem(self._subMenuItem)
@@ -2032,34 +2024,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# abra cuando el menú Herramientas ya se cerró.
 		wx.CallAfter(gui.mainFrame.popupSettingsDialog, NVDASettingsDialog, MonitorSistemaSettingsPanel)
 
-	def _onMenuDoc(self, event):
-		log.info("Monitoreo del Sistema: Abriendo documentación desde el menú Herramientas...")
-		doc_dir = os.path.normpath(os.path.join(MODULE_DIR, "..", "..", "doc"))
-		try:
-			lang = addonHandler.getLanguage()
-		except Exception:
-			lang = "es"
-		candidates = [lang, lang.split('_')[0] if lang and '_' in lang else None, "es", "en"]
-		for l in candidates:
-			if not l:
-				continue
-			p = os.path.join(doc_dir, l, "readme.html")
-			if os.path.exists(p):
-				try:
-					gui.openDocumentation(p)
-					return
-				except Exception as e:
-					log.error(f"Monitoreo del Sistema: No se pudo abrir la documentación con gui.openDocumentation: {e}", exc_info=True)
-					# Translators: Mensaje de error cuando no se puede abrir la documentación del complemento.
-					gui.messageBox(
-						_("No se pudo abrir la documentación: {error}").format(error=e),
-						# Translators: Título de la ventana de error al abrir la documentación.
-						_("Error - Monitoreo del Sistema"),
-						wx.OK | wx.ICON_ERROR
-					)
-					return
-		# Translators: Mensaje cuando no se encuentra el archivo de ayuda de Monitoreo del Sistema.
-		ui.message(_("No se encontró el archivo de documentación."))
 
 	@scriptHandler.script(
 		description=_("Presenta la memoria RAM utilizada y la carga promedio del procesador."), category=scriptCategory,
