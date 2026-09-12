@@ -1,7 +1,7 @@
 # System Monitor for NVDA
 
 Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-Version: 2.6
+Version: 2.7
 Compatibility: NVDA 2019.3 or later
 License: GNU GPL v2
 
@@ -38,6 +38,16 @@ Configurable under NVDA Menu > Preferences > Settings > System Monitor:
 You can access the add-on from NVDA > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Documentation: Opens this user guide.
+
+## What's new in 2.7 (12 September 2026)
+
+### What's New
+
+- **Dedicated Hot Disk Alert**: Added a dedicated section in NVDA Settings to monitor drive temperatures with customizable thermal thresholds (30 to 90 °C) and check intervals.
+- **Streamlined Disk Announcement**: Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.
+- **Low-level Driver Access (IOCTL)**: Drive temperatures are queried directly from the hardware controller using standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.
+
+---
 
 ## What's new in 2.6 (12 September 2026)
 

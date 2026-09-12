@@ -7,6 +7,28 @@ Lo más reciente, arriba. En español primero y en inglés después.
 
 ---
 
+## 2.7 — 2026-09-12
+
+### Español
+
+#### Novedades
+
+- **Alerta de disco caliente independiente**: Se añadió en las Opciones de NVDA una sección dedicada para vigilar la temperatura de los discos. Permite activar o desactivar el aviso, elegir la temperatura máxima deseada (de 30 a 90 °C) y el intervalo de comprobación en minutos.
+- **Anuncio limpio de discos**: Se retiró el anuncio automático de temperatura del atajo general de discos para que la lectura de unidades y espacio libre sea rápida y no sature de información.
+- **Acceso directo de bajo nivel (IOCTL)**: La temperatura de los discos físicos se consulta ahora directamente al controlador de hardware mediante llamadas estándar del sistema (`IOCTL_STORAGE_QUERY_PROPERTY`), sin exigir permisos de administrador de Windows ni depender de comandos lentos de PowerShell.
+- **Batería de pruebas automáticas**: Se incorporaron pruebas específicas para verificar la lectura precisa de temperaturas y la lógica de alertas térmicas de discos.
+
+### English
+
+#### What's New
+
+- **Dedicated Hot Disk Alert**: Added a dedicated section in NVDA Settings to monitor drive temperatures. Allows enabling or disabling the alert, choosing the alert threshold (30 to 90 °C), and the check interval in minutes.
+- **Streamlined Disk Announcement**: Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.
+- **Low-level Driver Access (IOCTL)**: Physical drive temperatures are now read directly from the hardware controller via standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.
+- **Automated Test Coverage**: Added comprehensive test cases covering drive temperature reading and thermal alert logic.
+
+---
+
 ## 2.6 — 2026-09-12
 
 ### Español

@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>System Monitor for NVDA</h1>
-<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.6 | Compatibility: NVDA 2019.3 or later</p>
+<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.7 | Compatibility: NVDA 2019.3 or later</p>
 
 <p>System Monitor gives you immediate, accessible insights into your computer's hardware, battery, peripherals, and network performance.</p>
 
@@ -48,6 +48,7 @@
 <p>Configurable under NVDA Menu &gt; Preferences &gt; Settings &gt; System Monitor:</p>
 <ul>
   <li>High CPU or GPU temperatures.</li>
+  <li>Dedicated Hot Disk Alert with custom thermal threshold (30 to 90 °C) and check interval.</li>
   <li>Low laptop battery or battery full notification.</li>
   <li>Low battery alerts for connected Bluetooth audio devices.</li>
   <li>Wi-Fi disconnect and signal strength change notifications.</li>
@@ -59,6 +60,14 @@
 <ul>
   <li><strong>Settings...</strong>: Opens the System Monitor configuration panel directly.</li>
   <li><strong>Documentation</strong>: Opens this user guide.</li>
+</ul>
+
+<h2>What's new in 2.7 (12 September 2026)</h2>
+<h3>What's New</h3>
+<ul>
+  <li><strong>Dedicated Hot Disk Alert</strong>: Added a dedicated section in NVDA Settings to monitor drive temperatures with customizable thermal thresholds (30 to 90 °C) and check intervals.</li>
+  <li><strong>Streamlined Disk Announcement</strong>: Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.</li>
+  <li><strong>Low-level Driver Access (IOCTL)</strong>: Drive temperatures are queried directly from the hardware controller using standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.</li>
 </ul>
 
 <h2>What's new in 2.6 (12 September 2026)</h2>

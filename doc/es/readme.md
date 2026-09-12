@@ -1,7 +1,7 @@
 # Monitor del Sistema para NVDA (System Monitor)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.6
+Versión: 2.7
 Compatibilidad: NVDA 2019.3 en adelante
 Licencia: GNU GPL v2
 
@@ -44,6 +44,16 @@ En el menú de NVDA > Preferencias > Opciones > Monitor del Sistema, puedes acti
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitor del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitor del Sistema.
 - Documentación: Abre este manual de ayuda en tu navegador.
+
+## Novedades de la versión 2.7 (12 de septiembre de 2026)
+
+### Novedades
+
+- **Alerta independiente de disco caliente**: Nueva sección en Opciones de NVDA para supervisar la temperatura de los discos duros y SSD, con umbral térmico (30 a 90 °C) e intervalo en minutos personalizables.
+- **Anuncio limpio de discos**: Se retiró el anuncio automático de temperatura del atajo general de discos para que la lectura de unidades y espacio libre sea rápida y no sature de datos.
+- **Acceso directo de bajo nivel (IOCTL)**: La temperatura de los discos se consulta directamente al controlador de hardware sin requerir permisos de administrador ni ralentizaciones de PowerShell.
+
+---
 
 ## Novedades de la versión 2.6 (12 de septiembre de 2026)
 

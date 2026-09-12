@@ -1360,7 +1360,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		prepara el sistema y el que vigila los avisos.
 		"""
 		super().__init__()
-		log.info("Monitor del Sistema: Inicializando complemento (v2.6)...")
+		log.info("Monitor del Sistema: Inicializando complemento (v2.7)...")
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._client_handle = None

@@ -1,6 +1,6 @@
 # Nota técnica para revisores — Monitor del Sistema
 
-*Versión 2.6 · Complemento para NVDA · Autora: Daliana*
+*Versión 2.7 · Complemento para NVDA · Autora: Daliana*
 
 Este documento describe qué toca el complemento en el sistema, qué permisos
 pide y por qué. Está pensado para quien revisa el código antes de instalarlo o
@@ -13,7 +13,7 @@ publicarlo.
 Monitor del Sistema anuncia por voz el estado del equipo: procesador, memoria,
 discos, tarjeta gráfica, batería, red inalámbrica y aparatos Bluetooth. Además
 puede avisar automáticamente cuando algo se sale de los límites que la usuaria
-configure (batería baja, procesador caliente, disco desgastado, etc.).
+configure (batería baja, procesador caliente, disco desgastado, disco caliente, etc.).
 
 Toda la información se obtiene del propio equipo. Nada se consulta a un
 servicio externo, salvo la prueba de velocidad de internet, que se describe más
@@ -38,7 +38,7 @@ El complemento **no escribe nunca en el registro**.
 | `pdh.dll` | Contadores de rendimiento: velocidad real del procesador y de la GPU |
 | `cfgmgr32.dll`, `setupapi.dll` | Enumerar los aparatos Bluetooth y leer su nivel de batería |
 | `bthprops.cpl` | Saber si un aparato Bluetooth está realmente conectado en este momento |
-| `kernel32.dll` | Cerrar los identificadores abiertos al consultar el Bluetooth |
+| `kernel32.dll` | Consultar la temperatura física de los discos (`IOCTL_STORAGE_QUERY_PROPERTY`) y cerrar identificadores |
 | `wlanapi.dll` | Avisos de conexión y desconexión del Wi-Fi, e intensidad de señal |
 | `dxgi.dll` | Enumerar los adaptadores gráficos |
 | `atiadlxx.dll` / `atiadlxy.dll` | Temperatura de CPU y GPU en equipos AMD (solo si están presentes) |
@@ -138,7 +138,7 @@ un NVDA simulado y no requieren hardware concreto.
 
 # Technical note for reviewers — System Monitor
 
-*Version 2.6 · NVDA add-on · Author: Daliana*
+*Version 2.7 · NVDA add-on · Author: Daliana*
 
 This document describes what the add-on touches on the system, what permissions
 it requests and why. It is intended for anyone reviewing the code before
@@ -149,7 +149,7 @@ installing or publishing it.
 System Monitor announces the state of the machine by speech: processor, memory,
 drives, graphics card, battery, wireless network and Bluetooth devices. It can
 also alert automatically when something crosses the thresholds the user
-configures (low battery, hot processor, worn drive, and so on).
+configures (low battery, hot processor, worn drive, hot drive, and so on).
 
 All information comes from the machine itself. Nothing is queried from an
 external service, except the internet speed test described below, which runs
@@ -174,7 +174,7 @@ The add-on **never writes to the registry**.
 | `pdh.dll` | Performance counters: real processor and GPU clock |
 | `cfgmgr32.dll`, `setupapi.dll` | Enumerate Bluetooth devices and read their battery level |
 | `bthprops.cpl` | Tell whether a Bluetooth device is actually connected right now |
-| `kernel32.dll` | Close handles opened while querying Bluetooth |
+| `kernel32.dll` | Query physical drive temperature (`IOCTL_STORAGE_QUERY_PROPERTY`) and close open handles |
 | `wlanapi.dll` | Wi-Fi connect/disconnect notifications and signal strength |
 | `dxgi.dll` | Enumerate graphics adapters |
 | `atiadlxx.dll` / `atiadlxy.dll` | CPU and GPU temperature on AMD machines (only if present) |

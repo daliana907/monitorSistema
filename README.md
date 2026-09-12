@@ -3,7 +3,7 @@
 [![Pruebas](https://github.com/daliana907/monitorSistema/actions/workflows/pruebas.yml/badge.svg)](https://github.com/daliana907/monitorSistema/actions/workflows/pruebas.yml)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.6
+Versión: 2.7
 Compatibilidad: NVDA 2019.3 en adelante
 Licencia: GNU GPL v2
 
