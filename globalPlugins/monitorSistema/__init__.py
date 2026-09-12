@@ -2520,6 +2520,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description=_("Anuncia el nombre de la red inalámbrica (SSID), intensidad de la señal y protocolo de seguridad. Si se pulsa dos veces, copia la información al portapapeles."),
 		gesture="kb:nvda+shift+4",
 		speakOnDemand=True,
+		category=scriptCategory,
 	)
 	def script_wlanStatusReport(self, gesture: inputCore.InputGesture):
 		if scriptHandler.getLastScriptRepeatCount() == 0:
@@ -2542,6 +2543,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description=_("Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."),
 		gesture="kb:nvda+shift+6",
 		speakOnDemand=True,
+		category=scriptCategory,
 	)
 	def script_announceWinVer(self, gesture: inputCore.InputGesture):
 		try:
@@ -2579,6 +2581,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		description=_("Anuncia el tiempo de actividad del sistema. Si se pulsa dos veces, copia la información al portapapeles."),
 		gesture="kb:nvda+shift+7",
 		speakOnDemand=True,
+		category=scriptCategory,
 	)
 	def script_announceUptime(self, gesture: inputCore.InputGesture):
 		try:
@@ -2637,6 +2640,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(
 		description=_("Anuncia la memoria utilizada, total y carga del procesador gráfico (GPU). Si se pulsa dos veces, copia la información al portapapeles."),
+		category=scriptCategory,
 		gesture="kb:nvda+shift+8",
 		speakOnDemand=True,
 	)
@@ -2800,6 +2804,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(
 		description=_("Anuncia el estado de salud (S.M.A.R.T) y la vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."),
+		category=scriptCategory,
 		gesture="kb:nvda+shift+control+1",
 		speakOnDemand=True,
 	)
@@ -2860,6 +2865,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(
 		description=_("Anuncia los procesos que más CPU y RAM consumen actualmente. Si se pulsa dos veces, copia la información al portapapeles."),
+		category=scriptCategory,
 		gesture="kb:nvda+shift+control+2",
 		speakOnDemand=True,
 	)
@@ -3008,6 +3014,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(
 		description=_("Anuncia la velocidad de descarga y subida de Internet en tiempo real. Si se pulsa dos veces, copia la información al portapapeles."),
+		category=scriptCategory,
 		gesture="kb:nvda+shift+control+3",
 		speakOnDemand=True,
 	)
@@ -3094,6 +3101,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(
 		description=_("Anuncia el estado de la batería, tiempo restante y desgaste de salud. Si se pulsa dos veces, copia la información al portapapeles."),
+		category=scriptCategory,
 		gesture="kb:nvda+shift+control+4",
 		speakOnDemand=True,
 	)
@@ -3173,6 +3181,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@scriptHandler.script(
 		description=_("Anuncia el nivel de batería de los dispositivos Bluetooth conectados. Si se pulsa dos veces, copia la información al portapapeles."),
+		category=scriptCategory,
 		gesture="kb:nvda+shift+control+5",
 		speakOnDemand=True,
 	)
