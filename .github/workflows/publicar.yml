@@ -35,7 +35,7 @@ jobs:
         id: empaquetar
         run: |
           python -c "
-          import os, zipfile, re, shutil
+          import os, zipfile, re
 
           with open('manifest.ini', encoding='utf-8') as f:
               text = f.read()
@@ -46,7 +46,6 @@ jobs:
 ]+)"?', text, re.M).group(1).strip()
 
           versioned = f'{name}-{ver}.nvda-addon'
-          unversioned = f'{name}.nvda-addon'
           exclude_dirs = {'__pycache__', '.git', '.github', 'tests'}
           exclude_exts = {'.pyc', '.tmp', '.bat', '.ps1', '.yml'}
           exclude_files = {'README.md', 'CHANGELOG.md', '.gitignore', 'resultado_github.txt', 'EN_CRISTIANO.md'}
@@ -62,13 +61,10 @@ jobs:
                       rel_path = os.path.relpath(full_path, '.')
                       z.write(full_path, rel_path)
 
-          shutil.copyfile(versioned, unversioned)
-
           with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
               out.write(f'version={ver}\n')
               out.write(f'name={name}\n')
               out.write(f'file_versioned={versioned}\n')
-              out.write(f'file_unversioned={unversioned}\n')
           "
 
       - name: Publicar en GitHub Releases
@@ -80,7 +76,7 @@ jobs:
             TAG="${{ steps.empaquetar.outputs.version }}"
           fi
           TITLE="${{ steps.empaquetar.outputs.name }} ${{ steps.empaquetar.outputs.version }}"
-          gh release upload "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" "${{ steps.empaquetar.outputs.file_unversioned }}" --clobber || \
-          gh release create "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" "${{ steps.empaquetar.outputs.file_unversioned }}" \
+          gh release upload "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" --clobber || \
+          gh release create "$TAG" "${{ steps.empaquetar.outputs.file_versioned }}" \
             --title "$TITLE" \
             --generate-notes
