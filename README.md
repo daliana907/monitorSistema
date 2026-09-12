@@ -9,7 +9,7 @@ Licencia: GNU GPL v2
 
 [Read in English below](#english-version)
 
-[Registro de cambios](CHANGELOG.md) · [Changelog](CHANGELOG.md)
+[Descargar última versión / Download latest](https://github.com/daliana907/monitorSistema/releases/latest) · [Registro de cambios](CHANGELOG.md)
 
 ---
 
