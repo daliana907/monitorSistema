@@ -3278,7 +3278,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 		Apunta en 'conflicts' lo que encuentre.
 		"""
-		our_gestures_map = self._atajosPropios()
+		default_map = self._atajosPropios()
+		our_gestures_map = {}
+		g_map = getattr(self, "_gestureMap", {}) or {}
+		if g_map:
+			for g_id, script_ref in g_map.items():
+				norm_g = str(g_id).strip().lower().replace(" ", "")
+				desc = getattr(script_ref, "description", "") or getattr(script_ref, "__doc__", "") or default_map.get(norm_g, getattr(script_ref, "__name__", str(script_ref)))
+				our_gestures_map[norm_g] = desc
+		else:
+			our_gestures_map = default_map
 		try:
 			running = getattr(globalPluginHandler, "runningPlugins", set())
 			for plugin in running:
