@@ -1,7 +1,7 @@
 # System Monitor for NVDA
 
 Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-Version: 2.5
+Version: 2.6
 Compatibility: NVDA 2019.3 or later
 License: GNU GPL v2
 
@@ -38,6 +38,16 @@ Configurable under NVDA Menu > Preferences > Settings > System Monitor:
 You can access the add-on from NVDA > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Documentation: Opens this user guide.
+
+## What's new in 2.6 (12 September 2026)
+
+### Improved
+
+- Switched to NVDA's native logging framework (`logHandler.log`) so all diagnostics integrate cleanly with NVDA's Log Viewer.
+- Clean teardown of Tools menu items on addon termination/reload, preventing orphaned UI handles.
+- Rigorous cleanup of background monitoring threads and alert timers upon addon termination.
+
+---
 
 ## What's new in 2.5 (8 September 2026)
 

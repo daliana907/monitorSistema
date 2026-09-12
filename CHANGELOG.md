@@ -7,6 +7,26 @@ Lo más reciente, arriba. En español primero y en inglés después.
 
 ---
 
+## 2.6 — 2026-09-12
+
+### Español
+
+#### Mejorado
+
+- Integración con el sistema oficial de registro de NVDA (`logHandler.log`), permitiendo que cualquier evento o error técnico se consulte de forma limpia y directa en el Visor de Registro de NVDA.
+- Al desactivar o recargar complementos, los elementos del menú Herramientas se destruyen adecuadamente liberando recursos de la interfaz.
+- Cierre y descarga rigurosos de hilos de supervisión en segundo plano y temporizadores de alerta al detener el complemento.
+
+### English
+
+#### Improved
+
+- Switched to NVDA's native logging framework (`logHandler.log`) so all diagnostics integrate cleanly with NVDA's Log Viewer.
+- Clean teardown of Tools menu items on addon termination/reload, preventing orphaned UI handles.
+- Rigorous cleanup of background monitoring threads and alert timers upon addon termination.
+
+---
+
 ## 2.5 — 2026-09-08
 
 ### Español

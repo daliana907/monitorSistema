@@ -9,12 +9,16 @@
 # Released under the GNU General Public License version 2 (GPLv2).
 
 
-import logging
 import functools
 import threading
 import addonHandler
 addonHandler.initTranslation()
-log = logging.getLogger(__name__)
+
+try:
+	from logHandler import log
+except ImportError:
+	import logging
+	log = logging.getLogger(__name__)
 
 import os
 import os.path
@@ -95,6 +99,9 @@ confspec = {
 	"alertDiskHealth": "boolean(default=True)",
 	"alertDiskWearThreshold": "integer(default=80, min=70, max=95)",
 	"alertDiskHealthInterval": "integer(default=240, min=1, max=1440)",
+	"alertDiskHot": "boolean(default=True)",
+	"alertDiskHotThreshold": "integer(default=70, min=30, max=90)",
+	"alertDiskHotInterval": "integer(default=5, min=1, max=1440)",
 }
 config.conf.spec["monitorSistema"] = confspec
 
@@ -113,6 +120,13 @@ except Exception:
 
 
 def message(text: str, fileName: str) -> None:
+	"""Anuncia un cambio del Wi-Fi y hace sonar el aviso correspondiente.
+
+	Si tienes apagados los avisos de Wi-Fi no dice nada. Para el sonido prueba
+	tres caminos, uno detrás de otro: el reproductor de NVDA, el de Windows y,
+	si ninguno funciona, dos pitidos generados en el momento. Así el aviso se
+	oye aunque falte el archivo de sonido.
+	"""
 	cfg = config.conf.get("monitorSistema", {})
 	if not cfg.get("alertWlan", True):
 		return
@@ -159,6 +173,13 @@ try:
 
 	@wlanapi.WLAN_NOTIFICATION_CALLBACK
 	def notifyHandler(pData: Any, pCtx: Any):
+		"""Recibe los avisos que Windows manda sobre la tarjeta Wi-Fi.
+
+		Windows llama a esta función desde sus propios hilos, no desde NVDA, así
+		que aquí no se habla directamente: se deja el mensaje en la cola de NVDA
+		para que lo diga cuando le toque. Reconoce cuatro cosas: te conectaste a
+		una red, te desconectaste, se encendió la tarjeta Wi-Fi y se apagó.
+		"""
 		try:
 			if pData.contents.NotificationSource != wlanapi.WLAN_NOTIFICATION_SOURCE_ACM:
 				return
@@ -261,6 +282,13 @@ def formatGpuTemperature(celsiusText: str) -> str:
 
 
 def formatGpuMemory(usedMibText: str, totalMibText: str) -> str | None:
+	"""Convierte la memoria de la tarjeta gráfica en una frase que se entienda.
+
+	Recibe los megabytes usados y los totales tal como los da la tarjeta, en
+	texto. Devuelve algo como "1,2 GB de 8 GB utilizados (15%)". Si no se sabe
+	el total, solo dice lo usado. Si el dato usado no es un número, devuelve
+	None para que quien llame sepa que no hay nada que decir.
+	"""
 	try:
 		usedMib = float(usedMibText)
 	except (TypeError, ValueError):
@@ -282,10 +310,111 @@ def formatGpuMemory(usedMibText: str, totalMibText: str) -> str | None:
 		return _("{used} utilizados").format(used=size(usedBytes, alternative))
 
 
+# --- temperatura de los discos ---------------------------------------------
+# Se le pregunta directamente al controlador del disco. Es el unico camino que
+# no exige permisos de administrador: la via habitual de Windows
+# (Get-StorageReliabilityCounter) los exige y le responde "acceso denegado" a un
+# NVDA normal, asi que no sirve para un aviso automatico.
+IOCTL_CONSULTAR_PROPIEDAD_DE_DISCO = 0x2D1400
+PROPIEDAD_DE_TEMPERATURA = 52   # StorageDeviceTemperatureProperty
+CONSULTA_NORMAL = 0             # PropertyStandardQuery
+MAXIMO_DE_DISCOS = 8
+
+
+class CONSULTA_DE_PROPIEDAD(Structure):
+	_fields_ = [
+		("PropertyId", wintypes.DWORD),
+		("QueryType", wintypes.DWORD),
+		("AdditionalParameters", ctypes.c_ubyte * 1),
+	]
+
+
+def _temperaturaDeUnDisco(numero):
+	"""Grados a los que esta el disco fisico indicado, o None si no se sabe.
+
+	Abre el disco pidiendo cero permisos de acceso, solo para preguntarle: por
+	eso no hace falta elevar. Devuelve None si ese disco no existe, si el
+	controlador no sabe dar su temperatura, o si la cifra no tiene sentido.
+	"""
+	MANEJADOR_INVALIDO = ctypes.c_void_p(-1).value
+	COMPARTIR_LECTURA_Y_ESCRITURA = 3
+	ABRIR_SI_EXISTE = 3
+	try:
+		manejador = ctypes.windll.kernel32.CreateFileW(
+			f"\\\\.\\PhysicalDrive{numero}", 0, COMPARTIR_LECTURA_Y_ESCRITURA,
+			None, ABRIR_SI_EXISTE, 0, None,
+		)
+	except OSError as e:
+		log.debug(f"MonitorSistema: No se pudo abrir el disco {numero}: {e}")
+		return None
+	if manejador in (MANEJADOR_INVALIDO, 0, None):
+		return None
+	try:
+		consulta = CONSULTA_DE_PROPIEDAD()
+		consulta.PropertyId = PROPIEDAD_DE_TEMPERATURA
+		consulta.QueryType = CONSULTA_NORMAL
+		respuesta = (ctypes.c_ubyte * 512)()
+		devueltos = wintypes.DWORD(0)
+		ok = ctypes.windll.kernel32.DeviceIoControl(
+			manejador,
+			IOCTL_CONSULTAR_PROPIEDAD_DE_DISCO,
+			byref(consulta), ctypes.sizeof(consulta),
+			byref(respuesta), ctypes.sizeof(respuesta),
+			byref(devueltos), None,
+		)
+		# La respuesta empieza con una cabecera de 24 bytes; despues viene una
+		# entrada por cada sensor del disco, y la temperatura del primero esta
+		# en el byte 26. Esta posicion esta comprobada sobre un disco real.
+		if not ok or devueltos.value < 28:
+			return None
+		grados = ctypes.cast(byref(respuesta, 26), POINTER(ctypes.c_short))[0]
+		# Un disco encendido nunca esta a cero grados: si sale eso, es que el
+		# controlador no sabe la temperatura y devuelve el hueco vacio.
+		if grados <= 0 or grados > 150:
+			return None
+		return int(grados)
+	except Exception as e:
+		log.debug(f"MonitorSistema: El disco {numero} no dio su temperatura: {e}")
+		return None
+	finally:
+		try:
+			ctypes.windll.kernel32.CloseHandle(manejador)
+		except Exception:
+			pass
+
+
+def temperaturasDeDiscos():
+	"""Temperatura de cada disco fisico que sepa decirla.
+
+	Devuelve una lista de pares (nombre, grados). Con un solo disco se le llama
+	"el disco"; con varios se numeran, que dicho en voz alta se entiende mucho
+	mejor que leer el modelo entero. Los discos que no saben decir su
+	temperatura simplemente no aparecen.
+	"""
+	gradosPorDisco = []
+	for numero in range(MAXIMO_DE_DISCOS):
+		grados = _temperaturaDeUnDisco(numero)
+		if grados is not None:
+			gradosPorDisco.append(grados)
+	if len(gradosPorDisco) == 1:
+		return [(_("el disco"), gradosPorDisco[0])]
+	return [
+		(_("el disco {}").format(posicion + 1), grados)
+		for posicion, grados in enumerate(gradosPorDisco)
+	]
+
 class MonitorSistemaSettingsPanel(SettingsPanel):
 	title = "Monitor del Sistema"
 
 	def makeSettings(self, settingsSizer: wx.BoxSizer) -> None:
+		"""Monta el panel de opciones que aparece dentro de las preferencias de NVDA.
+
+		Arriba la unidad de temperatura, Celsius o Fahrenheit. Debajo, los avisos
+		automáticos agrupados por lo que vigilan: batería, temperaturas, y red y
+		discos. Al final el botón para comprobar conflictos con otros complementos.
+		Termina escondiendo los ajustes de cada aviso que esté desmarcado, para que
+		el panel no se llene de cosas que no usas.
+		"""
 		self._settingsSizer = settingsSizer
 		ayudante = guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 		gpuTempUnitLabelText = _("&Unidad de temperatura (CPU y GPU):")
@@ -320,6 +449,7 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		self._updateGpuHotVisibility(self.alertGpuHotCheckbox.GetValue())
 		self._updateBluetoothLowVisibility(self.alertBluetoothLowCheckbox.GetValue())
 		self._updateDiskHealthVisibility(self.alertDiskHealthCheckbox.GetValue())
+		self._updateDiskHotVisibility(self.alertDiskHotCheckbox.GetValue())
 
 	def _ajustesDeBateria(self, ayudante):
 		"""Casillas y valores de los avisos de bateria del equipo."""
@@ -393,6 +523,15 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 
 		self.diskHealthIntervalEdit = self._numeroDeAviso(
 			ayudante, _('Intervalo de comprobación de dis&cos (minutos):'), 1, 1440, "alertDiskHealthInterval", 240)
+
+		self.alertDiskHotCheckbox = self._casillaDeAviso(
+		ayudante, _('Avisar si la temperatura de un disco es alta'), "alertDiskHot", alCambiar=self.onAlertDiskHotChange)
+
+		self.diskHotSlider = self._numeroDeAviso(
+		ayudante, _('Temperatura para la alerta de disco ca&liente:'), 30, 90, "alertDiskHotThreshold", 70)
+
+		self.diskHotIntervalEdit = self._numeroDeAviso(
+		ayudante, _('Intervalo de comprobación de temperatura de discos (&minutos):'), 1, 1440, "alertDiskHotInterval", 5)
 
 
 	def _leerAjuste(self, clave, porOmision):
@@ -494,6 +633,11 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 			show, [self.diskWearSlider, self.diskHealthIntervalEdit], "desgaste de disco",
 		)
 
+	def _updateDiskHotVisibility(self, show: bool) -> None:
+		self._mostrarControlesDeAlerta(
+			show, [self.diskHotSlider, self.diskHotIntervalEdit], "temperatura de disco",
+		)
+
 	def onAlertBatteryFullChange(self, evt: wx.CommandEvent) -> None:
 		self._updateBatteryFullVisibility(self.alertBatteryFullCheckbox.GetValue())
 		evt.Skip()
@@ -518,6 +662,10 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		self._updateDiskHealthVisibility(self.alertDiskHealthCheckbox.GetValue())
 		evt.Skip()
 
+	def onAlertDiskHotChange(self, evt: wx.CommandEvent) -> None:
+		self._updateDiskHotVisibility(self.alertDiskHotCheckbox.GetValue())
+		evt.Skip()
+
 	def onPanelActivated(self) -> None:
 		super().onPanelActivated()
 		self._updateBatteryFullVisibility(self.alertBatteryFullCheckbox.GetValue())
@@ -526,8 +674,16 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		self._updateGpuHotVisibility(self.alertGpuHotCheckbox.GetValue())
 		self._updateBluetoothLowVisibility(self.alertBluetoothLowCheckbox.GetValue())
 		self._updateDiskHealthVisibility(self.alertDiskHealthCheckbox.GetValue())
+		self._updateDiskHotVisibility(self.alertDiskHotCheckbox.GetValue())
 
 	def onCheckConflicts(self, evt: wx.CommandEvent) -> None:
+		"""Botón "Comprobar conflictos": muestra el resultado en un cuadro de mensaje.
+
+		Busca entre los complementos que NVDA tiene cargados el de Monitor, y le
+		pide la auditoría. Después presenta dos listas: los atajos de teclado que
+		chocan con otro complemento, y las advertencias de compatibilidad. Si no
+		hay nada, lo dice también.
+		"""
 		plugin = None
 		for p in getattr(globalPluginHandler, "runningPlugins", set()):
 			if p.__class__.__module__.endswith("monitorSistema"):
@@ -571,6 +727,14 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 			)
 
 	def onSave(self) -> None:
+		"""Botón Aceptar de las preferencias: guarda todas las opciones del panel.
+
+		Copia a la configuración de NVDA la unidad de temperatura y, de cada aviso,
+		si está encendido, a partir de qué valor avisa y cada cuántos minutos. Al
+		final le pone al complemento la marca de comprobación inmediata, para que
+		los avisos se revisen con los valores nuevos sin esperar a que venza el
+		intervalo anterior.
+		"""
 		try:
 			selection = self.gpuTempUnitList.GetSelection()
 			if selection == wx.NOT_FOUND:
@@ -595,6 +759,9 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 			config.conf["monitorSistema"]["alertDiskHealth"] = self.alertDiskHealthCheckbox.GetValue()
 			config.conf["monitorSistema"]["alertDiskWearThreshold"] = self.diskWearSlider.GetValue()
 			config.conf["monitorSistema"]["alertDiskHealthInterval"] = self.diskHealthIntervalEdit.GetValue()
+			config.conf["monitorSistema"]["alertDiskHot"] = self.alertDiskHotCheckbox.GetValue()
+			config.conf["monitorSistema"]["alertDiskHotThreshold"] = self.diskHotSlider.GetValue()
+			config.conf["monitorSistema"]["alertDiskHotInterval"] = self.diskHotIntervalEdit.GetValue()
 			log.info(
 				f"MonitorSistema: Opciones guardadas -> Batería Llena: {self.alertBatteryFullCheckbox.GetValue()} ({self.batteryFullSlider.GetValue()}%), "
 				f"Batería Baja: {self.alertBatteryLowCheckbox.GetValue()} ({self.batteryLowSlider.GetValue()}%), "
@@ -603,7 +770,8 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 				f"GPU Caliente: {self.alertGpuHotCheckbox.GetValue()} ({self.gpuHotSlider.GetValue()} °C, cada {self.gpuHotIntervalEdit.GetValue()} min), "
 				f"Bluetooth Bajo: {self.alertBluetoothLowCheckbox.GetValue()} ({self.bluetoothLowSlider.GetValue()}%, cada {self.bluetoothLowIntervalEdit.GetValue()} min), "
 				f"Alerta Wi-Fi: {self.alertWlanCheckbox.GetValue()}, Señal Wi-Fi: {self.alertWlanSignalChangeCheckbox.GetValue()}, "
-				f"Salud Discos: {self.alertDiskHealthCheckbox.GetValue()} ({self.diskWearSlider.GetValue()}% desgaste SSD, cada {self.diskHealthIntervalEdit.GetValue()} min)"
+				f"Salud Discos: {self.alertDiskHealthCheckbox.GetValue()} ({self.diskWearSlider.GetValue()}% desgaste SSD, cada {self.diskHealthIntervalEdit.GetValue()} min), "
+				f"Disco Caliente: {self.alertDiskHotCheckbox.GetValue()} ({self.diskHotSlider.GetValue()} °C, cada {self.diskHotIntervalEdit.GetValue()} min)"
 			)
 			plugin = None
 			for p in getattr(globalPluginHandler, "runningPlugins", set()):
@@ -1182,8 +1350,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	scriptCategory = _("Monitor del sistema")
 
 	def __init__(self):
+		"""Arranca el complemento en cuanto NVDA lo carga.
+
+		Deja preparados los contadores del procesador y de la tarjeta gráfica,
+		añade el panel de opciones a las preferencias de NVDA y el submenú "Monitor
+		del Sistema" al menú Herramientas. También pone a cero la memoria de las
+		consultas que tardan (discos, procesos, red, batería y Bluetooth), para no
+		lanzar dos veces la misma. Al final arranca los dos hilos de fondo: el que
+		prepara el sistema y el que vigila los avisos.
+		"""
 		super().__init__()
-		log.info("Monitor del Sistema: Inicializando complemento (v2.4)...")
+		log.info("Monitor del Sistema: Inicializando complemento (v2.6)...")
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._client_handle = None
@@ -1252,6 +1429,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		return stop_event
 
 	def _startupBackgroundWorker(self):
+		"""Prepara en segundo plano todo lo que tarda, para no frenar el arranque de NVDA.
+
+		Deja listo el contador de velocidad del procesador, el de la tarjeta
+		gráfica, y se apunta a los avisos de Windows sobre el Wi-Fi. Después espera
+		tres segundos, el tiempo de que NVDA termine de cargar los demás
+		complementos, y revisa si alguno choca con este; esa primera revisión solo
+		se anota en el registro, sin molestar con ventanas.
+		"""
 		log.info(f"Monitor del Sistema: Iniciando worker de fondo (CPU núcleos físicos={psutil.cpu_count(logical=False)}, hilos lógicos={psutil.cpu_count(logical=True)})...")
 		try:
 			self._initCpuQuery()
@@ -1298,6 +1483,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			log.error(f"MonitorSistema: Error durante la auditoría de conflictos: {e}", exc_info=True)
 
 	def _initCpuQuery(self):
+		"""Prepara la lectura de la velocidad del procesador.
+
+		Del registro de Windows saca la velocidad base y el nombre del procesador,
+		y con el nombre averigua su velocidad máxima. Después abre un contador de
+		rendimiento de Windows probando cuatro nombres distintos, porque no todos
+		existen en todas las versiones, y se queda con el primero que funcione. Si
+		ninguno funciona lo anota en el registro y el complemento sigue
+		trabajando; simplemente no dirá la velocidad en tiempo real.
+		"""
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._baseGhz = 2.10
@@ -1365,6 +1559,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			self._cpuQuery = None
 
 	def _queryDiskHealthSilent(self) -> list:
+		"""Pregunta a Windows por el estado de salud de los discos, sin decir nada.
+
+		Lanza PowerShell y le pide, de cada disco, su nombre, si es SSD o disco
+		duro, su estado de salud y su desgaste. Es la versión callada, la que usa
+		el vigilante de avisos; devuelve los datos en bruto y, si algo falla,
+		devuelve una lista vacía en vez de hablar. Tiene un límite de quince
+		segundos para que no se quede colgada.
+		"""
 		try:
 			ps_code = (
 				"Get-PhysicalDisk | ForEach-Object {"
@@ -1391,6 +1593,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return []
 
 	def _getGpuTemperatures(self) -> list[tuple[str, float]]:
+		"""Devuelve la temperatura de cada tarjeta gráfica que la informe.
+
+		Prueba los distintos fabricantes por orden y se queda con el primero que dé
+		algún dato. Devuelve pares de nombre y grados; si solo hay una tarjeta la
+		llama "GPU", y si hay varias las numera. Si ninguna informa temperatura,
+		devuelve la lista vacía.
+		"""
 		gpus = []
 		try:
 			for provider in self._gpuProviders:
@@ -1579,6 +1788,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if check_disk and (now - recordado["last_disk_check_time"] >= disk_interval):
 			recordado["last_disk_check_time"] = now
 			def _diskWorker():
+				"""Revisa la salud de los discos y avisa si alguno está mal.
+
+				Va en un hilo aparte porque preguntar a Windows por los discos tarda varios
+				segundos. Avisa por dos motivos distintos: que el disco diga que no está
+				sano, y que un SSD haya gastado más vida útil del límite que tengas puesto.
+				Cada aviso lleva sus propios pitidos, para poder distinguirlos sin escuchar
+				la frase entera.
+				"""
 				try:
 					disks = self._queryDiskHealthSilent()
 					for d in disks:
@@ -1615,7 +1832,58 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					log.error(f"MonitorSistema: Error en chequeo de salud de discos: {dke}", exc_info=True)
 			threading.Thread(target=_diskWorker, daemon=True).start()
 
+	def _avisoDeTemperaturaDeDisco(self, cfg, now, recordado):
+		"""Avisa cuando un disco pasa de la temperatura configurada.
+
+		La temperatura se le pide al propio disco, no a Windows, porque es la unica
+		forma de leerla sin permisos de administrador. Un aviso automatico que
+		sacara el cartel de permisos cada pocos minutos no serviria de nada.
+
+		'recordado' guarda de una vuelta a la siguiente cuando se comprobo por
+		ultima vez y con que ajustes, para no repetir el aviso ni el mensaje.
+		"""
+		# 6. Alerta de temperatura alta de disco (>= disk_hot_thresh °C)
+		check_disk_hot = cfg.get("alertDiskHot", True)
+		disk_hot_thresh = int(cfg.get("alertDiskHotThreshold", 70))
+		disk_hot_interval = max(1, int(cfg.get("alertDiskHotInterval", 5))) * 60
+		if (
+			recordado["last_disk_hot_thresh"] != disk_hot_thresh
+			or recordado["last_disk_hot_interval"] != disk_hot_interval
+		):
+			recordado["last_disk_hot_thresh"] = disk_hot_thresh
+			recordado["last_disk_hot_interval"] = disk_hot_interval
+			recordado["last_disk_hot_check_time"] = 0.0
+			log.info(f"MonitorSistema: Umbral de alerta por temperatura de disco: {disk_hot_thresh} °C (intervalo: {disk_hot_interval // 60} min)")
+
+		if check_disk_hot and (now - recordado["last_disk_hot_check_time"] >= disk_hot_interval):
+			recordado["last_disk_hot_check_time"] = now
+			try:
+				for nombre, grados in temperaturasDeDiscos():
+					if grados >= disk_hot_thresh:
+						msg = _("Alerta: Temperatura de {name} alta ({temp}).").format(
+							name=nombre,
+							temp=formatGpuTemperature(str(grados)),
+						)
+						log.warning(f"MonitorSistema: Alerta automática de temperatura de disco activada: '{msg}' (temp={grados}°C, umbral={disk_hot_thresh}°C)")
+						try: tones.beep(800, 100); tones.beep(800, 100)
+						except Exception: pass
+						self._decir(msg)
+			except Exception as dhe:
+				log.error(f"MonitorSistema: Error en chequeo de temperatura de discos para alertas: {dhe}", exc_info=True)
+
 	def _runAlertsLoop(self):
+		"""El vigilante: comprueba cada pocos segundos si toca dar algún aviso.
+
+		Se ejecuta en un hilo aparte durante toda la sesión de NVDA. En el
+		diccionario "recordado" guarda cuándo se comprobó cada cosa por última vez
+		y con qué ajustes, para no repetir avisos antes de tiempo. Espera ocho
+		segundos al arrancar, y después revisa en cada vuelta la batería del
+		equipo, la temperatura del procesador y de la gráfica, la batería de los
+		aparatos Bluetooth y la salud de los discos. Entre vuelta y vuelta, cada
+		dos segundos, mira además si cambió la señal del Wi-Fi. Si cambias las
+		opciones, la marca de comprobación inmediata pone a cero los relojes y todo
+		se revisa al momento.
+		"""
 		# Lo que hay que recordar de una vuelta a la siguiente: cuando se comprobo
 		# cada cosa por ultima vez y con que ajustes se hizo.
 		recordado = {
@@ -1632,6 +1900,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			"last_battery_check_time": 0.0,
 			"last_disk_interval": None,
 			"last_disk_check_time": 0.0,
+			"last_disk_hot_thresh": None,
+			"last_disk_hot_interval": None,
+			"last_disk_hot_check_time": 0.0,
 		}
 		last_wlan_signal = None
 
@@ -1661,6 +1932,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self._avisoDeTemperaturaDeGpu(cfg, now, recordado)
 				self._avisoDeBateriaBluetooth(cfg, now, recordado)
 				self._avisoDeSaludDeDiscos(cfg, now, recordado)
+				self._avisoDeTemperaturaDeDisco(cfg, now, recordado)
 			except Exception as e:
 				log.error(f"MonitorSistema: Error general en bucle de alertas: {e}", exc_info=True)
 
@@ -1695,6 +1967,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				time.sleep(1.0)
 
 	def terminate(self):
+		"""Deja todo como estaba cuando NVDA descarga el complemento.
+
+		Manda parar al hilo vigilante, quita el submenú del menú Herramientas y el
+		panel de las preferencias, cierra el contador del procesador y se da de baja
+		de los avisos de Wi-Fi de Windows. Si esto no se hiciera, al recargar los
+		complementos quedarían menús repetidos y hilos y contadores sueltos
+		consumiendo recursos.
+		"""
 		log.info("Monitor del Sistema: Finalizando complemento...")
 		if hasattr(self, "_stopAlertsEvent"):
 			self._stopAlertsEvent.set()
@@ -1704,7 +1984,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			if hasattr(self, "_itemDoc") and self._itemDoc:
 				gui.mainFrame.sysTrayIcon.Unbind(wx.EVT_MENU, source=self._itemDoc)
 			if hasattr(self, "_subMenuItem") and self._subMenuItem:
-				self._toolsMenu.Remove(self._subMenuItem)
+				try:
+					self._toolsMenu.DestroyItem(self._subMenuItem)
+				except Exception:
+					self._toolsMenu.Remove(self._subMenuItem)
 		except Exception as e:
 			log.debug(f"Monitor del Sistema: Error retirando submenú en terminate: {e}")
 		super().terminate()
@@ -1886,6 +2169,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceProcessorInfo(self, gesture: inputCore.InputGesture):
+		"""Atajo de teclado: dice cuánto está trabajando el procesador.
+
+		Si el equipo tiene un solo núcleo dice solo la carga; si tiene varios, dice
+		la media y después la de cada núcleo. Pulsando el atajo dos veces seguidas,
+		en vez de decirlo lo copia al portapapeles.
+		"""
 		try:
 			averageLoad = psutil.cpu_percent()
 			perCpuLoad = psutil.cpu_percent(percpu=True)
@@ -1916,6 +2205,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceRamInfo(self, gesture: inputCore.InputGesture):
+		"""Atajo de teclado: dice cuánta memoria RAM está usando el equipo.
+
+		Da dos datos: la memoria física, que son los módulos de RAM instalados, y
+		la virtual, que incluye además lo que Windows ha pasado al disco. De cada
+		una dice cuánto se usa, de cuánto total y el porcentaje. Pulsando el atajo
+		dos veces seguidas lo copia al portapapeles.
+		"""
 		try:
 			memory = psutil.virtual_memory()
 			physicalRamUsed, physicalRamTotal = memory.used, memory.total
@@ -1942,6 +2238,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error al obtener la información de la memoria RAM."))
 
 	def _resolveMaxTurbo(self, procName: str, baseGhz: float) -> float:
+		"""Averigua la velocidad máxima del procesador a partir de su nombre.
+
+		Prueba tres caminos por orden. Primero busca el nombre en la tabla de
+		modelos conocidos, quedándose con la coincidencia más larga y no con la
+		primera: si no fuera así, un Intel i5-13600K encajaría con "3600", que es
+		un AMD, y se le atribuiría la velocidad equivocada. Si no está en la tabla,
+		busca una cifra "@ 4.20 GHz" dentro del propio nombre. Si tampoco, se lo
+		pregunta al sistema. Y como último recurso, calcula una estimación a partir
+		de la velocidad base.
+		"""
 		name_lower = (procName or "").lower()
 
 		# AMD Ryzen 9
@@ -2081,6 +2387,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceDriveInfo(self, gesture: inputCore.InputGesture):
+		"""Atajo de teclado: dice el espacio usado y libre de cada unidad de disco.
+
+		Recorre las unidades y, de cada una, dice si es fija o de red, cuánto se usa
+		de cuánto total y el porcentaje. Una unidad de red que no responda se
+		nombra igualmente, diciendo que no está disponible, en lugar de
+		desaparecer de la lista sin explicación. Pulsando el atajo dos veces
+		seguidas lo copia al portapapeles.
+		"""
 		try:
 			info = []
 			for drive in psutil.disk_partitions(all=True):
@@ -2115,6 +2429,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error al obtener la información de las unidades de disco."))
 
 	def _getWlanInfo(self) -> str:
+		"""Devuelve, en una frase, a qué red Wi-Fi estás conectada.
+
+		Recorre las tarjetas inalámbricas del equipo, busca la que esté conectada y
+		de ella saca el nombre de la red, la intensidad de la señal y el tipo de
+		seguridad. Si no hay tarjeta, o ninguna está conectada, lo dice con esas
+		mismas palabras. La memoria que pide Windows se devuelve siempre al
+		terminar.
+		"""
 		if not self._client_handle:
 			return _("No hay dispositivos de red inalámbrica")
 
@@ -2155,6 +2477,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		return info
 
 	def _getCurrentWlanSignal(self) -> int | None:
+		"""Devuelve solo el número de la intensidad de señal del Wi-Fi, de 0 a 100.
+
+		Es la versión corta y callada de la consulta anterior, la que usa el
+		vigilante para notar cuándo cambia la señal. Devuelve None si no hay
+		tarjeta, si no hay conexión o si algo falla, y en ningún caso habla.
+		"""
 		if not self._client_handle:
 			return None
 		try:
@@ -2266,6 +2594,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("No se pudo obtener el tiempo de actividad del sistema."))
 
 	def _getGpuInfo(self) -> str:
+		"""Devuelve, en una frase, la memoria y la carga de la tarjeta gráfica.
+
+		Prueba los distintos fabricantes por orden y se queda con el primero que dé
+		datos; si hay varias tarjetas, las numera. Distingue tres situaciones que
+		no son lo mismo y que antes se confundían: que no haya ninguna tarjeta que
+		sepa informar, que la haya pero no responda, y que responda sin datos.
+		"""
 		hasProvider = False
 		hasFailure = False
 		for provider in self._gpuProviders:
@@ -2416,7 +2751,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			name = disk.get("Name", _("Disco desconocido"))
 			dtype = disk.get("Type", _("Desconocido"))
 			health = disk.get("Health", _("Desconocido"))
-			temp = disk.get("Temp")
 			wear = disk.get("Wear")
 			if dtype == "SSD": dtype = _("estado sólido (SSD)")
 			elif dtype == "HDD": dtype = _("rígido (HDD)")
@@ -2425,8 +2759,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			elif health == "Unhealthy": health = _("Dañado (Crítico)")
 			
 			part = _("Disco {}: Tipo {}. Estado general: {}.").format(name, dtype, health)
-			if temp is not None: 
-				part += " " + _("Temperatura: {} grados celsius.").format(temp)
 			if wear is not None and dtype == _("estado sólido (SSD)"):
 				health_pct = 100 - int(wear)
 				part += " " + _("Desgaste de vida útil: {} por ciento (Salud: {}%).").format(int(wear), health_pct)
@@ -2467,7 +2799,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		lanzarConsulta()
 
 	@scriptHandler.script(
-		description=_("Anuncia el estado de salud (S.M.A.R.T), temperatura y vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."),
+		description=_("Anuncia el estado de salud (S.M.A.R.T) y la vida útil de los discos físicos. Si se pulsa dos veces, copia la información al portapapeles."),
 		gesture="kb:nvda+shift+control+1",
 		speakOnDemand=True,
 	)
@@ -2479,8 +2811,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		)
 
 	def _getTopProcesses(self):
+		"""Atajo de teclado: busca qué programa consume más procesador y cuál más memoria.
+
+		Avisa de que está analizando y hace el trabajo en un hilo aparte, porque
+		recorrer todos los programas abiertos tarda algo más de medio segundo y
+		NVDA se quedaría trabado.
+		"""
 		self._topProcessesRunning = True
 		def worker():
+			"""Recorre los programas abiertos y se queda con los dos más grandes.
+
+			La primera pasada solo sirve para que Windows empiece a medir; los datos
+			buenos llegan medio segundo después, en la segunda. No cuenta el "System
+			Idle Process", que no es un programa sino el hueco que el procesador deja
+			sin usar. Al terminar dice el resultado y, si se pidió, lo copia.
+			"""
 			log.info("MonitorSistema: Iniciando análisis de Top Procesos...")
 			try:
 				for p in psutil.process_iter(['name', 'cpu_percent']): pass
@@ -2674,10 +3019,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		)
 
 	def _getAdvancedBattery(self):
+		"""Atajo de teclado: dice el estado y la salud real de la batería.
+
+		Avisa de que está consultando y hace el trabajo en un hilo aparte, porque
+		preguntar por la salud real de la batería tarda unos segundos.
+		"""
 		ui.message(_("Consultando estado de la batería, por favor espera..."))
 		self._advBatteryRunning = True
 
 		def worker():
+			"""Consulta la batería y arma la frase completa.
+
+			Primero el porcentaje y si está enchufada; si no lo está y el sistema sabe
+			cuánto aguantará, añade el tiempo restante. Después le pregunta a Windows
+			la capacidad que la batería admite hoy comparada con la que tenía de fábrica,
+			que es la salud real y explica por qué una batería vieja dura menos aunque
+			marque 100%. Esa consulta tiene cinco segundos de límite. Mientras dura
+			todo, un pitido repetido indica que sigue trabajando.
+			"""
 			stop_event = self._startProgressBeeper(660)
 			log.info("MonitorSistema: Consultando batería avanzada (porcentaje, tiempo restante, salud WMI)...")
 			msg = _("Error consultando la batería.")
@@ -2770,10 +3129,22 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return []
 
 	def _getBluetoothBattery(self):
+		"""Atajo de teclado: dice la batería de los aparatos Bluetooth conectados.
+
+		Avisa de que está buscando y hace el trabajo en un hilo aparte, porque
+		recorrer los aparatos Bluetooth tarda unos segundos.
+		"""
 		ui.message(_("Buscando dispositivos Bluetooth, por favor espera..."))
 		self._bluetoothRunning = True
 
 		def worker():
+			"""Pregunta a cada aparato Bluetooth por su batería y arma la frase.
+
+			Solo aparecen los que la informan; no todos lo hacen, y el que no la
+			informa no es que esté mal. Si no responde ninguno lo dice con esas
+			palabras, en lugar de callarse. Mientras dura la búsqueda, un pitido
+			repetido indica que sigue trabajando.
+			"""
 			stop_event = self._startProgressBeeper(550)
 			log.info("MonitorSistema: Ejecutando comando de batería Bluetooth...")
 			msg = _("Error consultando dispositivos Bluetooth.")
@@ -2858,7 +3229,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			"kb:nvda+shift+6": _("Versión y arquitectura de Windows"),
 			"kb:nvda+shift+7": _("Tiempo de actividad del sistema (uptime)"),
 			"kb:nvda+shift+8": _("Rendimiento y memoria de GPU"),
-			"kb:nvda+shift+control+1": _("Salud S.M.A.R.T. y temperatura de discos"),
+			"kb:nvda+shift+control+1": _("Salud S.M.A.R.T. y vida útil de discos"),
 			"kb:nvda+shift+control+2": _("Procesos con mayor consumo de recursos"),
 			"kb:nvda+shift+control+3": _("Velocidad de red en tiempo real"),
 			"kb:nvda+shift+control+4": _("Batería avanzada y salud"),

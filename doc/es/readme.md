@@ -1,7 +1,7 @@
 # Monitor del Sistema para NVDA (System Monitor)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.5
+Versión: 2.6
 Compatibilidad: NVDA 2019.3 en adelante
 Licencia: GNU GPL v2
 
@@ -44,6 +44,16 @@ En el menú de NVDA > Preferencias > Opciones > Monitor del Sistema, puedes acti
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitor del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitor del Sistema.
 - Documentación: Abre este manual de ayuda en tu navegador.
+
+## Novedades de la versión 2.6 (12 de septiembre de 2026)
+
+### Mejorado
+
+- Integración completa con el registro nativo de NVDA (`logHandler.log`), permitiendo que cualquier evento o error técnico se consulte de forma limpia y directa en el Visor de Registro de NVDA.
+- Al desactivar o recargar complementos, los elementos del menú Herramientas se destruyen adecuadamente liberando recursos de la interfaz.
+- Cierre y descarga rigurosos de hilos de supervisión en segundo plano y temporizadores de alerta al detener el complemento.
+
+---
 
 ## Novedades de la versión 2.5 (8 de septiembre de 2026)
 

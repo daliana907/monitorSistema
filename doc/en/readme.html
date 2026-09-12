@@ -15,7 +15,7 @@
 </head>
 <body>
 <h1>System Monitor for NVDA</h1>
-<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.5 | Compatibility: NVDA 2019.3 or later</p>
+<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.6 | Compatibility: NVDA 2019.3 or later</p>
 
 <p>System Monitor gives you immediate, accessible insights into your computer's hardware, battery, peripherals, and network performance.</p>
 
@@ -59,6 +59,14 @@
 <ul>
   <li><strong>Settings...</strong>: Opens the System Monitor configuration panel directly.</li>
   <li><strong>Documentation</strong>: Opens this user guide.</li>
+</ul>
+
+<h2>What's new in 2.6 (12 September 2026)</h2>
+<h3>Improved</h3>
+<ul>
+  <li>Switched to NVDA's native logging framework (logHandler.log) so all diagnostics integrate cleanly with NVDA's Log Viewer.</li>
+  <li>Clean teardown of Tools menu items on addon termination/reload, preventing orphaned UI handles.</li>
+  <li>Rigorous cleanup of background monitoring threads and alert timers upon addon termination.</li>
 </ul>
 
 <h2>What's new in 2.5 (8 September 2026)</h2>
