@@ -2713,11 +2713,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		(normalmente porque se rechazo el permiso de administrador). En ese caso ya
 		ha avisado por voz.
 		"""
-		tmp_file = os.path.join(tempfile.gettempdir(), "nvda_disk_health.json")
+		tmp_file = os.path.join(tempfile.gettempdir(), f"nvda_disk_health_{os.getpid()}_{int(time.time() * 1000)}.json")
 		if os.path.exists(tmp_file):
 			try: os.remove(tmp_file)
 			except Exception: pass
 		
+		tmp_file_esc = tmp_file.replace("'", "''")
 		ps_script = f"""
 		$ErrorActionPreference = 'SilentlyContinue'
 		$disks = Get-PhysicalDisk
@@ -2732,7 +2733,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				Wear = $rel.Wear
 			}}
 		}}
-		$results | ConvertTo-Json -Compress | Out-File -FilePath '{tmp_file}' -Encoding UTF8
+		$results | ConvertTo-Json -Compress | Out-File -FilePath '{tmp_file_esc}' -Encoding UTF8
 		"""
 		encoded = base64.b64encode(ps_script.encode('utf-16le')).decode('utf-8')
 		log.info("MonitorSistema: Lanzando PowerShell con ShellExecuteW...")
@@ -2752,10 +2753,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			wx.CallAfter(ui.message, err_msg)
 			return
 			
-		with open(tmp_file, 'r', encoding='utf-8-sig') as f:
-			output = f.read().strip()
-		try: os.remove(tmp_file)
-		except Exception: pass
+		output = ""
+		try:
+			with open(tmp_file, 'r', encoding='utf-8-sig') as f:
+				output = f.read().strip()
+		except Exception as e:
+			log.error(f"MonitorSistema: Error leyendo archivo temporal de discos: {e}", exc_info=True)
+		finally:
+			try: os.remove(tmp_file)
+			except Exception: pass
 		return output
 
 	def _resumenDeDiscos(self, data):
