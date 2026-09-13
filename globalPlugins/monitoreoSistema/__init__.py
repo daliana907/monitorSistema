@@ -1655,7 +1655,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 					# Alerta de batería cargada (>= bat_full_thresh% y conectada)
 					bat_full_thresh = int(cfg.get("alertBatteryFullThreshold", 100))
-					if check_full and plugged and pct >= bat_full_thresh:
+					if check_full and plugged is True and pct >= bat_full_thresh:
 						if bat_full_thresh >= 100:
 							msg = _("Batería completamente cargada al 100 %. Puedes desconectar el cargador.")
 						else:
@@ -1667,7 +1667,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 					# Alerta de batería baja (<= bat_thresh% y desconectada)
 					bat_thresh = int(cfg.get("alertBatteryLowThreshold", 15))
-					if check_low and not plugged and pct <= bat_thresh:
+					if check_low and plugged is False and pct <= bat_thresh:
 						msg = _("Advertencia: Batería baja al {} %. Conecta el equipo a la corriente.").format(round(pct))
 						log.info(f"MonitorSistema: Alerta automática de batería baja: '{msg}'")
 						try: tones.beep(440, 120); tones.beep(330, 150)
