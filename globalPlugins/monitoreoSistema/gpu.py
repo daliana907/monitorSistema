@@ -246,26 +246,30 @@ def _getDxgiAdapters() -> dict[str, dict]:
 		pFactory = POINTER(IDXGIFactory)()
 		hr = dxgi.CreateDXGIFactory(byref(IID_IDXGIFactory), byref(pFactory))
 		if hr == 0 and pFactory:
-			i = 0
-			pAdapter = POINTER(IDXGIAdapter)()
-			while pFactory.contents.lpVtbl.contents.EnumAdapters(pFactory, i, byref(pAdapter)) == 0:
-				desc = DXGI_ADAPTER_DESC()
-				if pAdapter.contents.lpVtbl.contents.GetDesc(pAdapter, byref(desc)) == 0:
-					low = desc.AdapterLuid.LowPart
-					high = desc.AdapterLuid.HighPart
-					luid_str = "luid_0x{:08x}_0x{:08x}".format(high, low).lower()
-					vram_mb = desc.DedicatedVideoMemory / (1024.0 * 1024.0)
-					shared_mb = desc.SharedSystemMemory / (1024.0 * 1024.0)
-					total_mb = vram_mb if vram_mb > 0 else (shared_mb if shared_mb > 0 else 512.0)
-					adapters[luid_str] = {
-						"name": desc.Description,
-						"dedicated_mb": vram_mb,
-						"shared_mb": shared_mb,
-						"total_mb": total_mb,
-					}
-				pAdapter.contents.lpVtbl.contents.Release(pAdapter)
-				i += 1
-			pFactory.contents.lpVtbl.contents.Release(pFactory)
+			try:
+				i = 0
+				pAdapter = POINTER(IDXGIAdapter)()
+				while pFactory.contents.lpVtbl.contents.EnumAdapters(pFactory, i, byref(pAdapter)) == 0:
+					try:
+						desc = DXGI_ADAPTER_DESC()
+						if pAdapter.contents.lpVtbl.contents.GetDesc(pAdapter, byref(desc)) == 0:
+							low = desc.AdapterLuid.LowPart
+							high = desc.AdapterLuid.HighPart
+							luid_str = "luid_0x{:08x}_0x{:08x}".format(high, low).lower()
+							vram_mb = desc.DedicatedVideoMemory / (1024.0 * 1024.0)
+							shared_mb = desc.SharedSystemMemory / (1024.0 * 1024.0)
+							total_mb = vram_mb if vram_mb > 0 else (shared_mb if shared_mb > 0 else 512.0)
+							adapters[luid_str] = {
+								"name": desc.Description,
+								"dedicated_mb": vram_mb,
+								"shared_mb": shared_mb,
+								"total_mb": total_mb,
+							}
+					finally:
+						pAdapter.contents.lpVtbl.contents.Release(pAdapter)
+					i += 1
+			finally:
+				pFactory.contents.lpVtbl.contents.Release(pFactory)
 	except Exception as e:
 		log.error(f"MonitorSistema GPU: Error obteniendo adaptadores DXGI: {e}", exc_info=True)
 	return adapters
