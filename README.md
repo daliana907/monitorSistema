@@ -49,7 +49,6 @@ En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes ac
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.
 - Comprobar conflictos con otros complementos...: Diagnostica colisiones de atajos con otros complementos instalados.
-*(La documentación de ayuda se consulta directamente desde el Gestor o la Tienda de complementos de NVDA a través del botón «Ayuda del complemento»).*
 
 ### Créditos y Agradecimientos
 - Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores.
@@ -94,7 +93,6 @@ Configurable under NVDA Menu > Preferences > Settings > System Monitor:
 You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Check for add-on conflicts...: Checks for shortcut collisions with other installed add-ons.
-*(Add-on documentation is accessible directly from NVDA Add-on Store / Add-ons Manager by pressing the "Add-on help" button).*
 
 ### Credits
 - Based on Resource Monitor by Joseph Lee and contributors.

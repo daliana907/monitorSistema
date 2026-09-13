@@ -45,7 +45,6 @@ En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes ac
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.
 - Comprobar conflictos con otros complementos...: Diagnostica colisiones de atajos con otros complementos instalados.
-*(La documentación de ayuda se consulta directamente desde el Gestor o la Tienda de complementos de NVDA a través del botón «Ayuda del complemento»).*
 
 ## Novedades de la versión 2.7 (12 de septiembre de 2026)
 

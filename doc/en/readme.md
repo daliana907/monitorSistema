@@ -39,7 +39,6 @@ Configurable under NVDA Menu > Preferences > Settings > System Monitor:
 You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Check for add-on conflicts...: Checks for shortcut collisions with other installed add-ons.
-*(Add-on documentation is accessible directly from NVDA Add-on Store / Add-ons Manager by pressing the "Add-on help" button).*
 
 ## What's new in 2.7 (12 September 2026)
 
