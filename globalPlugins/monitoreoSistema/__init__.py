@@ -2457,7 +2457,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						wlan_available_network_list.contents.NumberOfItems,
 					):
 						if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
-							ssid_str = n.dot11Ssid.SSID.decode(errors="ignore")
+							ssid_len = int(n.dot11Ssid.SSIDLength)
+							ssid_bytes = n.dot11Ssid.SSID[:ssid_len] if 0 < ssid_len <= 32 else n.dot11Ssid.SSID
+							ssid_str = ssid_bytes.decode(errors="ignore").strip() or _("Red oculta")
 							sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
 							log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
 							info = (

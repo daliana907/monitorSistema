@@ -19,12 +19,13 @@ def onUninstall():
 	"""
 	try:
 		modified = False
-		if "monitoreoSistema" in config.conf:
-			del config.conf["monitoreoSistema"]
-			modified = True
-		if "monitoreoSistema" in config.conf.spec:
-			del config.conf.spec["monitoreoSistema"]
-			modified = True
+		for sec in ("monitoreoSistema", "monitorSistema"):
+			if sec in config.conf:
+				del config.conf[sec]
+				modified = True
+			if sec in getattr(config.conf, "spec", {}):
+				del config.conf.spec[sec]
+				modified = True
 		if modified:
 			config.conf.save()
 		log.info("Monitoreo del Sistema: configuración y rastros eliminados correctamente de NVDA.")
