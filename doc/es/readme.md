@@ -22,11 +22,11 @@ Monitoreo del Sistema reúne en un solo lugar todas las herramientas para conoce
 - NVDA + Shift + 5: Frecuencia y velocidad del procesador (reloj en GHz, velocidad base y turbo).
 - NVDA + Shift + 6: Versión, compilación y arquitectura de Windows.
 - NVDA + Shift + 7: Tiempo de actividad del sistema (cuánto lleva encendido el ordenador).
-- NVDA + Shift + 8: Tarjeta gráfica (GPU): memoria utilizada, total, porcentaje de carga y temperatura.
+- NVDA + Shift + 8: Tarjeta gráfica (GPU): memoria utilizada, total y porcentaje de carga del procesador gráfico.
 
 ### Diagnósticos avanzados (NVDA + Shift + Control + número)
 Si pulsas el atajo una vez, se anuncia el informe por voz. Si lo pulsas dos veces seguidas rápidamente, el resultado se copia directamente al portapapeles sin tener que repetir el análisis.
-- NVDA + Shift + Control + 1: Estado de salud S.M.A.R.T., temperatura y desgaste de discos SSD y mecánicos.
+- NVDA + Shift + Control + 1: Estado de salud S.M.A.R.T., vida útil y desgaste de discos SSD y mecánicos.
 - NVDA + Shift + Control + 2: Procesos con mayor consumo de recursos (programas que más CPU y RAM están gastando).
 - NVDA + Shift + Control + 3: Medición de velocidad de internet en tiempo real (latencia/ping, descarga y subida).
 - NVDA + Shift + Control + 4: Diagnóstico avanzado de batería del equipo (nivel, tiempo restante, capacidad de diseño y desgaste).
@@ -34,7 +34,8 @@ Si pulsas el atajo una vez, se anuncia el informe por voz. Si lo pulsas dos vece
 
 ### Alertas automáticas en segundo plano
 En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes activar avisos con sonido o voz para:
-- Temperatura elevada de CPU o GPU.
+- Temperatura elevada de CPU o GPU (con umbral térmico personalizable de 30 a 100 °C).
+- Alerta de disco caliente (vigilancia de temperatura con umbral e intervalo configurables).
 - Nivel bajo o carga completa de la batería de la laptop.
 - Batería baja en auriculares y dispositivos Bluetooth conectados.
 - Pérdida de conexión o cambios en la señal Wi-Fi.
@@ -43,7 +44,8 @@ En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes ac
 ### Menú en Herramientas de NVDA
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.
-- Documentación: Abre este manual de ayuda en tu navegador.
+- Comprobar conflictos con otros complementos...: Diagnostica colisiones de atajos con otros complementos instalados.
+*(La documentación de ayuda se consulta directamente desde el Gestor o la Tienda de complementos de NVDA a través del botón «Ayuda del complemento»).*
 
 ## Novedades de la versión 2.7 (12 de septiembre de 2026)
 

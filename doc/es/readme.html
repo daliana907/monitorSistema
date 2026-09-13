@@ -30,14 +30,14 @@
   <tr><td>NVDA + Shift + 5</td><td>Frecuencia y velocidad del procesador (reloj en GHz, velocidad base y turbo)</td></tr>
   <tr><td>NVDA + Shift + 6</td><td>Versión, compilación y arquitectura de Windows</td></tr>
   <tr><td>NVDA + Shift + 7</td><td>Tiempo de actividad del sistema (tiempo encendido)</td></tr>
-  <tr><td>NVDA + Shift + 8</td><td>Tarjeta gráfica (GPU): memoria utilizada, total, carga y temperatura</td></tr>
+  <tr><td>NVDA + Shift + 8</td><td>Tarjeta gráfica (GPU): memoria utilizada, total y porcentaje de carga del procesador gráfico</td></tr>
 </table>
 
 <h2>Diagnósticos avanzados (NVDA + Shift + Control + número)</h2>
 <p>Si pulsas el atajo una vez, se escucha el informe. Si lo pulsas dos veces seguidas rápidamente, el resultado se copia directamente al portapapeles sin tener que repetir la prueba.</p>
 <table>
   <tr><th>Atajo</th><th>Herramienta</th></tr>
-  <tr><td>NVDA + Shift + Control + 1</td><td>Estado de salud S.M.A.R.T., temperatura y desgaste de discos SSD y mecánicos</td></tr>
+  <tr><td>NVDA + Shift + Control + 1</td><td>Estado de salud S.M.A.R.T., vida útil y desgaste de discos SSD y mecánicos</td></tr>
   <tr><td>NVDA + Shift + Control + 2</td><td>Procesos con mayor consumo de recursos (programas con más gasto de CPU y RAM)</td></tr>
   <tr><td>NVDA + Shift + Control + 3</td><td>Medición de velocidad de internet en tiempo real (latencia, bajada y subida)</td></tr>
   <tr><td>NVDA + Shift + Control + 4</td><td>Diagnóstico avanzado de batería del equipo (nivel, tiempo restante, capacidad y desgaste)</td></tr>
@@ -47,7 +47,8 @@
 <h2>Alertas automáticas en segundo plano</h2>
 <p>En el menú de NVDA &gt; Preferencias &gt; Opciones &gt; Monitoreo del Sistema, puedes activar avisos con sonido o voz para:</p>
 <ul>
-  <li>Temperatura elevada de CPU o GPU.</li>
+  <li>Temperatura elevada de CPU o GPU (con umbral térmico personalizable de 30 a 100 °C).</li>
+  <li>Alerta de disco caliente (vigilancia de temperatura con umbral e intervalo configurables).</li>
   <li>Batería baja o carga completa de la laptop.</li>
   <li>Batería baja en auriculares Bluetooth conectados.</li>
   <li>Pérdida de conexión o cambios en la señal Wi-Fi.</li>
@@ -58,8 +59,9 @@
 <p>Puedes acceder cómodamente desde el menú de <strong>NVDA &gt; Herramientas &gt; Monitoreo del Sistema</strong>:</p>
 <ul>
   <li><strong>Configuración...</strong>: Abre directamente las opciones y alertas del complemento.</li>
-  <li><strong>Documentación</strong>: Abre esta guía de ayuda.</li>
+  <li><strong>Comprobar conflictos con otros complementos...</strong>: Diagnostica colisiones de atajos de teclado con otros complementos instalados.</li>
 </ul>
+<p><em>Nota: La documentación del complemento se consulta directamente desde el Gestor o la Tienda de complementos de NVDA (pulsando el botón «Ayuda del complemento»).</em></p>
 
 <h2>Novedades de la versión 2.8 (12 de septiembre de 2026)</h2>
 <h3>Seguridad y compatibilidad</h3>

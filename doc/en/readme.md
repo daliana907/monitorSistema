@@ -16,11 +16,11 @@ System Monitor is an accessible all-in-one resource, hardware, and network monit
 - NVDA + Shift + 5: CPU clock speed (current GHz, base clock, and turbo status).
 - NVDA + Shift + 6: Windows edition, version, and architecture.
 - NVDA + Shift + 7: System uptime.
-- NVDA + Shift + 8: Dedicated GPU status (memory usage, core load, and temperature).
+- NVDA + Shift + 8: Dedicated GPU status (used memory, total memory, and core load percentage).
 
 ### Advanced Diagnostics (NVDA + Shift + Control + number)
 Press once to hear the report spoken. Press twice quickly to copy the report directly to the clipboard.
-- NVDA + Shift + Control + 1: Drive health (S.M.A.R.T.), temperature, and SSD wear percentage.
+- NVDA + Shift + Control + 1: Drive health (S.M.A.R.T.), remaining lifetime, and SSD wear percentage.
 - NVDA + Shift + Control + 2: Top resource-consuming processes (highest CPU and RAM usage).
 - NVDA + Shift + Control + 3: Real-time internet speed test (ping, download, and upload speeds).
 - NVDA + Shift + Control + 4: Advanced laptop battery health, runtime, and design capacity wear.
@@ -28,16 +28,18 @@ Press once to hear the report spoken. Press twice quickly to copy the report dir
 
 ### Automated Background Alerts
 Configurable under NVDA Menu > Preferences > Settings > System Monitor:
-- High CPU or GPU temperatures.
+- High CPU or GPU temperatures (customizable thermal threshold from 30 to 100 °C).
+- Hot disk warning (thermal threshold and check interval).
 - Low laptop battery or battery full notification.
 - Low battery alerts for connected Bluetooth audio devices.
 - Wi-Fi disconnect and signal strength change notifications.
 - Critical wear threshold alerts for SSDs.
 
 ### NVDA Tools Menu
-You can access the add-on from NVDA > Tools > System Monitor:
+You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
-- Documentation: Opens this user guide.
+- Check for add-on conflicts...: Checks for shortcut collisions with other installed add-ons.
+*(Add-on documentation is accessible directly from NVDA Add-on Store / Add-ons Manager by pressing the "Add-on help" button).*
 
 ## What's new in 2.7 (12 September 2026)
 
