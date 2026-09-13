@@ -250,7 +250,7 @@ def size(bytes_val: int | float, system: list[tuple[float, Any]] = alternative) 
 	factor = 1.0
 	suffix = " B"
 	for f, s in system:
-		if float(bytes_val) >= float(f):
+		if float(bytes_val) >= float(f) or f == system[-1][0]:
 			factor = f
 			suffix = s
 			break
@@ -3056,7 +3056,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					pct = round(bat.percent)
 					plugged = _("conectado") if bat.power_plugged else _("desconectado")
 					msg = _("Batería al {} %. Estado: {}.").format(pct, plugged)
-					if not bat.power_plugged and bat.secsleft != psutil.POWER_TIME_UNKNOWN:
+					if not bat.power_plugged and bat.secsleft is not None and bat.secsleft > 0:
 						mins = bat.secsleft // 60
 						msg += " " + _("Tiempo restante estimado: {} horas y {} minutos.").format(mins // 60, mins % 60)
 					
