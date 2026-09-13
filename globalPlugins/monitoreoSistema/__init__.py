@@ -1277,8 +1277,10 @@ def _soloLosConectados(api, candidates, estados_clasicos, root_names, root_dev_i
 
 		if is_connected:
 			key = addr or cand["inst_id"]
-			if key not in seen and display_name not in seen:
+			if key not in seen:
 				seen.add(key)
+				if not addr and display_name in seen:
+					continue
 				seen.add(display_name)
 				results.append({"name": display_name, "battery": cand["battery"]})
 				log.info(f"MonitorSistema: Dispositivo conectado confirmado con batería: '{display_name}' al {cand['battery']}%")
@@ -1339,12 +1341,13 @@ def _estadosDeBluetoothClasico():
 									break
 						finally:
 							_BluetoothFindDeviceClose(h_find_dev)
-					ctypes.windll.kernel32.CloseHandle(h_radio)
-					h_radio = wintypes.HANDLE()
+					if getattr(h_radio, "value", None):
+						ctypes.windll.kernel32.CloseHandle(h_radio)
+						h_radio = wintypes.HANDLE()
 					if not _BluetoothFindNextRadio(h_find_radio, ctypes.byref(h_radio)):
 						break
 			finally:
-				if h_radio:
+				if getattr(h_radio, "value", None):
 					ctypes.windll.kernel32.CloseHandle(h_radio)
 				_BluetoothFindRadioClose(h_find_radio)
 	except Exception as bth_err:
