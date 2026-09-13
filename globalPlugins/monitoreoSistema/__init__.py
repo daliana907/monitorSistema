@@ -2956,19 +2956,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		measure_start_d = start_down
 		warmed_up = False
 		
-		req_d = urllib.request.Request("http://cachefly.cachefly.net/100mb.test", headers={'User-Agent': 'Mozilla/5.0'})
-		res_d = urllib.request.urlopen(req_d, timeout=5)
-		while True:
-			chunk = res_d.read(1024 * 256)
-			if not chunk: break
-			now = time.time()
-			dl_bytes += len(chunk)
-			total_dl_bytes += len(chunk)
-			if not warmed_up and (now - start_down) >= 1.5:
-				warmed_up = True
-				measure_start_d = now
-				dl_bytes = 0
-			if (now - start_down) >= 6.0: break
+		req_d = urllib.request.Request("https://cachefly.cachefly.net/100mb.test", headers={'User-Agent': 'Mozilla/5.0'})
+		with urllib.request.urlopen(req_d, timeout=5) as res_d:
+			while True:
+				chunk = res_d.read(1024 * 256)
+				if not chunk: break
+				now = time.time()
+				dl_bytes += len(chunk)
+				total_dl_bytes += len(chunk)
+				if not warmed_up and (now - start_down) >= 1.5:
+					warmed_up = True
+					measure_start_d = now
+					dl_bytes = 0
+				if (now - start_down) >= 6.0: break
 		
 		dl_time = time.time() - measure_start_d
 		if dl_time < 1.0:
