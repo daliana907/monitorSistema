@@ -1144,3 +1144,6 @@ msgstr "{count} seconds"
 
 msgid "extraíble"
 msgstr "removable"
+
+msgid "{name} ({arch}) compilación {build}"
+msgstr "{name} ({arch}) build {build}"

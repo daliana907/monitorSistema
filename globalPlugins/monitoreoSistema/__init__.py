@@ -808,7 +808,7 @@ def getWinVer() -> str:
 		buildRevision = f"{currentWinVer.build}.{revision}"
 	else:
 		buildRevision = str(currentWinVer.build)
-	return f"{winverName} ({arch}) compilación {buildRevision}"
+	return _("{name} ({arch}) compilación {build}").format(name=winverName, arch=arch, build=buildRevision)
 
 
 class PDH_FMT_COUNTERVALUE(Structure):
