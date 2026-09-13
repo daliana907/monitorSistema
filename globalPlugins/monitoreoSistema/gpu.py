@@ -293,16 +293,21 @@ def _getAmdGpuTemperature() -> str:
 			adl_alloc_cb = ALLOC_FUNC(adl_alloc)
 			if adl.ADL_Main_Control_Create(adl_alloc_cb, 1) == 0:
 				temp_str = ""
-				if hasattr(adl, "ADL2_OverdriveN_Temperature_Get"):
-					func = adl.ADL2_OverdriveN_Temperature_Get
-					func.argtypes = [ctypes.c_void_p, c_long, c_long, POINTER(c_long)]
-					func.restype = c_long
-					t = c_long(0)
-					if func(None, 0, 0, byref(t)) == 0 and t.value > 0:
-						c = t.value / 1000.0
-						if 0 < c < 125:
-							temp_str = str(round(c))
-				adl.ADL_Main_Control_Destroy()
+				try:
+					if hasattr(adl, "ADL2_OverdriveN_Temperature_Get"):
+						func = adl.ADL2_OverdriveN_Temperature_Get
+						func.argtypes = [ctypes.c_void_p, c_long, c_long, POINTER(c_long)]
+						func.restype = c_long
+						t = c_long(0)
+						if func(None, 0, 0, byref(t)) == 0 and t.value > 0:
+							c = t.value / 1000.0
+							if 0 < c < 125:
+								temp_str = str(round(c))
+				finally:
+					try:
+						adl.ADL_Main_Control_Destroy()
+					except Exception:
+						pass
 				if temp_str:
 					return temp_str
 		except Exception:
