@@ -2206,8 +2206,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				physicalTotal=size(physicalRamTotal, alternative),
 				physicalPercent=physicalPercent,
 			)
-			virtualMemory = psutil._psutil_windows.virtual_mem()
-			virtualRamUsed, virtualRamTotal = virtualMemory[2] - virtualMemory[3], virtualMemory[2]
+			try:
+				if hasattr(psutil, "_psutil_windows") and hasattr(psutil._psutil_windows, "virtual_mem"):
+					virtualMemory = psutil._psutil_windows.virtual_mem()
+					virtualRamUsed, virtualRamTotal = virtualMemory[2] - virtualMemory[3], virtualMemory[2]
+				else:
+					swap = psutil.swap_memory()
+					virtualRamUsed, virtualRamTotal = swap.used, swap.total
+			except Exception:
+				swap = psutil.swap_memory()
+				virtualRamUsed, virtualRamTotal = swap.used, swap.total
 			virtualPercent = tryTrunk(round(virtualRamUsed / virtualRamTotal * 100, 1)) if virtualRamTotal > 0 else 0
 			info += _("Virtual: {virtualUsed} de {virtualTotal} utilizada ({virtualPercent}%).").format(
 				virtualUsed=size(virtualRamUsed, alternative),
