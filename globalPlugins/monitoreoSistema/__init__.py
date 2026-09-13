@@ -228,6 +228,7 @@ except NameError:
 
 
 def customResize(array: Any, newSize: Any):
+	"""Redimensiona una matriz ctypes en memoria a partir de su dirección base."""
 	return (array._type_ * newSize).from_address(addressof(array))
 
 
@@ -247,6 +248,7 @@ alternative = [
 
 
 def size(bytes_val: int | float, system: list[tuple[float, Any]] = alternative) -> str:
+	"""Convierte una cantidad de bytes a una cadena legible con sufijo de unidad (KB, MB, GB, etc.)."""
 	factor = 1.0
 	suffix = " B"
 	for f, s in system:
@@ -262,12 +264,14 @@ def size(bytes_val: int | float, system: list[tuple[float, Any]] = alternative) 
 
 
 def tryTrunk(n: float) -> int | float:
+	"""Devuelve el número truncado a entero si no tiene parte decimal, o el float original."""
 	if n == int(n):
 		return int(n)
 	return n
 
 
 def formatGpuTemperature(celsiusText: str) -> str:
+	"""Formatea la temperatura de la GPU en Celsius o Fahrenheit según la configuración activa."""
 	try:
 		celsius = float(celsiusText)
 	except (TypeError, ValueError):
@@ -323,6 +327,7 @@ MAXIMO_DE_DISCOS = 8
 
 
 class CONSULTA_DE_PROPIEDAD(Structure):
+	"""Estructura STORAGE_PROPERTY_QUERY para consultar propiedades de almacenamiento."""
 	_fields_ = [
 		("PropertyId", wintypes.DWORD),
 		("QueryType", wintypes.DWORD),
@@ -410,6 +415,7 @@ def temperaturasDeDiscos():
 	]
 
 class MonitorSistemaSettingsPanel(SettingsPanel):
+	"""Panel de configuración de Monitoreo del Sistema en las Preferencias de NVDA."""
 	title = "Monitoreo del Sistema"
 
 	def makeSettings(self, settingsSizer: wx.BoxSizer) -> None:
@@ -645,34 +651,42 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		)
 
 	def onAlertBatteryFullChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de batería cargada."""
 		self._updateBatteryFullVisibility(self.alertBatteryFullCheckbox.GetValue())
 		evt.Skip()
 
 	def onAlertBatteryLowChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de batería baja."""
 		self._updateBatteryLowVisibility(self.alertBatteryLowCheckbox.GetValue())
 		evt.Skip()
 
 	def onAlertCpuHotChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de sobrecalentamiento de CPU."""
 		self._updateCpuHotVisibility(self.alertCpuHotCheckbox.GetValue())
 		evt.Skip()
 
 	def onAlertGpuHotChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de sobrecalentamiento de GPU."""
 		self._updateGpuHotVisibility(self.alertGpuHotCheckbox.GetValue())
 		evt.Skip()
 
 	def onAlertBluetoothLowChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de batería Bluetooth baja."""
 		self._updateBluetoothLowVisibility(self.alertBluetoothLowCheckbox.GetValue())
 		evt.Skip()
 
 	def onAlertDiskHealthChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de desgaste de disco."""
 		self._updateDiskHealthVisibility(self.alertDiskHealthCheckbox.GetValue())
 		evt.Skip()
 
 	def onAlertDiskHotChange(self, evt: wx.CommandEvent) -> None:
+		"""Actualiza la visibilidad de los controles de umbral de temperatura de disco."""
 		self._updateDiskHotVisibility(self.alertDiskHotCheckbox.GetValue())
 		evt.Skip()
 
 	def onPanelActivated(self) -> None:
+		"""Sincroniza la visibilidad de los controles condicionales al activar el panel."""
 		super().onPanelActivated()
 		self._updateBatteryFullVisibility(self.alertBatteryFullCheckbox.GetValue())
 		self._updateBatteryLowVisibility(self.alertBatteryLowCheckbox.GetValue())
@@ -792,6 +806,7 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 
 @functools.lru_cache(maxsize=1)
 def getWinVer() -> str:
+	"""Devuelve la versión detallada del sistema operativo Windows y su compilación."""
 	currentWinVer = winVersion.getWinVer()
 	arch = currentWinVer.processorArchitecture
 	winverName = currentWinVer.releaseName
@@ -812,6 +827,7 @@ def getWinVer() -> str:
 
 
 class PDH_FMT_COUNTERVALUE(Structure):
+	"""Estructura para valores numéricos formateados devueltos por contadores PDH."""
 	class _U(Union):
 		_fields_ = [
 			("longValue", c_long),
@@ -918,6 +934,7 @@ DIGCF_PRESENT = 0x00000002
 _DN_DEVICE_DISCONNECTED = 0x02000000
 
 class GUID(Structure):
+	"""Identificador único universal (GUID) para enumeración de dispositivos SetupAPI."""
 	_fields_ = [
 		("Data1", wintypes.DWORD),
 		("Data2", ctypes.c_ushort),
@@ -935,15 +952,19 @@ class GUID(Structure):
 			self.Data4[i] = b
 
 class DEVPROPKEY(Structure):
+	"""Clave de propiedad uniforme de dispositivo en la API de configuración de Windows."""
 	_fields_ = [("fmtid", GUID), ("pid", wintypes.ULONG)]
 
 class SP_DEVINFO_DATA(Structure):
+	"""Estructura de información de instancia de dispositivo devuelta por SetupAPI."""
 	_fields_ = [("cbSize", wintypes.DWORD), ("ClassGuid", GUID), ("DevInst", wintypes.DWORD), ("Reserved", POINTER(wintypes.ULONG))]
 
 class BLUETOOTH_ADDRESS(Structure):
+	"""Dirección física de 64 bits para adaptadores y dispositivos de radio Bluetooth."""
 	_fields_ = [("ullLong", ctypes.c_ulonglong)]
 
 class SYSTEMTIME(Structure):
+	"""Estructura de fecha y hora del sistema en la API nativa de Windows."""
 	_fields_ = [
 		("wYear", wintypes.WORD), ("wMonth", wintypes.WORD), ("wDayOfWeek", wintypes.WORD),
 		("wDay", wintypes.WORD), ("wHour", wintypes.WORD), ("wMinute", wintypes.WORD),
@@ -951,6 +972,7 @@ class SYSTEMTIME(Structure):
 	]
 
 class BLUETOOTH_DEVICE_INFO(Structure):
+	"""Información detallada y estado de emparejamiento de un dispositivo Bluetooth."""
 	_fields_ = [
 		("dwSize", wintypes.DWORD),
 		("Address", BLUETOOTH_ADDRESS),
@@ -967,12 +989,14 @@ class BLUETOOTH_DEVICE_INFO(Structure):
 		self.dwSize = ctypes.sizeof(self)
 
 class BLUETOOTH_FIND_RADIO_PARAMS(Structure):
+	"""Parámetros de búsqueda de adaptadores de radio Bluetooth en el sistema."""
 	_fields_ = [("dwSize", wintypes.DWORD)]
 	def __init__(self):
 		super().__init__()
 		self.dwSize = ctypes.sizeof(self)
 
 class BLUETOOTH_DEVICE_SEARCH_PARAMS(Structure):
+	"""Criterios de filtro para la enumeración de dispositivos Bluetooth."""
 	_fields_ = [
 		("dwSize", wintypes.DWORD),
 		("fReturnAuthenticated", wintypes.BOOL),
@@ -1356,6 +1380,7 @@ def _estadosDeBluetoothClasico():
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
+	"""Plugin global de NVDA para supervisión integral de hardware, red, discos y batería."""
 	scriptCategory = _("Monitoreo del sistema")
 
 	def __init__(self):
@@ -1422,6 +1447,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Inicia un hilo de pitidos periódicos para operaciones en segundo plano y devuelve el stop_event."""
 		stop_event = threading.Event()
 		def beeper():
+			"""Bucle de emisión de tonos de progreso en segundo plano."""
 			try:
 				tones.beep(freq, 40)
 			except Exception:
@@ -2039,6 +2065,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceResourceSummary(self, gesture: inputCore.InputGesture):
+		"""Anuncia la memoria RAM utilizada y el porcentaje de carga del procesador."""
 		try:
 			info = _("{}% de RAM utilizada, CPU al {}%.").format(
 				tryTrunk(psutil.virtual_memory()[2]), tryTrunk(psutil.cpu_percent())
@@ -2072,6 +2099,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				adl = ctypes.WinDLL(dll_name)
 				ALLOC_FUNC = ctypes.WINFUNCTYPE(ctypes.c_void_p, ctypes.c_size_t)
 				def adl_alloc(size):
+					"""Reserva de memoria para la biblioteca ADL de AMD."""
 					return ctypes.windll.kernel32.LocalAlloc(0x0040, size)
 				adl_alloc_cb = ALLOC_FUNC(adl_alloc)
 				
@@ -2369,6 +2397,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceCpuFrequency(self, gesture: inputCore.InputGesture):
+		"""Anuncia la frecuencia actual del procesador en GHz y el modo turbo."""
 		try:
 			info = self._getCpuFrequencyInfo()
 			if scriptHandler.getLastScriptRepeatCount() == 0:
@@ -2537,6 +2566,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category=scriptCategory,
 	)
 	def script_wlanStatusReport(self, gesture: inputCore.InputGesture):
+		"""Verbaliza el estado de la conexión Wi-Fi actual y la intensidad de la señal."""
 		if scriptHandler.getLastScriptRepeatCount() == 0:
 			try:
 				info = self._getWlanInfo()
@@ -2560,6 +2590,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category=scriptCategory,
 	)
 	def script_announceWinVer(self, gesture: inputCore.InputGesture):
+		"""Anuncia la versión exacta y edición de Windows instalada en el equipo."""
 		try:
 			info = getWinVer()
 			if scriptHandler.getLastScriptRepeatCount() == 0:
@@ -2573,6 +2604,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Error al obtener la versión de Windows."))
 
 	def getUptime(self) -> str:
+		"""Calcula y formatea el tiempo transcurrido desde el último inicio del sistema."""
 		bootTimestamp = psutil.boot_time()
 		if bootTimestamp == 0.0:
 			raise TypeError
@@ -2607,6 +2639,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category=scriptCategory,
 	)
 	def script_announceUptime(self, gesture: inputCore.InputGesture):
+		"""Anuncia el tiempo de actividad del sistema o el tiempo total si se pulsa dos veces."""
 		try:
 			uptime = self.getUptime()
 			if scriptHandler.getLastScriptRepeatCount() == 0:
@@ -2669,6 +2702,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	@blockAction.when(blockAction.Context.SECURE_MODE)
 	def script_announceGpuInfo(self, gesture: inputCore.InputGesture):
+		"""Anuncia el uso, temperatura y consumo de memoria de la tarjeta gráfica."""
 		try:
 			info = self._getGpuInfo()
 			if scriptHandler.getLastScriptRepeatCount() == 0:
@@ -2838,6 +2872,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceDiskHealth(self, gesture: inputCore.InputGesture):
+		"""Consulta e informa el estado de salud, desgaste y temperatura de las unidades de disco."""
 		self._atajoDeConsulta(
 			"_diskHealthRunning", "_lastDiskHealthResult", "_copyDiskHealthOnFinish",
 			self._getDiskHealth,
@@ -2899,6 +2934,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceTopProcesses(self, gesture: inputCore.InputGesture):
+		"""Identifica y verbaliza los procesos en ejecución con mayor consumo de CPU o memoria."""
 		self._atajoDeConsulta(
 			"_topProcessesRunning", "_lastTopProcessesResult", "_copyTopProcessesOnFinish",
 			self._getTopProcesses,
@@ -3009,6 +3045,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _medirVelocidadDeSubida(self):
 		"""Megabytes por segundo subiendo datos generados al vuelo."""
 		class UploadStream:
+			"""Generador de flujo continuo en memoria para medir la tasa de carga de red."""
 			def __init__(self):
 				self.start = time.time()
 				self.measure_start = None
@@ -3048,6 +3085,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceNetSpeed(self, gesture: inputCore.InputGesture):
+		"""Mide y anuncia en tiempo real la velocidad de descarga y subida de internet."""
 		self._atajoDeConsulta(
 			"_netSpeedRunning", "_lastNetSpeedResult", "_copyNetSpeedOnFinish",
 			self._getNetworkSpeed,
@@ -3135,6 +3173,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceAdvBattery(self, gesture: inputCore.InputGesture):
+		"""Informa sobre el porcentaje de batería, tiempo restante y desgaste de salud."""
 		self._atajoDeConsulta(
 			"_advBatteryRunning", "_lastAdvBatteryResult", "_copyAdvBatteryOnFinish",
 			self._getAdvancedBattery,
@@ -3215,6 +3254,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceBluetooth(self, gesture: inputCore.InputGesture):
+		"""Verbaliza el nivel de batería y estado de los dispositivos Bluetooth conectados."""
 		self._atajoDeConsulta(
 			"_bluetoothRunning", "_lastBluetoothResult", "_copyBluetoothOnFinish",
 			self._getBluetoothBattery,
@@ -3371,5 +3411,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		category=scriptCategory,
 	)
 	def script_checkConflicts(self, gesture: inputCore.InputGesture):
+		"""Ejecuta una auditoría interactiva de atajos y complementos concurrentes."""
 		self._checkAddonConflicts(interactive=True)
 

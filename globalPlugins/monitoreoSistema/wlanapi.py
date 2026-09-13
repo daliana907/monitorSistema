@@ -50,12 +50,14 @@ DOT11_AUTH_ALGO_IHV_START = 0x80000000
 DOT11_AUTH_ALGO_IHV_END = 0xffffffff
 
 class DOT11_SSID(Structure):
+	"""Identificador SSID del conjunto de servicios inalámbricos 802.11."""
 	_fields_ = [
 		("SSIDLength", c_ulong),
 		("SSID", c_char * 32),
 	]
 
 class WLAN_CONNECTION_NOTIFICATION_DATA(Structure):
+	"""Datos de notificación de conexión y desconexión Wi-Fi de Windows Native Wifi."""
 	_fields_ = [
 		("wlanConnectionMode", c_uint),
 		("strProfileName", c_wchar * 256),
@@ -68,6 +70,7 @@ class WLAN_CONNECTION_NOTIFICATION_DATA(Structure):
 	]
 
 class WLAN_NOTIFICATION_DATA(Structure):
+	"""Estructura de evento o notificación devuelta por WlanRegisterNotification."""
 	_fields_ = [
 		("NotificationSource", DWORD),
 		("NotificationCode", DWORD),
@@ -77,6 +80,7 @@ class WLAN_NOTIFICATION_DATA(Structure):
 	]
 
 class WLAN_AVAILABLE_NETWORK(Structure):
+	"""Información de una red inalámbrica disponible detectada en el adaptador Wi-Fi."""
 	_fields_ = [
 		("ProfileName", c_wchar * 256),
 		("dot11Ssid", DOT11_SSID),
@@ -96,6 +100,7 @@ class WLAN_AVAILABLE_NETWORK(Structure):
 	]
 
 class WLAN_AVAILABLE_NETWORK_LIST(Structure):
+	"""Lista indexada de redes inalámbricas disponibles."""
 	_fields_ = [
 		("NumberOfItems", DWORD),
 		("Index", DWORD),
@@ -103,6 +108,7 @@ class WLAN_AVAILABLE_NETWORK_LIST(Structure):
 	]
 
 class WLAN_INTERFACE_INFO(Structure):
+	"""Descriptor del adaptador de interfaz de red Wi-Fi y su estado actual."""
 	_fields_ = [
 		("InterfaceGuid", GUID),
 		("strInterfaceDescription", c_wchar * 256),
@@ -110,6 +116,7 @@ class WLAN_INTERFACE_INFO(Structure):
 	]
 
 class WLAN_INTERFACE_INFO_LIST(Structure):
+	"""Lista de adaptadores de red inalámbrica presentes en el sistema."""
 	_fields_ = [
 		("NumberOfItems", DWORD),
 		("Index", DWORD),
@@ -119,6 +126,7 @@ class WLAN_INTERFACE_INFO_LIST(Structure):
 WLAN_NOTIFICATION_CALLBACK = CFUNCTYPE(None, POINTER(WLAN_NOTIFICATION_DATA), POINTER(c_void_p))
 
 def errcheck(result, func, args):
+	"""Verifica el código de retorno de funciones de la API WLAN de Windows y lanza WinError si no es éxito."""
 	if result != ERROR_SUCCESS:
 		raise WinError(c_long(result).value)
 	return result

@@ -40,6 +40,7 @@ except ImportError:
 
 @dataclass
 class GpuTelemetry:
+	"""Estructura de datos para métricas de GPU: porcentaje de uso, temperatura y memoria en MB."""
 	utilization: str
 	temperature: str
 	memoryUsed: str
@@ -53,11 +54,14 @@ _CREATE_NO_WINDOW = 0x08000000
 
 
 class BaseGpuProvider:
+	"""Interfaz base para recolectores de telemetría y métricas de GPU."""
 	def collect(self) -> list[GpuTelemetry] | None:
+		"""Recolecta y devuelve la lista de métricas de GPU disponibles o None."""
 		raise NotImplementedError
 
 
 class NvidiaGpuProvider(BaseGpuProvider):
+	"""Proveedor de telemetría para tarjetas gráficas NVIDIA mediante la utilidad nvidia-smi."""
 	def __init__(self):
 		super().__init__()
 		self._nvidiaSmiPath = None
@@ -85,6 +89,7 @@ class NvidiaGpuProvider(BaseGpuProvider):
 		return None
 
 	def collect(self) -> list[GpuTelemetry] | None:
+		"""Ejecuta nvidia-smi para obtener uso, temperatura y memoria de GPUs NVIDIA."""
 		if not self._nvidiaSmiPathResolved:
 			self._nvidiaSmiPath = self._findNvidiaSmiPath()
 			self._nvidiaSmiPathResolved = True
@@ -135,6 +140,7 @@ ERROR_SUCCESS = 0
 
 
 class PDH_FMT_COUNTERVALUE(Structure):
+	"""Estructura de valor formateado devuelto por la API Performance Data Helper (PDH)."""
 	class _U(Union):
 		_fields_ = [
 			("longValue", c_long),
@@ -151,6 +157,7 @@ class PDH_FMT_COUNTERVALUE(Structure):
 
 
 class PDH_FMT_COUNTERVALUE_ITEM_W(Structure):
+	"""Elemento con nombre de instancia y valor formateado devuelto por PdhGetFormattedCounterArrayW."""
 	_fields_ = [
 		("szName", wintypes.LPWSTR),
 		("FmtValue", PDH_FMT_COUNTERVALUE),
@@ -164,12 +171,14 @@ def _getDxgiAdapters() -> dict[str, dict]:
 		dxgi = ctypes.windll.dxgi
 
 		class LUID(Structure):
+			"""Identificador único local de 64 bits para el adaptador gráfico DirectX."""
 			_fields_ = [
 				("LowPart", wintypes.DWORD),
 				("HighPart", wintypes.LONG),
 			]
 
 		class DXGI_ADAPTER_DESC(Structure):
+			"""Descriptor de adaptador de pantalla DXGI con memoria de video y bus PCI."""
 			_fields_ = [
 				("Description", wintypes.WCHAR * 128),
 				("VendorId", wintypes.UINT),
@@ -183,8 +192,10 @@ def _getDxgiAdapters() -> dict[str, dict]:
 			]
 
 		class IDXGIAdapterVtbl(Structure):
+			"""Tabla de métodos virtuales (VTable) de la interfaz COM IDXGIAdapter."""
 			pass
 		class IDXGIAdapter(Structure):
+			"""Estructura envoltorio para puntero a interfaz IDXGIAdapter."""
 			pass
 		IDXGIAdapter._fields_ = [("lpVtbl", POINTER(IDXGIAdapterVtbl))]
 
@@ -204,8 +215,10 @@ def _getDxgiAdapters() -> dict[str, dict]:
 		]
 
 		class IDXGIFactoryVtbl(Structure):
+			"""Tabla de métodos virtuales (VTable) de la interfaz COM IDXGIFactory."""
 			pass
 		class IDXGIFactory(Structure):
+			"""Estructura envoltorio para puntero a interfaz IDXGIFactory."""
 			pass
 		IDXGIFactory._fields_ = [("lpVtbl", POINTER(IDXGIFactoryVtbl))]
 
@@ -229,6 +242,7 @@ def _getDxgiAdapters() -> dict[str, dict]:
 		]
 
 		class GUID(Structure):
+			"""Identificador único global (GUID/IID) para la interfaz COM DXGI."""
 			_fields_ = [
 				("Data1", wintypes.DWORD),
 				("Data2", wintypes.WORD),
@@ -293,6 +307,7 @@ def _getAmdGpuTemperature() -> str:
 			adl = ctypes.WinDLL(dll_name)
 			ALLOC_FUNC = ctypes.WINFUNCTYPE(ctypes.c_void_p, ctypes.c_size_t)
 			def adl_alloc(size):
+				"""Callback de reserva de memoria para la biblioteca ADL de AMD."""
 				return ctypes.windll.kernel32.LocalAlloc(0x0040, size)
 			adl_alloc_cb = ALLOC_FUNC(adl_alloc)
 			if adl.ADL_Main_Control_Create(adl_alloc_cb, 1) == 0:
@@ -377,6 +392,7 @@ class WindowsGpuProvider(BaseGpuProvider):
 			self._pdh = None
 
 	def collect(self) -> list[GpuTelemetry] | None:
+		"""Recolecta métricas de GPU universalmente mediante contadores PDH y adaptadores DXGI."""
 		if not self._pdh or not self._query:
 			self._initPdh()
 		if not self._pdh or not self._query:
@@ -515,4 +531,5 @@ class WindowsGpuProvider(BaseGpuProvider):
 
 
 def getGpuProviders() -> list[BaseGpuProvider]:
+	"""Devuelve la lista instanciada de proveedores de GPU disponibles (NVIDIA y genérico Windows PDH)."""
 	return [NvidiaGpuProvider(), WindowsGpuProvider()]
