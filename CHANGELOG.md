@@ -11,15 +11,19 @@ Lo más reciente, arriba. En español primero y en inglés después.
 
 ### Español
 
-- Se optimizó la consulta de temperatura de discos para no realizar comprobaciones innecesarias en ranuras o puertos vacíos, haciendo la vigilancia automática más rápida y ligera.
-- El informe del tiempo que lleva encendido el equipo (NVDA+Shift+7) ahora se adapta correctamente al idioma configurado en NVDA y utiliza expresiones gramaticales correctas tanto en singular como en plural.
-- Se mejoró la estabilidad del cálculo de tiempo de actividad si el reloj de Windows se ajusta o sincroniza automáticamente.
+- Optimización en la vigilancia de temperatura de discos, omitiendo comprobaciones innecesarias en ranuras o puertos sin disco para hacer la supervisión más rápida y ligera.
+- Mayor precisión y estabilidad en la detección de dispositivos Bluetooth y su batería, distinguiendo periféricos independientes del mismo modelo y liberando recursos del sistema de forma limpia.
+- El informe del tiempo que lleva encendido el equipo (NVDA+Shift+7) ahora se adapta correctamente al idioma configurado en NVDA, con redacción natural tanto en singular como en plural y mayor tolerancia a cambios de reloj.
+- Mejoras integrales de estabilidad en la lectura de memoria virtual, tarjetas gráficas y conexiones Wi-Fi.
+- Correcciones internas de rendimiento y optimización del consumo de recursos en segundo plano.
 
 ### English
 
-- Optimized drive temperature queries to prevent redundant checks on empty drive slots, making background thermal monitoring faster and lighter.
-- System uptime reporting (NVDA+Shift+7) now fully localizes into the active NVDA language and uses proper singular and plural phrasing.
-- Improved uptime calculation resilience against automatic clock synchronizations or time zone adjustments.
+- Optimized drive temperature monitoring by skipping redundant checks on empty drive slots, resulting in a lighter and faster background watchdog.
+- Improved precision and stability in Bluetooth device detection and battery reporting, properly distinguishing multiple devices of the same model and cleanly releasing system handles.
+- System uptime announcements (NVDA+Shift+7) now fully adapt to the active NVDA language with natural phrasing in both singular and plural forms, remaining resilient against clock adjustments.
+- Enhanced reliability across virtual memory, graphics hardware sensors, and Wi-Fi connection monitoring.
+- Internal performance refinements and optimized background resource management.
 
 ---
 
