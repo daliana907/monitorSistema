@@ -2487,29 +2487,32 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			wlan_ifaces = POINTER(wlanapi.WLAN_INTERFACE_INFO_LIST)()
 			if wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces)) != 0:
 				return None
-			if wlan_ifaces.contents.NumberOfItems == 0:
+			try:
+				if wlan_ifaces.contents.NumberOfItems == 0:
+					return None
+				signal = None
+				for i in customResize(wlan_ifaces.contents.InterfaceInfo, wlan_ifaces.contents.NumberOfItems):
+					if i.isState != wlanapi.wlan_interface_state_connected:
+						continue
+					wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
+					if wlanapi.WlanGetAvailableNetworkList(
+						self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
+					) == 0:
+						try:
+							for n in customResize(
+								wlan_available_network_list.contents.Network,
+								wlan_available_network_list.contents.NumberOfItems,
+							):
+								if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
+									signal = int(n.wlanSignalQuality)
+									break
+						finally:
+							wlanapi.WlanFreeMemory(wlan_available_network_list)
+					if signal is not None:
+						break
+				return signal
+			finally:
 				wlanapi.WlanFreeMemory(wlan_ifaces)
-				return None
-			signal = None
-			for i in customResize(wlan_ifaces.contents.InterfaceInfo, wlan_ifaces.contents.NumberOfItems):
-				if i.isState != wlanapi.wlan_interface_state_connected:
-					continue
-				wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
-				if wlanapi.WlanGetAvailableNetworkList(
-					self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
-				) == 0:
-					for n in customResize(
-						wlan_available_network_list.contents.Network,
-						wlan_available_network_list.contents.NumberOfItems,
-					):
-						if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
-							signal = int(n.wlanSignalQuality)
-							break
-					wlanapi.WlanFreeMemory(wlan_available_network_list)
-				if signal is not None:
-					break
-			wlanapi.WlanFreeMemory(wlan_ifaces)
-			return signal
 		except Exception as e:
 			log.error(f"MonitorSistema: Error consultando señal WLAN: {e}", exc_info=True)
 			return None
