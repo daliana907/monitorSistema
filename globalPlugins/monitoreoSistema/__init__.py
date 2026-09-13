@@ -2437,40 +2437,42 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return _("No hay dispositivos de red inalámbrica")
 
 		wlan_ifaces = POINTER(wlanapi.WLAN_INTERFACE_INFO_LIST)()
-		wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces))
+		try:
+			wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces))
+			if wlan_ifaces.contents.NumberOfItems == 0:
+				return _("No hay dispositivos de red inalámbrica")
 
-		if wlan_ifaces.contents.NumberOfItems == 0:
-			wlanapi.WlanFreeMemory(wlan_ifaces)
-			return _("No hay dispositivos de red inalámbrica")
+			info = _("No hay conexiones de red inalámbrica")
+			for i in customResize(wlan_ifaces.contents.InterfaceInfo, wlan_ifaces.contents.NumberOfItems):
+				if i.isState != wlanapi.wlan_interface_state_connected:
+					continue
 
-		info = _("No hay conexiones de red inalámbrica")
-		for i in customResize(wlan_ifaces.contents.InterfaceInfo, wlan_ifaces.contents.NumberOfItems):
-			if i.isState != wlanapi.wlan_interface_state_connected:
-				continue
-
-			wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
-			wlanapi.WlanGetAvailableNetworkList(
-				self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
-			)
-			for n in customResize(
-				wlan_available_network_list.contents.Network,
-				wlan_available_network_list.contents.NumberOfItems,
-			):
-				if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
-					ssid_str = n.dot11Ssid.SSID.decode(errors="ignore")
-					sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
-					log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
-					info = (
-						_("Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}")
-					).format(
-						ssid_str,
-						n.wlanSignalQuality,
-						sec_str,
+				wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
+				try:
+					wlanapi.WlanGetAvailableNetworkList(
+						self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
 					)
-					break
-			wlanapi.WlanFreeMemory(wlan_available_network_list)
-		wlanapi.WlanFreeMemory(wlan_ifaces)
-		return info
+					for n in customResize(
+						wlan_available_network_list.contents.Network,
+						wlan_available_network_list.contents.NumberOfItems,
+					):
+						if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
+							ssid_str = n.dot11Ssid.SSID.decode(errors="ignore")
+							sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
+							log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
+							info = (
+								_("Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}")
+							).format(
+								ssid_str,
+								n.wlanSignalQuality,
+								sec_str,
+							)
+							break
+				finally:
+					wlanapi.WlanFreeMemory(wlan_available_network_list)
+			return info
+		finally:
+			wlanapi.WlanFreeMemory(wlan_ifaces)
 
 	def _getCurrentWlanSignal(self) -> int | None:
 		"""Devuelve solo el número de la intensidad de señal del Wi-Fi, de 0 a 100.
