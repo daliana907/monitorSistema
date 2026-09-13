@@ -2200,17 +2200,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		try:
 			memory = psutil.virtual_memory()
 			physicalRamUsed, physicalRamTotal = memory.used, memory.total
+			physicalPercent = tryTrunk(round(physicalRamUsed / physicalRamTotal * 100, 1)) if physicalRamTotal > 0 else 0
 			info = _("Física: {physicalUsed} de {physicalTotal} utilizada ({physicalPercent}%). ").format(
 				physicalUsed=size(physicalRamUsed, alternative),
 				physicalTotal=size(physicalRamTotal, alternative),
-				physicalPercent=tryTrunk(round(physicalRamUsed / physicalRamTotal * 100, 1)),
+				physicalPercent=physicalPercent,
 			)
 			virtualMemory = psutil._psutil_windows.virtual_mem()
 			virtualRamUsed, virtualRamTotal = virtualMemory[2] - virtualMemory[3], virtualMemory[2]
+			virtualPercent = tryTrunk(round(virtualRamUsed / virtualRamTotal * 100, 1)) if virtualRamTotal > 0 else 0
 			info += _("Virtual: {virtualUsed} de {virtualTotal} utilizada ({virtualPercent}%).").format(
 				virtualUsed=size(virtualRamUsed, alternative),
 				virtualTotal=size(virtualRamTotal, alternative),
-				virtualPercent=tryTrunk(round(virtualRamUsed / virtualRamTotal * 100, 1)),
+				virtualPercent=virtualPercent,
 			)
 			if scriptHandler.getLastScriptRepeatCount() == 0:
 				log.info(f"MonitorSistema: script_announceRamInfo - Anunciando al usuario: '{info}'")
