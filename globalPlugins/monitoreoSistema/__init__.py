@@ -2562,8 +2562,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			raise TypeError
 		uptime = datetime.now() - datetime.fromtimestamp(bootTimestamp)
 		totalSecs = int(uptime.total_seconds())
-		if totalSecs < 0:
-			# Translators: Mensaje cuando el tiempo de actividad es inferior a un segundo por desfase horario.
+		if totalSecs <= 0:
+			# Translators: Mensaje cuando el tiempo de actividad es inferior a un segundo por desfase horario o arranque inmediato.
 			return _("menos de un segundo")
 		days = uptime.days
 		hours, remainingMinutes = divmod(totalSecs % 86400, 3600)
