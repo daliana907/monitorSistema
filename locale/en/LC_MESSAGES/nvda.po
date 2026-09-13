@@ -1141,3 +1141,6 @@ msgstr "{count} second"
 
 msgid "{count} segundos"
 msgstr "{count} seconds"
+
+msgid "extraíble"
+msgstr "removable"

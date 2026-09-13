@@ -2385,14 +2385,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			for drive in psutil.disk_partitions(all=True):
 				if not drive.fstype:
 					continue
-				isNetworkDrive = "remote" in drive.opts.split(",")
+				opts = drive.opts.split(",")
+				isNetworkDrive = "remote" in opts
+				isRemovable = "removable" in opts
 				try:
 					driveInfo = psutil.disk_usage(drive[0])
 				except OSError:
 					if isNetworkDrive:
 						info.append(_("{} (unidad de red): no disponible.").format(drive[0]))
 					continue
-				driveType = _("de red") if isNetworkDrive else _("fijo")
+				if isNetworkDrive:
+					driveType = _("de red")
+				elif isRemovable:
+					driveType = _("extraíble")
+				else:
+					driveType = _("fijo")
 				info.append(
 					_("{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%).").format(
 						driveName=drive[0],
