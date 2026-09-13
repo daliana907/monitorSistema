@@ -2274,14 +2274,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				currGhz = self._maxTurboGhz
 
 			if currGhz > self._baseGhz:
-				pct = tryTrunk(round((currGhz / self._maxTurboGhz) * 100, 1))
+				max_turbo = self._maxTurboGhz if self._maxTurboGhz > 0 else max(currGhz, self._baseGhz)
+				pct = tryTrunk(round((currGhz / max_turbo) * 100, 1))
 				return _("{curr:.2f} GHz de {maxTurbo:.2f} GHz máximos ({pct}%), turbo activo.").format(
-					curr=currGhz, maxTurbo=self._maxTurboGhz, pct=pct
+					curr=currGhz, maxTurbo=max_turbo, pct=pct
 				)
 			else:
-				pct = tryTrunk(round((currGhz / self._baseGhz) * 100, 1))
+				base_ghz = self._baseGhz if self._baseGhz > 0 else 2.10
+				pct = tryTrunk(round((currGhz / base_ghz) * 100, 1))
 				return _("{curr:.2f} GHz de {base:.2f} GHz velocidad base ({pct}%).").format(
-					curr=currGhz, base=self._baseGhz, pct=pct
+					curr=currGhz, base=base_ghz, pct=pct
 				)
 
 		return _("No se pudo obtener la velocidad del procesador en tiempo real.")
