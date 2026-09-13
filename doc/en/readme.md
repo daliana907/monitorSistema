@@ -1,22 +1,22 @@
 # System Monitor for NVDA
 
 Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-Version: 2.8
+Version: 2.9
 Compatibility: NVDA 2023.1 or later
 License: GNU GPL v2
 
 System Monitor is an accessible all-in-one resource, hardware, and network monitor for NVDA.
 
 ### Basic Shortcuts (NVDA + Shift + key)
-- NVDA + Shift + E: Resource summary (RAM usage and overall CPU load).
-- NVDA + Shift + 1: CPU load average and per-core load.
-- NVDA + Shift + 2: Physical and virtual RAM (used, total, and percentage).
-- NVDA + Shift + 3: Disk space across all fixed, removable, and network drives.
-- NVDA + Shift + 4: Wi-Fi status (SSID name, signal strength, and security cipher).
-- NVDA + Shift + 5: CPU clock speed (current GHz, base clock, and turbo status).
-- NVDA + Shift + 6: Windows edition, version, and architecture.
-- NVDA + Shift + 7: System uptime.
-- NVDA + Shift + 8: Dedicated GPU status (used memory, total memory, and core load percentage).
+- NVDA + Shift + E: Resource summary (RAM memory in use and CPU load percentage).
+- NVDA + Shift + 1: Average CPU load and per-core utilization.
+- NVDA + Shift + 2: Physical and virtual RAM (used, free, total, and percentage).
+- NVDA + Shift + 3: Disk space (free, used, and total for all drives).
+- NVDA + Shift + 4: Wi-Fi status (SSID, signal strength, and security).
+- NVDA + Shift + 5: CPU frequency and clock speed (current GHz, base, and turbo).
+- NVDA + Shift + 6: Windows version, build, and architecture.
+- NVDA + Shift + 7: System uptime (how long the computer has been running).
+- NVDA + Shift + 8: Dedicated GPU memory used, total, and GPU processor load.
 
 ### Advanced Diagnostics (NVDA + Shift + Control + number)
 Press once to hear the report spoken. Press twice quickly to copy the report directly to the clipboard.
@@ -39,6 +39,14 @@ Configurable under NVDA Menu > Preferences > Settings > System Monitor:
 You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Check for add-on conflicts...: Checks for shortcut collisions with other installed add-ons.
+
+## What's new in 2.9 (13 September 2026)
+
+- Optimized background drive temperature monitoring to skip querying empty drive slots, making checks faster and lighter.
+- System uptime reporting (NVDA+Shift+7) now fully translates into all NVDA languages with accurate singular and plural phrasing.
+- Improved resilience of system uptime tracking when Windows automatically synchronizes or adjusts the clock.
+
+---
 
 ## What's new in 2.7 (12 September 2026)
 

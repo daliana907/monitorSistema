@@ -1,7 +1,7 @@
 # Monitoreo del Sistema para NVDA (System Monitor)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.8
+Versión: 2.9
 Compatibilidad: NVDA 2023.1 en adelante
 Licencia: GNU GPL v2
 
@@ -45,6 +45,14 @@ En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes ac
 Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo del Sistema:
 - Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.
 - Comprobar conflictos con otros complementos...: Diagnostica colisiones de atajos con otros complementos instalados.
+
+## Novedades de la versión 2.9 (13 de septiembre de 2026)
+
+- Optimización interna en la consulta de temperatura de discos para no realizar comprobaciones innecesarias en ranuras o puertos vacíos, haciendo la vigilancia automática más rápida y ligera.
+- El informe del tiempo que lleva encendido el equipo (NVDA+Shift+7) ahora se adapta correctamente al idioma configurado en NVDA y utiliza expresiones gramaticales correctas tanto en singular como en plural.
+- Mayor estabilidad del contador de tiempo encendido si el reloj del sistema se ajusta o sincroniza automáticamente.
+
+---
 
 ## Novedades de la versión 2.7 (12 de septiembre de 2026)
 

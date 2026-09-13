@@ -1114,3 +1114,30 @@ msgstr ""
 
 #~ msgid "Temperat&ura para la alerta de sobrecalentamiento de GPU (°C):"
 #~ msgstr "Temperat&ure for GPU overheating alert (°C):"
+
+msgid "menos de un segundo"
+msgstr "less than a second"
+
+msgid "{count} día"
+msgstr "{count} day"
+
+msgid "{count} días"
+msgstr "{count} days"
+
+msgid "{count} hora"
+msgstr "{count} hour"
+
+msgid "{count} horas"
+msgstr "{count} hours"
+
+msgid "{count} minuto"
+msgstr "{count} minute"
+
+msgid "{count} minutos"
+msgstr "{count} minutes"
+
+msgid "{count} segundo"
+msgstr "{count} second"
+
+msgid "{count} segundos"
+msgstr "{count} seconds"

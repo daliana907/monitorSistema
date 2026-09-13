@@ -341,6 +341,11 @@ def _temperaturaDeUnDisco(numero):
 	COMPARTIR_LECTURA_Y_ESCRITURA = 3
 	ABRIR_SI_EXISTE = 3
 	try:
+		ctypes.windll.kernel32.CreateFileW.restype = wintypes.HANDLE
+		ctypes.windll.kernel32.CloseHandle.argtypes = [wintypes.HANDLE]
+	except (AttributeError, TypeError):
+		pass
+	try:
 		manejador = ctypes.windll.kernel32.CreateFileW(
 			f"\\\\.\\PhysicalDrive{numero}", 0, COMPARTIR_LECTURA_Y_ESCRITURA,
 			None, ABRIR_SI_EXISTE, 0, None,
@@ -348,7 +353,7 @@ def _temperaturaDeUnDisco(numero):
 	except OSError as e:
 		log.debug(f"MonitorSistema: No se pudo abrir el disco {numero}: {e}")
 		return None
-	if manejador in (MANEJADOR_INVALIDO, 0, None):
+	if manejador in (MANEJADOR_INVALIDO, -1, 0, None):
 		return None
 	try:
 		consulta = CONSULTA_DE_PROPIEDAD()
@@ -2543,16 +2548,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if bootTimestamp == 0.0:
 			raise TypeError
 		uptime = datetime.now() - datetime.fromtimestamp(bootTimestamp)
-		hours, remainingMinutes = divmod(uptime.seconds, 3600)
+		totalSecs = int(uptime.total_seconds())
+		if totalSecs < 0:
+			# Translators: Mensaje cuando el tiempo de actividad es inferior a un segundo por desfase horario.
+			return _("menos de un segundo")
+		days = uptime.days
+		hours, remainingMinutes = divmod(totalSecs % 86400, 3600)
 		minutes, seconds = divmod(remainingMinutes, 60)
 		uptimeComponents = []
-		if uptime.days > 0:
-			uptimeComponents.append("{} {}".format(uptime.days, "día" if uptime.days == 1 else "días"))
+		if days > 0:
+			# Translators: Formato de días de actividad (singular o plural).
+			uptimeComponents.append(_("{count} día").format(count=days) if days == 1 else _("{count} días").format(count=days))
 		if hours > 0:
-			uptimeComponents.append("{} {}".format(hours, "hora" if hours == 1 else "horas"))
+			# Translators: Formato de horas de actividad (singular o plural).
+			uptimeComponents.append(_("{count} hora").format(count=hours) if hours == 1 else _("{count} horas").format(count=hours))
 		if minutes > 0:
-			uptimeComponents.append("{} {}".format(minutes, "minuto" if minutes == 1 else "minutos"))
-		uptimeComponents.append("{} {}".format(seconds, "segundo" if seconds == 1 else "segundos"))
+			# Translators: Formato de minutos de actividad (singular o plural).
+			uptimeComponents.append(_("{count} minuto").format(count=minutes) if minutes == 1 else _("{count} minutos").format(count=minutes))
+		# Translators: Formato de segundos de actividad (singular o plural).
+		uptimeComponents.append(_("{count} segundo").format(count=seconds) if seconds == 1 else _("{count} segundos").format(count=seconds))
 		res = ", ".join(uptimeComponents)
 		log.info(f"MonitorSistema: Tiempo de actividad calculado desde arranque ({datetime.fromtimestamp(bootTimestamp).strftime('%Y-%m-%d %H:%M:%S')}): {res}")
 		return res

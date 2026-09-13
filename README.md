@@ -3,13 +3,13 @@
 [![Pruebas](https://github.com/daliana907/monitoreoSistema/actions/workflows/pruebas.yml/badge.svg)](https://github.com/daliana907/monitoreoSistema/actions/workflows/pruebas.yml)
 
 Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.8
+Versión: 2.9
 Compatibilidad: NVDA 2023.1 en adelante  
 Licencia: GNU GPL v2  
 
 [Read in English below](#english-version)
 
-[Descargar última versión / Download latest (.nvda-addon)](https://github.com/daliana907/monitoreoSistema/releases/latest/download/monitoreoSistema-2.8.nvda-addon) · [Registro de cambios](CHANGELOG.md)
+[Descargar última versión / Download latest (.nvda-addon)](https://github.com/daliana907/monitoreoSistema/releases/latest/download/monitoreoSistema-2.9.nvda-addon) · [Registro de cambios](CHANGELOG.md)
 
 ---
 

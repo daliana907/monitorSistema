@@ -7,6 +7,22 @@ Lo más reciente, arriba. En español primero y en inglés después.
 
 ---
 
+## 2.9 — 2026-09-13
+
+### Español
+
+- Se optimizó la consulta de temperatura de discos para no realizar comprobaciones innecesarias en ranuras o puertos vacíos, haciendo la vigilancia automática más rápida y ligera.
+- El informe del tiempo que lleva encendido el equipo (NVDA+Shift+7) ahora se adapta correctamente al idioma configurado en NVDA y utiliza expresiones gramaticales correctas tanto en singular como en plural.
+- Se mejoró la estabilidad del cálculo de tiempo de actividad si el reloj de Windows se ajusta o sincroniza automáticamente.
+
+### English
+
+- Optimized drive temperature queries to prevent redundant checks on empty drive slots, making background thermal monitoring faster and lighter.
+- System uptime reporting (NVDA+Shift+7) now fully localizes into the active NVDA language and uses proper singular and plural phrasing.
+- Improved uptime calculation resilience against automatic clock synchronizations or time zone adjustments.
+
+---
+
 ## 2.7 — 2026-09-12
 
 ### Español
