@@ -1,121 +1,130 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Monitoreo del Sistema para NVDA</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoreo del Sistema - Guía de usuario</title>
 <style>
-  body { font-family: sans-serif; max-width: 800px; margin: 20px auto; line-height: 1.5; color: #222; }
-  h1, h2, h3 { color: #145a32; }
-  ul { padding-left: 20px; }
-  li { margin-bottom: 6px; }
-  table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-  th { background: #eafaf1; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #24292e;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1, h2, h3, h4 {
+    color: #1b1f23;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+code {
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+}
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+ul, ol {
+    padding-left: 2em;
+}
+li {
+    margin: 0.3em 0;
+}
+hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+}
 </style>
 </head>
 <body>
-<h1>Monitoreo del Sistema para NVDA</h1>
-<p>Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores) | Versión 2.9 | Compatible con NVDA 2023.1 en adelante</p>
-
+<h1>Monitoreo del Sistema para NVDA (System Monitor)</h1>
+<ul>
+<li>Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)</li>
+<li>Versión: 2.9</li>
+<li>Compatibilidad: NVDA 2023.1 en adelante</li>
+<li>Licencia: GNU GPL v2</li>
+</ul>
+<p><a href="../en/readme.html">Read in English</a></p>
+<hr />
+<h2>Versión en Español</h2>
 <p>Monitoreo del Sistema reúne en un solo lugar todas las herramientas para conocer el estado y rendimiento de tu equipo, batería, periféricos y conexión a internet mediante atajos de teclado rápidos y accesibles.</p>
-
-<h2>Atajos básicos (NVDA + Shift + tecla)</h2>
-<table>
-  <tr><th>Atajo</th><th>Información anunciada</th></tr>
-  <tr><td>NVDA + Shift + E</td><td>Resumen de recursos (memoria RAM en uso y carga de CPU)</td></tr>
-  <tr><td>NVDA + Shift + 1</td><td>Carga promedio del procesador (CPU) y uso de cada núcleo</td></tr>
-  <tr><td>NVDA + Shift + 2</td><td>Memoria RAM física y virtual (usada, total y porcentaje)</td></tr>
-  <tr><td>NVDA + Shift + 3</td><td>Espacio libre, usado y total en todas las unidades de disco</td></tr>
-  <tr><td>NVDA + Shift + 4</td><td>Estado de la red Wi-Fi (nombre SSID, señal y seguridad)</td></tr>
-  <tr><td>NVDA + Shift + 5</td><td>Frecuencia y velocidad del procesador (reloj en GHz, velocidad base y turbo)</td></tr>
-  <tr><td>NVDA + Shift + 6</td><td>Versión, compilación y arquitectura de Windows</td></tr>
-  <tr><td>NVDA + Shift + 7</td><td>Tiempo de actividad del sistema (tiempo encendido)</td></tr>
-  <tr><td>NVDA + Shift + 8</td><td>Tarjeta gráfica (GPU): memoria utilizada, total y porcentaje de carga del procesador gráfico</td></tr>
-</table>
-
-<h2>Diagnósticos avanzados (NVDA + Shift + Control + número)</h2>
-<p>Si pulsas el atajo una vez, se escucha el informe. Si lo pulsas dos veces seguidas rápidamente, el resultado se copia directamente al portapapeles sin tener que repetir la prueba.</p>
-<table>
-  <tr><th>Atajo</th><th>Herramienta</th></tr>
-  <tr><td>NVDA + Shift + Control + 1</td><td>Estado de salud S.M.A.R.T., vida útil y desgaste de discos SSD y mecánicos</td></tr>
-  <tr><td>NVDA + Shift + Control + 2</td><td>Procesos con mayor consumo de recursos (programas con más gasto de CPU y RAM)</td></tr>
-  <tr><td>NVDA + Shift + Control + 3</td><td>Medición de velocidad de internet en tiempo real (latencia, bajada y subida)</td></tr>
-  <tr><td>NVDA + Shift + Control + 4</td><td>Diagnóstico avanzado de batería del equipo (nivel, tiempo restante, capacidad y desgaste)</td></tr>
-  <tr><td>NVDA + Shift + Control + 5</td><td>Nivel de batería de auriculares y dispositivos Bluetooth conectados</td></tr>
-</table>
-
-<h2>Alertas automáticas en segundo plano</h2>
+<h3>Atajos de teclado básicos (NVDA + Shift + tecla)</h3>
+<ul>
+<li>NVDA + Shift + E: Resumen de recursos (porcentaje de memoria RAM en uso y carga de CPU).</li>
+<li>NVDA + Shift + 1: Carga promedio del procesador (CPU) y uso de cada núcleo.</li>
+<li>NVDA + Shift + 2: Memoria RAM física y virtual (usada, libre, total y porcentaje).</li>
+<li>NVDA + Shift + 3: Espacio libre, usado y total en todas las unidades de disco.</li>
+<li>NVDA + Shift + 4: Estado de la red Wi-Fi (nombre de red SSID, intensidad de señal y seguridad).</li>
+<li>NVDA + Shift + 5: Frecuencia y velocidad del procesador (reloj en GHz, velocidad base y turbo).</li>
+<li>NVDA + Shift + 6: Versión, compilación y arquitectura de Windows.</li>
+<li>NVDA + Shift + 7: Tiempo de actividad del sistema (cuánto lleva encendido el ordenador).</li>
+<li>NVDA + Shift + 8: Tarjeta gráfica (GPU): memoria utilizada, total y porcentaje de carga del procesador gráfico.</li>
+</ul>
+<h3>Diagnósticos avanzados (NVDA + Shift + Control + número)</h3>
+<p>Si pulsas el atajo una vez, se anuncia el informe por voz. Si lo pulsas dos veces seguidas rápidamente, el resultado se copia directamente al portapapeles sin tener que repetir el análisis.</p>
+<ul>
+<li>NVDA + Shift + Control + 1: Estado de salud S.M.A.R.T., vida útil y desgaste de discos SSD y mecánicos.</li>
+<li>NVDA + Shift + Control + 2: Procesos con mayor consumo de recursos (programas que más CPU y RAM están gastando).</li>
+<li>NVDA + Shift + Control + 3: Medición de velocidad de internet en tiempo real (latencia/ping, descarga y subida).</li>
+<li>NVDA + Shift + Control + 4: Diagnóstico avanzado de batería del equipo (nivel, tiempo restante, capacidad de diseño y desgaste).</li>
+<li>NVDA + Shift + Control + 5: Nivel de batería de auriculares y dispositivos Bluetooth conectados.</li>
+</ul>
+<h3>Alertas automáticas en segundo plano</h3>
 <p>En el menú de NVDA &gt; Preferencias &gt; Opciones &gt; Monitoreo del Sistema, puedes activar avisos con sonido o voz para:</p>
 <ul>
-  <li>Temperatura elevada de CPU o GPU (con umbral térmico personalizable de 30 a 100 °C).</li>
-  <li>Alerta de disco caliente (vigilancia de temperatura con umbral e intervalo configurables).</li>
-  <li>Batería baja o carga completa de la laptop.</li>
-  <li>Batería baja en auriculares Bluetooth conectados.</li>
-  <li>Pérdida de conexión o cambios en la señal Wi-Fi.</li>
-  <li>Desgaste crítico en discos de estado sólido (SSD).</li>
+<li>Temperatura elevada de CPU o GPU (con umbral térmico personalizable de 30 a 100 °C).</li>
+<li>Alerta de disco caliente (vigilancia de temperatura con umbral e intervalo configurables).</li>
+<li>Nivel bajo o carga completa de la batería de la laptop.</li>
+<li>Batería baja en auriculares y dispositivos Bluetooth conectados.</li>
+<li>Pérdida de conexión o cambios en la señal Wi-Fi.</li>
+<li>Desgaste crítico en discos de estado sólido (SSD).</li>
 </ul>
-
-<h2>Menú en Herramientas de NVDA</h2>
-<p>Puedes acceder cómodamente desde el menú de <strong>NVDA &gt; Herramientas &gt; Monitoreo del Sistema</strong>:</p>
+<h3>Menú en Herramientas de NVDA</h3>
+<p>Puedes acceder cómodamente desde el menú de NVDA &gt; Herramientas &gt; Monitoreo del Sistema:</p>
 <ul>
-  <li><strong>Configuración...</strong>: Abre directamente las opciones y alertas del complemento.</li>
-  <li><strong>Comprobar conflictos con otros complementos...</strong>: Diagnostica colisiones de atajos de teclado con otros complementos instalados.</li>
+<li>Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.</li>
+<li>Comprobar conflictos con otros complementos...: Diagnostica colisiones de atajos con otros complementos instalados.</li>
 </ul>
-
+<hr />
+<h2>Novedades de la versión 2.9.1 (13 de septiembre de 2026)</h2>
+<ul>
+<li>Copia al portapapeles más rápida en el atajo de Wi-Fi: al pulsar dos veces seguidas el atajo de estado de red (NVDA + Shift + 4), la copia ahora es instantánea porque reutiliza la información ya leída en lugar de volver a consultar la tarjeta de red una segunda vez, eliminando el retardo innecesario.</li>
+<li>Mejora de estabilidad general: se unificó y reforzó la lógica interna de los 8 atajos de información del sistema (CPU, RAM, frecuencia, discos, Wi-Fi, versión de Windows, tiempo de actividad y GPU) para garantizar un comportamiento más fiable y consistente al anunciar por voz o copiar al portapapeles.</li>
+<li>Limpieza interna y documentación técnica completa de todas las funciones del complemento.</li>
+</ul>
 <h2>Novedades de la versión 2.9 (13 de septiembre de 2026)</h2>
 <ul>
-  <li>Optimización en la consulta de temperatura de discos para no realizar comprobaciones innecesarias en ranuras vacías, haciendo la vigilancia automática más rápida y ligera.</li>
-  <li>El informe del tiempo que lleva encendido el equipo (NVDA+Shift+7) ahora se adapta correctamente al idioma configurado en NVDA y utiliza expresiones gramaticales correctas tanto en singular como en plural.</li>
-  <li>Mayor estabilidad del contador de tiempo encendido si el reloj del sistema se ajusta o sincroniza automáticamente.</li>
+<li>Lectura de temperatura de discos sin pedir permisos de administrador: ahora puedes consultar la temperatura de tus discos SSD y discos mecánicos desde cualquier cuenta de usuario estándar, sin necesidad de ejecutar NVDA como Administrador.</li>
+<li>Más rapidez y menor consumo: el sistema ya no pierde tiempo comprobando ranuras o puertos vacíos donde no hay ningún disco conectado, haciendo las comprobaciones automáticas mucho más ágiles.</li>
+<li>Tiempo de encendido del ordenador más exacto: el cálculo de cuánto tiempo lleva encendido el equipo ya no se confunde si la hora de Windows se sincroniza por internet, y anuncia correctamente las horas, minutos y días en singular y plural (por ejemplo: "1 hora y 1 minuto").</li>
+<li>Compatibilidad universal con tarjetas gráficas: ahora detecta y anuncia la memoria y el uso de tarjetas gráficas de todas las marcas (NVIDIA, AMD y gráficos integrados de Intel o DirectX) sin bloqueos ni errores.</li>
+<li>Batería de auriculares y dispositivos Bluetooth: informa con precisión del porcentaje de batería de tus auriculares y dispositivos conectados por Bluetooth mediante un motor avanzado y mejorado por Daliana (basado en la referencia inicial de BlueToothBatteryReport), que amplía la detección a dispositivos que antes no se reconocían, permite avisos automáticos de batería baja en segundo plano y descarta dispositivos apagados para evitar lecturas erróneas.</li>
+<li>Conexión Wi-Fi más robusta: el lector ahora reconoce y lee sin problemas las redes Wi-Fi con nombres especiales u ocultos sin quedarse mudo ni trabarse.</li>
+<li>Mayor estabilidad en cálculos del sistema: se corrigieron errores matemáticos que podían producir fallos al calcular la velocidad turbo del procesador o la memoria virtual cuando el sistema está al límite.</li>
+<li>Medición de velocidad de internet más rápida y segura: el test de velocidad se realiza mediante conexiones seguras protegidas (HTTPS) y ofrece una lectura de descarga y subida más estable.</li>
+<li>Cierre y reinicio de NVDA sin demoras: todas las tareas de vigilancia en segundo plano se detienen de inmediato al apagar o reiniciar NVDA, evitando que el lector tarde en cerrarse.</li>
 </ul>
-
-<h2>Novedades de la versión 2.8 (12 de septiembre de 2026)</h2>
-<h3>Seguridad y compatibilidad</h3>
+<h3>Créditos y Agradecimientos</h3>
 <ul>
-  <li>Seguridad en pantallas protegidas: detección estricta de secureMode para anular la carga del plugin en la pantalla de bloqueo de Windows, inicio de sesión y solicitudes de permisos de Administrador (UAC).</li>
-  <li>Apertura oficial de la documentación: integración con gui.openDocumentation() para un manejo nativo y controlado de la ayuda.</li>
-  <li>Compatibilidad mínima declarada fijada en NVDA 2023.1 en adelante.</li>
+<li>Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores.</li>
+<li>Módulo de baterías Bluetooth: Desarrollado y ampliado sustancialmente por Daliana, tomando como inspiración inicial la referencia de BlueToothBatteryReport (por Cary-rowen y colaboradores). Introduce mejoras clave como una matriz ampliada de 4 claves DEVPROPKEY para detectar periféricos que el diseño original omitía, soporte para valores de batería en formato texto, sistema de alertas automáticas en segundo plano, ejecución en hilos asíncronos para evitar congelamientos en NVDA y copia rápida de resultados al portapapeles con doble pulsación.</li>
+<li>Mejoras de diagnóstico avanzado, GPU, red y adaptaciones por Daliana.</li>
 </ul>
-
-<h2>Novedades de la versión 2.7 (12 de septiembre de 2026)</h2>
-<h3>Novedades</h3>
-<ul>
-  <li>Se añadió un apartado propio en las opciones de NVDA para avisar si la temperatura de un disco sube demasiado, con umbral térmico (30 a 90 °C) e intervalo en minutos personalizables.</li>
-  <li>Se retiró el anuncio automático de temperatura del atajo general de discos para que la lectura de unidades y espacio libre sea rápida y no sature de datos.</li>
-  <li>La temperatura de los discos se consulta directamente al controlador de hardware sin requerir permisos de administrador ni depender de comandos lentos de PowerShell.</li>
-</ul>
-
-<h2>Novedades de la versión 2.6 (12 de septiembre de 2026)</h2>
-<h3>Mejorado</h3>
-<ul>
-  <li>Integración completa con el registro nativo de NVDA (logHandler.log), permitiendo que cualquier evento o error técnico se consulte de forma limpia y directa en el Visor de Registro de NVDA.</li>
-  <li>Al desactivar o recargar complementos, los elementos del menú Herramientas se destruyen adecuadamente liberando recursos de la interfaz.</li>
-  <li>Cierre y descarga rigurosos de hilos de supervisión en segundo plano y temporizadores de alerta al detener el complemento.</li>
-</ul>
-
-<h2>Novedades de la versión 2.5 (8 de septiembre de 2026)</h2>
-<h3>Corregido</h3>
-<ul>
-  <li>Los avisos automáticos de temperatura, batería, discos y Bluetooth no llegaban a saltar nunca. Un fallo interno detenía el vigilante en su primera vuelta.</li>
-  <li>Un procesador Intel Core i5-13600K se confundía con un AMD Ryzen 5 3600 y se anunciaba con 4,2 GHz máximos en vez de 5,0.</li>
-  <li>La configuración no se abría desde el menú Herramientas.</li>
-  <li>El aviso de temperatura del procesador y el de la gráfica podían quedarse con umbrales de prueba sin que nada lo indicara.</li>
-  <li>Cuatro fallos que ocurrían en silencio ahora quedan anotados en el registro de NVDA.</li>
-  <li>La medición del ping y las consultas al sistema podían quedarse esperando indefinidamente si el programa consultado se colgaba.</li>
-  <li>Un mensaje aparecía dos veces en los 34 archivos de idioma, lo que impedía a las herramientas de traducción abrirlos.</li>
-</ul>
-<h3>Cambios internos</h3>
-<ul>
-  <li>La velocidad máxima de cada procesador conocido pasa de 117 condiciones encadenadas a una tabla de datos, más fácil de ampliar.</li>
-  <li>El escaneo de dispositivos Bluetooth, que ocupaba 382 líneas seguidas, se repartió en siete piezas con nombre propio.</li>
-  <li>El vigilante de avisos, de 239 líneas, se repartió en cinco vigilancias independientes.</li>
-  <li>La prueba de velocidad de internet y la consulta de salud de discos separan ahora medir de interpretar.</li>
-  <li>La ventana de opciones, la búsqueda de conflictos y las consultas al procesador se agruparon por secciones.</li>
-  <li>Se añadieron 30 comprobaciones automáticas que se ejecutan solas en GitHub con cada cambio.</li>
-</ul>
-<p>El listado completo de todas las versiones está en el archivo CHANGELOG.md del repositorio del complemento.</p>
-<h2>Créditos y Agradecimientos</h2>
-<p>Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores. Módulo de baterías Bluetooth inspirado en ideas de BlueToothBatteryReport. Contiene 35 traducciones comunitarias preservando los créditos de sus traductores originales.</p>
-
 </body>
 </html>

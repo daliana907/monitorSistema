@@ -2,10 +2,10 @@
 
 [![Pruebas](https://github.com/daliana907/monitoreoSistema/actions/workflows/pruebas.yml/badge.svg)](https://github.com/daliana907/monitoreoSistema/actions/workflows/pruebas.yml)
 
-Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-Versión: 2.9
-Compatibilidad: NVDA 2023.1 en adelante  
-Licencia: GNU GPL v2  
+- Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
+- Versión: 2.9
+- Compatibilidad: NVDA 2023.1 en adelante
+- Licencia: GNU GPL v2
 
 [Read in English below](#english-version)
 
@@ -52,7 +52,7 @@ Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo de
 
 ### Créditos y Agradecimientos
 - Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores.
-- Módulo de baterías Bluetooth inspirado en ideas de BlueToothBatteryReport.
+- Módulo de baterías Bluetooth: Desarrollado y mejorado por Daliana sobre la referencia inicial de BlueToothBatteryReport (por Cary-rowen y colaboradores), incorporando matriz de 4 claves DEVPROPKEY, alertas automáticas de batería baja en segundo plano, soporte para lecturas en texto, ejecución asíncrona sin bloqueos y copia al portapapeles.
 - Contiene 35 traducciones comunitarias preservando los créditos de sus traductores originales.
 
 ---
@@ -96,5 +96,5 @@ You can access the add-on from NVDA Menu > Tools > System Monitor:
 
 ### Credits
 - Based on Resource Monitor by Joseph Lee and contributors.
-- Bluetooth battery logic inspired by BlueToothBatteryReport.
+- Bluetooth battery module: Enhanced and expanded by Daliana based on the initial reference from BlueToothBatteryReport (by Cary-rowen and contributors), adding an expanded 4-key DEVPROPKEY matrix, autonomous background low-battery alerts, text-reading support, non-blocking asynchronous execution, and clipboard integration.
 - Preserves 35 community localizations with original translator attributions.

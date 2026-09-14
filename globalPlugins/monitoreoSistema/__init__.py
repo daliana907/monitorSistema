@@ -614,38 +614,45 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 			log.error(f"MonitorSistema: Error actualizando visibilidad de {descripcion}: {e}", exc_info=True)
 
 	def _updateBatteryFullVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de configuración de aviso de batería cargada."""
 		self._mostrarControlesDeAlerta(
 			show, [self.batteryFullSlider], "barra de batería cargada",
 			self._updateBatteryIntervalVisibility,
 		)
 
 	def _updateBatteryLowVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de configuración de aviso de batería baja."""
 		self._mostrarControlesDeAlerta(
 			show, [self.batteryLowSlider], "barra de batería baja",
 			self._updateBatteryIntervalVisibility,
 		)
 
 	def _updateCpuHotVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de umbral térmico e intervalo de CPU."""
 		self._mostrarControlesDeAlerta(
 			show, [self.cpuHotSlider, self.cpuHotIntervalEdit], "temperatura CPU",
 		)
 
 	def _updateGpuHotVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de umbral térmico e intervalo de GPU."""
 		self._mostrarControlesDeAlerta(
 			show, [self.gpuHotSlider, self.gpuHotIntervalEdit], "temperatura GPU",
 		)
 
 	def _updateBluetoothLowVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de umbral de batería baja e intervalo de Bluetooth."""
 		self._mostrarControlesDeAlerta(
 			show, [self.bluetoothLowSlider, self.bluetoothLowIntervalEdit], "Bluetooth baja",
 		)
 
 	def _updateDiskHealthVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de porcentaje de desgaste e intervalo de salud de disco."""
 		self._mostrarControlesDeAlerta(
 			show, [self.diskWearSlider, self.diskHealthIntervalEdit], "desgaste de disco",
 		)
 
 	def _updateDiskHotVisibility(self, show: bool) -> None:
+		"""Muestra u oculta los controles de temperatura límite e intervalo térmico de disco."""
 		self._mostrarControlesDeAlerta(
 			show, [self.diskHotSlider, self.diskHotIntervalEdit], "temperatura de disco",
 		)
@@ -829,6 +836,7 @@ def getWinVer() -> str:
 class PDH_FMT_COUNTERVALUE(Structure):
 	"""Estructura para valores numéricos formateados devueltos por contadores PDH."""
 	class _U(Union):
+		"""Unión C para valores enteros, coma flotante o cadenas de texto devueltos por PDH."""
 		_fields_ = [
 			("longValue", c_long),
 			("doubleValue", c_double),
@@ -1018,6 +1026,9 @@ class BLUETOOTH_DEVICE_SEARCH_PARAMS(Structure):
 		self.cTimeoutMultiplier = 0
 		self.hRadio = hRadio
 
+# Claves de propiedades DEVPROPKEY y lógica de consulta de batería Bluetooth.
+# Desarrollado y ampliado por Daliana sobre la referencia inicial de BlueToothBatteryReport (por Cary-rowen y colaboradores),
+# incorporando matriz de 4 claves (SetupAPI y bthprops.cpl), soporte de texto, alertas periódicas y ejecución asíncrona.
 BATTERY_KEYS = [
 	("DEVPKEY_Bluetooth_Battery_2", DEVPROPKEY(GUID("{104EA319-6EE2-4701-BD47-8DDBF425BBE5}"), 2)),
 	("DEVPKEY_Device_BatteryReport_2", DEVPROPKEY(GUID("{1032A556-D29E-453E-A59E-9A5EE94AC6EA}"), 2)),
@@ -2205,12 +2216,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				info = _("Carga media de CPU al {}%, {}.").format(
 					tryTrunk(averageLoad), ", ".join(coreLoad)
 				)
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceProcessorInfo - Anunciando al usuario: '{info}'")
-				ui.message(info)
-			else:
-				log.info(f"MonitorSistema: script_announceProcessorInfo - Copiando al portapapeles: '{info}'")
-				api.copyToClip(info, notify=True)
+			self._anunciarOCopiar(info, "script_announceProcessorInfo")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceProcessorInfo: {e}", exc_info=True)
 			ui.message(_("Error al obtener la información del procesador."))
@@ -2253,12 +2259,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				virtualTotal=size(virtualRamTotal, alternative),
 				virtualPercent=virtualPercent,
 			)
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceRamInfo - Anunciando al usuario: '{info}'")
-				ui.message(info)
-			else:
-				log.info(f"MonitorSistema: script_announceRamInfo - Copiando al portapapeles: '{info}'")
-				api.copyToClip(info, notify=True)
+			self._anunciarOCopiar(info, "script_announceRamInfo")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceRamInfo: {e}", exc_info=True)
 			ui.message(_("Error al obtener la información de la memoria RAM."))
@@ -2400,12 +2401,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Anuncia la frecuencia actual del procesador en GHz y el modo turbo."""
 		try:
 			info = self._getCpuFrequencyInfo()
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceCpuFrequency - Anunciando al usuario: '{info}'")
-				ui.message(info)
-			else:
-				log.info(f"MonitorSistema: script_announceCpuFrequency - Copiando al portapapeles: '{info}'")
-				api.copyToClip(info, notify=True)
+			self._anunciarOCopiar(info, "script_announceCpuFrequency")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceCpuFrequency: {e}", exc_info=True)
 			ui.message(_("Error al obtener la frecuencia del procesador."))
@@ -2454,12 +2450,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					)
 				)
 			text = " ".join(info) if info else _("No se encontraron unidades de disco disponibles.")
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceDriveInfo - Anunciando al usuario: '{text}'")
-				ui.message(text)
-			else:
-				log.info(f"MonitorSistema: script_announceDriveInfo - Copiando al portapapeles: '{text}'")
-				api.copyToClip(text, notify=True)
+			self._anunciarOCopiar(text, "script_announceDriveInfo")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceDriveInfo: {e}", exc_info=True)
 			ui.message(_("Error al obtener la información de las unidades de disco."))
@@ -2567,21 +2558,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	def script_wlanStatusReport(self, gesture: inputCore.InputGesture):
 		"""Verbaliza el estado de la conexión Wi-Fi actual y la intensidad de la señal."""
-		if scriptHandler.getLastScriptRepeatCount() == 0:
-			try:
-				info = self._getWlanInfo()
-				log.info(f"MonitorSistema: script_wlanStatusReport - Anunciando al usuario: '{info}'")
-				ui.message(info)
-			except Exception as e:
-				log.error(f"MonitorSistema: Error en script_wlanStatusReport: {e}", exc_info=True)
-				ui.message(_("Error al obtener el estado de la red inalámbrica."))
-		else:
-			try:
-				info = self._getWlanInfo()
-				log.info(f"MonitorSistema: script_wlanStatusReport - Copiando al portapapeles: '{info}'")
-				api.copyToClip(info, notify=True)
-			except Exception as e:
-				log.error(f"MonitorSistema: Error en script_wlanStatusReport copia: {e}", exc_info=True)
+		try:
+			info = self._getWlanInfo()
+			self._anunciarOCopiar(info, "script_wlanStatusReport")
+		except Exception as e:
+			log.error(f"MonitorSistema: Error en script_wlanStatusReport: {e}", exc_info=True)
+			ui.message(_("Error al obtener el estado de la red inalámbrica."))
 
 	@scriptHandler.script(
 		description=_("Anuncia la versión de Windows y arquitectura del sistema. Si se pulsa dos veces, copia la información al portapapeles."),
@@ -2593,12 +2575,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Anuncia la versión exacta y edición de Windows instalada en el equipo."""
 		try:
 			info = getWinVer()
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceWinVer - Anunciando al usuario: '{info}'")
-				ui.message(info)
-			else:
-				log.info(f"MonitorSistema: script_announceWinVer - Copiando al portapapeles: '{info}'")
-				api.copyToClip(info, notify=True)
+			self._anunciarOCopiar(info, "script_announceWinVer")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceWinVer: {e}", exc_info=True)
 			ui.message(_("Error al obtener la versión de Windows."))
@@ -2642,12 +2619,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Anuncia el tiempo de actividad del sistema o el tiempo total si se pulsa dos veces."""
 		try:
 			uptime = self.getUptime()
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceUptime - Anunciando al usuario: '{uptime}'")
-				ui.message(uptime)
-			else:
-				log.info(f"MonitorSistema: script_announceUptime - Copiando al portapapeles: '{uptime}'")
-				api.copyToClip(uptime, notify=True)
+			self._anunciarOCopiar(uptime, "script_announceUptime")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceUptime: {e}", exc_info=True)
 			ui.message(_("No se pudo obtener el tiempo de actividad del sistema."))
@@ -2705,12 +2677,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Anuncia el uso, temperatura y consumo de memoria de la tarjeta gráfica."""
 		try:
 			info = self._getGpuInfo()
-			if scriptHandler.getLastScriptRepeatCount() == 0:
-				log.info(f"MonitorSistema: script_announceGpuInfo - Anunciando al usuario: '{info}'")
-				ui.message(info)
-			else:
-				log.info(f"MonitorSistema: script_announceGpuInfo - Copiando al portapapeles: '{info}'")
-				api.copyToClip(info, notify=True)
+			self._anunciarOCopiar(info, "script_announceGpuInfo")
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en script_announceGpuInfo: {e}", exc_info=True)
 			ui.message(_("Error al obtener información de la tarjeta gráfica."))
@@ -2834,6 +2801,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		result = " ".join(parts) if parts else _("No se encontraron discos.")
 		return result
 
+
+	def _anunciarOCopiar(self, texto: str, nombre_script: str = "") -> None:
+		"""Anuncia texto por voz o lo copia al portapapeles según las pulsaciones del atajo.
+
+		Primera pulsación: NVDA lee el texto en voz alta.
+		Segunda pulsación consecutiva: copia el texto al portapapeles y notifica.
+
+		Este helper centraliza el patrón getLastScriptRepeatCount() == 0 que se
+		repetía en ocho scripts distintos, eliminando tanto la duplicación como el
+		bug de doble llamada que tenía script_wlanStatusReport (antes llamaba a
+		_getWlanInfo() dos veces en la rama else).
+		"""
+		if scriptHandler.getLastScriptRepeatCount() == 0:
+			log.info(f"MonitorSistema: {nombre_script} - Anunciando al usuario: '{texto}'")
+			ui.message(texto)
+		else:
+			log.info(f"MonitorSistema: {nombre_script} - Copiando al portapapeles: '{texto}'")
+			api.copyToClip(texto, notify=True)
 
 	def _atajoDeConsulta(self, nombreEnCurso, nombreUltimoResultado, nombreCopiarAlTerminar, lanzarConsulta, mensajeEnCurso):
 		"""Lógica común de los atajos que consultan algo del sistema.
@@ -3182,7 +3167,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@staticmethod
 	def _queryBluetoothBatteries():
-		"""Aparatos Bluetooth conectados que informan de su nivel de bateria."""
+		"""Aparatos Bluetooth conectados que informan de su nivel de bateria.
+
+		Motor desarrollado y mejorado por Daliana sobre la base de referencia de
+		BlueToothBatteryReport (por Cary-rowen y colaboradores), resolviendo la detección
+		con matriz de 4 claves DEVPROPKEY y filtrado multinivel de desconexión.
+		"""
 		log.info("MonitorSistema: Iniciando enumeración profunda de dispositivos Bluetooth...")
 		try:
 			try:

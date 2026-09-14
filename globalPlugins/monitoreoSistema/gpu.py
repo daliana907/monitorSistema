@@ -15,7 +15,6 @@ import ctypes
 from ctypes import (
 	wintypes,
 	byref,
-	sizeof,
 	Structure,
 	Union,
 	c_long,
@@ -68,6 +67,7 @@ class NvidiaGpuProvider(BaseGpuProvider):
 		self._nvidiaSmiPathResolved = False
 
 	def _findNvidiaSmiPath(self) -> str | None:
+		"""Localiza la ruta absoluta al ejecutable nvidia-smi en el PATH o directorios estándar del sistema."""
 		for commandName in ("nvidia-smi", "nvidia-smi.exe"):
 			found = shutil.which(commandName)
 			if found:
@@ -142,6 +142,7 @@ ERROR_SUCCESS = 0
 class PDH_FMT_COUNTERVALUE(Structure):
 	"""Estructura de valor formateado devuelto por la API Performance Data Helper (PDH)."""
 	class _U(Union):
+		"""Unión C para representar los distintos tipos de valores numéricos o cadenas devueltos por PDH."""
 		_fields_ = [
 			("longValue", c_long),
 			("doubleValue", c_double),
@@ -290,6 +291,7 @@ def _getDxgiAdapters() -> dict[str, dict]:
 
 
 def _extractLuid(name: str) -> str:
+	"""Extrae el identificador de adaptador LUID a partir del nombre de instancia reportado por el contador PDH."""
 	if not name:
 		return "default"
 	name = name.lower()
@@ -302,6 +304,7 @@ def _extractLuid(name: str) -> str:
 
 
 def _getAmdGpuTemperature() -> str:
+	"""Consulta la temperatura actual de GPUs AMD Radeon mediante la biblioteca nativa ADL (atiadlxx/atiadlxy)."""
 	for dll_name in ("atiadlxx.dll", "atiadlxy.dll"):
 		try:
 			adl = ctypes.WinDLL(dll_name)
@@ -348,6 +351,7 @@ class WindowsGpuProvider(BaseGpuProvider):
 		self._lastCollectTime = 0
 
 	def _initPdh(self):
+		"""Inicializa la consulta de la API PDH y registra los contadores de motor de render y uso de memoria de video."""
 		try:
 			self._pdh = ctypes.windll.pdh
 			hQuery = HQUERY()
@@ -523,6 +527,7 @@ class WindowsGpuProvider(BaseGpuProvider):
 			return []
 
 	def __del__(self):
+		"""Libera los recursos de consulta de PDH cerrando el manejador abierto con PdhCloseQuery."""
 		if self._pdh and self._query:
 			try:
 				self._pdh.PdhCloseQuery(self._query)

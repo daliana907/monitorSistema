@@ -1,113 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>System Monitor for NVDA</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Monitor - User Guide</title>
 <style>
-  body { font-family: sans-serif; max-width: 800px; margin: 20px auto; line-height: 1.5; color: #222; }
-  h1, h2, h3 { color: #145a32; }
-  ul { padding-left: 20px; }
-  li { margin-bottom: 6px; }
-  table { width: 100%; border-collapse: collapse; margin: 15px 0; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-  th { background: #eafaf1; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #24292e;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+h1, h2, h3, h4 {
+    color: #1b1f23;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: 0.3em;
+}
+code {
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+pre {
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+}
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+ul, ol {
+    padding-left: 2em;
+}
+li {
+    margin: 0.3em 0;
+}
+hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+}
 </style>
 </head>
 <body>
 <h1>System Monitor for NVDA</h1>
-<p>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors) | Version 2.9 | Compatibility: NVDA 2023.1 or later</p>
-
-<p>System Monitor gives you immediate, accessible insights into your computer's hardware, battery, peripherals, and network performance.</p>
-
-<h2>Basic Shortcuts (NVDA + Shift + Key)</h2>
-<table>
-  <tr><th>Shortcut</th><th>Reported Information</th></tr>
-  <tr><td>NVDA + Shift + E</td><td>Resource summary (RAM usage and overall CPU load)</td></tr>
-  <tr><td>NVDA + Shift + 1</td><td>CPU load average and per-core utilization</td></tr>
-  <tr><td>NVDA + Shift + 2</td><td>Physical and virtual RAM (used, total, and percentage)</td></tr>
-  <tr><td>NVDA + Shift + 3</td><td>Free and total disk space across all drives</td></tr>
-  <tr><td>NVDA + Shift + 4</td><td>Wi-Fi network SSID, signal strength, and security</td></tr>
-  <tr><td>NVDA + Shift + 5</td><td>CPU clock speed (current GHz, base clock, and turbo status)</td></tr>
-  <tr><td>NVDA + Shift + 6</td><td>Windows edition, version, and architecture</td></tr>
-  <tr><td>NVDA + Shift + 7</td><td>System uptime</td></tr>
-  <tr><td>NVDA + Shift + 8</td><td>Dedicated GPU status (used memory, total memory, and core load percentage)</td></tr>
-</table>
-
-<h2>Advanced Diagnostics (NVDA + Shift + Control + Number)</h2>
-<p>Press once to hear the report spoken. Press twice quickly to copy the result directly to your clipboard.</p>
-<table>
-  <tr><th>Shortcut</th><th>Diagnostic Tool</th></tr>
-  <tr><td>NVDA + Shift + Control + 1</td><td>Drive health (S.M.A.R.T.), remaining lifetime, and SSD wear percentage</td></tr>
-  <tr><td>NVDA + Shift + Control + 2</td><td>Top resource-consuming processes (highest CPU and RAM usage)</td></tr>
-  <tr><td>NVDA + Shift + Control + 3</td><td>Real-time internet speed test (ping, download, and upload speeds)</td></tr>
-  <tr><td>NVDA + Shift + Control + 4</td><td>Advanced laptop battery health, runtime, and design capacity wear</td></tr>
-  <tr><td>NVDA + Shift + Control + 5</td><td>Connected Bluetooth devices and audio peripheral battery levels</td></tr>
-</table>
-
-<h2>Automated Background Alerts</h2>
+<ul>
+<li>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)</li>
+<li>Version: 2.9</li>
+<li>Compatibility: NVDA 2023.1 and later</li>
+<li>License: GNU GPL v2</li>
+</ul>
+<p><a href="../es/readme.html">Leer en español</a></p>
+<hr />
+<h2>English Version</h2>
+<p>System Monitor provides a complete set of accessible diagnostic tools to check the status and performance of your computer, battery, peripherals, and internet connection using fast keyboard shortcuts.</p>
+<h3>Basic Shortcuts (NVDA + Shift + key)</h3>
+<ul>
+<li>NVDA + Shift + E: Resource summary (RAM memory in use and CPU load percentage).</li>
+<li>NVDA + Shift + 1: Average processor load (CPU) and individual core usage.</li>
+<li>NVDA + Shift + 2: Physical and virtual RAM memory (used, free, total, and percentage).</li>
+<li>NVDA + Shift + 3: Free, used, and total space on all disk drives.</li>
+<li>NVDA + Shift + 4: Wi-Fi network status (SSID network name, signal strength, and security).</li>
+<li>NVDA + Shift + 5: Processor frequency and speed (current clock in GHz, base speed, and turbo).</li>
+<li>NVDA + Shift + 6: Windows version, build number, and architecture.</li>
+<li>NVDA + Shift + 7: System uptime (how long the computer has been running).</li>
+<li>NVDA + Shift + 8: Graphics card (GPU): memory in use, total memory, and processor utilization.</li>
+</ul>
+<h3>Advanced Diagnostics (NVDA + Shift + Control + number)</h3>
+<p>Press once to hear the report spoken. Press twice quickly to copy the result directly to your clipboard without repeating the measurement.</p>
+<ul>
+<li>NVDA + Shift + Control + 1: Drive health (S.M.A.R.T.), remaining lifetime, and wear level for SSDs and hard disks.</li>
+<li>NVDA + Shift + Control + 2: Top resource-consuming processes (programs using the most CPU and RAM).</li>
+<li>NVDA + Shift + Control + 3: Real-time internet speed test (ping/latency, download, and upload speeds).</li>
+<li>NVDA + Shift + Control + 4: Advanced laptop battery diagnostics (charge level, remaining runtime, design capacity, and wear).</li>
+<li>NVDA + Shift + Control + 5: Battery level for connected Bluetooth headphones and devices.</li>
+</ul>
+<h3>Automatic Background Alerts</h3>
 <p>Configurable under NVDA Menu &gt; Preferences &gt; Settings &gt; System Monitor:</p>
 <ul>
-  <li>High CPU or GPU temperatures (customizable thermal threshold from 30 to 100 °C).</li>
-  <li>Dedicated Hot Disk Alert with custom thermal threshold (30 to 90 °C) and check interval.</li>
-  <li>Low laptop battery or battery full notification.</li>
-  <li>Low battery alerts for connected Bluetooth audio devices.</li>
-  <li>Wi-Fi disconnect and signal strength change notifications.</li>
-  <li>Critical wear threshold alerts for SSDs.</li>
+<li>High CPU or GPU temperatures (customizable thermal threshold from 30 to 100 °C).</li>
+<li>Hot disk drive alert (drive temperature monitoring with custom threshold and check intervals).</li>
+<li>Low battery and full charge notifications for laptops.</li>
+<li>Low battery alerts for connected Bluetooth headphones.</li>
+<li>Wi-Fi network disconnection and signal changes.</li>
+<li>Critical solid-state drive (SSD) wear alerts.</li>
 </ul>
-
-<h2>NVDA Tools Menu</h2>
-<p>You can access the add-on from <strong>NVDA &gt; Tools &gt; System Monitor</strong>:</p>
+<h3>Tools Menu</h3>
+<p>You can access the add-on from NVDA Menu &gt; Tools &gt; System Monitor:</p>
 <ul>
-  <li><strong>Settings...</strong>: Opens the System Monitor configuration panel directly.</li>
-  <li><strong>Check for add-on conflicts...</strong>: Checks for shortcut collisions with other installed add-ons.</li>
+<li>Settings...: Opens the System Monitor configuration panel directly.</li>
+<li>Check shortcut conflicts with other add-ons...: Scans for overlapping shortcuts with other installed add-ons.</li>
 </ul>
-
+<hr />
+<h2>What's new in 2.9.1 (13 September 2026)</h2>
+<ul>
+<li>Faster clipboard copy for Wi-Fi status: pressing the network status shortcut (NVDA + Shift + 4) twice quickly now copies instantly by reusing the data already read, instead of querying the wireless adapter a second time, eliminating the unnecessary delay.</li>
+<li>General stability improvement: unified and reinforced the internal logic of all 8 system information shortcuts (CPU, RAM, frequency, drives, Wi-Fi, Windows version, uptime, and GPU) for more reliable and consistent behavior when announcing by speech or copying to clipboard.</li>
+<li>Internal cleanup and complete technical documentation of all add-on functions.</li>
+</ul>
 <h2>What's new in 2.9 (13 September 2026)</h2>
 <ul>
-  <li>Optimized background drive temperature monitoring to skip querying empty drive slots, making checks faster and lighter.</li>
-  <li>System uptime reporting (NVDA+Shift+7) now fully translates into all NVDA languages with accurate singular and plural phrasing.</li>
-  <li>Improved resilience of system uptime tracking when Windows automatically synchronizes or adjusts the clock.</li>
+<li>Disk temperature checks without administrator permissions: you can now check the temperature of your SSDs and hard drives from any standard user account without running NVDA as Administrator.</li>
+<li>Faster checks and lower resource usage: the add-on skips empty drive slots and unused ports, making automatic background temperature checks faster and lighter.</li>
+<li>More accurate computer uptime reporting: uptime calculation no longer gets confused when Windows syncs its clock over the internet, and reports days, hours, and minutes with natural phrasing (such as "1 hour and 1 minute").</li>
+<li>Universal graphics card support: detects and announces memory and GPU usage across all major graphics cards (NVIDIA, AMD, and Intel/DirectX integrated graphics) smoothly without freezing.</li>
+<li>Bluetooth headphone and device battery: accurately checks the battery percentage of your connected Bluetooth headphones and devices using an advanced engine expanded by Daliana (inspired by the initial reference of BlueToothBatteryReport), featuring broader device recognition, autonomous low-battery background alerts, and smart filtering of disconnected hardware.</li>
+<li>More reliable Wi-Fi connection handling: the add-on reliably reads Wi-Fi networks with hidden names or special characters without speech interruptions.</li>
+<li>Improved calculation stability: fixed calculation issues that could produce errors when measuring dynamic processor Turbo Boost speeds or swap memory under heavy system loads.</li>
+<li>Faster and safer internet speed testing: network speed tests now run over encrypted connections (HTTPS) with improved connection handling for reliable download and upload results.</li>
+<li>Instant NVDA exit and restart: all background monitoring tasks terminate cleanly the moment NVDA closes or restarts, preventing delays during shutdown.</li>
 </ul>
-
-<h2>What's new in 2.7 (12 September 2026)</h2>
-<h3>What's New</h3>
+<h3>Credits</h3>
 <ul>
-  <li>Added a dedicated section in NVDA Settings to monitor drive temperatures with customizable thermal thresholds (30 to 90 °C) and check intervals.</li>
-  <li>Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.</li>
-  <li>Drive temperatures are queried directly from the hardware controller using standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.</li>
+<li>Based on Resource Monitor by Joseph Lee and contributors.</li>
+<li>Bluetooth battery module: Substantially improved and expanded by Daliana, inspired by the initial reference from BlueToothBatteryReport (by Cary-rowen and contributors). Features significant improvements: an expanded 4-key DEVPROPKEY matrix to detect peripherals missed by the original design, support for text-formatted battery readings, automatic background alerts with customizable thresholds, non-blocking asynchronous execution to keep NVDA fully responsive, and quick clipboard copying via double-press.</li>
+<li>Advanced diagnostics, GPU, network monitoring, and enhancements by Daliana.</li>
 </ul>
-
-<h2>What's new in 2.6 (12 September 2026)</h2>
-<h3>Improved</h3>
-<ul>
-  <li>Switched to NVDA's native logging framework (logHandler.log) so all diagnostics integrate cleanly with NVDA's Log Viewer.</li>
-  <li>Clean teardown of Tools menu items on addon termination/reload, preventing orphaned UI handles.</li>
-  <li>Rigorous cleanup of background monitoring threads and alert timers upon addon termination.</li>
-</ul>
-
-<h2>What's new in 2.5 (8 September 2026)</h2>
-<h3>Fixed</h3>
-<ul>
-  <li>Automatic alerts for temperature, battery, disks and Bluetooth never fired. An internal error stopped the watcher on its first pass.</li>
-  <li>An Intel Core i5-13600K was mistaken for an AMD Ryzen 5 3600 and reported 4.2 GHz max instead of 5.0.</li>
-  <li>Settings would not open from the Tools menu.</li>
-  <li>CPU and GPU temperature alerts could keep test thresholds with nothing indicating it.</li>
-  <li>Four failures that happened silently are now recorded in the NVDA log.</li>
-  <li>Ping measurement and system queries could wait forever if the program being queried hung.</li>
-  <li>One message appeared twice in all 34 language files, which stopped translation tools from opening them.</li>
-</ul>
-<h3>Internal changes</h3>
-<ul>
-  <li>Maximum speed for each known processor moved from 117 chained conditions to a data table that is easier to extend.</li>
-  <li>The Bluetooth device scan, 382 lines in a single block, was split into seven named pieces.</li>
-  <li>The alert watcher, 239 lines, was split into five independent watches.</li>
-  <li>The internet speed test and the disk health query now separate measuring from interpreting.</li>
-  <li>The settings window, the conflict check and the processor queries were grouped into sections.</li>
-  <li>Added 30 automatic checks that run on their own on GitHub with every change.</li>
-</ul>
-<p>The full history of every version is in the CHANGELOG.md file of the add-on repository.</p>
-<h2>Credits</h2>
-<p>Derived from Resource Monitor by Joseph Lee and contributors. Bluetooth battery logic inspired by BlueToothBatteryReport. Preserves 35 community translations with original translator attributions.</p>
-
 </body>
 </html>

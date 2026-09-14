@@ -1,98 +1,80 @@
 # System Monitor for NVDA
 
-Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-Version: 2.9
-Compatibility: NVDA 2023.1 or later
-License: GNU GPL v2
+- Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
+- Version: 2.9
+- Compatibility: NVDA 2023.1 and later
+- License: GNU GPL v2
 
-System Monitor is an accessible all-in-one resource, hardware, and network monitor for NVDA.
+[Leer en español](../es/readme.md)
+
+---
+
+## English Version
+
+System Monitor provides a complete set of accessible diagnostic tools to check the status and performance of your computer, battery, peripherals, and internet connection using fast keyboard shortcuts.
 
 ### Basic Shortcuts (NVDA + Shift + key)
+
 - NVDA + Shift + E: Resource summary (RAM memory in use and CPU load percentage).
-- NVDA + Shift + 1: Average CPU load and per-core utilization.
-- NVDA + Shift + 2: Physical and virtual RAM (used, free, total, and percentage).
-- NVDA + Shift + 3: Disk space (free, used, and total for all drives).
-- NVDA + Shift + 4: Wi-Fi status (SSID, signal strength, and security).
-- NVDA + Shift + 5: CPU frequency and clock speed (current GHz, base, and turbo).
-- NVDA + Shift + 6: Windows version, build, and architecture.
+- NVDA + Shift + 1: Average processor load (CPU) and individual core usage.
+- NVDA + Shift + 2: Physical and virtual RAM memory (used, free, total, and percentage).
+- NVDA + Shift + 3: Free, used, and total space on all disk drives.
+- NVDA + Shift + 4: Wi-Fi network status (SSID network name, signal strength, and security).
+- NVDA + Shift + 5: Processor frequency and speed (current clock in GHz, base speed, and turbo).
+- NVDA + Shift + 6: Windows version, build number, and architecture.
 - NVDA + Shift + 7: System uptime (how long the computer has been running).
-- NVDA + Shift + 8: Dedicated GPU memory used, total, and GPU processor load.
+- NVDA + Shift + 8: Graphics card (GPU): memory in use, total memory, and processor utilization.
 
 ### Advanced Diagnostics (NVDA + Shift + Control + number)
-Press once to hear the report spoken. Press twice quickly to copy the report directly to the clipboard.
-- NVDA + Shift + Control + 1: Drive health (S.M.A.R.T.), remaining lifetime, and SSD wear percentage.
-- NVDA + Shift + Control + 2: Top resource-consuming processes (highest CPU and RAM usage).
-- NVDA + Shift + Control + 3: Real-time internet speed test (ping, download, and upload speeds).
-- NVDA + Shift + Control + 4: Advanced laptop battery health, runtime, and design capacity wear.
-- NVDA + Shift + Control + 5: Connected Bluetooth devices and audio peripheral battery levels.
 
-### Automated Background Alerts
+Press once to hear the report spoken. Press twice quickly to copy the result directly to your clipboard without repeating the measurement.
+
+- NVDA + Shift + Control + 1: Drive health (S.M.A.R.T.), remaining lifetime, and wear level for SSDs and hard disks.
+- NVDA + Shift + Control + 2: Top resource-consuming processes (programs using the most CPU and RAM).
+- NVDA + Shift + Control + 3: Real-time internet speed test (ping/latency, download, and upload speeds).
+- NVDA + Shift + Control + 4: Advanced laptop battery diagnostics (charge level, remaining runtime, design capacity, and wear).
+- NVDA + Shift + Control + 5: Battery level for connected Bluetooth headphones and devices.
+
+### Automatic Background Alerts
+
 Configurable under NVDA Menu > Preferences > Settings > System Monitor:
-- High CPU or GPU temperatures (customizable thermal threshold from 30 to 100 °C).
-- Hot disk warning (thermal threshold and check interval).
-- Low laptop battery or battery full notification.
-- Low battery alerts for connected Bluetooth audio devices.
-- Wi-Fi disconnect and signal strength change notifications.
-- Critical wear threshold alerts for SSDs.
 
-### NVDA Tools Menu
+- High CPU or GPU temperatures (customizable thermal threshold from 30 to 100 °C).
+- Hot disk drive alert (drive temperature monitoring with custom threshold and check intervals).
+- Low battery and full charge notifications for laptops.
+- Low battery alerts for connected Bluetooth headphones.
+- Wi-Fi network disconnection and signal changes.
+- Critical solid-state drive (SSD) wear alerts.
+
+### Tools Menu
+
 You can access the add-on from NVDA Menu > Tools > System Monitor:
+
 - Settings...: Opens the System Monitor configuration panel directly.
-- Check for add-on conflicts...: Checks for shortcut collisions with other installed add-ons.
+- Check shortcut conflicts with other add-ons...: Scans for overlapping shortcuts with other installed add-ons.
+
+---
+
+## What's new in 2.9.1 (13 September 2026)
+
+- Faster clipboard copy for Wi-Fi status: pressing the network status shortcut (NVDA + Shift + 4) twice quickly now copies instantly by reusing the data already read, instead of querying the wireless adapter a second time, eliminating the unnecessary delay.
+- General stability improvement: unified and reinforced the internal logic of all 8 system information shortcuts (CPU, RAM, frequency, drives, Wi-Fi, Windows version, uptime, and GPU) for more reliable and consistent behavior when announcing by speech or copying to clipboard.
+- Internal cleanup and complete technical documentation of all add-on functions.
 
 ## What's new in 2.9 (13 September 2026)
 
-- Optimized background drive temperature monitoring to skip querying empty drive slots, making checks faster and lighter.
-- System uptime reporting (NVDA+Shift+7) now fully translates into all NVDA languages with accurate singular and plural phrasing.
-- Improved resilience of system uptime tracking when Windows automatically synchronizes or adjusts the clock.
-
----
-
-## What's new in 2.7 (12 September 2026)
-
-### What's New
-
-- Added a dedicated section in NVDA Settings to monitor drive temperatures with customizable thermal thresholds (30 to 90 °C) and check intervals.
-- Removed automatic temperature reporting from the general disk summary shortcut, keeping disk space announcements concise and uncluttered.
-- Drive temperatures are queried directly from the hardware controller using standard system IOCTL calls without requiring Windows administrator privileges or slow PowerShell commands.
-
----
-
-## What's new in 2.6 (12 September 2026)
-
-### Improved
-
-- Switched to NVDA's native logging framework (`logHandler.log`) so all diagnostics integrate cleanly with NVDA's Log Viewer.
-- Clean teardown of Tools menu items on addon termination/reload, preventing orphaned UI handles.
-- Rigorous cleanup of background monitoring threads and alert timers upon addon termination.
-
----
-
-## What's new in 2.5 (8 September 2026)
-
-### Fixed
-
-- Automatic alerts for temperature, battery, disks and Bluetooth never fired. An internal error stopped the watcher on its first pass.
-- An Intel Core i5-13600K was mistaken for an AMD Ryzen 5 3600 and reported 4.2 GHz max instead of 5.0.
-- Settings would not open from the Tools menu.
-- CPU and GPU temperature alerts could keep test thresholds with nothing indicating it.
-- Four failures that happened silently are now recorded in the NVDA log.
-- Ping measurement and system queries could wait forever if the program being queried hung.
-- One message appeared twice in all 34 language files, which stopped translation tools from opening them.
-
-### Internal changes
-
-- Maximum speed for each known processor moved from 117 chained conditions to a data table that is easier to extend.
-- The Bluetooth device scan, 382 lines in a single block, was split into seven named pieces.
-- The alert watcher, 239 lines, was split into five independent watches.
-- The internet speed test and the disk health query now separate measuring from interpreting.
-- The settings window, the conflict check and the processor queries were grouped into sections.
-- Added 30 automatic checks that run on their own on GitHub with every change.
-
-The full history of every version is in the CHANGELOG.md file of the
-add-on repository.
+- Disk temperature checks without administrator permissions: you can now check the temperature of your SSDs and hard drives from any standard user account without running NVDA as Administrator.
+- Faster checks and lower resource usage: the add-on skips empty drive slots and unused ports, making automatic background temperature checks faster and lighter.
+- More accurate computer uptime reporting: uptime calculation no longer gets confused when Windows syncs its clock over the internet, and reports days, hours, and minutes with natural phrasing (such as "1 hour and 1 minute").
+- Universal graphics card support: detects and announces memory and GPU usage across all major graphics cards (NVIDIA, AMD, and Intel/DirectX integrated graphics) smoothly without freezing.
+- Bluetooth headphone and device battery: accurately checks the battery percentage of your connected Bluetooth headphones and devices using an advanced engine expanded by Daliana (inspired by the initial reference of BlueToothBatteryReport), featuring broader device recognition, autonomous low-battery background alerts, and smart filtering of disconnected hardware.
+- More reliable Wi-Fi connection handling: the add-on reliably reads Wi-Fi networks with hidden names or special characters without speech interruptions.
+- Improved calculation stability: fixed calculation issues that could produce errors when measuring dynamic processor Turbo Boost speeds or swap memory under heavy system loads.
+- Faster and safer internet speed testing: network speed tests now run over encrypted connections (HTTPS) with improved connection handling for reliable download and upload results.
+- Instant NVDA exit and restart: all background monitoring tasks terminate cleanly the moment NVDA closes or restarts, preventing delays during shutdown.
 
 ### Credits
+
 - Based on Resource Monitor by Joseph Lee and contributors.
-- Bluetooth battery logic inspired by BlueToothBatteryReport.
-- Preserves 35 community localizations with original translator attributions.
+- Bluetooth battery module: Substantially improved and expanded by Daliana, inspired by the initial reference from BlueToothBatteryReport (by Cary-rowen and contributors). Features significant improvements: an expanded 4-key DEVPROPKEY matrix to detect peripherals missed by the original design, support for text-formatted battery readings, automatic background alerts with customizable thresholds, non-blocking asynchronous execution to keep NVDA fully responsive, and quick clipboard copying via double-press.
+- Advanced diagnostics, GPU, network monitoring, and enhancements by Daliana.

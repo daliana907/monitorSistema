@@ -11,19 +11,43 @@ Lo más reciente, arriba. En español primero y en inglés después.
 
 ### Español
 
-- Optimización en la vigilancia de temperatura de discos, omitiendo comprobaciones innecesarias en ranuras o puertos sin disco para hacer la supervisión más rápida y ligera.
-- Mayor precisión y estabilidad en la detección de dispositivos Bluetooth y su batería, distinguiendo periféricos independientes del mismo modelo y liberando recursos del sistema de forma limpia.
-- El informe del tiempo que lleva encendido el equipo (NVDA+Shift+7) ahora se adapta correctamente al idioma configurado en NVDA, con redacción natural tanto en singular como en plural y mayor tolerancia a cambios de reloj.
-- Mejoras integrales de estabilidad en la lectura de memoria virtual, tarjetas gráficas y conexiones Wi-Fi.
-- Correcciones internas de rendimiento y optimización del consumo de recursos en segundo plano.
+- Consulta de temperatura de discos sin elevación de privilegios: implementación de llamadas nativas a DeviceIoControl mediante IOCTL_STORAGE_QUERY_PROPERTY y StorageDeviceTemperatureProperty, permitiendo vigilar unidades SSD y mecánicas desde cuentas de usuario estándar sin requerir ejecutar NVDA como Administrador ni recurrir a PowerShell.
+- Filtrado preventivo de ranuras vacías: comprobación inteligente de manejadores para omitir ranuras M.2 o puertos SATA desocupados, aligerando el ciclo de vigilancia térmica automática en segundo plano.
+- Cálculo de tiempo encendido blindado con GetTickCount64: sustitución de llamadas dependientes del reloj del sistema por el contador monotónico de 64 bits del kernel de Windows, evitando errores o cifras negativas al sincronizar la hora por internet y formateando el tiempo en lenguaje natural adaptado al idioma de NVDA tanto en singular como en plural.
+- Soporte universal de GPU para Windows (DirectX DXGI y contadores PDH): módulo desacoplado gpu.py con soporte para NVIDIA (nvidia-smi), AMD (biblioteca nativa ADL atiadlxx.dll con callbacks LocalAlloc) y adaptadores universales DirectX mediante contadores PDH y enumeración COM DXGI, con liberación garantizada de interfaces mediante Release().
+- Monitorización avanzada de batería en periféricos Bluetooth: motor desarrollado y ampliado por Daliana a partir de la referencia inicial de BlueToothBatteryReport (por Cary-rowen y colaboradores), incorporando una matriz ampliada de 4 claves DEVPROPKEY (SetupAPI y bthprops.cpl) para reconocer periféricos que el diseño original no detectaba, compatibilidad con lecturas en texto, sistema autónomo de alertas periódicas de batería baja en segundo plano y ejecución asíncrona sin bloqueos en la interfaz.
+- Saneamiento y soporte de redes Wi-Fi ocultas en wlanapi.py: decodificación binaria segura de SSID, filtrado de bytes nulos y liberación garantizada de memoria nativa con WlanFreeMemory en bloques try/finally.
+- Blindaje contra divisiones por cero: protecciones matemáticas añadidas en el cálculo de frecuencias dinámicas de CPU con Turbo Boost, porcentajes de memoria física y memoria virtual swap (psutil.swap_memory).
+- Medición de velocidad de red en tiempo real más segura: ejecución de pruebas mediante conexiones HTTPS con sockets de cierre garantizado y cálculo ponderado de tasas de transferencia.
+- Gestión de hilos daemon y apagado limpio: todos los subprocesos de supervisión en segundo plano operan como hilos daemon con eventos de parada coordinados (threading.Event), garantizando que NVDA reinicie o cierre de inmediato sin bloqueos.
 
 ### English
 
-- Optimized drive temperature monitoring by skipping redundant checks on empty drive slots, resulting in a lighter and faster background watchdog.
-- Improved precision and stability in Bluetooth device detection and battery reporting, properly distinguishing multiple devices of the same model and cleanly releasing system handles.
-- System uptime announcements (NVDA+Shift+7) now fully adapt to the active NVDA language with natural phrasing in both singular and plural forms, remaining resilient against clock adjustments.
-- Enhanced reliability across virtual memory, graphics hardware sensors, and Wi-Fi connection monitoring.
-- Internal performance refinements and optimized background resource management.
+- Unprivileged drive temperature querying: native DeviceIoControl implementation using IOCTL_STORAGE_QUERY_PROPERTY and StorageDeviceTemperatureProperty, enabling SSD and HDD temperature monitoring under standard user accounts without requiring NVDA to run as Administrator or invoking PowerShell.
+- Predictive empty slot filtering: intelligent device descriptor checks bypass empty M.2 or SATA drive bays, minimizing latency during background thermal watchdog loops.
+- Monotonic uptime calculation via GetTickCount64: switched from system clock deltas to the Windows 64-bit kernel tick counter, preventing negative numbers or glitches during NTP time synchronizations and generating natural language time summaries in both singular and plural.
+- Universal Windows GPU support (DirectX DXGI and PDH counters): modular gpu.py engine providing telemetry for NVIDIA (nvidia-smi), AMD (native ADL library atiadlxx.dll with LocalAlloc memory callbacks), and generic DirectX GPUs via PDH counters and COM DXGI enumeration with guaranteed Release() resource reclamation.
+- Advanced Bluetooth peripheral battery reporting: engine expanded and improved by Daliana based on the initial reference from BlueToothBatteryReport (by Cary-rowen and contributors), adding an expanded 4-key DEVPROPKEY matrix (SetupAPI and bthprops.cpl) to detect peripherals missed by the original design, text-formatted battery parsing, autonomous background low-battery alerts, and non-blocking asynchronous execution.
+- Hidden Wi-Fi network support and sanitization in wlanapi.py: safe binary SSID parsing, null-byte filtering, and guaranteed native memory release via WlanFreeMemory wrapped in try/finally blocks.
+- Zero-division defenses: mathematical guards prevent division-by-zero exceptions across dynamic CPU frequency scaling (Turbo Boost), RAM utilization percentages, and swap virtual memory calculations.
+- Resilient real-time internet speed testing: network tests utilize secure HTTPS streams with guaranteed socket closure and throughput weighting.
+- Daemon thread lifecycle hardening: all background monitoring workers run with daemon=True and coordinated threading.Event stop flags, ensuring NVDA restarts and exits instantaneously without freezing.
+
+---
+
+## 2.9.1 — 2026-09-13
+
+### Español
+
+Mantenimiento y limpieza interna del código. Sin cambios visibles en el funcionamiento del complemento.
+
+Corrección de una doble llamada redundante a la consulta de red Wi-Fi: al pulsar el atajo dos veces seguidas para copiar el resultado al portapapeles, el código consultaba la información de red dos veces en lugar de reutilizar la ya calculada. Se unificó el patrón de anuncio o copia en un método central (`_anunciarOCopiar`) que ocho atajos distintos compartían con código repetido, eliminando la duplicación y el error de doble consulta. Se eliminaron también importaciones de módulos que el código no utilizaba en `gpu.py`.
+
+### English
+
+Internal maintenance and code cleanup. No user-visible changes.
+
+Fixed a redundant double Wi-Fi query when pressing the shortcut twice to copy the result: the add-on was querying the Wi-Fi adapter twice instead of reusing the already-computed information. Unified the announce-or-copy pattern across eight separate scripts into a shared internal helper (`_anunciarOCopiar`), eliminating code duplication and the redundant hardware query. Also removed unused module imports from `gpu.py`.
 
 ---
 
