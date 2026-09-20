@@ -55,6 +55,14 @@ You can access the add-on from NVDA Menu > Tools > System Monitor:
 
 ---
 
+## What's new in 2.9.2 (18 September 2026)
+
+- Clean Wi-Fi connection disposal: the wireless network handle is now reliably released when NVDA restarts or shuts down, preventing lingering resource leaks.
+- Improved GPU metric accuracy: if the graphics driver cannot provide a particular usage or memory reading, the add-on recognizes it rather than showing a misleading 0% value.
+- Robust CPU frequency measurement: refined performance counter selection to ensure reliable and consistent GHz readings across all processor families.
+- Memory leak prevention in CPU monitoring: eliminated subtle handle leaks that could accumulate over extended sessions of continuous processor speed polling.
+- Dual-battery system support: battery health percentage calculations now handle laptops equipped with multiple internal batteries accurately.
+
 ## What's new in 2.9.1 (13 September 2026)
 
 - Faster clipboard copy for Wi-Fi status: pressing the network status shortcut (NVDA + Shift + 4) twice quickly now copies instantly by reusing the data already read, instead of querying the wireless adapter a second time, eliminating the unnecessary delay.

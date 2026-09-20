@@ -106,17 +106,15 @@ confspec = {
 }
 config.conf.spec["monitoreoSistema"] = confspec
 
-# Si los umbrales de temperatura de CPU o GPU quedaron configurados con valores temporales de prueba (< 70 °C), restaurar automáticamente a los valores reales de sobrecalentamiento (85 °C para CPU y 80 °C para GPU)
+# Si los umbrales de temperatura de CPU o GPU quedaron configurados fuera de los rangos válidos, restaurar a los valores seguros por defecto (85 °C para CPU y 80 °C para GPU)
 try:
 	cur_cpu_thresh = config.conf.get("monitoreoSistema", {}).get("alertCpuHotThreshold")
-	if cur_cpu_thresh is not None and int(cur_cpu_thresh) < 70:
+	if cur_cpu_thresh is not None and (int(cur_cpu_thresh) < 40 or int(cur_cpu_thresh) > 105):
 		config.conf["monitoreoSistema"]["alertCpuHotThreshold"] = 85
 	cur_gpu_thresh = config.conf.get("monitoreoSistema", {}).get("alertGpuHotThreshold")
-	if cur_gpu_thresh is not None and int(cur_gpu_thresh) < 70:
+	if cur_gpu_thresh is not None and (int(cur_gpu_thresh) < 40 or int(cur_gpu_thresh) > 100):
 		config.conf["monitoreoSistema"]["alertGpuHotThreshold"] = 80
 except Exception:
-	# Si esto falla, los avisos de temperatura se quedan con umbrales de prueba
-	# y no saltan cuando deberian; antes no quedaba ninguna constancia.
 	log.error("Monitoreo del Sistema: no se pudieron revisar los umbrales de temperatura.", exc_info=True)
 
 
@@ -265,15 +263,21 @@ def size(bytes_val: int | float, system: list[tuple[float, Any]] = alternative) 
 
 def tryTrunk(n: float) -> int | float:
 	"""Devuelve el número truncado a entero si no tiene parte decimal, o el float original."""
-	if n == int(n):
-		return int(n)
-	return n
+	try:
+		if n == int(n):
+			return int(n)
+		return n
+	except (ValueError, TypeError):
+		return 0
 
 
 def formatGpuTemperature(celsiusText: str) -> str:
 	"""Formatea la temperatura de la GPU en Celsius o Fahrenheit según la configuración activa."""
 	try:
 		celsius = float(celsiusText)
+		import math
+		if math.isnan(celsius) or math.isinf(celsius):
+			return celsiusText
 	except (TypeError, ValueError):
 		return celsiusText
 	unit = config.conf.get("monitoreoSistema", {}).get("gpuTempUnit", "celsius")
@@ -296,10 +300,16 @@ def formatGpuMemory(usedMibText: str, totalMibText: str) -> str | None:
 	"""
 	try:
 		usedMib = float(usedMibText)
+		import math
+		if math.isnan(usedMib) or math.isinf(usedMib) or usedMib < 0:
+			return None
 	except (TypeError, ValueError):
 		return None
 	try:
 		totalMib = float(totalMibText)
+		import math
+		if math.isnan(totalMib) or math.isinf(totalMib) or totalMib < 0:
+			totalMib = 0.0
 	except (TypeError, ValueError):
 		totalMib = 0.0
 
@@ -486,7 +496,7 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 			ayudante, _('Avisar si la temperatura del procesador es alta'), "alertCpuHot", alCambiar=self.onAlertCpuHotChange)
 
 		initialCpuThresh = int(config.conf.get("monitoreoSistema", {}).get("alertCpuHotThreshold", 85))
-		if initialCpuThresh < 70:
+		if initialCpuThresh < 40 or initialCpuThresh > 105:
 			initialCpuThresh = 85
 			config.conf["monitoreoSistema"]["alertCpuHotThreshold"] = 85
 
@@ -500,7 +510,7 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 			ayudante, _('Avisar si la temperatura de la tarjeta gráfica (GPU) es alta'), "alertGpuHot", alCambiar=self.onAlertGpuHotChange)
 
 		initialGpuThresh = int(config.conf.get("monitoreoSistema", {}).get("alertGpuHotThreshold", 80))
-		if initialGpuThresh < 70:
+		if initialGpuThresh < 40 or initialGpuThresh > 100:
 			initialGpuThresh = 80
 			config.conf["monitoreoSistema"]["alertGpuHotThreshold"] = 80
 
@@ -1435,6 +1445,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception as e:
 			log.error(f"Monitoreo del Sistema: No se pudo registrar el submenú en Herramientas: {e}", exc_info=True)
 			self._subMenuItem = None
+		self._lastDiskHealthResult = None
 		self._diskHealthRunning = False
 		self._copyDiskHealthOnFinish = False
 		self._lastTopProcessesResult = None
@@ -1535,6 +1546,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		ninguno funciona lo anota en el registro y el complemento sigue
 		trabajando; simplemente no dirá la velocidad en tiempo real.
 		"""
+		# Si ya había una consulta abierta de una vez anterior (por ejemplo, al
+		# reintentar tras una muestra fallida), hay que cerrarla antes de perder
+		# su referencia; si no, esa consulta anterior queda abierta para siempre.
+		consultaAnterior = getattr(self, "_cpuQuery", None)
+		if consultaAnterior:
+			try:
+				ctypes.windll.pdh.PdhCloseQuery(consultaAnterior)
+			except Exception:
+				pass
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._baseGhz = 2.10
@@ -1577,11 +1597,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			hQuery = wintypes.HANDLE()
 			if pdh.PdhOpenQueryW(None, None, byref(hQuery)) == 0:
 				hCounter = wintypes.HANDLE()
+				# Solo variantes de "% Processor Performance": es el único contador que
+				# realmente representa la velocidad relativa a la base (puede superar
+				# el 100% con Turbo Boost). Antes había un cuarto respaldo con
+				# "% Processor Time" (que mide qué tan ocupado está el procesador, no
+				# a qué velocidad va) y se le aplicaba la misma cuenta, dando un
+				# resultado en GHz equivocado en los pocos equipos donde ese era el
+				# único contador disponible. En esos equipos ahora se cae directo al
+				# respaldo de psutil.cpu_freq(), que sí mide la velocidad de verdad.
 				counterPaths = [
 					r"\Processor Information(_Total)\% Processor Performance",
 					r"\Processor Information(0,_Total)\% Processor Performance",
 					r"\Processor Information(0,0)\% Processor Performance",
-					r"\Processor(_Total)\% Processor Time",
 				]
 				for cp in counterPaths:
 					if pdh.PdhAddEnglishCounterW(hQuery, cp, None, byref(hCounter)) == 0:
@@ -1595,6 +1622,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						break
 				if not self._cpuCounter:
 					log.warning("MonitorSistema: Ningún contador de rendimiento de procesador pudo ser añadido.")
+					# La consulta se abrió con éxito pero ningún contador sirvió: si no la
+					# cerramos aquí, se queda abierta para siempre porque no quedó guardada
+					# en ningún lado para cerrarla más tarde.
+					try:
+						pdh.PdhCloseQuery(hQuery)
+					except Exception:
+						pass
 			else:
 				log.warning("MonitorSistema: PdhOpenQueryW falló al abrir la consulta.")
 		except Exception as e:
@@ -1680,7 +1714,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# 1. Chequeo de batería del equipo
 		check_full = cfg.get("alertBatteryFull", True)
 		check_low = cfg.get("alertBatteryLow", True)
-		bat_interval = max(1, int(cfg.get("alertBatteryInterval", 1))) * 60
+		try:
+			bat_interval = max(1, int(cfg.get("alertBatteryInterval", 1))) * 60
+		except (ValueError, TypeError):
+			bat_interval = 60
 		if recordado["last_battery_interval"] != bat_interval:
 			recordado["last_battery_interval"] = bat_interval
 			recordado["last_battery_check_time"] = 0.0
@@ -1689,30 +1726,41 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			recordado["last_battery_check_time"] = now
 			try:
 				bat = psutil.sensors_battery()
-				if bat:
-					pct = bat.percent
-					plugged = bat.power_plugged
+				if bat and bat.percent is not None:
+					import math
+					try:
+						pct = float(bat.percent)
+					except (ValueError, TypeError):
+						pct = None
+					if pct is not None and not math.isnan(pct) and not math.isinf(pct) and 0 <= pct <= 100:
+						plugged = bat.power_plugged
 
-					# Alerta de batería cargada (>= bat_full_thresh% y conectada)
-					bat_full_thresh = int(cfg.get("alertBatteryFullThreshold", 100))
-					if check_full and plugged is True and pct >= bat_full_thresh:
-						if bat_full_thresh >= 100:
-							msg = _("Batería completamente cargada al 100 %. Puedes desconectar el cargador.")
-						else:
-							msg = _("Batería cargada al {} %. Puedes desconectar el cargador.").format(round(pct))
-						log.info(f"MonitorSistema: Alerta automática de batería cargada: '{msg}'")
-						try: tones.beep(880, 100); tones.beep(1175, 150)
-						except Exception: pass
-						self._decir(msg)
+						# Alerta de batería cargada (>= bat_full_thresh% y conectada)
+						try:
+							bat_full_thresh = int(cfg.get("alertBatteryFullThreshold", 100))
+						except (ValueError, TypeError):
+							bat_full_thresh = 100
+						if check_full and plugged is True and pct >= bat_full_thresh:
+							if bat_full_thresh >= 100:
+								msg = _("Batería completamente cargada al 100 %. Puedes desconectar el cargador.")
+							else:
+								msg = _("Batería cargada al {} %. Puedes desconectar el cargador.").format(round(pct))
+							log.info(f"MonitorSistema: Alerta automática de batería cargada: '{msg}'")
+							try: tones.beep(880, 100); tones.beep(1175, 150)
+							except Exception: pass
+							self._decir(msg)
 
-					# Alerta de batería baja (<= bat_thresh% y desconectada)
-					bat_thresh = int(cfg.get("alertBatteryLowThreshold", 15))
-					if check_low and plugged is False and pct <= bat_thresh:
-						msg = _("Advertencia: Batería baja al {} %. Conecta el equipo a la corriente.").format(round(pct))
-						log.info(f"MonitorSistema: Alerta automática de batería baja: '{msg}'")
-						try: tones.beep(440, 120); tones.beep(330, 150)
-						except Exception: pass
-						self._decir(msg)
+						# Alerta de batería baja (<= bat_thresh% y desconectada)
+						try:
+							bat_thresh = int(cfg.get("alertBatteryLowThreshold", 15))
+						except (ValueError, TypeError):
+							bat_thresh = 15
+						if check_low and plugged is False and pct <= bat_thresh:
+							msg = _("Advertencia: Batería baja al {} %. Conecta el equipo a la corriente.").format(round(pct))
+							log.info(f"MonitorSistema: Alerta automática de batería baja: '{msg}'")
+							try: tones.beep(440, 120); tones.beep(330, 150)
+							except Exception: pass
+							self._decir(msg)
 			except Exception as be:
 				log.error(f"MonitorSistema: Error en chequeo de batería para alertas: {be}", exc_info=True)
 
@@ -1724,8 +1772,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		# 2. Alerta de temperatura alta de CPU (>= cpu_hot_thresh °C)
 		check_hot = cfg.get("alertCpuHot", True)
-		cpu_interval = max(1, int(cfg.get("alertCpuHotInterval", 1))) * 60
-		cpu_hot_thresh = int(cfg.get("alertCpuHotThreshold", 85))
+		try:
+			cpu_interval = max(1, int(cfg.get("alertCpuHotInterval", 1))) * 60
+		except (ValueError, TypeError):
+			cpu_interval = 60
+		try:
+			cpu_hot_thresh = int(cfg.get("alertCpuHotThreshold", 85))
+		except (ValueError, TypeError):
+			cpu_hot_thresh = 85
 		if cpu_hot_thresh < 70:
 			cpu_hot_thresh = 85
 		if recordado["last_cpu_hot_thresh"] != cpu_hot_thresh or recordado["last_cpu_interval"] != cpu_interval:
@@ -1738,12 +1792,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			recordado["last_cpu_check_time"] = now
 			try:
 				temp = self._getCpuTemperature()
-				if temp is not None and temp >= cpu_hot_thresh:
-					msg = _("Alerta: Temperatura del procesador alta ({}).").format(formatGpuTemperature(str(temp)))
-					log.warning(f"MonitorSistema: Alerta automática de temperatura activada: '{msg}' (temp={temp}°C, umbral={cpu_hot_thresh}°C)")
-					try: tones.beep(1000, 100); tones.beep(1000, 100)
-					except Exception: pass
-					self._decir(msg)
+				if temp is not None:
+					import math
+					try:
+						t_num = float(temp)
+						is_valid = not math.isnan(t_num) and not math.isinf(t_num) and 0 < t_num < 150
+					except (ValueError, TypeError):
+						is_valid = False
+					if is_valid and t_num >= cpu_hot_thresh:
+						msg = _("Alerta: Temperatura del procesador alta ({}).").format(formatGpuTemperature(str(temp)))
+						log.warning(f"MonitorSistema: Alerta automática de temperatura activada: '{msg}' (temp={temp}°C, umbral={cpu_hot_thresh}°C)")
+						try: tones.beep(1000, 100); tones.beep(1000, 100)
+						except Exception: pass
+						self._decir(msg)
 			except Exception as te:
 				log.error(f"MonitorSistema: Error en chequeo de temperatura para alertas: {te}", exc_info=True)
 
@@ -1755,8 +1816,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		# 3. Alerta de temperatura alta de GPU (>= gpu_hot_thresh °C)
 		check_gpu_hot = cfg.get("alertGpuHot", True)
-		gpu_interval = max(1, int(cfg.get("alertGpuHotInterval", 1))) * 60
-		gpu_hot_thresh = int(cfg.get("alertGpuHotThreshold", 80))
+		try:
+			gpu_interval = max(1, int(cfg.get("alertGpuHotInterval", 1))) * 60
+		except (ValueError, TypeError):
+			gpu_interval = 60
+		try:
+			gpu_hot_thresh = int(cfg.get("alertGpuHotThreshold", 80))
+		except (ValueError, TypeError):
+			gpu_hot_thresh = 80
 		if gpu_hot_thresh < 70:
 			gpu_hot_thresh = 80
 		if recordado["last_gpu_hot_thresh"] != gpu_hot_thresh or recordado["last_gpu_interval"] != gpu_interval:
@@ -1769,8 +1836,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			recordado["last_gpu_check_time"] = now
 			try:
 				gpu_temps = self._getGpuTemperatures()
+				import math
 				for g_name, g_temp in gpu_temps:
-					if g_temp >= gpu_hot_thresh:
+					try:
+						g_num = float(g_temp)
+						g_valid = not math.isnan(g_num) and not math.isinf(g_num) and 0 < g_num < 150
+					except (ValueError, TypeError):
+						g_valid = False
+					if g_valid and g_num >= gpu_hot_thresh:
 						msg = _("Alerta: Temperatura de {name} alta ({temp}).").format(
 							name=g_name,
 							temp=formatGpuTemperature(str(g_temp)),
@@ -1790,8 +1863,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		# 4. Alerta de batería baja en dispositivos Bluetooth (<= bt_thresh%)
 		check_bt = cfg.get("alertBluetoothLow", True)
-		bt_thresh = int(cfg.get("alertBluetoothLowThreshold", 15))
-		bt_interval = max(1, int(cfg.get("alertBluetoothLowInterval", 2))) * 60
+		try:
+			bt_thresh = int(cfg.get("alertBluetoothLowThreshold", 15))
+		except (ValueError, TypeError):
+			bt_thresh = 15
+		try:
+			bt_interval = max(1, int(cfg.get("alertBluetoothLowInterval", 2))) * 60
+		except (ValueError, TypeError):
+			bt_interval = 120
 		if recordado["last_bt_thresh"] != bt_thresh or recordado["last_bt_interval"] != bt_interval:
 			recordado["last_bt_thresh"] = bt_thresh
 			recordado["last_bt_interval"] = bt_interval
@@ -1802,15 +1881,22 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			recordado["last_bt_check_time"] = now
 			try:
 				bt_devices = self._queryBluetoothBatteries()
+				import math
 				for d in bt_devices:
 					d_name = d.get('name', _('Dispositivo Bluetooth'))
 					d_bat = d.get('battery')
-					if d_bat is not None and 0 <= d_bat <= bt_thresh:
-						msg = _("Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %.").format(d_name, d_bat)
-						log.warning(f"MonitorSistema: Alerta automática Bluetooth: '{msg}'")
-						try: tones.beep(550, 100); tones.beep(440, 150)
-						except Exception: pass
-						self._decir(msg)
+					if d_bat is not None:
+						try:
+							b_num = float(d_bat)
+							b_valid = not math.isnan(b_num) and not math.isinf(b_num) and 0 <= b_num <= bt_thresh
+						except (ValueError, TypeError):
+							b_valid = False
+						if b_valid:
+							msg = _("Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %.").format(d_name, round(b_num))
+							log.warning(f"MonitorSistema: Alerta automática Bluetooth: '{msg}'")
+							try: tones.beep(550, 100); tones.beep(440, 150)
+							except Exception: pass
+							self._decir(msg)
 			except Exception as bte:
 				log.error(f"MonitorSistema: Error en chequeo de batería Bluetooth para alertas: {bte}", exc_info=True)
 
@@ -1822,8 +1908,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		# 5. Alerta periódica de salud y desgaste de discos (HDD / SSD)
 		check_disk = cfg.get("alertDiskHealth", True)
-		wear_thresh = int(cfg.get("alertDiskWearThreshold", 80))
-		disk_interval = max(1, int(cfg.get("alertDiskHealthInterval", 240))) * 60
+		try:
+			wear_thresh = int(cfg.get("alertDiskWearThreshold", 80))
+		except (ValueError, TypeError):
+			wear_thresh = 80
+		try:
+			disk_interval = max(1, int(cfg.get("alertDiskHealthInterval", 240))) * 60
+		except (ValueError, TypeError):
+			disk_interval = 14400
 		if recordado["last_disk_interval"] != disk_interval:
 			recordado["last_disk_interval"] = disk_interval
 			recordado["last_disk_check_time"] = 0.0
@@ -1887,8 +1979,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		# 6. Alerta de temperatura alta de disco (>= disk_hot_thresh °C)
 		check_disk_hot = cfg.get("alertDiskHot", True)
-		disk_hot_thresh = int(cfg.get("alertDiskHotThreshold", 70))
-		disk_hot_interval = max(1, int(cfg.get("alertDiskHotInterval", 5))) * 60
+		try:
+			disk_hot_thresh = int(cfg.get("alertDiskHotThreshold", 70))
+		except (ValueError, TypeError):
+			disk_hot_thresh = 70
+		try:
+			disk_hot_interval = max(1, int(cfg.get("alertDiskHotInterval", 5))) * 60
+		except (ValueError, TypeError):
+			disk_hot_interval = 300
 		if (
 			recordado["last_disk_hot_thresh"] != disk_hot_thresh
 			or recordado["last_disk_hot_interval"] != disk_hot_interval
@@ -1901,8 +1999,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if check_disk_hot and (now - recordado["last_disk_hot_check_time"] >= disk_hot_interval):
 			recordado["last_disk_hot_check_time"] = now
 			try:
+				import math
 				for nombre, grados in temperaturasDeDiscos():
-					if grados >= disk_hot_thresh:
+					try:
+						d_num = float(grados)
+						d_valid = not math.isnan(d_num) and not math.isinf(d_num) and 0 < d_num < 150
+					except (ValueError, TypeError):
+						d_valid = False
+					if d_valid and d_num >= disk_hot_thresh:
 						msg = _("Alerta: Temperatura de {name} alta ({temp}).").format(
 							name=nombre,
 							temp=formatGpuTemperature(str(grados)),
@@ -2032,9 +2136,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception as e:
 			log.debug(f"Monitoreo del Sistema: Error retirando submenú en terminate: {e}")
 		super().terminate()
+		for provider in self._gpuProviders:
+			if hasattr(provider, "close"):
+				try:
+					provider.close()
+				except Exception:
+					pass
 		self._gpuProviders.clear()
-		if MonitorSistemaSettingsPanel in NVDASettingsDialog.categoryClasses:
-			NVDASettingsDialog.categoryClasses.remove(MonitorSistemaSettingsPanel)
+		try:
+			if MonitorSistemaSettingsPanel in NVDASettingsDialog.categoryClasses:
+				NVDASettingsDialog.categoryClasses.remove(MonitorSistemaSettingsPanel)
+		except Exception:
+			pass
 		if self._cpuQuery:
 			try:
 				ctypes.windll.pdh.PdhCloseQuery(self._cpuQuery)
@@ -2044,22 +2157,26 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if self._client_handle:
 			self._negotiated_version = None
 			try:
-				wlanapi.WlanRegisterNotification(
-				self._client_handle,
-				wlanapi.WLAN_NOTIFICATION_SOURCE_NONE,
-				True,
-				notifyHandler,
-				None,
-				None,
-				None,
-			)
+				try:
+					wlanapi.WlanRegisterNotification(
+						self._client_handle,
+						wlanapi.WLAN_NOTIFICATION_SOURCE_NONE,
+						True,
+						notifyHandler,
+						None,
+						None,
+						None,
+					)
+				except Exception:
+					pass
 				wlanapi.WlanCloseHandle(
-					byref(self._client_handle),
+					self._client_handle,
 					None,
 				)
-				self._client_handle = None
-			except OSError:
+			except Exception:
 				log.debug("Monitoreo del Sistema: no se pudo cerrar la conexion con la tarjeta de red.", exc_info=True)
+			finally:
+				self._client_handle = None
 		log.info("Monitoreo del Sistema: Recursos y manejadores liberados, complemento finalizado limpiamente.")
 
 	def _onMenuConfig(self, event):
@@ -2468,9 +2585,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return _("No hay dispositivos de red inalámbrica")
 
 		wlan_ifaces = POINTER(wlanapi.WLAN_INTERFACE_INFO_LIST)()
+		if wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces)) != 0:
+			return _("No hay dispositivos de red inalámbrica")
 		try:
-			wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces))
-			if wlan_ifaces.contents.NumberOfItems == 0:
+			if not wlan_ifaces or wlan_ifaces.contents.NumberOfItems == 0:
 				return _("No hay dispositivos de red inalámbrica")
 
 			info = _("No hay conexiones de red inalámbrica")
@@ -2479,33 +2597,36 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					continue
 
 				wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
-				try:
-					wlanapi.WlanGetAvailableNetworkList(
-						self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
-					)
-					for n in customResize(
-						wlan_available_network_list.contents.Network,
-						wlan_available_network_list.contents.NumberOfItems,
-					):
-						if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
-							ssid_len = int(n.dot11Ssid.SSIDLength)
-							ssid_bytes = n.dot11Ssid.SSID[:ssid_len] if 0 < ssid_len <= 32 else n.dot11Ssid.SSID
-							ssid_str = ssid_bytes.decode(errors="ignore").strip() or _("Red oculta")
-							sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
-							log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
-							info = (
-								_("Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}")
-							).format(
-								ssid_str,
-								n.wlanSignalQuality,
-								sec_str,
-							)
-							break
-				finally:
-					wlanapi.WlanFreeMemory(wlan_available_network_list)
+				if wlanapi.WlanGetAvailableNetworkList(
+					self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
+				) == 0:
+					try:
+						if wlan_available_network_list and wlan_available_network_list.contents.NumberOfItems > 0:
+							for n in customResize(
+								wlan_available_network_list.contents.Network,
+								wlan_available_network_list.contents.NumberOfItems,
+							):
+								if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
+									ssid_len = int(n.dot11Ssid.SSIDLength)
+									ssid_bytes = n.dot11Ssid.SSID[:ssid_len] if 0 < ssid_len <= 32 else n.dot11Ssid.SSID
+									ssid_str = ssid_bytes.decode(errors="ignore").strip() or _("Red oculta")
+									sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
+									log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
+									info = (
+										_("Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}")
+									).format(
+										ssid_str,
+										n.wlanSignalQuality,
+										sec_str,
+									)
+									break
+					finally:
+						if wlan_available_network_list:
+							wlanapi.WlanFreeMemory(wlan_available_network_list)
 			return info
 		finally:
-			wlanapi.WlanFreeMemory(wlan_ifaces)
+			if wlan_ifaces:
+				wlanapi.WlanFreeMemory(wlan_ifaces)
 
 	def _getCurrentWlanSignal(self) -> int | None:
 		"""Devuelve solo el número de la intensidad de señal del Wi-Fi, de 0 a 100.
@@ -2684,6 +2805,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _getDiskHealth(self):
 		"""Lanza en segundo plano la consulta del estado de los discos."""
+		if getattr(self, "_diskHealthRunning", False):
+			return
 		self._diskHealthRunning = True
 		ui.message(_("Analizando discos, por favor espera..."))
 		threading.Thread(target=self._hiloDeSaludDeDiscos, daemon=True).start()
@@ -2751,8 +2874,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		encoded = base64.b64encode(ps_script.encode('utf-16le')).decode('utf-8')
 		log.info("MonitorSistema: Lanzando PowerShell con ShellExecuteW...")
-		ctypes.windll.shell32.ShellExecuteW(None, "runas", "powershell.exe", f"-NoProfile -WindowStyle Hidden -EncodedCommand {encoded}", None, 0)
-		
+		resultado = ctypes.windll.shell32.ShellExecuteW(None, "runas", "powershell.exe", f"-NoProfile -WindowStyle Hidden -EncodedCommand {encoded}", None, 0)
+		if resultado <= 32:
+			# Un valor de 32 o menos significa que Windows ni siquiera llegó a abrir PowerShell
+			# (por ejemplo, si no está instalado), así que no tiene sentido esperar.
+			log.warning(f"MonitorSistema: ShellExecuteW no pudo iniciar PowerShell (código {resultado}).")
+			err_msg = _("No se pudo obtener información de los discos o se canceló el permiso de administrador.")
+			wx.CallAfter(ui.message, err_msg)
+			return
+
 		timeout = 15
 		while timeout > 0:
 			if os.path.exists(tmp_file):
@@ -2832,11 +2962,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		suyas.
 		"""
 		if scriptHandler.getLastScriptRepeatCount() > 0:
-			if getattr(self, nombreEnCurso):
+			if getattr(self, nombreEnCurso, False):
 				setattr(self, nombreCopiarAlTerminar, True)
 				ui.message(_("Se copiará el resultado al portapapeles."))
 				return
-			ultimoResultado = getattr(self, nombreUltimoResultado)
+			ultimoResultado = getattr(self, nombreUltimoResultado, None)
 			if ultimoResultado:
 				api.copyToClip(ultimoResultado, notify=True)
 				return
@@ -2844,7 +2974,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(_("Se copiará el resultado al portapapeles."))
 			lanzarConsulta()
 			return
-		if getattr(self, nombreEnCurso):
+		if getattr(self, nombreEnCurso, False):
 			ui.message(mensajeEnCurso)
 			return
 		setattr(self, nombreCopiarAlTerminar, False)
@@ -2871,6 +3001,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		recorrer todos los programas abiertos tarda algo más de medio segundo y
 		NVDA se quedaría trabado.
 		"""
+		if getattr(self, "_topProcessesRunning", False):
+			return
 		self._topProcessesRunning = True
 		def worker():
 			"""Recorre los programas abiertos y se queda con los dos más grandes.
@@ -2887,12 +3019,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				max_cpu, max_cpu_p, max_mem, max_mem_p = -1, None, -1, None
 				for p in psutil.process_iter(['name', 'cpu_percent', 'memory_info']):
 					try:
-						cpu, mem, name = p.info['cpu_percent'], p.info['memory_info'].rss, p.info['name']
+						info = p.info
+						if not isinstance(info, dict):
+							continue
+						cpu = info.get('cpu_percent')
+						minfo = info.get('memory_info')
+						mem = getattr(minfo, 'rss', None) if minfo else None
+						name = info.get('name')
 						if cpu is not None and cpu > max_cpu and name != "System Idle Process":
 							max_cpu, max_cpu_p = cpu, name
 						if mem is not None and mem > max_mem:
 							max_mem, max_mem_p = mem, name
-					except (psutil.NoSuchProcess, psutil.AccessDenied): pass
+					except (psutil.NoSuchProcess, psutil.AccessDenied, AttributeError, KeyError): pass
 				log.info(f"MonitorSistema: Top procesos detectados - Mayor CPU: '{max_cpu_p}' ({round(max_cpu, 1)}%), Mayor RAM: '{max_mem_p}' ({size(max_mem, alternative) if max_mem else '0'})")
 				res = []
 				if max_cpu_p: res.append(_("Proceso con más CPU: {} ({}%).").format(max_cpu_p, round(max_cpu, 1)))
@@ -2928,6 +3066,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _getNetworkSpeed(self):
 		"""Lanza la prueba de velocidad en segundo plano."""
+		if getattr(self, "_netSpeedRunning", False):
+			return
 		self._netSpeedRunning = True
 		ui.message(_("Realizando prueba de precisión (unos 12 segundos), por favor espera..."))
 		threading.Thread(target=self._hiloDeVelocidadDeRed, daemon=True).start()
@@ -3083,6 +3223,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		Avisa de que está consultando y hace el trabajo en un hilo aparte, porque
 		preguntar por la salud real de la batería tarda unos segundos.
 		"""
+		if getattr(self, "_advBatteryRunning", False):
+			return
 		ui.message(_("Consultando estado de la batería, por favor espera..."))
 		self._advBatteryRunning = True
 
@@ -3119,7 +3261,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						msg += " " + _("Tiempo restante estimado: {} horas y {} minutos.").format(mins // 60, mins % 60)
 					
 					# Consulta WMI de salud real vs capacidad de diseño
-					ps_script = "Try { $f = (Get-WmiObject BatteryFullChargedCapacity -Namespace root\\wmi -EA Stop | Select-Object -ExpandProperty FullChargedCapacity); $d = (Get-WmiObject BatteryStaticData -Namespace root\\wmi -EA Stop | Select-Object -ExpandProperty DesignedCapacity); if ($d -gt 0) { [math]::Round(($f / $d) * 100) } } Catch { }"
+					# Se toma -First 1 en las dos consultas: en equipos con dos baterías,
+					# antes podían llegar dos valores en $f y en $d, y dividir un
+					# arreglo por otro en PowerShell no da el porcentaje esperado.
+					ps_script = "Try { $f = (Get-WmiObject BatteryFullChargedCapacity -Namespace root\\wmi -EA Stop | Select-Object -First 1 -ExpandProperty FullChargedCapacity); $d = (Get-WmiObject BatteryStaticData -Namespace root\\wmi -EA Stop | Select-Object -First 1 -ExpandProperty DesignedCapacity); if ($d -gt 0) { [math]::Round(($f / $d) * 100) } } Catch { }"
 					
 					try:
 						si = subprocess.STARTUPINFO()
@@ -3200,6 +3345,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		Avisa de que está buscando y hace el trabajo en un hilo aparte, porque
 		recorrer los aparatos Bluetooth tarda unos segundos.
 		"""
+		if getattr(self, "_bluetoothRunning", False):
+			return
 		ui.message(_("Buscando dispositivos Bluetooth, por favor espera..."))
 		self._bluetoothRunning = True
 
@@ -3402,5 +3549,5 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 	def script_checkConflicts(self, gesture: inputCore.InputGesture):
 		"""Ejecuta una auditoría interactiva de atajos y complementos concurrentes."""
-		self._checkAddonConflicts(interactive=True)
+		wx.CallAfter(self._checkAddonConflicts, interactive=True)
 

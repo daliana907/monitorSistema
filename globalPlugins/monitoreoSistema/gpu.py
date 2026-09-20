@@ -58,6 +58,10 @@ class BaseGpuProvider:
 		"""Recolecta y devuelve la lista de métricas de GPU disponibles o None."""
 		raise NotImplementedError
 
+	def close(self) -> None:
+		"""Libera los recursos y manejadores asociados al proveedor."""
+		pass
+
 
 class NvidiaGpuProvider(BaseGpuProvider):
 	"""Proveedor de telemetría para tarjetas gráficas NVIDIA mediante la utilidad nvidia-smi."""
@@ -362,31 +366,31 @@ class WindowsGpuProvider(BaseGpuProvider):
 			self._query = hQuery
 
 			hCounterUtil = HCOUNTER()
-			self._pdh.PdhAddEnglishCounterW(
+			status = self._pdh.PdhAddEnglishCounterW(
 				self._query,
 				r"\GPU Engine(*)\Utilization Percentage",
 				0,
 				byref(hCounterUtil),
 			)
-			self._counterUtil = hCounterUtil
+			self._counterUtil = hCounterUtil if status == ERROR_SUCCESS else None
 
 			hCounterDedicated = HCOUNTER()
-			self._pdh.PdhAddEnglishCounterW(
+			status = self._pdh.PdhAddEnglishCounterW(
 				self._query,
 				r"\GPU Adapter Memory(*)\Dedicated Usage",
 				0,
 				byref(hCounterDedicated),
 			)
-			self._counterDedicated = hCounterDedicated
+			self._counterDedicated = hCounterDedicated if status == ERROR_SUCCESS else None
 
 			hCounterShared = HCOUNTER()
-			self._pdh.PdhAddEnglishCounterW(
+			status = self._pdh.PdhAddEnglishCounterW(
 				self._query,
 				r"\GPU Adapter Memory(*)\Shared Usage",
 				0,
 				byref(hCounterShared),
 			)
-			self._counterShared = hCounterShared
+			self._counterShared = hCounterShared if status == ERROR_SUCCESS else None
 
 			self._adapters = _getDxgiAdapters()
 			self._pdh.PdhCollectQueryData(self._query)
@@ -436,6 +440,8 @@ class WindowsGpuProvider(BaseGpuProvider):
 						items = cast(buf, POINTER(PDH_FMT_COUNTERVALUE_ITEM_W))
 						for i in range(itemCount.value):
 							item = items[i]
+							if item.FmtValue.CStatus != ERROR_SUCCESS:
+								continue
 							val = item.FmtValue.doubleValue
 							if item.szName:
 								luid = _extractLuid(item.szName)
@@ -470,6 +476,8 @@ class WindowsGpuProvider(BaseGpuProvider):
 						items = cast(buf, POINTER(PDH_FMT_COUNTERVALUE_ITEM_W))
 						for i in range(itemCount.value):
 							item = items[i]
+							if item.FmtValue.CStatus != ERROR_SUCCESS:
+								continue
 							val = item.FmtValue.doubleValue
 							if item.szName:
 								luid = _extractLuid(item.szName)
@@ -526,13 +534,18 @@ class WindowsGpuProvider(BaseGpuProvider):
 			log.error(f"MonitorSistema GPU: Error en WindowsGpuProvider.collect: {e}", exc_info=True)
 			return []
 
-	def __del__(self):
+	def close(self):
 		"""Libera los recursos de consulta de PDH cerrando el manejador abierto con PdhCloseQuery."""
 		if self._pdh and self._query:
 			try:
 				self._pdh.PdhCloseQuery(self._query)
 			except Exception:
 				pass
+			self._query = None
+			self._pdh = None
+
+	def __del__(self):
+		self.close()
 
 
 def getGpuProviders() -> list[BaseGpuProvider]:

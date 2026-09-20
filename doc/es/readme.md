@@ -1,80 +1,55 @@
-# Monitoreo del Sistema para NVDA (System Monitor)
+# Monitoreo del Sistema
 
-- Autora: Daliana (basado en Resource Monitor de Joseph Lee y colaboradores)
-- Versión: 2.9
-- Compatibilidad: NVDA 2023.1 en adelante
-- Licencia: GNU GPL v2
+* Autor: Daliana (basado en Resource Monitor de Joseph Lee)
+* Compatibilidad con NVDA: 2023.1 en adelante
+* Descarga de la versión estable: https://github.com/daliana907/monitoreoSistema
 
-[Read in English](../en/readme.md)
+Este complemento reúne en un solo lugar todas las herramientas necesarias para conocer en detalle el estado y rendimiento de tu equipo, desde la carga del procesador y la memoria hasta el estado de tu conexión a internet y los dispositivos externos, interactuando mediante atajos de teclado rápidos y accesibles.
 
----
+Lejos de abrumarte con menús complicados, el complemento hace consultas directas al sistema operativo y a los componentes físicos de tu computadora, traduciendo esos datos técnicos en mensajes hablados claros. No requiere de ningún programa externo o interfaz secundaria abierta.
 
-## Versión en Español
+Entre sus características principales, puedes monitorear en tiempo real:
 
-Monitoreo del Sistema reúne en un solo lugar todas las herramientas para conocer el estado y rendimiento de tu equipo, batería, periféricos y conexión a internet mediante atajos de teclado rápidos y accesibles.
+*   Rendimiento Central: Obtén reportes detallados del uso de la memoria RAM y la memoria virtual, así como el porcentaje de carga de cada núcleo del procesador y su frecuencia actual de reloj en gigahercios (midiendo el uso del Turbo Boost de tu CPU de manera precisa).
+*   Almacenamiento y Discos: Consulta de un plumazo el espacio libre y total en todas tus unidades de disco. Además, si lo deseas, el complemento consulta directamente a los controladores de los discos mecánicos y discos de estado sólido (SSD) para informarte su temperatura exacta y su estado S.M.A.R.T., previniendo posibles sobrecalentamientos.
+*   Tarjetas Gráficas (GPU): Obtén información en tiempo real sobre el uso, la temperatura y la carga de memoria dedicada de las tarjetas gráficas.
+*   Redes y Conectividad: Revisa el estado de tu conexión Wi-Fi, la intensidad de la señal y, mediante un medidor dedicado, ejecuta una prueba de velocidad de internet (ping, bajada y subida) sin salir del lector de pantalla.
+*   Batería y Bluetooth: El sistema no solo monitorea el porcentaje de batería del portátil, sino que también detecta el desgaste real de la batería y lee la carga de los periféricos Bluetooth modernos vinculados (auriculares, teclados, etc.).
+*   Vigilancia Automática: En las opciones del complemento puedes configurar vigilantes silenciosos que te alertarán con notificaciones de voz cuando la batería esté baja, la temperatura del procesador alcance un nivel de peligro, o si algún disco muestra desgaste grave.
 
-### Atajos de teclado básicos (NVDA + Shift + tecla)
+## Cómo usarlo
 
-- NVDA + Shift + E: Resumen de recursos (porcentaje de memoria RAM en uso y carga de CPU).
-- NVDA + Shift + 1: Carga promedio del procesador (CPU) y uso de cada núcleo.
-- NVDA + Shift + 2: Memoria RAM física y virtual (usada, libre, total y porcentaje).
-- NVDA + Shift + 3: Espacio libre, usado y total en todas las unidades de disco.
-- NVDA + Shift + 4: Estado de la red Wi-Fi (nombre de red SSID, intensidad de señal y seguridad).
-- NVDA + Shift + 5: Frecuencia y velocidad del procesador (reloj en GHz, velocidad base y turbo).
-- NVDA + Shift + 6: Versión, compilación y arquitectura de Windows.
-- NVDA + Shift + 7: Tiempo de actividad del sistema (cuánto lleva encendido el ordenador).
-- NVDA + Shift + 8: Tarjeta gráfica (GPU): memoria utilizada, total y porcentaje de carga del procesador gráfico.
+El uso se realiza principalmente mediante atajos de teclado básicos:
 
-### Diagnósticos avanzados (NVDA + Shift + Control + número)
+*   NVDA + Shift + E: Resumen rápido (porcentaje de memoria RAM en uso y carga general de la CPU).
+*   NVDA + Shift + 1: Carga promedio del procesador (CPU) y nivel de estrés de cada núcleo de forma individual.
+*   NVDA + Shift + 2: Información exhaustiva de Memoria RAM física y virtual (usada, libre, total).
+*   NVDA + Shift + 3: Espacio libre, usado y total en todas las unidades de almacenamiento conectadas.
+*   NVDA + Shift + 4: Estado de la red Wi-Fi (nombre de red SSID e intensidad de señal). Si pulsas este atajo dos veces rápidamente, el nombre de la red y la clave de estado se copiarán al portapapeles.
+*   NVDA + Shift + 5: Frecuencia actual del procesador (reloj en GHz comparado contra la velocidad base).
+*   NVDA + Shift + 6: Versión exacta, compilación y arquitectura de tu sistema Windows.
+*   NVDA + Shift + 7: Tiempo ininterrumpido de actividad del sistema (cuánto lleva encendido el ordenador).
+*   NVDA + Shift + 8: Información detallada de tarjetas gráficas (carga de procesador gráfico, temperatura y memoria VRAM).
 
-Si pulsas el atajo una vez, se anuncia el informe por voz. Si lo pulsas dos veces seguidas rápidamente, el resultado se copia directamente al portapapeles sin tener que repetir el análisis.
+Atajos avanzados para diagnóstico profundo (requieren unos segundos de análisis):
 
-- NVDA + Shift + Control + 1: Estado de salud S.M.A.R.T., vida útil y desgaste de discos SSD y mecánicos.
-- NVDA + Shift + Control + 2: Procesos con mayor consumo de recursos (programas que más CPU y RAM están gastando).
-- NVDA + Shift + Control + 3: Medición de velocidad de internet en tiempo real (latencia/ping, descarga y subida).
-- NVDA + Shift + Control + 4: Diagnóstico avanzado de batería del equipo (nivel, tiempo restante, capacidad de diseño y desgaste).
-- NVDA + Shift + Control + 5: Nivel de batería de auriculares y dispositivos Bluetooth conectados.
+*   NVDA + Control + Shift + 1: Diagnóstico de salud (S.M.A.R.T.) y temperatura física de las unidades de disco.
+*   NVDA + Control + Shift + 2: Identifica exactamente qué programas o procesos están consumiendo más carga del procesador y memoria RAM.
+*   NVDA + Control + Shift + 3: Medidor de velocidad de internet (esperar unos segundos a que finalice la prueba en segundo plano).
+*   NVDA + Control + Shift + 4: Informe avanzado del porcentaje de batería del equipo, el tiempo restante estimado y su desgaste real.
+*   NVDA + Control + Shift + 5: Nivel de batería de dispositivos Bluetooth conectados.
 
-### Alertas automáticas en segundo plano
+## Opciones y Alertas
 
-En el menú de NVDA > Preferencias > Opciones > Monitoreo del Sistema, puedes activar avisos con sonido o voz para:
+Todas las opciones de Monitoreo del Sistema se encuentran en el menú Herramientas de NVDA, bajo el submenú Monitoreo del Sistema. Desde allí puedes abrir los manuales, comprobar si hay conflictos con las teclas que usa el complemento, y abrir la configuración general.
+En la configuración puedes activar las alertas automáticas en segundo plano, definir cada cuántos minutos el sistema verificará las temperaturas y elegir los umbrales de alerta de sobrecalentamiento de la CPU.
 
-- Temperatura elevada de CPU o GPU (con umbral térmico personalizable de 30 a 100 °C).
-- Alerta de disco caliente (vigilancia de temperatura con umbral e intervalo configurables).
-- Nivel bajo o carga completa de la batería de la laptop.
-- Batería baja en auriculares y dispositivos Bluetooth conectados.
-- Pérdida de conexión o cambios en la señal Wi-Fi.
-- Desgaste crítico en discos de estado sólido (SSD).
+## Créditos
 
-### Menú en Herramientas de NVDA
+Esta versión ampliada y en español ha sido desarrollada por Daliana, basándose en la versión original de Resource Monitor (https://github.com/josephsl/resourcemonitor) concebida por Joseph Lee y diversos colaboradores de la comunidad internacional de NVDA. Se le añadieron subsistemas completos como el módulo de Bluetooth, diagnóstico de red, telemetría de GPUs y un rediseño de las alertas silenciosas.
 
-Puedes acceder cómodamente desde el menú de NVDA > Herramientas > Monitoreo del Sistema:
+## Licencia y derechos de autor
 
-- Configuración...: Abre directamente el panel de opciones y alertas de Monitoreo del Sistema.
-- Comprobar conflictos con otros complementos...: Diagnostica colisiones de atajos con otros complementos instalados.
+Este complemento está protegido por derechos de autor y se distribuye bajo los términos de la Licencia Pública General de GNU (GPL), versión 2 o posterior. Eres libre de usar, modificar y distribuir este software bajo dichas condiciones. Puedes consultar el texto completo de la licencia en: https://www.gnu.org/licenses/gpl-2.0.html
 
----
-
-## Novedades de la versión 2.9.1 (13 de septiembre de 2026)
-
-- Copia al portapapeles más rápida en el atajo de Wi-Fi: al pulsar dos veces seguidas el atajo de estado de red (NVDA + Shift + 4), la copia ahora es instantánea porque reutiliza la información ya leída en lugar de volver a consultar la tarjeta de red una segunda vez, eliminando el retardo innecesario.
-- Mejora de estabilidad general: se unificó y reforzó la lógica interna de los 8 atajos de información del sistema (CPU, RAM, frecuencia, discos, Wi-Fi, versión de Windows, tiempo de actividad y GPU) para garantizar un comportamiento más fiable y consistente al anunciar por voz o copiar al portapapeles.
-- Limpieza interna y documentación técnica completa de todas las funciones del complemento.
-
-## Novedades de la versión 2.9 (13 de septiembre de 2026)
-
-- Lectura de temperatura de discos sin pedir permisos de administrador: ahora puedes consultar la temperatura de tus discos SSD y discos mecánicos desde cualquier cuenta de usuario estándar, sin necesidad de ejecutar NVDA como Administrador.
-- Más rapidez y menor consumo: el sistema ya no pierde tiempo comprobando ranuras o puertos vacíos donde no hay ningún disco conectado, haciendo las comprobaciones automáticas mucho más ágiles.
-- Tiempo de encendido del ordenador más exacto: el cálculo de cuánto tiempo lleva encendido el equipo ya no se confunde si la hora de Windows se sincroniza por internet, y anuncia correctamente las horas, minutos y días en singular y plural (por ejemplo: "1 hora y 1 minuto").
-- Compatibilidad universal con tarjetas gráficas: ahora detecta y anuncia la memoria y el uso de tarjetas gráficas de todas las marcas (NVIDIA, AMD y gráficos integrados de Intel o DirectX) sin bloqueos ni errores.
-- Batería de auriculares y dispositivos Bluetooth: informa con precisión del porcentaje de batería de tus auriculares y dispositivos conectados por Bluetooth mediante un motor avanzado y mejorado por Daliana (basado en la referencia inicial de BlueToothBatteryReport), que amplía la detección a dispositivos que antes no se reconocían, permite avisos automáticos de batería baja en segundo plano y descarta dispositivos apagados para evitar lecturas erróneas.
-- Conexión Wi-Fi más robusta: el lector ahora reconoce y lee sin problemas las redes Wi-Fi con nombres especiales u ocultos sin quedarse mudo ni trabarse.
-- Mayor estabilidad en cálculos del sistema: se corrigieron errores matemáticos que podían producir fallos al calcular la velocidad turbo del procesador o la memoria virtual cuando el sistema está al límite.
-- Medición de velocidad de internet más rápida y segura: el test de velocidad se realiza mediante conexiones seguras protegidas (HTTPS) y ofrece una lectura de descarga y subida más estable.
-- Cierre y reinicio de NVDA sin demoras: todas las tareas de vigilancia en segundo plano se detienen de inmediato al apagar o reiniciar NVDA, evitando que el lector tarde en cerrarse.
-
-### Créditos y Agradecimientos
-
-- Basado en el excelente complemento Resource Monitor de Joseph Lee y colaboradores.
-- Módulo de baterías Bluetooth: Desarrollado y ampliado sustancialmente por Daliana, tomando como inspiración inicial la referencia de BlueToothBatteryReport (por Cary-rowen y colaboradores). Introduce mejoras clave como una matriz ampliada de 4 claves DEVPROPKEY para detectar periféricos que el diseño original omitía, soporte para valores de batería en formato texto, sistema de alertas automáticas en segundo plano, ejecución en hilos asíncronos para evitar congelamientos en NVDA y copia rápida de resultados al portapapeles con doble pulsación.
-- Mejoras de diagnóstico avanzado, GPU, red y adaptaciones por Daliana.
+Aclaración sobre el uso de Inteligencia Artificial: Para programar partes de la lógica interna de este complemento y para redactar estos manuales me apoyé en herramientas de Inteligencia Artificial, tal como sugieren declarar las reglas de publicación de NVDA. De todos modos, cada línea de código y cada función fueron dirigidas, revisadas y probadas a fondo por mí.
