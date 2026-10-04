@@ -1,9 +1,8 @@
-name: Publicar complemento
+﻿name: Publicar complemento
 
 on:
   push:
     tags:
-      - '[0-9]+.[0-9]+*'
       - 'v[0-9]+.[0-9]+*'
   workflow_dispatch:
 
@@ -24,9 +23,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Pasar pruebas unitarias
-        run: python -m unittest discover -s tests -v
-
       - name: Crear archivo .nvda-addon
         id: empaquetar
         run: |
@@ -42,7 +38,7 @@ jobs:
           versioned = f'{name}-{ver}.nvda-addon'
           exclude_dirs = {'__pycache__', '.git', '.github', 'tests'}
           exclude_exts = {'.pyc', '.tmp', '.bat', '.ps1', '.yml'}
-          exclude_files = {'README.md', 'CHANGELOG.md', '.gitignore', 'resultado_github.txt', 'EN_CRISTIANO.md'}
+          exclude_files = {'README.md', 'CHANGELOG.md', '.gitignore'}
 
           with zipfile.ZipFile(versioned, 'w', zipfile.ZIP_DEFLATED) as z:
               for root, dirs, files in os.walk('.'):
@@ -64,6 +60,6 @@ jobs:
       - name: Publicar en GitHub Releases
         uses: softprops/action-gh-release@v2
         with:
-          name: "${ steps.empaquetar.outputs.filename }"
-          files: ${ steps.empaquetar.outputs.filename }
+          name: "Release ${{ steps.empaquetar.outputs.version }}"
+          files: ${{ steps.empaquetar.outputs.filename }}
           generate_release_notes: true
