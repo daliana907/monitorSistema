@@ -32,6 +32,7 @@ import re
 import tempfile
 import base64
 import urllib.request
+import ssl
 import winreg
 from ctypes import (
 	addressof,
@@ -170,6 +171,8 @@ try:
 		wlanapi.DOT11_AUTH_ALGO_WPA3_ENT: "WPA3-Enterprise",
 	}
 
+	_ultimoSsidConocido: str | None = None
+
 	@wlanapi.WLAN_NOTIFICATION_CALLBACK
 	def notifyHandler(pData: Any, pCtx: Any):
 		"""Recibe los avisos que Windows manda sobre la tarjeta Wi-Fi.
@@ -179,6 +182,7 @@ try:
 		para que lo diga cuando le toque. Reconoce cuatro cosas: te conectaste a
 		una red, te desconectaste, se encendió la tarjeta Wi-Fi y se apagó.
 		"""
+		global _ultimoSsidConocido
 		try:
 			if pData.contents.NotificationSource != wlanapi.WLAN_NOTIFICATION_SOURCE_ACM:
 				return
@@ -188,13 +192,16 @@ try:
 					if notificationData.wlanReasonCode != wlanapi.ERROR_SUCCESS:
 						return
 					ssid = notificationData.dot11Ssid.SSID
+					nombre_ssid = ssid.decode("utf-8", errors="ignore").strip()
+					_ultimoSsidConocido = nombre_ssid
 					queueHandler.queueFunction(
 						queueHandler.eventQueue,
 						message,
-						_("Conectado a {}").format(ssid.decode("utf-8", errors="ignore")),
+						_("Conectado a {}").format(nombre_ssid),
 						"connect.wav",
 					)
 				case wlanapi.wlan_notification_acm_disconnected:
+					_ultimoSsidConocido = None
 					ssid = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(
 						pData.contents.pData
 					).dot11Ssid.SSID
@@ -2581,6 +2588,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		mismas palabras. La memoria que pide Windows se devuelve siempre al
 		terminar.
 		"""
+		global _ultimoSsidConocido
 		if not self._client_handle:
 			return _("No hay dispositivos de red inalámbrica")
 
@@ -2597,9 +2605,29 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					continue
 
 				wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
-				if wlanapi.WlanGetAvailableNetworkList(
-					self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
-				) == 0:
+				ret = None
+				try:
+					ret = wlanapi.WlanGetAvailableNetworkList(
+						self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
+					)
+				except (PermissionError, OSError) as e:
+					# En Windows 11 (24H2/26H2), las consultas WLAN exigen permisos de ubicación del sistema.
+					# Si la ubicación está desactivada, Windows devuelve ERROR_ACCESS_DENIED (WinError 5).
+					# En Windows 10 nunca se produce esta restricción de permisos.
+					log.warning(f"MonitorSistema: Acceso denegado a WlanGetAvailableNetworkList (requiere permisos de ubicación en Windows 11): {e}")
+					ssid_respaldo = _ultimoSsidConocido or self._obtenerSsidDeRespaldo()
+					if ssid_respaldo:
+						return _(
+							"Red inalámbrica conectada: {}. Intensidad de señal y seguridad no disponibles (en Windows 11 activa los servicios de ubicación en Configuración > Privacidad y seguridad > Ubicación)."
+						).format(ssid_respaldo)
+					return _(
+						"No se pudo obtener información de la red inalámbrica: en Windows 11 activa los servicios de ubicación en Configuración > Privacidad y seguridad > Ubicación."
+					)
+				except Exception as e:
+					log.error(f"MonitorSistema: Error inesperado en WlanGetAvailableNetworkList: {e}", exc_info=True)
+					continue
+
+				if ret == 0:
 					try:
 						if wlan_available_network_list and wlan_available_network_list.contents.NumberOfItems > 0:
 							for n in customResize(
@@ -2610,6 +2638,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 									ssid_len = int(n.dot11Ssid.SSIDLength)
 									ssid_bytes = n.dot11Ssid.SSID[:ssid_len] if 0 < ssid_len <= 32 else n.dot11Ssid.SSID
 									ssid_str = ssid_bytes.decode(errors="ignore").strip() or _("Red oculta")
+									_ultimoSsidConocido = ssid_str
 									sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
 									log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
 									info = (
@@ -2627,6 +2656,30 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		finally:
 			if wlan_ifaces:
 				wlanapi.WlanFreeMemory(wlan_ifaces)
+
+	def _obtenerSsidDeRespaldo(self) -> str | None:
+		"""Obtiene el nombre de la red Wi-Fi activa sin depender de Native WiFi.
+
+		En Windows 11, si la ubicación está desactivada, WlanGetAvailableNetworkList
+		falla por denegación de permisos. El perfil de conexión del sistema sí conoce
+		el SSID de la red conectada.
+		"""
+		try:
+			creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+			res = subprocess.run(
+				["powershell", "-NoProfile", "-Command", "(Get-NetConnectionProfile -InterfaceAlias '*Wi-Fi*').Name"],
+				capture_output=True,
+				text=True,
+				creationflags=creationflags,
+				timeout=2,
+			)
+			if res.returncode == 0:
+				lineas = res.stdout.strip().splitlines()
+				if lineas and lineas[0].strip():
+					return lineas[0].strip()
+		except Exception as e:
+			log.debug(f"MonitorSistema: No se pudo obtener SSID de respaldo: {e}")
+		return None
 
 	def _getCurrentWlanSignal(self) -> int | None:
 		"""Devuelve solo el número de la intensidad de señal del Wi-Fi, de 0 a 100.
@@ -2649,9 +2702,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					if i.isState != wlanapi.wlan_interface_state_connected:
 						continue
 					wlan_available_network_list = POINTER(wlanapi.WLAN_AVAILABLE_NETWORK_LIST)()
-					if wlanapi.WlanGetAvailableNetworkList(
-						self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
-					) == 0:
+					ret = None
+					try:
+						ret = wlanapi.WlanGetAvailableNetworkList(
+							self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
+						)
+					except (PermissionError, OSError) as e:
+						log.debug(f"MonitorSistema: Señal WLAN no accesible debido a permisos de ubicación en Windows 11: {e}")
+						return None
+					except Exception as e:
+						log.error(f"MonitorSistema: Error inesperado consultando señal WLAN: {e}")
+						return None
+
+					if ret == 0:
 						try:
 							for n in customResize(
 								wlan_available_network_list.contents.Network,
@@ -3143,8 +3206,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		measure_start_d = start_down
 		warmed_up = False
 		
+		ssl_ctx = getattr(ssl, "_create_unverified_context", ssl.create_default_context)()
+		ssl_ctx.check_hostname = False
+		ssl_ctx.verify_mode = ssl.CERT_NONE
+
 		req_d = urllib.request.Request("https://cachefly.cachefly.net/100mb.test", headers={'User-Agent': 'Mozilla/5.0'})
-		with urllib.request.urlopen(req_d, timeout=5) as res_d:
+		with urllib.request.urlopen(req_d, timeout=5, context=ssl_ctx) as res_d:
 			while True:
 				chunk = res_d.read(1024 * 256)
 				if not chunk: break
@@ -3191,7 +3258,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		stream = UploadStream()
 		req_u = urllib.request.Request(url_up, data=stream, headers={'User-Agent': 'Mozilla/5.0'})
 		try:
-			urllib.request.urlopen(req_u, timeout=5)
+			ssl_ctx = getattr(ssl, "_create_unverified_context", ssl.create_default_context)()
+			ssl_ctx.check_hostname = False
+			ssl_ctx.verify_mode = ssl.CERT_NONE
+			urllib.request.urlopen(req_u, timeout=5, context=ssl_ctx)
 		except Exception as up_err:
 			log.debug(f"MonitorSistema: Cierre de stream de subida: {up_err}")
 		

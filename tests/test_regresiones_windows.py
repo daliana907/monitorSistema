@@ -43,12 +43,15 @@ class _WlanApiDeMentira(types.ModuleType):
     """Doble de wlanapi.py: no define ninguna estructura de C, solo atributos sueltos."""
 
     class _DummyStruct(ctypes.Structure):
-        _fields_ = [("dummy", ctypes.c_int)]
+        _fields_ = [("NumberOfItems", ctypes.c_int), ("InterfaceInfo", ctypes.c_int), ("dummy", ctypes.c_int)]
 
     def __getattr__(self, nombre):
         if "LIST" in nombre or "INFO" in nombre or "GUID" in nombre:
-            return self._DummyStruct
-        return MagicMock()
+            val = self._DummyStruct
+        else:
+            val = MagicMock()
+        setattr(self, nombre, val)
+        return val
 
 
 class _ConfDeMentira(dict):
@@ -194,6 +197,47 @@ class ResilienciaWlanApi(unittest.TestCase):
 
         res = plugin._getWlanInfo()
         self.assertIn("No hay dispositivos", res)
+
+    def test_wlan_get_available_network_list_acceso_denegado_no_lanza_excepcion(self):
+        plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        plugin._client_handle = ctypes.wintypes.HANDLE(1234)
+
+        iface = MagicMock()
+        iface.isState = self.modulo.wlanapi.wlan_interface_state_connected
+        iface.InterfaceGuid = self.modulo.wlanapi._DummyStruct()
+        ifaces_list = self.modulo.wlanapi._DummyStruct(1, 0, 0)
+
+        self.modulo.wlanapi.WlanEnumInterfaces = MagicMock(
+            side_effect=lambda h, r, pp: (setattr(pp._obj, "contents", ifaces_list), 0)[1]
+        )
+        self.modulo.customResize = lambda arr, count: [iface]
+        self.modulo.wlanapi.WlanGetAvailableNetworkList = MagicMock(
+            side_effect=PermissionError(5, "Acceso denegado")
+        )
+        self.modulo._ultimoSsidConocido = "MiRedWifi"
+
+        res = plugin._getWlanInfo()
+        self.assertIn("MiRedWifi", res)
+
+    def test_get_current_wlan_signal_acceso_denegado_retorna_none(self):
+        plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        plugin._client_handle = ctypes.wintypes.HANDLE(1234)
+
+        iface = MagicMock()
+        iface.isState = self.modulo.wlanapi.wlan_interface_state_connected
+        iface.InterfaceGuid = self.modulo.wlanapi._DummyStruct()
+        ifaces_list = self.modulo.wlanapi._DummyStruct(1, 0, 0)
+
+        self.modulo.wlanapi.WlanEnumInterfaces = MagicMock(
+            side_effect=lambda h, r, pp: (setattr(pp._obj, "contents", ifaces_list), 0)[1]
+        )
+        self.modulo.customResize = lambda arr, count: [iface]
+        self.modulo.wlanapi.WlanGetAvailableNetworkList = MagicMock(
+            side_effect=PermissionError(5, "Acceso denegado")
+        )
+
+        res = plugin._getCurrentWlanSignal()
+        self.assertIsNone(res)
 
 
 if __name__ == "__main__":
