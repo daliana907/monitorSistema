@@ -1,7 +1,7 @@
 # System Monitor for NVDA
 
 - Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-- Version: 2.9
+- Version: 3.0.0
 - Compatibility: NVDA 2023.1 and later
 - License: GNU GPL v2
 
@@ -54,6 +54,18 @@ You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Check shortcut conflicts with other add-ons...: Scans for overlapping shortcuts with other installed add-ons.
 
 ---
+
+## What's new in 3.0.0 (13 October 2026)
+
+- Windows 11 full compatibility: extensive overhaul for Windows 11 (24H2/26H2 builds) while maintaining 100% backward compatibility with Windows 10.
+- Location-resilient Wi-Fi diagnostics: automatically uses netsh interfaces fallback when Windows 11 restricts system location access for WlanGetAvailableNetworkList, preserving Wi-Fi SSID, signal strength, security protocol, and background signal alerts.
+- Hardened WLAN disconnection handling: fixed potential null pointer dereferences and empty SSID strings during wireless disconnections.
+- Thread-safe CPU temperature polling: added per-thread COM initialization (`CoInitialize`) in WMI temperature checks, preventing silent background thread failures.
+- Fast battery health diagnostics: ultra-fast in-memory WMI COM querying with dual fallback support for PowerShell (`Get-CimInstance` and `Get-WmiObject`).
+- Non-elevated disk health fallback: gracefully falls back to non-elevated S.M.A.R.T. queries if UAC elevation is cancelled or unavailable.
+- Monotonic system uptime: reliable computer uptime calculation using `GetTickCount64` fallback to protect against clock skews or time synchronization anomalies.
+- Network speed test SSL certificate validation: applied verified default SSL context to prevent certificate handshake failures in NVDA's embedded Python environment.
+- Conflict detection accuracy: resolved false-positive shortcut conflict warnings with System Monitor itself.
 
 ## What's new in 2.9.2 (18 September 2026)
 

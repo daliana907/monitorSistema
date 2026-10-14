@@ -1439,7 +1439,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if getattr(globalVars.appArgs, "secureMode", False):
 			log.warning("Monitoreo del Sistema: NVDA en modo seguro. Se cancela la carga del complemento por seguridad.")
 			raise globalPluginHandler.ActionCancelled()
-		log.info("Monitoreo del Sistema: Inicializando complemento (v2.7)...")
+		log.info("Monitoreo del Sistema: Inicializando complemento (v3.0.0)...")
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._client_handle = None

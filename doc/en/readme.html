@@ -56,7 +56,7 @@ hr {
 <h1>System Monitor for NVDA</h1>
 <ul>
 <li>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)</li>
-<li>Version: 2.9</li>
+<li>Version: 3.0.0</li>
 <li>Compatibility: NVDA 2023.1 and later</li>
 <li>License: GNU GPL v2</li>
 </ul>
@@ -102,6 +102,18 @@ hr {
 <li>Check shortcut conflicts with other add-ons...: Scans for overlapping shortcuts with other installed add-ons.</li>
 </ul>
 <hr />
+<h2>What's new in 3.0.0 (13 October 2026)</h2>
+<ul>
+<li>Windows 11 full compatibility: extensive overhaul for Windows 11 (24H2/26H2 builds) while maintaining 100% backward compatibility with Windows 10.</li>
+<li>Location-resilient Wi-Fi diagnostics: automatically uses netsh interfaces fallback when Windows 11 restricts system location access for WlanGetAvailableNetworkList, preserving Wi-Fi SSID, signal strength, security protocol, and background signal alerts.</li>
+<li>Hardened WLAN disconnection handling: fixed potential null pointer dereferences and empty SSID strings during wireless disconnections.</li>
+<li>Thread-safe CPU temperature polling: added per-thread COM initialization (CoInitialize) in WMI temperature checks, preventing silent background thread failures.</li>
+<li>Fast battery health diagnostics: ultra-fast in-memory WMI COM querying with dual fallback support for PowerShell (Get-CimInstance and Get-WmiObject).</li>
+<li>Non-elevated disk health fallback: gracefully falls back to non-elevated S.M.A.R.T. queries if UAC elevation is cancelled or unavailable.</li>
+<li>Monotonic system uptime: reliable computer uptime calculation using GetTickCount64 fallback to protect against clock skews or time synchronization anomalies.</li>
+<li>Network speed test SSL certificate validation: applied verified default SSL context to prevent certificate handshake failures in NVDA's embedded Python environment.</li>
+<li>Conflict detection accuracy: resolved false-positive shortcut conflict warnings with System Monitor itself.</li>
+</ul>
 <h2>What's new in 2.9.2 (18 September 2026)</h2>
 <ul>
 <li>Clean Wi-Fi connection disposal: the wireless network handle is now reliably released when NVDA restarts or shuts down, preventing lingering resource leaks.</li>
