@@ -222,6 +222,7 @@ class ResilienciaWlanApi(unittest.TestCase):
     def test_get_current_wlan_signal_acceso_denegado_retorna_none(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
         plugin._client_handle = ctypes.wintypes.HANDLE(1234)
+        plugin._obtenerInfoWifiNetsh = MagicMock(return_value={"signal": None})
 
         iface = MagicMock()
         iface.isState = self.modulo.wlanapi.wlan_interface_state_connected
@@ -238,6 +239,59 @@ class ResilienciaWlanApi(unittest.TestCase):
 
         res = plugin._getCurrentWlanSignal()
         self.assertIsNone(res)
+
+    def test_get_current_wlan_signal_acceso_denegado_recupera_con_netsh(self):
+        plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        plugin._client_handle = ctypes.wintypes.HANDLE(1234)
+        plugin._obtenerInfoWifiNetsh = MagicMock(return_value={"signal": 85})
+
+        iface = MagicMock()
+        iface.isState = self.modulo.wlanapi.wlan_interface_state_connected
+        iface.InterfaceGuid = self.modulo.wlanapi._DummyStruct()
+        ifaces_list = self.modulo.wlanapi._DummyStruct(1, 0, 0)
+
+        self.modulo.wlanapi.WlanEnumInterfaces = MagicMock(
+            side_effect=lambda h, r, pp: (setattr(pp._obj, "contents", ifaces_list), 0)[1]
+        )
+        self.modulo.customResize = lambda arr, count: [iface]
+        self.modulo.wlanapi.WlanGetAvailableNetworkList = MagicMock(
+            side_effect=PermissionError(5, "Acceso denegado")
+        )
+
+        res = plugin._getCurrentWlanSignal()
+        self.assertEqual(res, 85)
+
+
+class RobustezWindows11(unittest.TestCase):
+    """Verifica que las mejoras de compatibilidad para Windows 11 funcionen correctamente."""
+
+    def setUp(self):
+        self.modulo = _importarModuloPrincipal()
+
+    def test_conflicto_no_detecta_monitoreosistema_como_ajeno(self):
+        plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        warnings = []
+        addon_propio = MagicMock()
+        addon_propio.name = "monitoreoSistema"
+        addon_propio.isDisabled = False
+        addon_propio.manifest = {"summary": "Monitoreo del Sistema"}
+
+        import addonHandler
+        addonHandler.getAvailableAddons = lambda: [addon_propio]
+        plugin._revisarComplementosSolapados(warnings)
+        self.assertEqual(len(warnings), 0)
+
+    def test_uptime_usa_tick_count_si_boot_time_es_cero(self):
+        plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        import psutil
+        psutil.boot_time = lambda: 0.0
+
+        # Mock GetTickCount64 para devolver 3661000 ms (1 hora, 1 minuto, 1 segundo)
+        ctypes.windll.kernel32.GetTickCount64 = MagicMock(return_value=3661000)
+        res = plugin.getUptime()
+        self.assertIn("hora", res)
+        self.assertIn("minuto", res)
+        self.assertIn("segundo", res)
 
 
 if __name__ == "__main__":

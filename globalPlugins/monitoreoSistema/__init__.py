@@ -73,7 +73,7 @@ except ImportError:
 try:
 	from . import wlanapi
 	wlanapiAvailable = True
-except (OSError, AttributeError):
+except (OSError, AttributeError, ImportError, Exception):
 	wlanapiAvailable = False
 
 from .gpu import BaseGpuProvider, getGpuProviders
@@ -188,6 +188,8 @@ try:
 				return
 			match pData.contents.NotificationCode:
 				case wlanapi.wlan_notification_acm_connection_complete:
+					if not getattr(pData.contents, "pData", None):
+						return
 					notificationData = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(pData.contents.pData)
 					if notificationData.wlanReasonCode != wlanapi.ERROR_SUCCESS:
 						return
@@ -201,14 +203,26 @@ try:
 						"connect.wav",
 					)
 				case wlanapi.wlan_notification_acm_disconnected:
+					desconectado_de = _ultimoSsidConocido
 					_ultimoSsidConocido = None
-					ssid = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(
-						pData.contents.pData
-					).dot11Ssid.SSID
+					ssid_nombre = ""
+					if getattr(pData.contents, "pData", None):
+						try:
+							raw_ssid = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(
+								pData.contents.pData
+							).dot11Ssid.SSID
+							ssid_nombre = raw_ssid.decode("utf-8", errors="ignore").strip()
+						except Exception:
+							pass
+					red_nombre = ssid_nombre or desconectado_de
+					if red_nombre:
+						msg_desc = _("Desconectado de {}").format(red_nombre)
+					else:
+						msg_desc = _("Desconectado de la red inalámbrica")
 					queueHandler.queueFunction(
 						queueHandler.eventQueue,
 						message,
-						_("Desconectado de {}").format(ssid.decode("utf-8", errors="ignore")),
+						msg_desc,
 						"disconnect.wav",
 					)
 				case wlanapi.wlan_notification_acm_interface_arrival:
@@ -2263,8 +2277,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		Se consultan varios almacenes de datos porque cada fabricante publica la
 		temperatura en un sitio distinto, y muchos equipos no la publican en ninguno.
 		"""
+		co_init = False
 		try:
+			import comtypes
 			import comtypes.client
+			try:
+				comtypes.CoInitialize()
+				co_init = True
+			except Exception:
+				pass
 			locator = comtypes.client.CreateObject("WbemScripting.SWbemLocator")
 
 			# 2a. ACPI Thermal Zone (root\wmi)
@@ -2311,6 +2332,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					pass
 		except Exception as e:
 			log.debug(f"MonitorSistema: Error consultando temperatura de CPU: {e}")
+		finally:
+			if co_init:
+				try:
+					comtypes.CoUninitialize()
+				except Exception:
+					pass
 		return None
 
 
@@ -2615,8 +2642,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					# Si la ubicación está desactivada, Windows devuelve ERROR_ACCESS_DENIED (WinError 5).
 					# En Windows 10 nunca se produce esta restricción de permisos.
 					log.warning(f"MonitorSistema: Acceso denegado a WlanGetAvailableNetworkList (requiere permisos de ubicación en Windows 11): {e}")
-					ssid_respaldo = _ultimoSsidConocido or self._obtenerSsidDeRespaldo()
+					netsh_data = self._obtenerInfoWifiNetsh()
+					ssid_respaldo = _ultimoSsidConocido or netsh_data.get("ssid") or self._obtenerSsidDeRespaldo()
 					if ssid_respaldo:
+						_ultimoSsidConocido = ssid_respaldo
+						if netsh_data.get("signal") is not None and netsh_data.get("auth"):
+							log.info(f"MonitorSistema: WLAN recuperada vía netsh en Windows 11: SSID='{ssid_respaldo}', Señal={netsh_data['signal']}%, Seguridad='{netsh_data['auth']}'")
+							return _("Red inalámbrica conectada: {}, intensidad de señal: {}%, tipo de seguridad: {}").format(
+								ssid_respaldo,
+								netsh_data["signal"],
+								netsh_data["auth"],
+							)
 						return _(
 							"Red inalámbrica conectada: {}. Intensidad de señal y seguridad no disponibles (en Windows 11 activa los servicios de ubicación en Configuración > Privacidad y seguridad > Ubicación)."
 						).format(ssid_respaldo)
@@ -2656,6 +2692,53 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		finally:
 			if wlan_ifaces:
 				wlanapi.WlanFreeMemory(wlan_ifaces)
+
+	def _obtenerInfoWifiNetsh(self) -> dict:
+		"""Consulta el estado, SSID, señal y seguridad Wi-Fi vía netsh wlan.
+
+		En Windows 11 (24H2+), Native WiFi (WlanGetAvailableNetworkList) exige
+		permisos de ubicación del sistema. Si están desactivados, netsh sigue
+		teniendo acceso y devuelve SSID, porcentaje de señal y protocolo de seguridad.
+		"""
+		info = {"ssid": None, "signal": None, "auth": None, "connected": False}
+		try:
+			creationflags = getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000)
+			res = subprocess.run(
+				["netsh", "wlan", "show", "interfaces"],
+				capture_output=True,
+				creationflags=creationflags,
+				timeout=3,
+			)
+			if res.returncode != 0 or not res.stdout:
+				return info
+			text = ""
+			for enc in ("oem", "utf-8", "cp1252"):
+				try:
+					text = res.stdout.decode(enc)
+					break
+				except Exception:
+					pass
+			if not text:
+				text = res.stdout.decode("latin-1", errors="ignore")
+			for line in text.splitlines():
+				if ":" not in line:
+					continue
+				k, v = line.split(":", 1)
+				k_clean = k.strip().lower()
+				v_clean = v.strip()
+				if k_clean == "ssid":
+					info["ssid"] = v_clean
+				elif any(sub in k_clean for sub in ("se", "signal", "sin", "segn")):
+					m = re.search(r"(\d+)\s*%", v_clean)
+					if m:
+						info["signal"] = int(m.group(1))
+				elif any(sub in k_clean for sub in ("auth", "autentic")):
+					info["auth"] = v_clean
+				elif any(sub in k_clean for sub in ("estado", "state", "status", "stat")):
+					info["connected"] = any(c in v_clean.lower() for c in ("con", "verb", "assoc"))
+		except Exception as e:
+			log.debug(f"MonitorSistema: Error consultando netsh wlan show interfaces: {e}")
+		return info
 
 	def _obtenerSsidDeRespaldo(self) -> str | None:
 		"""Obtiene el nombre de la red Wi-Fi activa sin depender de Native WiFi.
@@ -2708,7 +2791,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 							self._client_handle, byref(i.InterfaceGuid), 0, None, byref(wlan_available_network_list)
 						)
 					except (PermissionError, OSError) as e:
-						log.debug(f"MonitorSistema: Señal WLAN no accesible debido a permisos de ubicación en Windows 11: {e}")
+						log.debug(f"MonitorSistema: Señal WLAN no accesible en Native WiFi por permisos de ubicación en Windows 11 ({e}), intentando netsh...")
+						sig_respaldo = self._obtenerInfoWifiNetsh().get("signal")
+						if sig_respaldo is not None:
+							return sig_respaldo
 						return None
 					except Exception as e:
 						log.error(f"MonitorSistema: Error inesperado consultando señal WLAN: {e}")
@@ -2766,17 +2852,29 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def getUptime(self) -> str:
 		"""Calcula y formatea el tiempo transcurrido desde el último inicio del sistema."""
-		bootTimestamp = psutil.boot_time()
-		if bootTimestamp == 0.0:
-			raise TypeError
-		uptime = datetime.now() - datetime.fromtimestamp(bootTimestamp)
-		totalSecs = int(uptime.total_seconds())
+		totalSecs = 0
+		bootTimestamp = 0.0
+		try:
+			bootTimestamp = psutil.boot_time()
+		except Exception:
+			bootTimestamp = 0.0
+		if bootTimestamp > 0.0:
+			uptime = datetime.now() - datetime.fromtimestamp(bootTimestamp)
+			totalSecs = int(uptime.total_seconds())
+		if totalSecs <= 0:
+			try:
+				GetTickCount64 = getattr(ctypes.windll.kernel32, "GetTickCount64", None)
+				if GetTickCount64:
+					GetTickCount64.restype = ctypes.c_ulonglong
+					totalSecs = int(GetTickCount64() // 1000)
+			except Exception:
+				pass
 		if totalSecs <= 0:
 			# Translators: Mensaje cuando el tiempo de actividad es inferior a un segundo por desfase horario o arranque inmediato.
 			return _("menos de un segundo")
-		days = uptime.days
-		hours, remainingMinutes = divmod(totalSecs % 86400, 3600)
-		minutes, seconds = divmod(remainingMinutes, 60)
+		days, remSecs = divmod(totalSecs, 86400)
+		hours, remMins = divmod(remSecs, 3600)
+		minutes, seconds = divmod(remMins, 60)
 		uptimeComponents = []
 		if days > 0:
 			# Translators: Formato de días de actividad (singular o plural).
@@ -2790,7 +2888,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Translators: Formato de segundos de actividad (singular o plural).
 		uptimeComponents.append(_("{count} segundo").format(count=seconds) if seconds == 1 else _("{count} segundos").format(count=seconds))
 		res = ", ".join(uptimeComponents)
-		log.info(f"MonitorSistema: Tiempo de actividad calculado desde arranque ({datetime.fromtimestamp(bootTimestamp).strftime('%Y-%m-%d %H:%M:%S')}): {res}")
+		log.info(f"MonitorSistema: Tiempo de actividad calculado ({totalSecs}s): {res}")
 		return res
 
 	@scriptHandler.script(
@@ -2939,12 +3037,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		log.info("MonitorSistema: Lanzando PowerShell con ShellExecuteW...")
 		resultado = ctypes.windll.shell32.ShellExecuteW(None, "runas", "powershell.exe", f"-NoProfile -WindowStyle Hidden -EncodedCommand {encoded}", None, 0)
 		if resultado <= 32:
-			# Un valor de 32 o menos significa que Windows ni siquiera llegó a abrir PowerShell
-			# (por ejemplo, si no está instalado), así que no tiene sentido esperar.
+			log.info("MonitorSistema: ShellExecuteW no inició PowerShell elevado; intentando consulta no elevada de respaldo...")
+			try:
+				disks_silent = self._queryDiskHealthSilent()
+				if disks_silent:
+					transformed = []
+					for d in disks_silent:
+						transformed.append({
+							"Name": d.get("FriendlyName"),
+							"Type": d.get("MediaType"),
+							"Health": d.get("HealthStatus"),
+							"Wear": d.get("Wear"),
+						})
+					return json.dumps(transformed)
+			except Exception as se:
+				log.debug(f"MonitorSistema: Error en consulta no elevada de respaldo: {se}")
 			log.warning(f"MonitorSistema: ShellExecuteW no pudo iniciar PowerShell (código {resultado}).")
 			err_msg = _("No se pudo obtener información de los discos o se canceló el permiso de administrador.")
 			wx.CallAfter(ui.message, err_msg)
-			return
+			return None
 
 		timeout = 15
 		while timeout > 0:
@@ -2953,22 +3064,44 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				break
 			time.sleep(1)
 			timeout -= 1
-		
+
 		if not os.path.exists(tmp_file):
+			log.info("MonitorSistema: UAC no completado o archivo temporal no encontrado; intentando consulta no elevada de respaldo...")
+			try:
+				disks_silent = self._queryDiskHealthSilent()
+				if disks_silent:
+					transformed = []
+					for d in disks_silent:
+						transformed.append({
+							"Name": d.get("FriendlyName"),
+							"Type": d.get("MediaType"),
+							"Health": d.get("HealthStatus"),
+							"Wear": d.get("Wear"),
+						})
+					return json.dumps(transformed)
+			except Exception as se:
+				log.debug(f"MonitorSistema: Error en consulta no elevada de respaldo: {se}")
 			log.warning("MonitorSistema: Archivo no encontrado, UAC rechazado o expiró el tiempo de espera.")
 			err_msg = _("No se pudo obtener información de los discos o se canceló el permiso de administrador.")
 			wx.CallAfter(ui.message, err_msg)
-			return
-			
+			return None
+
 		output = ""
+		for _intento in range(5):
+			try:
+				with open(tmp_file, 'r', encoding='utf-8-sig') as f:
+					output = f.read().strip()
+				if output:
+					break
+			except (PermissionError, OSError):
+				time.sleep(0.3)
+			except Exception as e:
+				log.error(f"MonitorSistema: Error leyendo archivo temporal de discos: {e}", exc_info=True)
+				break
 		try:
-			with open(tmp_file, 'r', encoding='utf-8-sig') as f:
-				output = f.read().strip()
-		except Exception as e:
-			log.error(f"MonitorSistema: Error leyendo archivo temporal de discos: {e}", exc_info=True)
-		finally:
-			try: os.remove(tmp_file)
-			except Exception: pass
+			os.remove(tmp_file)
+		except Exception:
+			pass
 		return output
 
 	def _resumenDeDiscos(self, data):
@@ -3331,26 +3464,66 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						msg += " " + _("Tiempo restante estimado: {} horas y {} minutos.").format(mins // 60, mins % 60)
 					
 					# Consulta WMI de salud real vs capacidad de diseño
-					# Se toma -First 1 en las dos consultas: en equipos con dos baterías,
-					# antes podían llegar dos valores en $f y en $d, y dividir un
-					# arreglo por otro en PowerShell no da el porcentaje esperado.
-					ps_script = "Try { $f = (Get-WmiObject BatteryFullChargedCapacity -Namespace root\\wmi -EA Stop | Select-Object -First 1 -ExpandProperty FullChargedCapacity); $d = (Get-WmiObject BatteryStaticData -Namespace root\\wmi -EA Stop | Select-Object -First 1 -ExpandProperty DesignedCapacity); if ($d -gt 0) { [math]::Round(($f / $d) * 100) } } Catch { }"
-					
+					health_pct = None
+					co_init = False
 					try:
-						si = subprocess.STARTUPINFO()
-						si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
-						out = subprocess.check_output(
-							["powershell", "-WindowStyle", "Hidden", "-NoProfile", "-Command", ps_script],
-							startupinfo=si,
-							creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000),
-							text=True,
-							timeout=5
-						).strip()
-						log.info(f"MonitorSistema: Respuesta PowerShell salud batería WMI: '{out}'")
-						if out and out.isdigit():
-							msg += " " + _("Salud real de la batería: {} % de su capacidad original.").format(out)
-					except Exception as e:
-						log.error(f"MonitorSistema: Error en consulta WMI de salud de batería: {e}", exc_info=True)
+						import comtypes
+						import comtypes.client
+						try:
+							comtypes.CoInitialize()
+							co_init = True
+						except Exception:
+							pass
+						locator = comtypes.client.CreateObject("WbemScripting.SWbemLocator")
+						services = locator.ConnectServer(".", "root\\wmi")
+						f_items = services.ExecQuery("SELECT FullChargedCapacity FROM BatteryFullChargedCapacity")
+						d_items = services.ExecQuery("SELECT DesignedCapacity FROM BatteryStaticData")
+						f_val = next(iter(f_items)).Properties_("FullChargedCapacity").Value
+						d_val = next(iter(d_items)).Properties_("DesignedCapacity").Value
+						if f_val and d_val and d_val > 0:
+							health_pct = str(round((f_val / d_val) * 100))
+					except Exception:
+						pass
+					finally:
+						if co_init:
+							try:
+								comtypes.CoUninitialize()
+							except Exception:
+								pass
+
+					if not health_pct:
+						# Respaldo vía PowerShell con Get-CimInstance / Get-WmiObject
+						ps_script = (
+							"Try { "
+							"$f = (Get-CimInstance -Namespace root\\wmi -ClassName BatteryFullChargedCapacity -EA Stop | Select-Object -First 1).FullChargedCapacity; "
+							"$d = (Get-CimInstance -Namespace root\\wmi -ClassName BatteryStaticData -EA Stop | Select-Object -First 1).DesignedCapacity; "
+							"if ($d -gt 0) { [math]::Round(($f / $d) * 100) } "
+							"} Catch { "
+							"Try { "
+							"$f = (Get-WmiObject BatteryFullChargedCapacity -Namespace root\\wmi -EA Stop | Select-Object -First 1 -ExpandProperty FullChargedCapacity); "
+							"$d = (Get-WmiObject BatteryStaticData -Namespace root\\wmi -EA Stop | Select-Object -First 1 -ExpandProperty DesignedCapacity); "
+							"if ($d -gt 0) { [math]::Round(($f / $d) * 100) } "
+							"} Catch { } "
+							"}"
+						)
+						try:
+							si = subprocess.STARTUPINFO()
+							si.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+							out = subprocess.check_output(
+								["powershell", "-WindowStyle", "Hidden", "-NoProfile", "-Command", ps_script],
+								startupinfo=si,
+								creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000),
+								text=True,
+								timeout=5
+							).strip()
+							log.info(f"MonitorSistema: Respuesta PowerShell salud batería WMI: '{out}'")
+							if out and out.isdigit():
+								health_pct = out
+						except Exception as pe:
+							log.debug(f"MonitorSistema: Error en consulta PowerShell de salud de batería: {pe}")
+
+					if health_pct:
+						msg += " " + _("Salud real de la batería: {} % de su capacidad original.").format(health_pct)
 				self._lastAdvBatteryResult = msg
 			except Exception as e:
 				log.error(f"MonitorSistema: Error general consultando batería: {e}", exc_info=True)
@@ -3537,7 +3710,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			available_addons = list(addonHandler.getAvailableAddons())
 			for addon in available_addons:
 				addon_name = getattr(addon, "name", "").lower()
-				if addon_name == "monitorsistema":
+				if addon_name in ("monitorsistema", "monitoreosistema"):
 					continue
 
 				if getattr(addon, "isDisabled", False):
@@ -3579,7 +3752,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				if plugin is self:
 					continue
 				plugin_mod = getattr(plugin, "__module__", str(type(plugin)))
-				if "monitorsistema" in plugin_mod.lower():
+				if any(k in plugin_mod.lower() for k in ("monitorsistema", "monitoreosistema")):
 					continue
 
 				# Obtener mapa de gestos del plugin

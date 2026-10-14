@@ -36,6 +36,9 @@ class _Cualquiera:
     def __call__(self, *a, **k):
         return _Cualquiera()
 
+    def __getitem__(self, item):
+        return _Cualquiera()
+
     def __or__(self, otro):
         return self
 
@@ -66,7 +69,12 @@ def instalar():
             NVDASettingsDialog=_Cualquiera)
     _modulo("gui.settingsDialogs", NVDASettingsDialog=_Cualquiera,
             SettingsPanel=type("SettingsPanel", (), {}))
-    _modulo("config", conf={})
+    class _ConfigFalsa(dict):
+        def __init__(self):
+            super().__init__()
+            self.spec = {}
+
+    _modulo("config", conf=_ConfigFalsa())
     _modulo("queueHandler", queueFunction=lambda *a, **k: None, eventQueue=None)
     _modulo("tones", beep=lambda *a, **k: None)
     _modulo("versionInfo", version_year=2026, version_major=2026, version_minor=3)
@@ -96,11 +104,21 @@ def instalar():
     _modulo("globalVars", appArgs=_Cualquiera(), appDir="", startTime=0)
     _modulo("core", callLater=lambda ms, f, *a, **k: None,
             triggerAsleep=lambda: None, isMainThread=lambda: True)
-    _modulo("winVersion", getWinVer=lambda: _Cualquiera())
+    class _WinVerInfo:
+        releaseName = "Windows 11"
+        productType = "workstation"
+        processorArchitecture = "AMD64"
+        build = 26300
+        revision = 1
+    _modulo("winVersion", getWinVer=lambda: _WinVerInfo())
     _modulo("winsound", Beep=lambda *a, **k: None, PlaySound=lambda *a, **k: None,
             SND_FILENAME=1, SND_ASYNC=2)
+    import ctypes
+    class _GUIDFalso(ctypes.Structure):
+        _fields_ = [("Data1", ctypes.c_ulong), ("Data2", ctypes.c_ushort),
+                    ("Data3", ctypes.c_ushort), ("Data4", ctypes.c_ubyte * 8)]
     _modulo("comtypes", client=_Cualquiera(), CoInitialize=lambda: None,
-            CoUninitialize=lambda: None, GUID=_Cualquiera, HRESULT=int,
+            CoUninitialize=lambda: None, GUID=_GUIDFalso, HRESULT=int,
             COMError=Exception)
     _modulo("comtypes.client", CreateObject=lambda *a, **k: _Cualquiera())
     if "psutil" not in sys.modules:

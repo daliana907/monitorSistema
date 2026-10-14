@@ -7,9 +7,20 @@
 # Released under the GNU General Public License version 2 (GPLv2).
 
 
-from comtypes import GUID
-from ctypes import windll, Structure, c_void_p, POINTER, c_long, c_ulong, WinError, c_uint, CFUNCTYPE, c_char, c_wchar
-from ctypes.wintypes import DWORD, PDWORD, HANDLE, BOOL
+from ctypes import windll, Structure, c_void_p, POINTER, c_long, c_ulong, WinError, c_uint, CFUNCTYPE, c_char, c_wchar, c_ubyte
+from ctypes.wintypes import DWORD, PDWORD, HANDLE, BOOL, WORD
+
+try:
+	from comtypes import GUID
+except (ImportError, Exception):
+	class GUID(Structure):
+		"""Estructura GUID de 16 bytes para identificadores de interfaz WLAN."""
+		_fields_ = [
+			("Data1", DWORD),
+			("Data2", WORD),
+			("Data3", WORD),
+			("Data4", c_ubyte * 8),
+		]
 
 wlanapi = windll.wlanapi
 
