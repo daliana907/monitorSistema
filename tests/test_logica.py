@@ -397,12 +397,14 @@ def cargarAviso(temperaturas):
         'temperaturasDeDiscos': lambda: temperaturas,
         'formatGpuTemperature': lambda t: '%s grados' % t,
         'tones': SimpleNamespace(beep=lambda *a: None),
+        '_beepAsync': lambda *a, **k: None,
+        'queueHandler': SimpleNamespace(queueFunction=lambda *a, **k: None, eventQueue=None),
         'log': SimpleNamespace(info=lambda *a, **k: None,
                                warning=lambda *a, **k: None,
                                error=lambda *a, **k: None),
     }
     exec(compile(modulo, PRINCIPAL, 'exec'), entorno)
-    plugin = SimpleNamespace(_decir=dicho.append)
+    plugin = SimpleNamespace(_decir=dicho.append, _emitBeep=lambda *a, **k: None)
     return entorno['_avisoDeTemperaturaDeDisco'], plugin, dicho
 
 

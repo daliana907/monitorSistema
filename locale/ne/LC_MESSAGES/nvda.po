@@ -5,13 +5,14 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: resourceMonitor 2.1\n"
+"Project-Id-Version: monitoreoSistema 3.0.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
 "POT-Creation-Date: 2013-03-05 06:00-0800\n"
-"PO-Revision-Date: 2019-07-14 20:31-0700\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
 "Last-Translator: Him Prasad Gautam <drishtibachak@gmail.com>\n"
 "Language-Team: Nepali <drishtibachak@gmail.com>\n"
 "Language: ne\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,7 +152,7 @@ msgid "Frecuencia actual de la CPU: {} gigahercios"
 msgstr "हालको CPU आवृत्ति: {} gigahertz"
 
 msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "अधिकतम CPU आवृत्ति: {gigahertz}"
+msgstr "अधिकतम CPU आवृत्ति: {}"
 
 msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
 msgstr "GPU {}: ग्राफिक्स प्रोसेसर लोड: {}%, तापमान: {}।"
@@ -457,7 +458,7 @@ msgid "Avisar cuando cambie el estado de la red Wi-Fi (conexión o desconexión)
 msgstr "Wi-Fi नेटवर्क स्थिति परिवर्तन हुँदा सूचित गर्नुहोस् (जडान वा विच्छेदन)"
 
 msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {}%."
-msgstr "चेतावनी: ब्लुटुथ उपकरणमा कम ब्याट्री {}% मा।"
+msgstr "चेतावनी: ब्लुटुथ उपकरण {} मा कम ब्याट्री {}% मा।"
 
 msgid "Señal de Wi-Fi: {}%."
 msgstr "Wi-Fi सिग्नल: {}%।"
@@ -655,7 +656,7 @@ msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
 msgstr "चेतावनी: ब्याट्री कम {}%। उपकरणलाई पावरमा जडान गर्नुहोस्।"
 
 msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
-msgstr "चेतावनी: ब्लुटुथ उपकरणमा कम ब्याट्री {} % मा।"
+msgstr "चेतावनी: ब्लुटुथ उपकरण {} मा कम ब्याट्री {} % मा।"
 
 msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
 msgstr "चेतावनी: SSD {} ले {} % लाईफ वेयर पुगेको छ।"

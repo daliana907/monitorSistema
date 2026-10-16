@@ -56,7 +56,7 @@ hr {
 <h1>System Monitor for NVDA</h1>
 <ul>
 <li>Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)</li>
-<li>Version: 3.0.0</li>
+<li>Version: 3.0.1</li>
 <li>Compatibility: NVDA 2023.1 and later</li>
 <li>License: GNU GPL v2</li>
 </ul>
@@ -101,7 +101,21 @@ hr {
 <li>Settings...: Opens the System Monitor configuration panel directly.</li>
 <li>Check shortcut conflicts with other add-ons...: Scans for overlapping shortcuts with other installed add-ons.</li>
 </ul>
+
+<h3>Safe Operation</h3>
+<ul>
+<li>Heavy drive, Bluetooth, GPU, and network-speed checks run in the background so NVDA stays responsive.</li>
+<li>Alerts that occur together are combined into one message, and Wi-Fi signal checks are limited to avoid unnecessary battery use.</li>
+<li>Only Bluetooth batteries for devices that Windows confirms as connected are announced. Disconnected devices do not fill NVDA's normal log.</li>
+<li>The speed test verifies connection security certificates.</li>
+<li>When NVDA closes, background tasks stop and Wi-Fi, GPU, and diagnostic resources are released.</li>
+</ul>
 <hr />
+<h2>What's new in 3.0.1</h2>
+<ul>
+<li>Bluetooth log stays quiet: disconnected devices no longer fill the log.</li>
+<li>No shortcut clash with TCA.</li>
+</ul>
 <h2>What's new in 3.0.0 (13 October 2026)</h2>
 <ul>
 <li>Windows 11 full compatibility: extensive overhaul for Windows 11 (24H2/26H2 builds) while maintaining 100% backward compatibility with Windows 10.</li>

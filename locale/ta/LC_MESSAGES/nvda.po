@@ -3,10 +3,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: resourceMonitor 2.1\n"
+"Project-Id-Version: monitoreoSistema 3.0.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-21 20:10-0600\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
 "Last-Translator: DINAKAR T.D. <td.dinkar@gmail.com>\n"
 "Language-Team: DINAKAR T.D. <td.dinkar@gmail.com>\n"
 "Language: ta_IN\n"
@@ -150,7 +150,7 @@ msgid "Frecuencia actual de la CPU: {} gigahercios"
 msgstr "தற்போதைய CPU அதிர்வெண்: {} gigahertz"
 
 msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "அதிகபட்ச CPU அதிர்வெண்: {gigahertz}"
+msgstr "அதிகபட்ச CPU அதிர்வெண்: {}"
 
 msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
 msgstr "GPU {}: கிராபிக்ஸ் செயலி ஏற்றம்: {}%, வெப்பநிலை: {}."
@@ -654,7 +654,7 @@ msgid "Advertencia: Batería baja al {} %. Conecta el equipo a la corriente."
 msgstr "எச்சரிக்கை: பேட்டரி குறைந்தது {}%. சாதனத்தை சக்தியுடன் இணைக்கவும்."
 
 msgid "Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %."
-msgstr "எச்சரிக்கை: புளூடூத் சாதனத்தில் குறைந்த பேட்டரி {} % இல் உள்ளது."
+msgstr "எச்சரிக்கை: புளூடூத் சாதனத்தில் {} குறைந்த பேட்டரி {} % இல் உள்ளது."
 
 msgid "Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil."
 msgstr "எச்சரிக்கை: SSD {} ஆனது {} % ஆயுள் உடையை அடைந்துள்ளது."

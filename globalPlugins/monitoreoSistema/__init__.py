@@ -21,7 +21,7 @@ except ImportError:
 	log = logging.getLogger(__name__)
 
 import os
-import os.path
+import math
 import time
 import winsound
 import ctypes
@@ -119,6 +119,35 @@ except Exception:
 	log.error("Monitoreo del Sistema: no se pudieron revisar los umbrales de temperatura.", exc_info=True)
 
 
+def _beepAsync(freq: int, duration: int) -> None:
+	"""Emite un pitido de forma segura desde cualquier hilo vía la cola de NVDA."""
+	try:
+		queueHandler.queueFunction(queueHandler.eventQueue, tones.beep, freq, duration)
+	except Exception:
+		pass
+
+
+def _extraerSsid(dot11Ssid) -> str:
+	"""Extrae el SSID recortado por SSIDLength con fallback a red oculta."""
+	try:
+		try:
+			ssid_len = int(getattr(dot11Ssid, "SSIDLength", 0))
+		except (ValueError, TypeError, OverflowError):
+			ssid_len = 0
+		ssid_len = max(0, min(ssid_len, 32))
+		raw = getattr(dot11Ssid, "SSID", b"")
+		try:
+			ssid_bytes = bytes(raw[:ssid_len]) if ssid_len > 0 else b""
+		except (TypeError, ValueError):
+			ssid_bytes = b""
+		nombre = ssid_bytes.decode("utf-8", errors="ignore").strip()
+		# Recorta NULs y espacios residuales del búfer fijo de 32 bytes.
+		nombre = nombre.split("\x00")[0].strip()
+		return nombre or _("Red oculta")
+	except Exception:
+		return _("Red oculta")
+
+
 def message(text: str, fileName: str) -> None:
 	"""Anuncia un cambio del Wi-Fi y hace sonar el aviso correspondiente.
 
@@ -148,13 +177,12 @@ def message(text: str, fileName: str) -> None:
 		except Exception:
 			pass
 	if not played:
-		try:
-			if "connect" in fileName:
-				tones.beep(660, 80); tones.beep(880, 100)
-			else:
-				tones.beep(440, 100); tones.beep(330, 120)
-		except Exception:
-			pass
+		if "connect" in fileName:
+			_beepAsync(660, 80)
+			_beepAsync(880, 100)
+		else:
+			_beepAsync(440, 100)
+			_beepAsync(330, 120)
 
 
 try:
@@ -184,17 +212,24 @@ try:
 		"""
 		global _ultimoSsidConocido
 		try:
+			if not pData or not getattr(pData, "contents", None):
+				return
 			if pData.contents.NotificationSource != wlanapi.WLAN_NOTIFICATION_SOURCE_ACM:
 				return
 			match pData.contents.NotificationCode:
 				case wlanapi.wlan_notification_acm_connection_complete:
-					if not getattr(pData.contents, "pData", None):
+					pDataAddr = getattr(pData.contents, "pData", 0)
+					dwSize = int(getattr(pData.contents, "dwDataSize", 0) or 0)
+					if not pDataAddr or dwSize < ctypes.sizeof(wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA):
+						log.warning(f"MonitorSistema: notificación WLAN con dwDataSize sospechoso: {dwSize}")
 						return
-					notificationData = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(pData.contents.pData)
+					try:
+						notificationData = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(pDataAddr)
+					except (ValueError, OSError, Exception):
+						return
 					if notificationData.wlanReasonCode != wlanapi.ERROR_SUCCESS:
 						return
-					ssid = notificationData.dot11Ssid.SSID
-					nombre_ssid = ssid.decode("utf-8", errors="ignore").strip()
+					nombre_ssid = _extraerSsid(notificationData.dot11Ssid)
 					_ultimoSsidConocido = nombre_ssid
 					queueHandler.queueFunction(
 						queueHandler.eventQueue,
@@ -206,12 +241,16 @@ try:
 					desconectado_de = _ultimoSsidConocido
 					_ultimoSsidConocido = None
 					ssid_nombre = ""
-					if getattr(pData.contents, "pData", None):
+					pDataAddr = getattr(pData.contents, "pData", 0)
+					dwSize = int(getattr(pData.contents, "dwDataSize", 0) or 0)
+					if pDataAddr and dwSize >= ctypes.sizeof(wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA):
 						try:
-							raw_ssid = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(
-								pData.contents.pData
-							).dot11Ssid.SSID
-							ssid_nombre = raw_ssid.decode("utf-8", errors="ignore").strip()
+							dot11 = wlanapi.WLAN_CONNECTION_NOTIFICATION_DATA.from_address(
+								pDataAddr
+							).dot11Ssid
+							ssid_nombre = _extraerSsid(dot11)
+							if ssid_nombre == _("Red oculta"):
+								ssid_nombre = ""
 						except Exception:
 							pass
 					red_nombre = ssid_nombre or desconectado_de
@@ -240,15 +279,92 @@ try:
 					pass
 		except Exception as e:
 			log.error(f"MonitorSistema: Error procesando notificación de WLAN: {e}", exc_info=True)
-except NameError:
+except (NameError, AttributeError, Exception):
+	notifyHandler = None
 	# Sin la biblioteca de red inalambrica no hay avisos de wifi. Es normal en
 	# equipos sin tarjeta, pero conviene poder comprobarlo en el registro.
 	log.debug("Monitoreo del Sistema: no se pudo preparar el aviso de wifi.", exc_info=True)
 
 
+_CUSTOM_RESIZE_MAX = 64
+
+
+_ADL_DLL_CACHE = None
+_ADL_DLL_NAME = None
+_ADL_DLL_LOCK = threading.Lock()
+
+
+def _getAdlDll():
+	"""Devuelve la DLL ADL de AMD cacheada (atiadlxx/atiadlxy), cargándola una sola vez."""
+	global _ADL_DLL_CACHE, _ADL_DLL_NAME
+	try:
+		with _ADL_DLL_LOCK:
+			if _ADL_DLL_CACHE is not None:
+				return _ADL_DLL_CACHE, _ADL_DLL_NAME
+			for _name in ("atiadlxx.dll", "atiadlxy.dll"):
+				try:
+					_dll = ctypes.WinDLL(_name)
+					_ADL_DLL_CACHE = _dll
+					_ADL_DLL_NAME = _name
+					return _dll, _name
+				except Exception:
+					continue
+			return None, None
+	except Exception:
+		return None, None
+
+
+def _freeAdlDll():
+	"""Libera la DLL ADL cacheada con FreeLibrary (llamar en terminate)."""
+	global _ADL_DLL_CACHE, _ADL_DLL_NAME
+	try:
+		with _ADL_DLL_LOCK:
+			dll = _ADL_DLL_CACHE
+			_ADL_DLL_CACHE = None
+			_ADL_DLL_NAME = None
+		if dll is not None:
+			try:
+				ctypes.windll.kernel32.FreeLibrary(dll._handle)  # type: ignore[attr-defined]
+			except Exception:
+				pass
+	except Exception:
+		pass
+
+
 def customResize(array: Any, newSize: Any):
-	"""Redimensiona una matriz ctypes en memoria a partir de su dirección base."""
-	return (array._type_ * newSize).from_address(addressof(array))
+	"""Redimensiona una matriz ctypes en memoria a partir de su dirección base.
+
+	La cantidad se limita a 64 elementos: Windows nunca devuelve más redes o
+	interfaces que eso en una sola lista, y un valor mayor indica memoria
+	corrupta. Devuelve una lista vacía si la entrada no es válida.
+	"""
+	try:
+		n = int(newSize)
+	except (ValueError, TypeError, OverflowError):
+		log.warning(f"MonitorSistema: customResize con tamaño inválido: {newSize!r}")
+		return []
+	if n < 0 or n > _CUSTOM_RESIZE_MAX:
+		log.warning(f"MonitorSistema: customResize sospechoso: newSize={newSize!r} (cota {_CUSTOM_RESIZE_MAX})")
+		n = max(0, min(n, _CUSTOM_RESIZE_MAX))
+	if n == 0:
+		return []
+	if array is None:
+		log.warning("MonitorSistema: customResize con array None")
+		return []
+	array_type = getattr(array, "_type_", None)
+	if array_type is None:
+		log.warning("MonitorSistema: customResize sin _type_")
+		return []
+	try:
+		base = addressof(array)
+	except (ValueError, TypeError, Exception) as e:
+		log.warning(f"MonitorSistema: customResize sin dirección base: {e}")
+		return []
+	try:
+		return (array_type * n).from_address(base)
+	except (ValueError, TypeError, OverflowError, Exception) as e:
+		log.warning(f"MonitorSistema: customResize falló con n={n}: {e}")
+		return []
 
 
 alternative = [
@@ -268,14 +384,20 @@ alternative = [
 
 def size(bytes_val: int | float, system: list[tuple[float, Any]] = alternative) -> str:
 	"""Convierte una cantidad de bytes a una cadena legible con sufijo de unidad (KB, MB, GB, etc.)."""
+	try:
+		b_val = float(bytes_val) if bytes_val is not None else 0.0
+		if math.isnan(b_val) or math.isinf(b_val) or b_val < 0.0:
+			b_val = 0.0
+	except (ValueError, TypeError, OverflowError):
+		b_val = 0.0
 	factor = 1.0
 	suffix = " B"
 	for f, s in system:
-		if float(bytes_val) >= float(f) or f == system[-1][0]:
+		if b_val >= float(f) or f == system[-1][0]:
 			factor = f
 			suffix = s
 			break
-	amount = float(bytes_val / factor)
+	amount = float(b_val / factor) if factor != 0 else 0.0
 	if isinstance(suffix, tuple):
 		singular, multiple = suffix
 		suffix = singular if float(amount) == 1.0 else multiple
@@ -288,27 +410,33 @@ def tryTrunk(n: float) -> int | float:
 		if n == int(n):
 			return int(n)
 		return n
-	except (ValueError, TypeError):
+	except (ValueError, TypeError, OverflowError):
 		return 0
 
 
 def formatGpuTemperature(celsiusText: str) -> str:
 	"""Formatea la temperatura de la GPU en Celsius o Fahrenheit según la configuración activa."""
 	try:
-		celsius = float(celsiusText)
-		import math
+		text_clean = str(celsiusText or "").strip().replace(",", ".")
+		celsius = float(text_clean)
 		if math.isnan(celsius) or math.isinf(celsius):
 			return celsiusText
-	except (TypeError, ValueError):
+	except (TypeError, ValueError, OverflowError):
 		return celsiusText
 	unit = config.conf.get("monitoreoSistema", {}).get("gpuTempUnit", "celsius")
 	if unit == "fahrenheit":
-		value = celsius * 9.0 / 5.0 + 32.0
+		try:
+			value = celsius * 9.0 / 5.0 + 32.0
+		except OverflowError:
+			return celsiusText
 		symbol = _("grados Fahrenheit")
 	else:
 		value = celsius
 		symbol = _("grados Celsius")
-	return "{} {}".format(tryTrunk(round(value, 1)), symbol)
+	try:
+		return "{} {}".format(tryTrunk(round(value, 1)), symbol)
+	except (ValueError, OverflowError):
+		return celsiusText
 
 
 def formatGpuMemory(usedMibText: str, totalMibText: str) -> str | None:
@@ -320,30 +448,33 @@ def formatGpuMemory(usedMibText: str, totalMibText: str) -> str | None:
 	None para que quien llame sepa que no hay nada que decir.
 	"""
 	try:
-		usedMib = float(usedMibText)
-		import math
+		clean_used = str(usedMibText or "").strip().replace(",", ".")
+		usedMib = float(clean_used)
 		if math.isnan(usedMib) or math.isinf(usedMib) or usedMib < 0:
 			return None
-	except (TypeError, ValueError):
+	except (TypeError, ValueError, OverflowError):
 		return None
 	try:
-		totalMib = float(totalMibText)
-		import math
+		clean_total = str(totalMibText or "").strip().replace(",", ".")
+		totalMib = float(clean_total)
 		if math.isnan(totalMib) or math.isinf(totalMib) or totalMib < 0:
 			totalMib = 0.0
-	except (TypeError, ValueError):
+	except (TypeError, ValueError, OverflowError):
 		totalMib = 0.0
 
-	usedBytes = usedMib * 1024.0 * 1024.0
-	if totalMib > 0:
-		totalBytes = totalMib * 1024.0 * 1024.0
-		return _("{used} de {total} utilizados ({percent}%)").format(
-			used=size(usedBytes, alternative),
-			total=size(totalBytes, alternative),
-			percent=tryTrunk(round(usedBytes / totalBytes * 100, 1)),
-		)
-	else:
-		return _("{used} utilizados").format(used=size(usedBytes, alternative))
+	try:
+		usedBytes = usedMib * 1024.0 * 1024.0
+		if totalMib > 0:
+			totalBytes = totalMib * 1024.0 * 1024.0
+			return _("{used} de {total} utilizados ({percent}%)").format(
+				used=size(usedBytes, alternative),
+				total=size(totalBytes, alternative),
+				percent=tryTrunk(round(usedBytes / totalBytes * 100, 1)),
+			)
+		else:
+			return _("{used} utilizados").format(used=size(usedBytes, alternative))
+	except (OverflowError, ValueError):
+		return None
 
 
 # --- temperatura de los discos ---------------------------------------------
@@ -386,7 +517,7 @@ def _temperaturaDeUnDisco(numero):
 			f"\\\\.\\PhysicalDrive{numero}", 0, COMPARTIR_LECTURA_Y_ESCRITURA,
 			None, ABRIR_SI_EXISTE, 0, None,
 		)
-	except OSError as e:
+	except Exception as e:
 		log.debug(f"MonitorSistema: No se pudo abrir el disco {numero}: {e}")
 		return None
 	if manejador in (MANEJADOR_INVALIDO, -1, 0, None):
@@ -486,6 +617,10 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		checkBtn.Bind(wx.EVT_BUTTON, self.onCheckConflicts)
 		ayudante.addItem(checkBtn)
 
+		self._syncAllThresholdsVisibility()
+
+	def _syncAllThresholdsVisibility(self) -> None:
+		"""Sincroniza la visibilidad de todos los controles de umbral según sus casillas maestras."""
 		self._updateBatteryFullVisibility(self.alertBatteryFullCheckbox.GetValue())
 		self._updateBatteryLowVisibility(self.alertBatteryLowCheckbox.GetValue())
 		self._updateCpuHotVisibility(self.alertCpuHotCheckbox.GetValue())
@@ -579,7 +714,10 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 
 	def _leerAjuste(self, clave, porOmision):
 		"""Valor guardado de una opcion del complemento, o el de fabrica."""
-		return config.conf.get("monitoreoSistema", {}).get(clave, porOmision)
+		sec = config.conf.get("monitoreoSistema")
+		if not isinstance(sec, dict):
+			return porOmision
+		return sec.get(clave, porOmision)
 
 	def _casillaDeAviso(self, ayudante, texto, clave, porOmision=True, alCambiar=None):
 		"""Casilla de activar o desactivar un aviso, ya marcada segun lo guardado.
@@ -601,12 +739,17 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		"""
 		if valor is None:
 			valor = self._leerAjuste(clave, porOmision)
+		try:
+			val_int = int(valor)
+		except (ValueError, TypeError):
+			val_int = int(porOmision if porOmision is not None else minimo)
+		val_int = max(minimo, min(maximo, val_int))
 		return ayudante.addLabeledControl(
 			texto,
 			NumberCtrlClass,
 			min=minimo,
 			max=maximo,
-			initial=int(valor),
+			initial=val_int,
 		)
 
 
@@ -726,13 +869,7 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 	def onPanelActivated(self) -> None:
 		"""Sincroniza la visibilidad de los controles condicionales al activar el panel."""
 		super().onPanelActivated()
-		self._updateBatteryFullVisibility(self.alertBatteryFullCheckbox.GetValue())
-		self._updateBatteryLowVisibility(self.alertBatteryLowCheckbox.GetValue())
-		self._updateCpuHotVisibility(self.alertCpuHotCheckbox.GetValue())
-		self._updateGpuHotVisibility(self.alertGpuHotCheckbox.GetValue())
-		self._updateBluetoothLowVisibility(self.alertBluetoothLowCheckbox.GetValue())
-		self._updateDiskHealthVisibility(self.alertDiskHealthCheckbox.GetValue())
-		self._updateDiskHotVisibility(self.alertDiskHotCheckbox.GetValue())
+		self._syncAllThresholdsVisibility()
 
 	def onCheckConflicts(self, evt: wx.CommandEvent) -> None:
 		"""Botón "Comprobar conflictos": muestra el resultado en un cuadro de mensaje.
@@ -794,6 +931,8 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 		intervalo anterior.
 		"""
 		try:
+			if "monitoreoSistema" not in config.conf or not isinstance(config.conf["monitoreoSistema"], dict):
+				config.conf["monitoreoSistema"] = {}
 			selection = self.gpuTempUnitList.GetSelection()
 			if selection == wx.NOT_FOUND:
 				selection = 0
@@ -845,11 +984,16 @@ class MonitorSistemaSettingsPanel(SettingsPanel):
 @functools.lru_cache(maxsize=1)
 def getWinVer() -> str:
 	"""Devuelve la versión detallada del sistema operativo Windows y su compilación."""
-	currentWinVer = winVersion.getWinVer()
-	arch = currentWinVer.processorArchitecture
-	winverName = currentWinVer.releaseName
-	if currentWinVer.productType != "workstation":
-		winverName = f"Windows Server {winverName.rpartition(' ')[-1]}"
+	try:
+		currentWinVer = winVersion.getWinVer() if hasattr(winVersion, "getWinVer") else None
+	except Exception:
+		currentWinVer = None
+	if not currentWinVer:
+		return _("Versión de Windows no disponible")
+	arch = getattr(currentWinVer, "processorArchitecture", "")
+	winverName = getattr(currentWinVer, "releaseName", "Windows")
+	if getattr(currentWinVer, "productType", "workstation") != "workstation":
+		winverName = f"Windows Server {str(winverName).rpartition(' ')[-1]}"
 	revision = getattr(currentWinVer, "revision", None)
 	if revision is None:
 		try:
@@ -857,10 +1001,11 @@ def getWinVer() -> str:
 				revision = winreg.QueryValueEx(key, "UBR")[0]
 		except Exception:
 			revision = None
+	build = getattr(currentWinVer, "build", "")
 	if revision is not None:
-		buildRevision = f"{currentWinVer.build}.{revision}"
+		buildRevision = f"{build}.{revision}"
 	else:
-		buildRevision = str(currentWinVer.build)
+		buildRevision = str(build)
 	return _("{name} ({arch}) compilación {build}").format(name=winverName, arch=arch, build=buildRevision)
 
 
@@ -1119,26 +1264,29 @@ def _cargarApiDeDispositivos():
 
 def _propiedadDeTexto(api, hdev, dev_data, pkey):
 	"""Lee una propiedad de texto de un dispositivo; None si no la tiene."""
-	(CM_Get_Device_ID, _CM_Get_DevNode_Property, CM_Get_Parent,
-		SetupDiGetClassDevs, SetupDiEnumDeviceInfo,
-		SetupDiDestroyDeviceInfoList, SetupDiGetDevicePropertyW) = api
+	SetupDiGetDevicePropertyW = api[6]
 	try:
 		ptype = wintypes.ULONG()
 		rsize = wintypes.DWORD()
 		SetupDiGetDevicePropertyW(hdev, ctypes.byref(dev_data), ctypes.byref(pkey), ctypes.byref(ptype), None, 0, ctypes.byref(rsize), 0)
-		if rsize.value == 0: return None
-		buf = ctypes.create_unicode_buffer(rsize.value // 2 + 1)
-		if SetupDiGetDevicePropertyW(hdev, ctypes.byref(dev_data), ctypes.byref(pkey), ctypes.byref(ptype), ctypes.byref(buf), rsize, ctypes.byref(rsize), 0):
-			return buf.value
+		_MAX_PROP_CHARS = 8192
+		if not rsize.value or rsize.value > (_MAX_PROP_CHARS * 2):
+			if rsize.value > (_MAX_PROP_CHARS * 2):
+				log.warning(f"MonitorSistema: propiedad de texto sospechosa ({rsize.value} bytes), se ignora.")
+			return None
+		bufChars = min(rsize.value // 2 + 1, _MAX_PROP_CHARS)
+		buf = ctypes.create_unicode_buffer(bufChars)
+		reqSize = min(int(rsize.value), (_MAX_PROP_CHARS - 1) * 2)
+		if SetupDiGetDevicePropertyW(hdev, ctypes.byref(dev_data), ctypes.byref(pkey), ctypes.byref(ptype), ctypes.byref(buf), reqSize, ctypes.byref(rsize), 0):
+			val = buf.value or ""
+			return val[:_MAX_PROP_CHARS] if len(val) > _MAX_PROP_CHARS else val
 	except Exception as err:
 		log.debug(f"MonitorSistema: Error leyendo una propiedad de texto: {err}")
 	return None
 
 def _nombreDeNodo(api, dev_inst):
 	"""Nombre legible de un nodo, probando tres propiedades distintas."""
-	(CM_Get_Device_ID, _CM_Get_DevNode_Property, CM_Get_Parent,
-		SetupDiGetClassDevs, SetupDiEnumDeviceInfo,
-		SetupDiDestroyDeviceInfoList, SetupDiGetDevicePropertyW) = api
+	_CM_Get_DevNode_Property = api[1]
 	for pk in (DEVPKEY_Device_FriendlyName, DEVPKEY_NAME, DEVPKEY_Device_DeviceDesc):
 		try:
 			buf = (ctypes.c_ubyte * 512)()
@@ -1155,9 +1303,7 @@ def _nombreDeNodo(api, dev_inst):
 
 def _estadoDeNodo(api, dev_inst):
 	"""Palabra de estado que Windows guarda de un nodo; None si no se puede leer."""
-	(CM_Get_Device_ID, _CM_Get_DevNode_Property, CM_Get_Parent,
-		SetupDiGetClassDevs, SetupDiEnumDeviceInfo,
-		SetupDiDestroyDeviceInfoList, SetupDiGetDevicePropertyW) = api
+	_CM_Get_DevNode_Property = api[1]
 	try:
 		val = wintypes.ULONG()
 		sz = wintypes.ULONG(ctypes.sizeof(val))
@@ -1175,9 +1321,9 @@ def _dispositivosConBateria(api):
 	Devuelve la lista de candidatos y dos diccionarios con el nombre y el nodo de
 	cada aparato raiz, o None si Windows no deja ni empezar.
 	"""
-	(CM_Get_Device_ID, _CM_Get_DevNode_Property, CM_Get_Parent,
+	(CM_Get_Device_ID, _, _,
 		SetupDiGetClassDevs, SetupDiEnumDeviceInfo,
-		SetupDiDestroyDeviceInfoList, SetupDiGetDevicePropertyW) = api
+		SetupDiDestroyDeviceInfoList, _) = api
 	flags = DIGCF_PRESENT | _DIGCF_ALLCLASSES
 	hdev = SetupDiGetClassDevs(None, None, None, flags)
 	if not hdev or hdev == wintypes.HANDLE(-1).value:
@@ -1247,9 +1393,7 @@ def _anotarSiTieneBateria(api, hdev, dev_data, dev_inst, inst_id, name, addr, ca
 	Se prueban varias propiedades de Windows porque cada tipo de aparato guarda el
 	nivel en un sitio distinto, y el valor puede venir como numero o como texto.
 	"""
-	(CM_Get_Device_ID, _CM_Get_DevNode_Property, CM_Get_Parent,
-		SetupDiGetClassDevs, SetupDiEnumDeviceInfo,
-		SetupDiDestroyDeviceInfoList, SetupDiGetDevicePropertyW) = api
+	(_, _CM_Get_DevNode_Property, CM_Get_Parent, *_) = api
 	for _, pkey in BATTERY_KEYS:
 		try:
 			b_buf = (ctypes.c_ubyte * 64)()
@@ -1282,7 +1426,9 @@ def _anotarSiTieneBateria(api, hdev, dev_data, dev_inst, inst_id, name, addr, ca
 						"dev_inst": dev_inst,
 						"addr": addr
 					})
-					log.info(f"MonitorSistema: Nodo Bluetooth con batería detectado: '{name}' (batería={val}%, addr={addr}, id={inst_id})")
+					# Este hallazgo puede repetirse en cada escaneo aunque el aparato siga
+					# desconectado. Es diagnóstico, no un evento para el registro normal.
+					log.debug(f"MonitorSistema: Nodo Bluetooth con batería detectado: '{name}' (batería={val}%, addr={addr}, id={inst_id})")
 					break
 		except Exception as prop_err:
 			log.debug(f"MonitorSistema: Error consultando batería en {inst_id}: {prop_err}")
@@ -1294,9 +1440,7 @@ def _soloLosConectados(api, candidates, estados_clasicos, root_names, root_dev_i
 
 	Se comprueba por tres vias porque ningun metodo vale para todos los aparatos.
 	"""
-	(CM_Get_Device_ID, _CM_Get_DevNode_Property, CM_Get_Parent,
-		SetupDiGetClassDevs, SetupDiEnumDeviceInfo,
-		SetupDiDestroyDeviceInfoList, SetupDiGetDevicePropertyW) = api
+	_CM_Get_DevNode_Property = api[1]
 	results = []
 	seen = set()
 	for cand in candidates:
@@ -1307,7 +1451,7 @@ def _soloLosConectados(api, candidates, estados_clasicos, root_names, root_dev_i
 		is_connected = None
 		if addr and addr in estados_clasicos:
 			is_connected = estados_clasicos[addr]
-			log.info(f"MonitorSistema: Dispositivo '{display_name}' ({addr}) estado vía bthprops: conectado={is_connected}")
+			log.debug(f"MonitorSistema: Dispositivo '{display_name}' ({addr}) estado vía bthprops: conectado={is_connected}")
 
 		# 2. Chequeo secundario: estado de DevNode (DevNodeStatus)
 		if is_connected is None:
@@ -1339,7 +1483,7 @@ def _soloLosConectados(api, candidates, estados_clasicos, root_names, root_dev_i
 				except Exception:
 					pass
 
-			log.info(f"MonitorSistema: Dispositivo '{display_name}' ({addr}) estado vía DevNodeStatus/PnP: conectado={is_connected}")
+			log.debug(f"MonitorSistema: Dispositivo '{display_name}' ({addr}) estado vía DevNodeStatus/PnP: conectado={is_connected}")
 
 		if is_connected:
 			key = addr or cand["inst_id"]
@@ -1351,7 +1495,7 @@ def _soloLosConectados(api, candidates, estados_clasicos, root_names, root_dev_i
 				results.append({"name": display_name, "battery": cand["battery"]})
 				log.info(f"MonitorSistema: Dispositivo conectado confirmado con batería: '{display_name}' al {cand['battery']}%")
 		else:
-			log.info(f"MonitorSistema: Omitiendo '{display_name}' ({cand['inst_id']}): no conectado.")
+			log.debug(f"MonitorSistema: Omitiendo '{display_name}' ({cand['inst_id']}): no conectado.")
 	return results
 
 def _estadosDeBluetoothClasico():
@@ -1435,15 +1579,38 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		lanzar dos veces la misma. Al final arranca los dos hilos de fondo: el que
 		prepara el sistema y el que vigila los avisos.
 		"""
-		super().__init__()
-		if getattr(globalVars.appArgs, "secureMode", False):
+		if getattr(getattr(globalVars, "appArgs", None), "secureMode", False):
 			log.warning("Monitoreo del Sistema: NVDA en modo seguro. Se cancela la carga del complemento por seguridad.")
 			raise globalPluginHandler.ActionCancelled()
+		super().__init__()
+		try:
+			self._limpiarTemporalesViejos(maxAgeHours=1.0)
+		except Exception:
+			pass
 		log.info("Monitoreo del Sistema: Inicializando complemento (v3.0.0)...")
+		self._stateLock = threading.RLock()
+		self._opLocks = {
+			"diskHealth": threading.Lock(),
+			"topProcesses": threading.Lock(),
+			"netSpeed": threading.Lock(),
+			"advBattery": threading.Lock(),
+			"bluetooth": threading.Lock(),
+			"diskAlert": threading.Lock(),
+		}
+		self._bgThreads: list[threading.Thread] = []
 		self._cpuQuery = None
 		self._cpuCounter = None
 		self._client_handle = None
 		self._negotiated_version = None
+		self._wlanCallback = None
+		self._lastWlanOpenAttempt = 0.0
+		self._wlanSignalCache = None
+		self._wlanSignalCacheTime = 0.0
+		self._pendingWlanSignal = None
+		self._pendingWlanSignalTime = 0.0
+		self._alertCoalescer: list[str] = []
+		self._alertCoalescerTime = 0.0
+		self._diskAlertRunning = False
 		self._gpuProviders: list[BaseGpuProvider] = getGpuProviders()
 		NVDASettingsDialog.categoryClasses.append(MonitorSistemaSettingsPanel)
 
@@ -1483,23 +1650,69 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		self._copyBluetoothOnFinish = False
 
 		self._stopAlertsEvent = threading.Event()
-		threading.Thread(target=self._startupBackgroundWorker, daemon=True).start()
-		threading.Thread(target=self._runAlertsLoop, daemon=True).start()
+		_startupThread = threading.Thread(target=self._startupBackgroundWorker, daemon=True)
+		_alertsThread = threading.Thread(target=self._runAlertsLoop, daemon=True)
+		with self._stateLock:
+			self._bgThreads = [_startupThread, _alertsThread]
+		_startupThread.start()
+		_alertsThread.start()
+
+	def _joinBackgroundThreads(self, timeout: float = 2.0) -> None:
+		"""Espera a los hilos de fondo con límite para no bloquear la descarga."""
+		try:
+			with self._stateLock:
+				threads = list(getattr(self, "_bgThreads", []) or [])
+		except Exception:
+			threads = []
+		for t in threads:
+			try:
+				if t.is_alive():
+					t.join(timeout=timeout)
+			except Exception:
+				pass
+
+	def _tryStartOp(self, opName: str, flagName: str) -> bool:
+		"""Single-flight: True si se puede iniciar la operación, False si ya está en curso."""
+		try:
+			lock = self._opLocks.get(opName)
+			if lock is not None:
+				with lock:
+					if getattr(self, flagName, False):
+						return False
+					setattr(self, flagName, True)
+					return True
+			if getattr(self, flagName, False):
+				return False
+			setattr(self, flagName, True)
+			return True
+		except Exception:
+			return bool(not getattr(self, flagName, False))
+
+	def _finishOp(self, opName: str, flagName: str) -> None:
+		"""Marca la operación como terminada (siempre bajo lock)."""
+		try:
+			lock = self._opLocks.get(opName)
+			if lock is not None:
+				with lock:
+					setattr(self, flagName, False)
+			else:
+				setattr(self, flagName, False)
+		except Exception:
+			try:
+				setattr(self, flagName, False)
+			except Exception:
+				pass
 
 	def _startProgressBeeper(self, freq: int = 440, interval: float = 0.6) -> threading.Event:
 		"""Inicia un hilo de pitidos periódicos para operaciones en segundo plano y devuelve el stop_event."""
 		stop_event = threading.Event()
 		def beeper():
 			"""Bucle de emisión de tonos de progreso en segundo plano."""
-			try:
-				tones.beep(freq, 40)
-			except Exception:
-				pass
+			_beepAsync(freq, 40)
 			while not stop_event.wait(interval):
-				try:
-					tones.beep(freq, 40)
-				except Exception:
-					pass
+				if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.is_set():
+					break
+				_beepAsync(freq, 40)
 		threading.Thread(target=beeper, daemon=True).start()
 		return stop_event
 
@@ -1519,43 +1732,77 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			log.error(f"MonitorSistema: Error inicializando consulta de CPU: {e}", exc_info=True)
 
 		try:
-			for provider in self._gpuProviders:
+			with self._stateLock:
+				providers = list(self._gpuProviders)
+			for provider in providers:
 				if hasattr(provider, "_initPdh"):
 					provider._initPdh()
 		except Exception as e:
 			log.error(f"MonitorSistema: Error inicializando PDH de GPU: {e}", exc_info=True)
 
-		if wlanapiAvailable:
-			try:
-				version = wintypes.DWORD()
-				handle = wintypes.HANDLE()
-				if wlanapi.WlanOpenHandle(
-					wlanapi.CLIENT_VERSION_WINDOWS_VISTA_OR_LATER,
-					None,
-					byref(version),
-					byref(handle),
-				) == 0:
-					self._negotiated_version = version
-					self._client_handle = handle
-					wlanapi.WlanRegisterNotification(
-						self._client_handle,
-						wlanapi.WLAN_NOTIFICATION_SOURCE_ACM,
-						True,
-						notifyHandler,
-						None,
-						None,
-						None,
-					)
-					log.info("MonitorSistema: Notificaciones WLAN registradas exitosamente.")
-			except Exception as e:
-				log.error(f"MonitorSistema: Error registrando notificaciones WLAN: {e}", exc_info=True)
+		self._ensureWlanHandle(force=True)
 
 		# Auditoría de conflictos con otros complementos (tras breve espera para asegurar carga completa de NVDA)
 		try:
-			time.sleep(3.0)
-			self._checkAddonConflicts(interactive=False)
+			if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.wait(3.0):
+				return
+			if not getattr(self, "_stopAlertsEvent", threading.Event()).is_set():
+				self._checkAddonConflicts(interactive=False)
 		except Exception as e:
 			log.error(f"MonitorSistema: Error durante la auditoría de conflictos: {e}", exc_info=True)
+
+	def _ensureWlanHandle(self, force: bool = False) -> bool:
+		"""Abre el manejador WLAN con reintento perezoso cada 60 s si es None.
+
+		Retiene el callback en self._wlanCallback para que el GC no lo libere
+		mientras Windows lo usa. Devuelve True si hay manejador válido.
+		"""
+		try:
+			with self._stateLock:
+				has_handle = self._client_handle is not None
+			if has_handle:
+				return True
+		except Exception:
+			pass
+		if not wlanapiAvailable or notifyHandler is None:
+			return False
+		now = time.time()
+		try:
+			last = float(getattr(self, "_lastWlanOpenAttempt", 0.0) or 0.0)
+		except (ValueError, TypeError):
+			last = 0.0
+		if not force and (now - last) < 60.0:
+			return False
+		self._lastWlanOpenAttempt = now
+		try:
+			version = wintypes.DWORD()
+			handle = wintypes.HANDLE()
+			if wlanapi.WlanOpenHandle(
+				wlanapi.CLIENT_VERSION_WINDOWS_VISTA_OR_LATER,
+				None,
+				byref(version),
+				byref(handle),
+			) == 0:
+				# Retener el callback vivo: si el objeto CFUNCTYPE se libera,
+				# Windows llamaría a memoria liberada y NVDA se cerraría.
+				self._wlanCallback = notifyHandler
+				wlanapi.WlanRegisterNotification(
+					handle,
+					wlanapi.WLAN_NOTIFICATION_SOURCE_ACM,
+					True,
+					self._wlanCallback,
+					None,
+					None,
+					None,
+				)
+				with self._stateLock:
+					self._negotiated_version = version
+					self._client_handle = handle
+				log.info("MonitorSistema: Notificaciones WLAN registradas exitosamente.")
+				return True
+		except Exception as e:
+			log.error(f"MonitorSistema: Error registrando notificaciones WLAN: {e}", exc_info=True)
+		return False
 
 	def _initCpuQuery(self):
 		"""Prepara la lectura de la velocidad del procesador.
@@ -1570,14 +1817,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		# Si ya había una consulta abierta de una vez anterior (por ejemplo, al
 		# reintentar tras una muestra fallida), hay que cerrarla antes de perder
 		# su referencia; si no, esa consulta anterior queda abierta para siempre.
-		consultaAnterior = getattr(self, "_cpuQuery", None)
+		try:
+			with self._stateLock:
+				consultaAnterior = getattr(self, "_cpuQuery", None)
+				self._cpuQuery = None
+				self._cpuCounter = None
+		except Exception:
+			consultaAnterior = None
 		if consultaAnterior:
 			try:
 				ctypes.windll.pdh.PdhCloseQuery(consultaAnterior)
 			except Exception:
 				pass
-		self._cpuQuery = None
-		self._cpuCounter = None
 		self._baseGhz = 2.10
 		self._maxTurboGhz = 4.00
 		self._lastCpuCollectTime = 0
@@ -1633,11 +1884,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				]
 				for cp in counterPaths:
 					if pdh.PdhAddEnglishCounterW(hQuery, cp, None, byref(hCounter)) == 0:
-						self._cpuQuery = hQuery
-						self._cpuCounter = hCounter
-						pdh.PdhCollectQueryData(self._cpuQuery)
-						time.sleep(0.03)
-						pdh.PdhCollectQueryData(self._cpuQuery)
+						with self._stateLock:
+							self._cpuQuery = hQuery
+							self._cpuCounter = hCounter
+						# Sin sleep en init: la primera muestra se descarta y la
+						# segunda llegará en la próxima lectura periódica.
+						pdh.PdhCollectQueryData(hQuery)
 						self._lastCpuCollectTime = time.time()
 						log.info(f"MonitorSistema: Contador PDH CPU configurado exitosamente: {cp}")
 						break
@@ -1684,8 +1936,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				return []
 			data = json.loads(out.decode("utf-8", errors="ignore"))
 			if isinstance(data, dict):
-				data = [data]
-			return data
+				return [data]
+			elif isinstance(data, list):
+				return data
+			return []
 		except Exception as e:
 			log.error(f"MonitorSistema: Error consultando salud de discos en segundo plano: {e}", exc_info=True)
 			return []
@@ -1700,7 +1954,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		gpus = []
 		try:
-			for provider in self._gpuProviders:
+			try:
+				with self._stateLock:
+					providers = list(self._gpuProviders)
+			except Exception:
+				providers = list(getattr(self, '_gpuProviders', []) or [])
+			for provider in providers:
 				telemetry = provider.collect()
 				if not telemetry:
 					continue
@@ -1709,9 +1968,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					if item.temperature:
 						try:
 							t_val = float(item.temperature)
-							name = _("GPU") if is_single else _("GPU {}").format(index)
-							gpus.append((name, t_val))
-						except (ValueError, TypeError):
+							if not math.isnan(t_val) and not math.isinf(t_val) and 0 < t_val < 150:
+								name = _("GPU") if is_single else _("GPU {}").format(index)
+								gpus.append((name, t_val))
+						except (ValueError, TypeError, OverflowError):
 							pass
 				if gpus:
 					break
@@ -1722,9 +1982,46 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def _decir(self, text: str):
 		"""Dice un texto en voz alta desde un hilo de fondo, sin bloquear NVDA."""
 		try:
+			if getattr(self, '_coalescingAlerts', False):
+				try:
+					with self._stateLock:
+						self._alertCoalescer.append(str(text))
+					return
+				except Exception:
+					pass
 			queueHandler.queueFunction(queueHandler.eventQueue, ui.message, text)
 		except Exception:
-			wx.CallAfter(ui.message, text)
+			try:
+				wx.CallAfter(ui.message, text)
+			except Exception:
+				pass
+
+	def _emitBeep(self, freq: int, duration: int) -> None:
+		"""Pitido vía cola de NVDA (seguro desde cualquier hilo)."""
+		_beepAsync(freq, duration)
+
+	def _flushAlertCoalescer(self) -> None:
+		"""Emite los avisos acumulados como un único mensaje combinado."""
+		try:
+			with self._stateLock:
+				msgs = list(getattr(self, '_alertCoalescer', []) or [])
+				self._alertCoalescer = []
+		except Exception:
+			msgs = []
+		if not msgs:
+			return
+		# Un solo mensaje combinado en vez de N locuciones encadenadas.
+		combined = ' '.join(m.strip() for m in msgs if m and str(m).strip())
+		if not combined:
+			return
+		log.info(f"MonitorSistema: Avisos combinados ({len(msgs)}): '{combined[:200]}'")
+		try:
+			queueHandler.queueFunction(queueHandler.eventQueue, ui.message, combined)
+		except Exception:
+			try:
+				wx.CallAfter(ui.message, combined)
+			except Exception:
+				pass
 
 	def _avisoDeBateriaDelEquipo(self, cfg, now, recordado):
 		"""Avisa cuando la bateria del equipo se llena o se queda baja.
@@ -1748,7 +2045,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			try:
 				bat = psutil.sensors_battery()
 				if bat and bat.percent is not None:
-					import math
 					try:
 						pct = float(bat.percent)
 					except (ValueError, TypeError):
@@ -1767,8 +2063,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 							else:
 								msg = _("Batería cargada al {} %. Puedes desconectar el cargador.").format(round(pct))
 							log.info(f"MonitorSistema: Alerta automática de batería cargada: '{msg}'")
-							try: tones.beep(880, 100); tones.beep(1175, 150)
-							except Exception: pass
+							self._emitBeep(880, 100); self._emitBeep(1175, 150)
 							self._decir(msg)
 
 						# Alerta de batería baja (<= bat_thresh% y desconectada)
@@ -1779,8 +2074,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						if check_low and plugged is False and pct <= bat_thresh:
 							msg = _("Advertencia: Batería baja al {} %. Conecta el equipo a la corriente.").format(round(pct))
 							log.info(f"MonitorSistema: Alerta automática de batería baja: '{msg}'")
-							try: tones.beep(440, 120); tones.beep(330, 150)
-							except Exception: pass
+							self._emitBeep(440, 120); self._emitBeep(330, 150)
 							self._decir(msg)
 			except Exception as be:
 				log.error(f"MonitorSistema: Error en chequeo de batería para alertas: {be}", exc_info=True)
@@ -1814,17 +2108,15 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			try:
 				temp = self._getCpuTemperature()
 				if temp is not None:
-					import math
 					try:
 						t_num = float(temp)
 						is_valid = not math.isnan(t_num) and not math.isinf(t_num) and 0 < t_num < 150
-					except (ValueError, TypeError):
+					except (ValueError, TypeError, OverflowError):
 						is_valid = False
 					if is_valid and t_num >= cpu_hot_thresh:
 						msg = _("Alerta: Temperatura del procesador alta ({}).").format(formatGpuTemperature(str(temp)))
 						log.warning(f"MonitorSistema: Alerta automática de temperatura activada: '{msg}' (temp={temp}°C, umbral={cpu_hot_thresh}°C)")
-						try: tones.beep(1000, 100); tones.beep(1000, 100)
-						except Exception: pass
+						self._emitBeep(1000, 100); self._emitBeep(1000, 100)
 						self._decir(msg)
 			except Exception as te:
 				log.error(f"MonitorSistema: Error en chequeo de temperatura para alertas: {te}", exc_info=True)
@@ -1857,12 +2149,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			recordado["last_gpu_check_time"] = now
 			try:
 				gpu_temps = self._getGpuTemperatures()
-				import math
-				for g_name, g_temp in gpu_temps:
+				if not gpu_temps or not isinstance(gpu_temps, (list, tuple)):
+					return
+				for item in gpu_temps:
+					if not isinstance(item, (list, tuple)) or len(item) < 2:
+						continue
+					g_name, g_temp = item[0], item[1]
 					try:
 						g_num = float(g_temp)
 						g_valid = not math.isnan(g_num) and not math.isinf(g_num) and 0 < g_num < 150
-					except (ValueError, TypeError):
+					except (ValueError, TypeError, OverflowError):
 						g_valid = False
 					if g_valid and g_num >= gpu_hot_thresh:
 						msg = _("Alerta: Temperatura de {name} alta ({temp}).").format(
@@ -1870,8 +2166,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 							temp=formatGpuTemperature(str(g_temp)),
 						)
 						log.warning(f"MonitorSistema: Alerta automática de temperatura de GPU activada: '{msg}' (temp={g_temp}°C, umbral={gpu_hot_thresh}°C)")
-						try: tones.beep(1200, 100); tones.beep(1200, 100)
-						except Exception: pass
+						self._emitBeep(1200, 100); self._emitBeep(1200, 100)
 						self._decir(msg)
 			except Exception as ge:
 				log.error(f"MonitorSistema: Error en chequeo de temperatura de GPU para alertas: {ge}", exc_info=True)
@@ -1902,21 +2197,23 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			recordado["last_bt_check_time"] = now
 			try:
 				bt_devices = self._queryBluetoothBatteries()
-				import math
+				if not bt_devices or not isinstance(bt_devices, (list, tuple)):
+					return
 				for d in bt_devices:
+					if not isinstance(d, dict):
+						continue
 					d_name = d.get('name', _('Dispositivo Bluetooth'))
 					d_bat = d.get('battery')
 					if d_bat is not None:
 						try:
 							b_num = float(d_bat)
 							b_valid = not math.isnan(b_num) and not math.isinf(b_num) and 0 <= b_num <= bt_thresh
-						except (ValueError, TypeError):
+						except (ValueError, TypeError, OverflowError):
 							b_valid = False
 						if b_valid:
 							msg = _("Advertencia: Batería baja en el dispositivo Bluetooth {} al {} %.").format(d_name, round(b_num))
 							log.warning(f"MonitorSistema: Alerta automática Bluetooth: '{msg}'")
-							try: tones.beep(550, 100); tones.beep(440, 150)
-							except Exception: pass
+							self._emitBeep(550, 100); self._emitBeep(440, 150)
 							self._decir(msg)
 			except Exception as bte:
 				log.error(f"MonitorSistema: Error en chequeo de batería Bluetooth para alertas: {bte}", exc_info=True)
@@ -1943,6 +2240,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 		if check_disk and (now - recordado["last_disk_check_time"] >= disk_interval):
 			recordado["last_disk_check_time"] = now
+			if not self._tryStartOp("diskAlert", "_diskAlertRunning"):
+				return
 			def _diskWorker():
 				"""Revisa la salud de los discos y avisa si alguno está mal.
 
@@ -1954,7 +2253,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				"""
 				try:
 					disks = self._queryDiskHealthSilent()
+					if not disks or not isinstance(disks, (list, tuple)):
+						return
 					for d in disks:
+						if not isinstance(d, dict):
+							continue
 						name = d.get("FriendlyName") or _("Disco")
 						hstatus = str(d.get("HealthStatus") or "")
 						opstatus = str(d.get("OperationalStatus") or "")
@@ -1968,8 +2271,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						if is_unhealthy:
 							msg = _("Advertencia crítica: El disco {} presenta problemas de salud. Realiza una copia de seguridad.").format(name)
 							log.warning(f"MonitorSistema: Alerta de salud de disco: '{msg}'")
-							try: tones.beep(330, 150); tones.beep(220, 200)
-							except Exception: pass
+							self._emitBeep(330, 150); self._emitBeep(220, 200)
 							self._decir(msg)
 
 						# Límite de desgaste de vida útil en discos SSD
@@ -1979,13 +2281,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 								if wear_val >= wear_thresh:
 									msg = _("Advertencia: El disco SSD {} ha alcanzado un {} % de desgaste de su vida útil.").format(name, wear_val)
 									log.warning(f"MonitorSistema: Alerta de desgaste SSD: '{msg}'")
-									try: tones.beep(440, 150); tones.beep(330, 200)
-									except Exception: pass
+									self._emitBeep(440, 150); self._emitBeep(330, 200)
 									self._decir(msg)
-							except (ValueError, TypeError):
+							except (ValueError, TypeError, OverflowError):
 								pass
 				except Exception as dke:
 					log.error(f"MonitorSistema: Error en chequeo de salud de discos: {dke}", exc_info=True)
+				finally:
+					self._finishOp("diskAlert", "_diskAlertRunning")
 			threading.Thread(target=_diskWorker, daemon=True).start()
 
 	def _avisoDeTemperaturaDeDisco(self, cfg, now, recordado):
@@ -2020,12 +2323,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		if check_disk_hot and (now - recordado["last_disk_hot_check_time"] >= disk_hot_interval):
 			recordado["last_disk_hot_check_time"] = now
 			try:
-				import math
-				for nombre, grados in temperaturasDeDiscos():
+				disks = temperaturasDeDiscos()
+				if not disks or not isinstance(disks, (list, tuple)):
+					return
+				for item in disks:
+					if not isinstance(item, (list, tuple)) or len(item) < 2:
+						continue
+					nombre, grados = item[0], item[1]
 					try:
 						d_num = float(grados)
-						d_valid = not math.isnan(d_num) and not math.isinf(d_num) and 0 < d_num < 150
-					except (ValueError, TypeError):
+						d_valid = (0 < d_num < 150)
+					except (ValueError, TypeError, OverflowError):
 						d_valid = False
 					if d_valid and d_num >= disk_hot_thresh:
 						msg = _("Alerta: Temperatura de {name} alta ({temp}).").format(
@@ -2033,8 +2341,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 							temp=formatGpuTemperature(str(grados)),
 						)
 						log.warning(f"MonitorSistema: Alerta automática de temperatura de disco activada: '{msg}' (temp={grados}°C, umbral={disk_hot_thresh}°C)")
-						try: tones.beep(800, 100); tones.beep(800, 100)
-						except Exception: pass
+						self._emitBeep(800, 100); self._emitBeep(800, 100)
 						self._decir(msg)
 			except Exception as dhe:
 				log.error(f"MonitorSistema: Error en chequeo de temperatura de discos para alertas: {dhe}", exc_info=True)
@@ -2076,13 +2383,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 
 		# Esperar 8 segundos tras arrancar NVDA
-		for segundoDeEspera in range(8):
-			if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.is_set():
-				return
-			time.sleep(1.0)
+		if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.wait(8.0):
+			return
 
 		while hasattr(self, "_stopAlertsEvent") and not self._stopAlertsEvent.is_set():
 			try:
+				try:
+					with self._stateLock:
+						self._alertCoalescer = []
+					self._coalescingAlerts = True
+				except Exception:
+					pass
 				if getattr(self, "_forceAlertsCheck", False):
 					self._forceAlertsCheck = False
 					# Poner a cero la ultima comprobacion hace que todos los avisos se
@@ -2103,6 +2414,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				self._avisoDeTemperaturaDeDisco(cfg, now, recordado)
 			except Exception as e:
 				log.error(f"MonitorSistema: Error general en bucle de alertas: {e}", exc_info=True)
+			finally:
+				try:
+					with self._stateLock:
+						self._coalescingAlerts = False
+				except Exception:
+					pass
+				try:
+					self._flushAlertCoalescer()
+				except Exception:
+					pass
 
 			for sec in range(5):
 				if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.is_set():
@@ -2112,18 +2433,26 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				if sec % 2 == 0:
 					try:
 						if config.conf.get("monitoreoSistema", {}).get("alertWlanSignalChange", False):
-							cur_sig = self._getCurrentWlanSignal()
+							cur_sig = self._getCurrentWlanSignalCached()
 							if cur_sig is not None:
 								if last_wlan_signal is not None and cur_sig != last_wlan_signal:
-									last_wlan_signal = cur_sig
-									freq = int(350 + (cur_sig * 8.5))
+									# Coalescer: guardar el último valor y avisar una sola vez.
 									try:
-										tones.beep(freq, 70)
+										with self._stateLock:
+											self._pendingWlanSignal = cur_sig
+											self._pendingWlanSignalTime = time.time()
 									except Exception:
 										pass
-									msg = _("Señal de Wi-Fi: {} %.").format(cur_sig)
-									log.info(f"MonitorSistema: Alerta de cambio de señal Wi-Fi: {cur_sig}%")
-									self._decir(msg)
+									# Solo anunciar si pasaron >=15 s desde el último aviso de señal.
+									last_ann = float(getattr(self, '_lastWlanSignalAnnounce', 0.0) or 0.0)
+									if (time.time() - last_ann) >= 15.0:
+										self._lastWlanSignalAnnounce = time.time()
+										last_wlan_signal = cur_sig
+										freq = int(350 + (cur_sig * 8.5))
+										_beepAsync(freq, 70)
+										msg = _("Señal de Wi-Fi: {} %.").format(cur_sig)
+										log.info(f"MonitorSistema: Alerta de cambio de señal Wi-Fi: {cur_sig}%")
+										self._decir(msg)
 								elif last_wlan_signal is None:
 									last_wlan_signal = cur_sig
 							else:
@@ -2132,7 +2461,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 							last_wlan_signal = None
 					except Exception as we:
 						log.error(f"MonitorSistema: Error comprobando señal Wi-Fi en loop: {we}", exc_info=True)
-				time.sleep(1.0)
+				if hasattr(self, "_stopAlertsEvent") and self._stopAlertsEvent.wait(1.0):
+					break
 
 	def terminate(self):
 		"""Deja todo como estaba cuando NVDA descarga el complemento.
@@ -2145,7 +2475,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		log.info("Monitoreo del Sistema: Finalizando complemento...")
 		if hasattr(self, "_stopAlertsEvent"):
-			self._stopAlertsEvent.set()
+			try:
+				self._stopAlertsEvent.set()
+			except Exception:
+				pass
+		try:
+			self._joinBackgroundThreads(timeout=2.0)
+		except Exception:
+			pass
 		try:
 			if hasattr(self, "_itemConfig") and self._itemConfig:
 				gui.mainFrame.sysTrayIcon.Unbind(wx.EVT_MENU, source=self._itemConfig)
@@ -2157,33 +2494,59 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception as e:
 			log.debug(f"Monitoreo del Sistema: Error retirando submenú en terminate: {e}")
 		super().terminate()
-		for provider in self._gpuProviders:
+		try:
+			with self._stateLock:
+				providers = list(getattr(self, '_gpuProviders', []) or [])
+		except Exception:
+			providers = []
+		for provider in providers:
 			if hasattr(provider, "close"):
 				try:
 					provider.close()
 				except Exception:
 					pass
-		self._gpuProviders.clear()
+		try:
+			with self._stateLock:
+				try:
+					self._gpuProviders.clear()
+				except Exception:
+					pass
+		except Exception:
+			pass
 		try:
 			if MonitorSistemaSettingsPanel in NVDASettingsDialog.categoryClasses:
 				NVDASettingsDialog.categoryClasses.remove(MonitorSistemaSettingsPanel)
 		except Exception:
 			pass
-		if self._cpuQuery:
+		try:
+			with self._stateLock:
+				cpuQ = getattr(self, '_cpuQuery', None)
+				self._cpuQuery = None
+				self._cpuCounter = None
+		except Exception:
+			cpuQ = None
+		if cpuQ:
 			try:
-				ctypes.windll.pdh.PdhCloseQuery(self._cpuQuery)
+				ctypes.windll.pdh.PdhCloseQuery(cpuQ)
 			except Exception:
 				log.debug("Monitoreo del Sistema: no se pudo cerrar el contador del procesador.", exc_info=True)
-			self._cpuQuery = None
-		if self._client_handle:
-			self._negotiated_version = None
+		try:
+			with self._stateLock:
+				handle = getattr(self, '_client_handle', None)
+				self._client_handle = None
+				self._negotiated_version = None
+		except Exception:
+			handle = None
+		if handle:
 			try:
+				# Unregister con callback None (no notifyHandler): pasar el callback
+				# original aquí re-registraría en vez de desregistrar.
 				try:
 					wlanapi.WlanRegisterNotification(
-						self._client_handle,
+						handle,
 						wlanapi.WLAN_NOTIFICATION_SOURCE_NONE,
 						True,
-						notifyHandler,
+						None,
 						None,
 						None,
 						None,
@@ -2191,13 +2554,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				except Exception:
 					pass
 				wlanapi.WlanCloseHandle(
-					self._client_handle,
+					handle,
 					None,
 				)
 			except Exception:
 				log.debug("Monitoreo del Sistema: no se pudo cerrar la conexion con la tarjeta de red.", exc_info=True)
-			finally:
-				self._client_handle = None
+		try:
+			self._wlanCallback = None
+		except Exception:
+			pass
+		try:
+			_freeAdlDll()
+		except Exception:
+			pass
+		try:
+			with self._stateLock:
+				self._bgThreads = []
+		except Exception:
+			pass
 		log.info("Monitoreo del Sistema: Recursos y manejadores liberados, complemento finalizado limpiamente.")
 
 	def _onMenuConfig(self, event):
@@ -2242,34 +2616,46 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""Temperatura del procesador segun la biblioteca de AMD, o None.
 
 		Solo responde en equipos AMD; en los demas falla y se sigue por otra via.
+		Usa la DLL cacheada globalmente y siempre destruye el control ADL en finally.
 		"""
-		for dll_name in ("atiadlxx.dll", "atiadlxy.dll"):
-			try:
-				adl = ctypes.WinDLL(dll_name)
-				ALLOC_FUNC = ctypes.WINFUNCTYPE(ctypes.c_void_p, ctypes.c_size_t)
-				def adl_alloc(size):
-					"""Reserva de memoria para la biblioteca ADL de AMD."""
-					return ctypes.windll.kernel32.LocalAlloc(0x0040, size)
-				adl_alloc_cb = ALLOC_FUNC(adl_alloc)
-				
-				if adl.ADL_Main_Control_Create(adl_alloc_cb, 1) == 0:
-					temp_val = None
-					if hasattr(adl, "ADL2_OverdriveN_Temperature_Get"):
-						func = adl.ADL2_OverdriveN_Temperature_Get
-						func.argtypes = [ctypes.c_void_p, c_long, c_long, POINTER(c_long)]
-						func.restype = c_long
-						t = c_long(0)
-						if func(None, 0, 0, byref(t)) == 0 and t.value > 0:
-							c = t.value / 1000.0
-							if 0 < c < 125:
-								temp_val = round(c)
-								log.info(f"MonitorSistema: Temperatura CPU obtenida via AMD ADL ({dll_name}): {temp_val} C")
+		adl, dll_name = _getAdlDll()
+		if adl is None:
+			return None
+		created = False
+		adl_alloc_cb = None
+		try:
+			ALLOC_FUNC = ctypes.WINFUNCTYPE(ctypes.c_void_p, ctypes.c_size_t)
+			def adl_alloc(size):
+				"""Reserva de memoria para la biblioteca ADL de AMD."""
+				return ctypes.windll.kernel32.LocalAlloc(0x0040, size)
+			adl_alloc_cb = ALLOC_FUNC(adl_alloc)
+			# Mantener referencia viva durante la llamada.
+			self._adlAllocCb = adl_alloc_cb
+			if adl.ADL_Main_Control_Create(adl_alloc_cb, 1) != 0:
+				return None
+			created = True
+			temp_val = None
+			if hasattr(adl, "ADL2_OverdriveN_Temperature_Get"):
+				func = adl.ADL2_OverdriveN_Temperature_Get
+				func.argtypes = [ctypes.c_void_p, c_long, c_long, POINTER(c_long)]
+				func.restype = c_long
+				t = c_long(0)
+				if func(None, 0, 0, byref(t)) == 0 and t.value > 0:
+					c = t.value / 1000.0
+					if 0 < c < 125:
+						temp_val = round(c)
+						log.debug(f"MonitorSistema: Temperatura CPU obtenida via AMD ADL ({dll_name}): {temp_val} C")
+			if temp_val is not None:
+				return temp_val
+			return None
+		except Exception:
+			return None
+		finally:
+			if created:
+				try:
 					adl.ADL_Main_Control_Destroy()
-					if temp_val is not None:
-						return temp_val
-			except Exception:
-				pass
-		return None
+				except Exception:
+					pass
 
 	def _temperaturaPorWmi(self):
 		"""Temperatura del procesador preguntando a Windows, o None.
@@ -2297,7 +2683,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					if kelvin and kelvin > 0:
 						c = (kelvin / 10.0) - 273.15
 						if 0 < c < 125:
-							log.info(f"MonitorSistema: Temperatura CPU obtenida via MSAcpi: {round(c)} C")
+							log.debug(f"MonitorSistema: Temperatura CPU obtenida via MSAcpi: {round(c)} C")
 							return round(c)
 			except Exception:
 				pass
@@ -2311,7 +2697,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					if kelvin and kelvin > 0:
 						c = kelvin - 273.15
 						if 0 < c < 125:
-							log.info(f"MonitorSistema: Temperatura CPU obtenida via ThermalZoneInformation: {round(c)} C")
+							log.debug(f"MonitorSistema: Temperatura CPU obtenida via ThermalZoneInformation: {round(c)} C")
 							return round(c)
 			except Exception:
 				pass
@@ -2326,7 +2712,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						if any(k in name for k in ("cpu", "package", "core")):
 							val = item.Properties_("Value").Value
 							if val and 0 < val < 125:
-								log.info(f"MonitorSistema: Temperatura CPU obtenida via {ns}: {round(val)} C")
+								log.debug(f"MonitorSistema: Temperatura CPU obtenida via {ns}: {round(val)} C")
 								return round(val)
 				except Exception:
 					pass
@@ -2361,7 +2747,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				for core, cpuLoad in enumerate(perCpuLoad, start=1)
 			]
 
-			if psutil.cpu_count() == 1:
+			cpu_count = psutil.cpu_count()
+			if cpu_count == 1 or not coreLoad:
 				info = _("Carga de CPU al {}%.").format(tryTrunk(averageLoad))
 			else:
 				info = _("Carga media de CPU al {}%, {}.").format(
@@ -2404,6 +2791,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			except Exception:
 				swap = psutil.swap_memory()
 				virtualRamUsed, virtualRamTotal = swap.used, swap.total
+			virtualRamUsed = max(0, virtualRamUsed)
+			virtualRamTotal = max(0, virtualRamTotal)
 			virtualPercent = tryTrunk(round(virtualRamUsed / virtualRamTotal * 100, 1)) if virtualRamTotal > 0 else 0
 			info += _("Virtual: {virtualUsed} de {virtualTotal} utilizada ({virtualPercent}%).").format(
 				virtualUsed=size(virtualRamUsed, alternative),
@@ -2490,36 +2879,52 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		currGhz = None
 		try:
-			if not self._cpuQuery or not self._cpuCounter:
+			try:
+				with self._stateLock:
+					_hasCpu = bool(self._cpuQuery and self._cpuCounter)
+			except Exception:
+				_hasCpu = bool(getattr(self, '_cpuQuery', None) and getattr(self, '_cpuCounter', None))
+			if not _hasCpu:
 				self._initCpuQuery()
 
-			if self._cpuQuery and self._cpuCounter:
+			with self._stateLock:
+				cpuQuery = self._cpuQuery
+				cpuCounter = self._cpuCounter
+				lastCollect = getattr(self, '_lastCpuCollectTime', 0)
+				lastValid = getattr(self, '_lastValidCpuGhz', None)
+			if cpuQuery and cpuCounter:
 				now = time.time()
-				if now - self._lastCpuCollectTime < 0.08:
-					time.sleep(0.08)
+				if now - lastCollect < 0.08:
+					# Sin sleep en el hilo principal: devolver el último valor válido.
+					if lastValid:
+						return lastValid
 
 				pdh = ctypes.windll.pdh
-				pdh.PdhCollectQueryData(self._cpuQuery)
-				self._lastCpuCollectTime = time.time()
+				pdh.PdhCollectQueryData(cpuQuery)
+				with self._stateLock:
+					self._lastCpuCollectTime = time.time()
 
 				val = PDH_FMT_COUNTERVALUE()
 				res = pdh.PdhGetFormattedCounterValue(
-					self._cpuCounter, 0x00000200, None, byref(val)
+					cpuCounter, 0x00000200, None, byref(val)
 				)
 				if res == 0 and val.CStatus == 0 and val.doubleValue > 0:
 					pctPerf = val.doubleValue
 					currGhz = (pctPerf / 100.0) * self._baseGhz
 					log.info(f"MonitorSistema: Muestra PDH CPU: {pctPerf:.1f}%, calculada={currGhz:.2f} GHz (Base={self._baseGhz} GHz, Max Turbo={self._maxTurboGhz} GHz)")
 				else:
-					# Recuperación automática: recrear query PDH con doble muestra
+					# Recuperación automática: recrear query PDH sin bloquear (una muestra).
 					self._initCpuQuery()
-					if self._cpuQuery and self._cpuCounter:
-						time.sleep(0.05)
-						pdh.PdhCollectQueryData(self._cpuQuery)
-						self._lastCpuCollectTime = time.time()
+					with self._stateLock:
+						cpuQuery = self._cpuQuery
+						cpuCounter = self._cpuCounter
+					if cpuQuery and cpuCounter:
+						pdh.PdhCollectQueryData(cpuQuery)
+						with self._stateLock:
+							self._lastCpuCollectTime = time.time()
 						val = PDH_FMT_COUNTERVALUE()
 						res = pdh.PdhGetFormattedCounterValue(
-							self._cpuCounter, 0x00000200, None, byref(val)
+							cpuCounter, 0x00000200, None, byref(val)
 						)
 						if res == 0 and val.CStatus == 0 and val.doubleValue > 0:
 							currGhz = (val.doubleValue / 100.0) * self._baseGhz
@@ -2563,48 +2968,72 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		speakOnDemand=True,
 	)
 	def script_announceDriveInfo(self, gesture: inputCore.InputGesture):
-		"""Atajo de teclado: dice el espacio usado y libre de cada unidad de disco.
-
-		Recorre las unidades y, de cada una, dice si es fija o de red, cuánto se usa
-		de cuánto total y el porcentaje. Una unidad de red que no responda se
-		nombra igualmente, diciendo que no está disponible, en lugar de
-		desaparecer de la lista sin explicación. Pulsando el atajo dos veces
-		seguidas lo copia al portapapeles.
-		"""
-		try:
-			info = []
-			for drive in psutil.disk_partitions(all=True):
-				if not drive.fstype:
-					continue
-				opts = drive.opts.split(",")
-				isNetworkDrive = "remote" in opts
-				isRemovable = "removable" in opts
+		"""Atajo de teclado: dice el espacio usado y libre de cada unidad de disco."""
+		def _driveWorker():
+			try:
+				info = []
 				try:
-					driveInfo = psutil.disk_usage(drive[0])
-				except OSError:
-					if isNetworkDrive:
-						info.append(_("{} (unidad de red): no disponible.").format(drive[0]))
-					continue
-				if isNetworkDrive:
-					driveType = _("de red")
-				elif isRemovable:
-					driveType = _("extraíble")
-				else:
-					driveType = _("fijo")
-				info.append(
-					_("{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%).").format(
-						driveName=drive[0],
-						driveType=driveType,
-						usedSpace=size(driveInfo[1], alternative),
-						totalSpace=size(driveInfo[0], alternative),
-						percent=tryTrunk(driveInfo[3]),
-					)
-				)
-			text = " ".join(info) if info else _("No se encontraron unidades de disco disponibles.")
-			self._anunciarOCopiar(text, "script_announceDriveInfo")
-		except Exception as e:
-			log.error(f"MonitorSistema: Error en script_announceDriveInfo: {e}", exc_info=True)
-			ui.message(_("Error al obtener la información de las unidades de disco."))
+					partitions = psutil.disk_partitions(all=True)
+				except Exception as pe:
+					log.error(f"MonitorSistema: Error listando particiones: {pe}", exc_info=True)
+					partitions = []
+				localParts = []
+				remoteParts = []
+				for drive in partitions or []:
+					try:
+						fstype = getattr(drive, 'fstype', '')
+						if not fstype:
+							continue
+						opts = (getattr(drive, 'opts', None) or '').split(',')
+						if 'remote' in opts:
+							remoteParts.append(drive)
+						else:
+							localParts.append(drive)
+					except Exception:
+						continue
+				for drive in localParts:
+					try:
+						opts = (getattr(drive, 'opts', None) or '').split(',')
+						isRemovable = 'removable' in opts
+						try:
+							driveInfo = psutil.disk_usage(drive[0])
+						except (OSError, Exception):
+							continue
+						if isRemovable:
+							driveType = _('extraible')
+						else:
+							driveType = _('fijo')
+						info.append(
+							_('{driveName} (disco {driveType}): {usedSpace} de {totalSpace} utilizados ({percent}%).').format(
+								driveName=drive[0],
+								driveType=driveType,
+								usedSpace=size(driveInfo[1], alternative),
+								totalSpace=size(driveInfo[0], alternative),
+								percent=tryTrunk(driveInfo[3]),
+							)
+						)
+					except Exception:
+						continue
+				for drive in remoteParts:
+					try:
+						info.append(_('{} (unidad de red): no disponible.').format(drive[0]))
+					except Exception:
+						continue
+				text = ' '.join(info) if info else _('No se encontraron unidades de disco disponibles.')
+				try:
+					wx.CallAfter(self._anunciarOCopiar, text, 'script_announceDriveInfo')
+				except Exception:
+					try:
+						queueHandler.queueFunction(queueHandler.eventQueue, self._anunciarOCopiar, text, 'script_announceDriveInfo')
+					except Exception:
+						pass
+			except Exception as e:
+				log.error(f"MonitorSistema: Error en script_announceDriveInfo: {e}", exc_info=True)
+				try:
+					wx.CallAfter(ui.message, _('Error al obtener la informacion de las unidades de disco.'))
+				except Exception:
+					pass
+		threading.Thread(target=_driveWorker, daemon=True).start()
 
 	def _getWlanInfo(self) -> str:
 		"""Devuelve, en una frase, a qué red Wi-Fi estás conectada.
@@ -2616,14 +3045,30 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		terminar.
 		"""
 		global _ultimoSsidConocido
-		if not self._client_handle:
-			return _("No hay dispositivos de red inalámbrica")
+		try:
+			with self._stateLock:
+				hasHandle = self._client_handle is not None
+		except Exception:
+			hasHandle = bool(getattr(self, '_client_handle', None))
+		if not hasHandle:
+			self._ensureWlanHandle()
+			try:
+				with self._stateLock:
+					hasHandle = self._client_handle is not None
+			except Exception:
+				hasHandle = bool(getattr(self, '_client_handle', None))
+			if not hasHandle:
+				return _("No hay dispositivos de red inalámbrica")
 
 		wlan_ifaces = POINTER(wlanapi.WLAN_INTERFACE_INFO_LIST)()
-		if wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces)) != 0:
+		try:
+			if wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces)) != 0:
+				return _("No hay dispositivos de red inalámbrica")
+		except (OSError, Exception) as e:
+			log.warning(f"MonitorSistema: WlanEnumInterfaces falló en _getWlanInfo: {e}")
 			return _("No hay dispositivos de red inalámbrica")
 		try:
-			if not wlan_ifaces or wlan_ifaces.contents.NumberOfItems == 0:
+			if not wlan_ifaces or not bool(wlan_ifaces) or getattr(wlan_ifaces, 'contents', None) is None or wlan_ifaces.contents.NumberOfItems == 0:
 				return _("No hay dispositivos de red inalámbrica")
 
 			info = _("No hay conexiones de red inalámbrica")
@@ -2665,15 +3110,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 				if ret == 0:
 					try:
-						if wlan_available_network_list and wlan_available_network_list.contents.NumberOfItems > 0:
+						if wlan_available_network_list and bool(wlan_available_network_list) and getattr(wlan_available_network_list, 'contents', None) is not None and wlan_available_network_list.contents.NumberOfItems > 0:
 							for n in customResize(
 								wlan_available_network_list.contents.Network,
 								wlan_available_network_list.contents.NumberOfItems,
 							):
 								if n.Flags & wlanapi.WLAN_AVAILABLE_NETWORK_CONNECTED:
-									ssid_len = int(n.dot11Ssid.SSIDLength)
-									ssid_bytes = n.dot11Ssid.SSID[:ssid_len] if 0 < ssid_len <= 32 else n.dot11Ssid.SSID
-									ssid_str = ssid_bytes.decode(errors="ignore").strip() or _("Red oculta")
+									ssid_str = _extraerSsid(n.dot11Ssid)
 									_ultimoSsidConocido = ssid_str
 									sec_str = SECURITY_TYPE.get(n.dot11DefaultAuthAlgorithm, _("Desconocido"))
 									log.info(f"MonitorSistema: Conexión WLAN activa detectada: SSID='{ssid_str}', Señal={n.wlanSignalQuality}%, Seguridad='{sec_str}'")
@@ -2686,12 +3129,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 									)
 									break
 					finally:
-						if wlan_available_network_list:
-							wlanapi.WlanFreeMemory(wlan_available_network_list)
+						try:
+							if wlan_available_network_list and bool(wlan_available_network_list):
+								wlanapi.WlanFreeMemory(wlan_available_network_list)
+						except Exception:
+							pass
 			return info
 		finally:
-			if wlan_ifaces:
-				wlanapi.WlanFreeMemory(wlan_ifaces)
+			try:
+				if wlan_ifaces and bool(wlan_ifaces):
+					wlanapi.WlanFreeMemory(wlan_ifaces)
+			except Exception:
+				pass
 
 	def _obtenerInfoWifiNetsh(self) -> dict:
 		"""Consulta el estado, SSID, señal y seguridad Wi-Fi vía netsh wlan.
@@ -2764,6 +3213,25 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			log.debug(f"MonitorSistema: No se pudo obtener SSID de respaldo: {e}")
 		return None
 
+	def _getCurrentWlanSignalCached(self) -> int | None:
+		"""Señal Wi-Fi con caché de 15 s para no saturar Native WiFi en el bucle."""
+		try:
+			now = time.time()
+			cached = getattr(self, '_wlanSignalCache', None)
+			cachedTime = float(getattr(self, '_wlanSignalCacheTime', 0.0) or 0.0)
+			if cached is not None and (now - cachedTime) < 15.0:
+				return cached
+		except Exception:
+			pass
+		val = self._getCurrentWlanSignal()
+		try:
+			with self._stateLock:
+				self._wlanSignalCache = val
+				self._wlanSignalCacheTime = time.time()
+		except Exception:
+			pass
+		return val
+
 	def _getCurrentWlanSignal(self) -> int | None:
 		"""Devuelve solo el número de la intensidad de señal del Wi-Fi, de 0 a 100.
 
@@ -2771,14 +3239,31 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		vigilante para notar cuándo cambia la señal. Devuelve None si no hay
 		tarjeta, si no hay conexión o si algo falla, y en ningún caso habla.
 		"""
-		if not self._client_handle:
-			return None
+		try:
+			with self._stateLock:
+				hasHandle = self._client_handle is not None
+		except Exception:
+			hasHandle = bool(getattr(self, '_client_handle', None) is not None)
+		if not hasHandle:
+			self._ensureWlanHandle()
+			try:
+				with self._stateLock:
+					hasHandle = self._client_handle is not None
+			except Exception:
+				hasHandle = bool(getattr(self, '_client_handle', None) is not None)
+			if not hasHandle:
+				return None
 		try:
 			wlan_ifaces = POINTER(wlanapi.WLAN_INTERFACE_INFO_LIST)()
-			if wlanapi.WlanEnumInterfaces(self._client_handle, None, byref(wlan_ifaces)) != 0:
+			try:
+				with self._stateLock:
+					handle = self._client_handle
+			except Exception:
+				handle = getattr(self, '_client_handle', None)
+			if wlanapi.WlanEnumInterfaces(handle, None, byref(wlan_ifaces)) != 0:
 				return None
 			try:
-				if wlan_ifaces.contents.NumberOfItems == 0:
+				if not wlan_ifaces or not bool(wlan_ifaces) or getattr(wlan_ifaces, 'contents', None) is None or wlan_ifaces.contents.NumberOfItems == 0:
 					return None
 				signal = None
 				for i in customResize(wlan_ifaces.contents.InterfaceInfo, wlan_ifaces.contents.NumberOfItems):
@@ -2810,12 +3295,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 									signal = int(n.wlanSignalQuality)
 									break
 						finally:
-							wlanapi.WlanFreeMemory(wlan_available_network_list)
+							try:
+								if wlan_available_network_list and bool(wlan_available_network_list):
+									wlanapi.WlanFreeMemory(wlan_available_network_list)
+							except Exception:
+								pass
 					if signal is not None:
 						break
 				return signal
 			finally:
-				wlanapi.WlanFreeMemory(wlan_ifaces)
+				try:
+					if wlan_ifaces and bool(wlan_ifaces):
+						wlanapi.WlanFreeMemory(wlan_ifaces)
+				except Exception:
+					pass
 		except Exception as e:
 			log.error(f"MonitorSistema: Error consultando señal WLAN: {e}", exc_info=True)
 			return None
@@ -2853,20 +3346,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def getUptime(self) -> str:
 		"""Calcula y formatea el tiempo transcurrido desde el último inicio del sistema."""
 		totalSecs = 0
-		bootTimestamp = 0.0
+		# Primario: GetTickCount64 (monotónico, no le afecta el cambio de hora).
 		try:
-			bootTimestamp = psutil.boot_time()
+			GetTickCount64 = getattr(ctypes.windll.kernel32, "GetTickCount64", None)
+			if GetTickCount64:
+				GetTickCount64.restype = ctypes.c_ulonglong
+				totalSecs = int(GetTickCount64() // 1000)
 		except Exception:
-			bootTimestamp = 0.0
-		if bootTimestamp > 0.0:
-			uptime = datetime.now() - datetime.fromtimestamp(bootTimestamp)
-			totalSecs = int(uptime.total_seconds())
+			pass
+		# Respaldo: psutil.boot_time() si el contador no está disponible.
 		if totalSecs <= 0:
 			try:
-				GetTickCount64 = getattr(ctypes.windll.kernel32, "GetTickCount64", None)
-				if GetTickCount64:
-					GetTickCount64.restype = ctypes.c_ulonglong
-					totalSecs = int(GetTickCount64() // 1000)
+				bootTimestamp = psutil.boot_time()
+				if bootTimestamp and bootTimestamp > 0.0:
+					uptime = datetime.now() - datetime.fromtimestamp(bootTimestamp)
+					totalSecs = int(uptime.total_seconds())
 			except Exception:
 				pass
 		if totalSecs <= 0:
@@ -2916,7 +3410,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		"""
 		hasProvider = False
 		hasFailure = False
-		for provider in self._gpuProviders:
+		try:
+			with self._stateLock:
+				providers = list(getattr(self, '_gpuProviders', []) or [])
+		except Exception:
+			providers = []
+		for provider in providers:
 			telemetry = provider.collect()
 			if telemetry is None:
 				continue
@@ -2966,9 +3465,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _getDiskHealth(self):
 		"""Lanza en segundo plano la consulta del estado de los discos."""
-		if getattr(self, "_diskHealthRunning", False):
+		if not self._tryStartOp("diskHealth", "_diskHealthRunning"):
 			return
-		self._diskHealthRunning = True
 		ui.message(_("Analizando discos, por favor espera..."))
 		threading.Thread(target=self._hiloDeSaludDeDiscos, daemon=True).start()
 
@@ -2987,7 +3485,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				return
 				
 			data = json.loads(output)
-			if isinstance(data, dict): data = [data]
+			if isinstance(data, dict):
+				data = [data]
+			elif not isinstance(data, list):
+				data = []
 			log.info(f"MonitorSistema: Discos detectados ({len(data)}): {data}")
 			
 			result = self._resumenDeDiscos(data)
@@ -2996,13 +3497,51 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			wx.CallAfter(ui.message, result)
 			if getattr(self, "_copyDiskHealthOnFinish", False):
 				self._copyDiskHealthOnFinish = False
-				wx.CallAfter(api.copyToClip, result, notify=True)
+				wx.CallAfter(self._safeCopyToClip, result)
 		except Exception as e:
 			log.error(f"MonitorSistema: Error en worker de salud de discos: {e}", exc_info=True)
 			wx.CallAfter(ui.message, _("Error al consultar discos."))
 		finally:
-			self._diskHealthRunning = False
+			self._finishOp("diskHealth", "_diskHealthRunning")
 			stop_event.set()
+
+	def _limpiarTemporalesViejos(self, maxAgeHours: float = 1.0) -> None:
+		"""Borra nvda_disk_health_*.json de más de 1 h en el temporal."""
+		try:
+			tmpdir = tempfile.gettempdir()
+			now = time.time()
+			for _name in os.listdir(tmpdir):
+				if not _name.startswith("nvda_disk_health_") or not _name.endswith(".json"):
+					continue
+				_p = os.path.join(tmpdir, _name)
+				try:
+					if (now - os.path.getmtime(_p)) > (maxAgeHours * 3600.0):
+						try:
+							os.remove(_p)
+						except Exception:
+							pass
+				except Exception:
+					continue
+		except Exception:
+			pass
+
+	def _borrarTemporalConReintento(self, path: str, intentos: int = 5) -> None:
+		"""Borra un temporal con reintentos (el elevado puede retenerlo brevemente)."""
+		for _i in range(max(1, intentos)):
+			try:
+				if os.path.exists(path):
+					os.remove(path)
+				return
+				return
+			except (PermissionError, OSError):
+				try:
+					if hasattr(self, '_stopAlertsEvent') and self._stopAlertsEvent.is_set():
+						return
+				except Exception:
+					pass
+				time.sleep(0.2)
+			except Exception:
+				return
 
 	def _consultarDiscosConPowerShell(self):
 		"""Pide a Windows, con permisos de administrador, el estado de los discos.
@@ -3011,10 +3550,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		(normalmente porque se rechazo el permiso de administrador). En ese caso ya
 		ha avisado por voz.
 		"""
-		tmp_file = os.path.join(tempfile.gettempdir(), f"nvda_disk_health_{os.getpid()}_{int(time.time() * 1000)}.json")
-		if os.path.exists(tmp_file):
-			try: os.remove(tmp_file)
-			except Exception: pass
+		try:
+			self._limpiarTemporalesViejos(maxAgeHours=1.0)
+		except Exception:
+			pass
+		try:
+			_tf = tempfile.NamedTemporaryFile(prefix="nvda_disk_health_", suffix=".json", delete=False)
+			tmp_file = _tf.name
+			_tf.close()
+			# NamedTemporaryFile crea el archivo vacío; lo borramos para que el elevado lo recree.
+			try:
+				os.remove(tmp_file)
+			except Exception:
+				pass
+		except Exception:
+			tmp_file = os.path.join(tempfile.gettempdir(), f"nvda_disk_health_{os.getpid()}_{int(time.time() * 1000)}.json")
 		
 		tmp_file_esc = tmp_file.replace("'", "''")
 		ps_script = f"""
@@ -3087,46 +3637,84 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			return None
 
 		output = ""
-		for _intento in range(5):
-			try:
-				with open(tmp_file, 'r', encoding='utf-8-sig') as f:
-					output = f.read().strip()
-				if output:
-					break
-			except (PermissionError, OSError):
-				time.sleep(0.3)
-			except Exception as e:
-				log.error(f"MonitorSistema: Error leyendo archivo temporal de discos: {e}", exc_info=True)
-				break
 		try:
-			os.remove(tmp_file)
-		except Exception:
-			pass
+			for _intento in range(5):
+				try:
+					with open(tmp_file, 'r', encoding='utf-8-sig', errors='replace') as f:
+						output = f.read().strip()
+					if output:
+						break
+				except (PermissionError, OSError):
+					time.sleep(0.3)
+				except Exception as e:
+					log.error(f"MonitorSistema: Error leyendo archivo temporal de discos: {e}", exc_info=True)
+					break
+		finally:
+			try:
+				self._borrarTemporalConReintento(tmp_file)
+			except Exception:
+				pass
 		return output
 
 	def _resumenDeDiscos(self, data):
 		"""Convierte los datos de los discos en la frase que se lee en voz alta."""
+		if not isinstance(data, (list, tuple)):
+			return _("No se encontraron discos.")
 		parts = []
 		for disk in data:
-			name = disk.get("Name", _("Disco desconocido"))
-			dtype = disk.get("Type", _("Desconocido"))
-			health = disk.get("Health", _("Desconocido"))
-			wear = disk.get("Wear")
-			if dtype == "SSD": dtype = _("estado sólido (SSD)")
-			elif dtype == "HDD": dtype = _("rígido (HDD)")
-			if health == "Healthy": health = _("Saludable")
-			elif health == "Warning": health = _("En riesgo (Advertencia)")
-			elif health == "Unhealthy": health = _("Dañado (Crítico)")
+			if not isinstance(disk, dict):
+				continue
+			name = disk.get("Name") or _("Disco desconocido")
+			name = "".join(ch for ch in str(name) if ch.isprintable() or ch in " \t") or _("Disco desconocido")
+			dtype_raw = str(disk.get("Type") or "").strip()
+			health_raw = str(disk.get("Health") or "").strip()
+			if dtype_raw.upper() == "SSD":
+				dtype = _("estado sólido (SSD)")
+			elif dtype_raw.upper() == "HDD":
+				dtype = _("rígido (HDD)")
+			else:
+				dtype = dtype_raw or _("Desconocido")
+
+			if health_raw.lower() == "healthy":
+				health = _("Saludable")
+			elif health_raw.lower() == "warning":
+				health = _("En riesgo (Advertencia)")
+			elif health_raw.lower() == "unhealthy":
+				health = _("Dañado (Crítico)")
+			else:
+				health = health_raw or _("Desconocido")
 			
+			wear = disk.get("Wear")
 			part = _("Disco {}: Tipo {}. Estado general: {}.").format(name, dtype, health)
-			if wear is not None and dtype == _("estado sólido (SSD)"):
-				health_pct = 100 - int(wear)
-				part += " " + _("Desgaste de vida útil: {} por ciento (Salud: {}%).").format(int(wear), health_pct)
+			if wear is not None and dtype_raw.upper() == "SSD":
+				try:
+					clean_wear = str(wear).replace("%", "").strip()
+					wear_int = int(round(float(clean_wear)))
+					wear_int = max(0, min(100, wear_int))
+					health_pct = 100 - wear_int
+					part += " " + _("Desgaste de vida útil: {} por ciento (Salud: {}%).").format(wear_int, health_pct)
+				except (ValueError, TypeError, OverflowError):
+					pass
 			parts.append(part)
 			
 		result = " ".join(parts) if parts else _("No se encontraron discos.")
 		return result
 
+
+	@staticmethod
+	def _safeCopyToClip(text: str) -> bool:
+		"""Copia texto al portapapeles de forma segura, tolerando bloqueos temporales de Windows."""
+		if not text:
+			return False
+		try:
+			return bool(api.copyToClip(text, notify=True))
+		except Exception as e:
+			log.warning(f"MonitorSistema: No se pudo copiar al portapapeles: {e}")
+			try:
+				ui.message(_("No se pudo copiar al portapapeles."))
+			except Exception:
+				pass
+			return False
 
 	def _anunciarOCopiar(self, texto: str, nombre_script: str = "") -> None:
 		"""Anuncia texto por voz o lo copia al portapapeles según las pulsaciones del atajo.
@@ -3144,7 +3732,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ui.message(texto)
 		else:
 			log.info(f"MonitorSistema: {nombre_script} - Copiando al portapapeles: '{texto}'")
-			api.copyToClip(texto, notify=True)
+			self._safeCopyToClip(texto)
 
 	def _atajoDeConsulta(self, nombreEnCurso, nombreUltimoResultado, nombreCopiarAlTerminar, lanzarConsulta, mensajeEnCurso):
 		"""Lógica común de los atajos que consultan algo del sistema.
@@ -3164,7 +3752,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				return
 			ultimoResultado = getattr(self, nombreUltimoResultado, None)
 			if ultimoResultado:
-				api.copyToClip(ultimoResultado, notify=True)
+				self._safeCopyToClip(ultimoResultado)
 				return
 			setattr(self, nombreCopiarAlTerminar, True)
 			ui.message(_("Se copiará el resultado al portapapeles."))
@@ -3197,9 +3785,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		recorrer todos los programas abiertos tarda algo más de medio segundo y
 		NVDA se quedaría trabado.
 		"""
-		if getattr(self, "_topProcessesRunning", False):
+		if not self._tryStartOp("topProcesses", "_topProcessesRunning"):
 			return
-		self._topProcessesRunning = True
 		def worker():
 			"""Recorre los programas abiertos y se queda con los dos más grandes.
 
@@ -3222,11 +3809,21 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						minfo = info.get('memory_info')
 						mem = getattr(minfo, 'rss', None) if minfo else None
 						name = info.get('name')
-						if cpu is not None and cpu > max_cpu and name != "System Idle Process":
-							max_cpu, max_cpu_p = cpu, name
-						if mem is not None and mem > max_mem:
-							max_mem, max_mem_p = mem, name
-					except (psutil.NoSuchProcess, psutil.AccessDenied, AttributeError, KeyError): pass
+						if cpu is not None and name != "System Idle Process":
+							try:
+								cpu_f = float(cpu)
+								if not math.isnan(cpu_f) and not math.isinf(cpu_f) and cpu_f > max_cpu:
+									max_cpu, max_cpu_p = cpu_f, name
+							except (ValueError, TypeError):
+								pass
+						if mem is not None:
+							try:
+								mem_f = float(mem)
+								if not math.isnan(mem_f) and not math.isinf(mem_f) and mem_f > max_mem:
+									max_mem, max_mem_p = mem_f, name
+							except (ValueError, TypeError):
+								pass
+					except (psutil.Error, OSError, AttributeError, KeyError, ValueError, TypeError): pass
 				log.info(f"MonitorSistema: Top procesos detectados - Mayor CPU: '{max_cpu_p}' ({round(max_cpu, 1)}%), Mayor RAM: '{max_mem_p}' ({size(max_mem, alternative) if max_mem else '0'})")
 				res = []
 				if max_cpu_p: res.append(_("Proceso con más CPU: {} ({}%).").format(max_cpu_p, round(max_cpu, 1)))
@@ -3238,11 +3835,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				log.error(f"MonitorSistema: Error analizando procesos: {e}", exc_info=True)
 				msg = _("Error analizando procesos.")
 			finally:
-				self._topProcessesRunning = False
+				self._finishOp("topProcesses", "_topProcessesRunning")
 			wx.CallAfter(ui.message, msg)
 			if getattr(self, "_copyTopProcessesOnFinish", False):
 				self._copyTopProcessesOnFinish = False
-				wx.CallAfter(api.copyToClip, msg, notify=True)
+				wx.CallAfter(self._safeCopyToClip, msg)
 		ui.message(_("Analizando procesos..."))
 		threading.Thread(target=worker, daemon=True).start()
 
@@ -3262,9 +3859,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def _getNetworkSpeed(self):
 		"""Lanza la prueba de velocidad en segundo plano."""
-		if getattr(self, "_netSpeedRunning", False):
+		if not self._tryStartOp("netSpeed", "_netSpeedRunning"):
 			return
-		self._netSpeedRunning = True
 		ui.message(_("Realizando prueba de precisión (unos 12 segundos), por favor espera..."))
 		threading.Thread(target=self._hiloDeVelocidadDeRed, daemon=True).start()
 
@@ -3277,26 +3873,30 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			ping_val = self._medirLatencia()
 			dl_speed = self._medirVelocidadDeDescarga()
 			up_speed = self._medirVelocidadDeSubida()
+			clean_dl = max(0.0, dl_speed) if (isinstance(dl_speed, (int, float)) and not math.isnan(dl_speed) and not math.isinf(dl_speed)) else 0.0
+			clean_up = max(0.0, up_speed) if (isinstance(up_speed, (int, float)) and not math.isnan(up_speed) and not math.isinf(up_speed)) else 0.0
 			if ping_val:
-				msg = _("Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo.").format(ping_val, round(dl_speed, 1), round(up_speed, 1))
+				msg = _("Velocidad de Internet. Latencia: {} milisegundos. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo.").format(ping_val, round(clean_dl, 1), round(clean_up, 1))
 			else:
-				msg = _("Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo.").format(round(dl_speed, 1), round(up_speed, 1))
+				msg = _("Velocidad de Internet. Descarga: {} Megabytes por segundo. Subida: {} Megabytes por segundo.").format(round(clean_dl, 1), round(clean_up, 1))
 			self._lastNetSpeedResult = msg
 		except Exception as e: 
 			err_str = str(e)
 			log.error(f"MonitorSistema: Error en speedtest: {e}", exc_info=True)
 			if "429" in err_str:
 				msg = _("El servidor bloqueó la prueba por hacerla muchas veces seguidas. Espera unos minutos y vuelve a intentarlo.")
+			elif "11001" in err_str or "getaddrinfo" in err_str.lower() or "urlerror" in err_str.lower() or "timed out" in err_str.lower():
+				msg = _("No se pudo conectar a Internet para medir la velocidad. Comprueba tu conexión.")
 			else:
 				msg = _("Error al medir la velocidad de Internet.")
 		finally:
-			self._netSpeedRunning = False
+			self._finishOp("netSpeed", "_netSpeedRunning")
 			stop_event.set()
 		log.info(f"MonitorSistema: Anunciando velocidad de Internet: '{msg}'")
 		wx.CallAfter(ui.message, msg)
 		if getattr(self, "_copyNetSpeedOnFinish", False):
 			self._copyNetSpeedOnFinish = False
-			wx.CallAfter(api.copyToClip, msg, notify=True)
+			wx.CallAfter(self._safeCopyToClip, msg)
 
 	def _medirLatencia(self):
 		"""Milisegundos que tarda en ir y volver un paquete, o None si no se pudo."""
@@ -3312,17 +3912,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				# un ping que se cuelga deja la prueba de velocidad sin terminar.
 				timeout=10,
 			)
+			stdout_str = res_ping.stdout or ""
 			m = (
-				re.search(r'Media = (\d+)ms', res_ping.stdout, re.IGNORECASE)
-				or re.search(r'Average = (\d+)ms', res_ping.stdout, re.IGNORECASE)
-				or re.search(r'tiempo[=<](\d+)ms', res_ping.stdout, re.IGNORECASE)
-				or re.search(r'time[=<](\d+)ms', res_ping.stdout, re.IGNORECASE)
+				re.search(r'Media = (\d+)ms', stdout_str, re.IGNORECASE)
+				or re.search(r'Average = (\d+)ms', stdout_str, re.IGNORECASE)
+				or re.search(r'tiempo[=<](\d+)ms', stdout_str, re.IGNORECASE)
+				or re.search(r'time[=<](\d+)ms', stdout_str, re.IGNORECASE)
 			)
 			if m:
 				ping_val = m.group(1)
 				log.info(f"MonitorSistema: Latencia medida: {ping_val} ms")
 			else:
-				log.warning(f"MonitorSistema: No se pudo extraer la latencia del ping a 1.1.1.1: {res_ping.stdout.strip()}")
+				log.warning(f"MonitorSistema: No se pudo extraer la latencia del ping a 1.1.1.1: {stdout_str.strip()}")
 		except Exception as ping_err:
 			log.warning(f"MonitorSistema: Error midiendo ping: {ping_err}")
 		return ping_val
@@ -3339,9 +3940,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		measure_start_d = start_down
 		warmed_up = False
 		
-		ssl_ctx = getattr(ssl, "_create_unverified_context", ssl.create_default_context)()
-		ssl_ctx.check_hostname = False
-		ssl_ctx.verify_mode = ssl.CERT_NONE
+		ssl_ctx = ssl.create_default_context()
 
 		req_d = urllib.request.Request("https://cachefly.cachefly.net/100mb.test", headers={'User-Agent': 'Mozilla/5.0'})
 		with urllib.request.urlopen(req_d, timeout=5, context=ssl_ctx) as res_d:
@@ -3391,9 +3990,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		stream = UploadStream()
 		req_u = urllib.request.Request(url_up, data=stream, headers={'User-Agent': 'Mozilla/5.0'})
 		try:
-			ssl_ctx = getattr(ssl, "_create_unverified_context", ssl.create_default_context)()
-			ssl_ctx.check_hostname = False
-			ssl_ctx.verify_mode = ssl.CERT_NONE
+			ssl_ctx = ssl.create_default_context()
 			urllib.request.urlopen(req_u, timeout=5, context=ssl_ctx)
 		except Exception as up_err:
 			log.debug(f"MonitorSistema: Cierre de stream de subida: {up_err}")
@@ -3426,10 +4023,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		Avisa de que está consultando y hace el trabajo en un hilo aparte, porque
 		preguntar por la salud real de la batería tarda unos segundos.
 		"""
-		if getattr(self, "_advBatteryRunning", False):
+		if not self._tryStartOp("advBattery", "_advBatteryRunning"):
 			return
 		ui.message(_("Consultando estado de la batería, por favor espera..."))
-		self._advBatteryRunning = True
 
 		def worker():
 			"""Consulta la batería y arma la frase completa.
@@ -3456,12 +4052,23 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					log.info("MonitorSistema: psutil no detectó batería en este equipo (posible sobremesa o sin sensor ACPI).")
 					msg = _("No hay batería o es un equipo de sobremesa.")
 				else:
-					pct = round(bat.percent)
+					try:
+						pct_val = float(bat.percent)
+						if math.isnan(pct_val) or math.isinf(pct_val):
+							pct = 0
+						else:
+							pct = max(0, min(100, int(round(pct_val))))
+					except (ValueError, TypeError):
+						pct = 0
 					plugged = _("conectado") if bat.power_plugged else _("desconectado")
 					msg = _("Batería al {} %. Estado: {}.").format(pct, plugged)
-					if not bat.power_plugged and bat.secsleft is not None and bat.secsleft > 0:
-						mins = bat.secsleft // 60
-						msg += " " + _("Tiempo restante estimado: {} horas y {} minutos.").format(mins // 60, mins % 60)
+					if not bat.power_plugged and bat.secsleft is not None and 0 < bat.secsleft <= 259200:
+						try:
+							secs = int(bat.secsleft)
+							mins = secs // 60
+							msg += " " + _("Tiempo restante estimado: {} horas y {} minutos.").format(mins // 60, mins % 60)
+						except (ValueError, TypeError, OverflowError):
+							pass
 					
 					# Consulta WMI de salud real vs capacidad de diseño
 					health_pct = None
@@ -3481,7 +4088,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 						f_val = next(iter(f_items)).Properties_("FullChargedCapacity").Value
 						d_val = next(iter(d_items)).Properties_("DesignedCapacity").Value
 						if f_val and d_val and d_val > 0:
-							health_pct = str(round((f_val / d_val) * 100))
+							ratio = (float(f_val) / float(d_val)) * 100.0
+							if not math.isnan(ratio) and not math.isinf(ratio) and 0 < ratio <= 200:
+								health_pct = str(round(ratio))
 					except Exception:
 						pass
 					finally:
@@ -3517,7 +4126,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 								timeout=5
 							).strip()
 							log.info(f"MonitorSistema: Respuesta PowerShell salud batería WMI: '{out}'")
-							if out and out.isdigit():
+							if out and out.isdigit() and 0 < int(out) <= 200:
 								health_pct = out
 						except Exception as pe:
 							log.debug(f"MonitorSistema: Error en consulta PowerShell de salud de batería: {pe}")
@@ -3529,14 +4138,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 				log.error(f"MonitorSistema: Error general consultando batería: {e}", exc_info=True)
 				msg = _("Error consultando la batería.")
 			finally:
-				self._advBatteryRunning = False
+				self._finishOp("advBattery", "_advBatteryRunning")
 				stop_event.set()
 
 			log.info(f"MonitorSistema: Anunciando estado de batería al usuario: '{msg}'")
 			wx.CallAfter(ui.message, msg)
 			if getattr(self, "_copyAdvBatteryOnFinish", False):
 				self._copyAdvBatteryOnFinish = False
-				wx.CallAfter(api.copyToClip, msg, notify=True)
+				wx.CallAfter(self._safeCopyToClip, msg)
 		threading.Thread(target=worker, daemon=True).start()
 
 	@scriptHandler.script(
@@ -3561,7 +4170,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		BlueToothBatteryReport (por Cary-rowen y colaboradores), resolviendo la detección
 		con matriz de 4 claves DEVPROPKEY y filtrado multinivel de desconexión.
 		"""
-		log.info("MonitorSistema: Iniciando enumeración profunda de dispositivos Bluetooth...")
+		log.debug("MonitorSistema: Iniciando enumeración profunda de dispositivos Bluetooth...")
 		try:
 			try:
 				ctypes.windll.setupapi.SetupDiEnumDeviceInfo.argtypes = None
@@ -3576,7 +4185,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			candidates, root_names, root_dev_insts = encontrados
 			results = _soloLosConectados(api, candidates, estados_clasicos,
 				root_names, root_dev_insts)
-			log.info(f"MonitorSistema: Fin de escaneo Bluetooth. Dispositivos conectados reportados ({len(results)}): {results}")
+			if results:
+				log.info(f"MonitorSistema: Fin de escaneo Bluetooth. Dispositivos conectados reportados ({len(results)}): {results}")
+			else:
+				log.debug("MonitorSistema: Fin de escaneo Bluetooth. No hay dispositivos conectados con batería.")
 			return results
 		except Exception as e:
 			log.error(f"MonitorSistema: Error crítico en detección de batería Bluetooth: {e}", exc_info=True)
@@ -3588,10 +4200,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		Avisa de que está buscando y hace el trabajo en un hilo aparte, porque
 		recorrer los aparatos Bluetooth tarda unos segundos.
 		"""
-		if getattr(self, "_bluetoothRunning", False):
+		if not self._tryStartOp("bluetooth", "_bluetoothRunning"):
 			return
 		ui.message(_("Buscando dispositivos Bluetooth, por favor espera..."))
-		self._bluetoothRunning = True
 
 		def worker():
 			"""Pregunta a cada aparato Bluetooth por su batería y arma la frase.
@@ -3610,21 +4221,39 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					msg = _("No se encontraron dispositivos Bluetooth informando su batería.")
 					log.info("MonitorSistema: Anunciando al usuario: 'No se encontraron dispositivos Bluetooth informando su batería.'")
 				else:
-					parts = [_("{}: {} %").format(d.get('name', _('Dispositivo')), d.get('battery')) for d in data]
-					msg = _("Batería Bluetooth: ") + ", ".join(parts)
+					parts = []
+					for d in data:
+						if not isinstance(d, dict):
+							continue
+						raw_name = d.get('name')
+						name = str(raw_name).strip() if raw_name else _('Dispositivo')
+						name = "".join(ch for ch in name if ch.isprintable() or ch in " \t") or _('Dispositivo')
+						bat_val = d.get('battery')
+						try:
+							bat_num = int(bat_val)
+							if 0 <= bat_num <= 100:
+								parts.append(_("{}: {} %").format(name, bat_num))
+							else:
+								parts.append(_("{}: desconocido").format(name))
+						except (ValueError, TypeError, OverflowError):
+							parts.append(_("{}: desconocido").format(name))
+					if parts:
+						msg = _("Batería Bluetooth: ") + ", ".join(parts)
+					else:
+						msg = _("No se encontraron dispositivos Bluetooth informando su batería.")
 					log.info(f"MonitorSistema: Anunciando al usuario: '{msg}'")
 				self._lastBluetoothResult = msg
 			except Exception as e:
 				log.error(f"MonitorSistema: Error consultando dispositivos Bluetooth: {e}", exc_info=True)
 				msg = _("Error consultando dispositivos Bluetooth.")
 			finally:
-				self._bluetoothRunning = False
+				self._finishOp("bluetooth", "_bluetoothRunning")
 				stop_event.set()
 
 			wx.CallAfter(ui.message, msg)
 			if getattr(self, "_copyBluetoothOnFinish", False):
 				self._copyBluetoothOnFinish = False
-				wx.CallAfter(api.copyToClip, msg, notify=True)
+				wx.CallAfter(self._safeCopyToClip, msg)
 		threading.Thread(target=worker, daemon=True).start()
 
 	@scriptHandler.script(
@@ -3657,6 +4286,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 		# 2. Otros complementos activos que usen los mismos atajos
 		self._revisarAtajosDeOtrosComplementos(conflicts)
+
+		# 3. Comandos globales nativos de NVDA
+		self._revisarComandosNativosDeNVDA(conflicts)
 
 
 		# Resumen final en el log
@@ -3731,21 +4363,32 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception as e:
 			log.debug(f"MonitorSistema: No se pudo verificar la lista de complementos instalados: {e}")
 
+	@staticmethod
+	def _normalizarGesto(gesto_str):
+		"""Normaliza un gesto eliminando espacios y modificadores redundantes."""
+		s = str(gesto_str).strip().lower().replace(" ", "")
+		return re.sub(r'\(.*?\)', '', s)
+
+	def _obtenerMapaAtajosPropiosNormalizado(self):
+		"""Construye el mapa de atajos propios normalizados con su descripción."""
+		default_map = {self._normalizarGesto(k): v for k, v in self._atajosPropios().items()}
+		our_gestures_map = {}
+		g_map = getattr(self, "_gestureMap", {}) or {}
+		if g_map:
+			for g_id, script_ref in g_map.items():
+				norm_g = self._normalizarGesto(g_id)
+				desc = getattr(script_ref, "description", "") or getattr(script_ref, "__doc__", "") or default_map.get(norm_g, getattr(script_ref, "__name__", str(script_ref)))
+				our_gestures_map[norm_g] = desc
+		else:
+			our_gestures_map = default_map
+		return our_gestures_map
+
 	def _revisarAtajosDeOtrosComplementos(self, conflicts):
 		"""Busca otros complementos activos que usen los mismos atajos.
 
 		Apunta en 'conflicts' lo que encuentre.
 		"""
-		default_map = self._atajosPropios()
-		our_gestures_map = {}
-		g_map = getattr(self, "_gestureMap", {}) or {}
-		if g_map:
-			for g_id, script_ref in g_map.items():
-				norm_g = str(g_id).strip().lower().replace(" ", "")
-				desc = getattr(script_ref, "description", "") or getattr(script_ref, "__doc__", "") or default_map.get(norm_g, getattr(script_ref, "__name__", str(script_ref)))
-				our_gestures_map[norm_g] = desc
-		else:
-			our_gestures_map = default_map
+		our_gestures_map = self._obtenerMapaAtajosPropiosNormalizado()
 		try:
 			running = getattr(globalPluginHandler, "runningPlugins", set())
 			for plugin in running:
@@ -3761,7 +4404,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 					g_map = getattr(plugin, "_ScriptableObject__gestures", {}) or {}
 
 				for g_id, script_ref in g_map.items():
-					norm_g = str(g_id).strip().lower().replace(" ", "")
+					norm_g = self._normalizarGesto(g_id)
 					if norm_g in our_gestures_map:
 						script_name = getattr(script_ref, "__name__", str(script_ref))
 						our_feature = our_gestures_map[norm_g]
@@ -3774,6 +4417,28 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		except Exception as e:
 			log.debug(f"MonitorSistema: Error inspeccionando runningPlugins: {e}")
 
+	def _revisarComandosNativosDeNVDA(self, conflicts):
+		"""Comprueba si algún atajo propio colisiona con comandos nativos de NVDA."""
+		our_gestures_map = self._obtenerMapaAtajosPropiosNormalizado()
+
+		try:
+			import globalCommands
+			cmd_obj = getattr(globalCommands, "commands", None)
+			if cmd_obj:
+				cmd_map = getattr(cmd_obj, "_gestureMap", {}) or {}
+				for cmd_g, cmd_script in cmd_map.items():
+					norm_cmd = self._normalizarGesto(cmd_g)
+					if norm_cmd in our_gestures_map:
+						our_feature = our_gestures_map[norm_cmd]
+						cmd_desc = getattr(cmd_script, "description", "") or getattr(cmd_script, "__name__", str(cmd_script))
+						collision_msg = (
+							f"Colisión de atajo: '{norm_cmd}' está asignado simultáneamente a '{our_feature}' (Monitoreo del Sistema) "
+							f"y al comando nativo de NVDA '{cmd_desc}'."
+						)
+						conflicts.append(collision_msg)
+						log.warning(f"MonitorSistema CONFLICTO CON NVDA CORE: {collision_msg}")
+		except Exception as e:
+			log.debug(f"MonitorSistema: No se pudo verificar comandos globales nativos: {e}")
 
 	def _checkAddonConflicts(self, interactive=False):
 		conflicts, warnings = self.auditConflicts()
@@ -3793,4 +4458,3 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def script_checkConflicts(self, gesture: inputCore.InputGesture):
 		"""Ejecuta una auditoría interactiva de atajos y complementos concurrentes."""
 		wx.CallAfter(self._checkAddonConflicts, interactive=True)
-

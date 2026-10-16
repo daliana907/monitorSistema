@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: nvdaaddons\n"
+"Project-Id-Version: monitoreoSistema 3.0.0\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
 "POT-Creation-Date: 2026-09-04 20:37+0000\n"
-"PO-Revision-Date: 2026-09-04 20:40\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: Kurmanji (Kurdish)\n"
 "Language: kmr_TR\n"
@@ -151,7 +151,7 @@ msgid "Frecuencia actual de la CPU: {} gigahercios"
 msgstr "Frekansa CPU ya niha: {} gigahertz"
 
 msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "Frekansa CPU ya herî zêde: {gigahertz}"
+msgstr "Frekansa CPU ya herî zêde: {}"
 
 msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
 msgstr "GPU {}: barkirina pêvajoya grafîkê: {}%, germahî: {}."
@@ -499,16 +499,16 @@ msgid "GPU {}:"
 msgstr "GPU{}:"
 
 msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%, temperatura: {temp}."
-msgstr "{prefix} bîra {mem}, barkirina pêvajoya grafîkê: {bikarhêner}%, germahî: {temp}."
+msgstr "{prefix} bîra {mem}, barkirina pêvajoya grafîkê: {util}%, germahî: {temp}."
 
 msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
-msgstr "{prefix} bîra {mem}, barkirina pêvajoya grafîkê: {bikarhêner}%."
+msgstr "{prefix} bîra {mem}, barkirina pêvajoya grafîkê: {util}%."
 
 msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
-msgstr "Barkirina pêvajoya grafîkê: {prefix}: {bikarhêner}%, germahî: {temp}."
+msgstr "Barkirina pêvajoya grafîkê: {prefix}: {util}%, germahî: {temp}."
 
 msgid "{prefix} carga del procesador gráfico: {util}%."
-msgstr "Barkirina pêvajoya grafîkê ya {prefix}: {bikarhêner}%."
+msgstr "Barkirina pêvajoya grafîkê ya {prefix}: {util}%."
 
 msgid "Avisar si se detectan problemas de salud o desgaste crítico en discos (SSD / HDD)"
 msgstr "Ger pirsgirêkên tenduristiyê an cilê krîtîk li ser dîskê (SSD / HDD) werin tespît kirin agahdar bikin"
@@ -688,7 +688,7 @@ msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
 msgstr "Navbera kontrolkirina germahiya GPU (deqe):"
 
 msgid "Alerta: Temperatura de {name} alta ({temp})."
-msgstr "Hişyar: Germahiya {nav} bilind ({temp})."
+msgstr "Hişyar: Germahiya {name} bilind ({temp})."
 
 msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Barkirina navînî ya pêvajoyê û barkirina her bingehîn pêşkêşî dike. Ger du caran were pêl kirin, agahiyê li clipboardê kopî dike."

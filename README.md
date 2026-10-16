@@ -1,8 +1,9 @@
 # Monitoreo del Sistema
 
 * Autor: Daliana (basado en Resource Monitor de Joseph Lee)
+* Versión: 3.0.1
 * Compatibilidad con NVDA: 2023.1 en adelante
-* Descarga de la versión estable: https://github.com/daliana907/monitoreoSistema
+* Descarga de la versión estable: https://github.com/daliana907/monitorSistema
 
 Este complemento reúne en un solo lugar todas las herramientas necesarias para conocer en detalle el estado y rendimiento de tu equipo, desde la carga del procesador y la memoria hasta el estado de tu conexión a internet y los dispositivos externos, interactuando mediante atajos de teclado rápidos y accesibles.
 
@@ -43,6 +44,18 @@ Atajos avanzados para diagnóstico profundo (requieren unos segundos de análisi
 
 Todas las opciones de Monitoreo del Sistema se encuentran en el menú Herramientas de NVDA, bajo el submenú Monitoreo del Sistema. Desde allí puedes abrir los manuales, comprobar si hay conflictos con las teclas que usa el complemento, y abrir la configuración general.
 En la configuración puedes activar las alertas automáticas en segundo plano, definir cada cuántos minutos el sistema verificará las temperaturas y elegir los umbrales de alerta de sobrecalentamiento de la CPU.
+
+## Funcionamiento seguro
+
+*   Las consultas pesadas se hacen en segundo plano para no congelar NVDA; los avisos que coinciden se agrupan en un solo mensaje.
+*   Solo se anuncian baterías Bluetooth de dispositivos que Windows confirma como conectados. Los aparatos desconectados no llenan el registro normal.
+*   La prueba de velocidad verifica la seguridad de la conexión y, al cerrar NVDA, se detienen las tareas y se liberan los recursos usados.
+*   En esta instalación, TCA System Utilities usa NVDA + Mayús + 0 para reiniciar el Explorador y no choca con NVDA + Mayús + E.
+
+## Créditos de terceros
+
+*   Basado en Resource Monitor de Joseph Lee y colaboradores (https://github.com/josephsl/resourcemonitor).
+*   Módulo de batería Bluetooth inspirado en BlueToothBatteryReport (Cary-Rowen y colaboradores).
 
 ## Créditos
 

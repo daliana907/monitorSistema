@@ -1,7 +1,7 @@
 # System Monitor for NVDA
 
 - Author: Daliana (based on Resource Monitor by Joseph Lee and contributors)
-- Version: 3.0.0
+- Version: 3.0.1
 - Compatibility: NVDA 2023.1 and later
 - License: GNU GPL v2
 
@@ -53,7 +53,21 @@ You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Settings...: Opens the System Monitor configuration panel directly.
 - Check shortcut conflicts with other add-ons...: Scans for overlapping shortcuts with other installed add-ons.
 
+### Safe Operation
+
+- Heavy checks, such as drives, Bluetooth, GPU, and network speed, run in the background so NVDA stays responsive.
+- Alerts that occur together are combined into one message. Wi-Fi signal checks are limited to avoid unnecessary battery use.
+- The add-on only reports Bluetooth batteries for devices that Windows confirms as connected. Disconnected devices are skipped and do not fill NVDA's normal log.
+- Network connections used for the speed test verify security certificates.
+- When NVDA closes or restarts, background tasks stop and Wi-Fi, GPU, and diagnostic resources are released.
+- If you use TCA System Utilities, assign a different gesture to its Explorer-restart command to avoid interfering with NVDA + Shift + E.
+
 ---
+
+## What's new in 3.0.1
+
+- Bluetooth log stays quiet: disconnected devices no longer fill the log every two minutes.
+- No shortcut clash: TCA's Explorer restart uses NVDA+Shift+0.
 
 ## What's new in 3.0.0 (13 October 2026)
 
@@ -92,6 +106,11 @@ You can access the add-on from NVDA Menu > Tools > System Monitor:
 - Improved calculation stability: fixed calculation issues that could produce errors when measuring dynamic processor Turbo Boost speeds or swap memory under heavy system loads.
 - Faster and safer internet speed testing: network speed tests now run over encrypted connections (HTTPS) with improved connection handling for reliable download and upload results.
 - Instant NVDA exit and restart: all background monitoring tasks terminate cleanly the moment NVDA closes or restarts, preventing delays during shutdown.
+
+### Third-party credits
+
+*   Based on Resource Monitor by Joseph Lee and contributors (https://github.com/josephsl/resourcemonitor).
+*   Bluetooth battery module inspired by BlueToothBatteryReport (Cary-Rowen and contributors).
 
 ### Credits
 

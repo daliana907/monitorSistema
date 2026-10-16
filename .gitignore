@@ -8,3 +8,24 @@ resultado_github.txt
 2_subir_todo.bat
 3_terminar.bat
 reintentar_subida.bat
+
+# Respaldos y temporales locales (nunca subir)
+*.bak
+*.corrupto.bak
+*.old
+*.tmp
+*.bak.*
+
+# Generados/respaldos/temporales comunes (no versionar)
+*.log
+*.pyo
+*.nvda-addon
+*.mo
+1_*
+2_*
+3_*
+4_*
+reintentar*
+
+# Archivos de trabajo de un solo uso (bats numerados, reintentos, informes):
+# se conservan en disco pero no se versionan. No borrar los .bat sin respaldo.

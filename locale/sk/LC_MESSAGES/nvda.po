@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: resourceMonitor 2.1\n"
+"Project-Id-Version: monitoreoSistema 3.0.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-21 20:10-0600\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
 "Last-Translator: Ondrej Rosík <ondrej.rosik@gmail.com>\n"
 "Language-Team: \n"
 "Language: sk\n"
@@ -152,7 +152,7 @@ msgid "Frecuencia actual de la CPU: {} gigahercios"
 msgstr "Aktuálna frekvencia procesora: {} gigahertz"
 
 msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "Maximálna frekvencia procesora: {gigahertz}"
+msgstr "Maximálna frekvencia procesora: {}"
 
 msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
 msgstr "GPU {}: zaťaženie grafického procesora: {} %, teplota: {}."

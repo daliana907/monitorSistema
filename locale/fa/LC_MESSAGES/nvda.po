@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: resourceMonitor 2.3\n"
+"Project-Id-Version: monitoreoSistema 3.0.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-21 19:53-0600\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
 "Last-Translator: Mohammadreza Rashad <mohammadreza5712@gmail.com>\n"
 "Language-Team: NVDA Translation Team <nvda-translations@groups.io>\n"
 "Language: fa\n"
@@ -153,7 +153,7 @@ msgid "Frecuencia actual de la CPU: {} gigahercios"
 msgstr "فرکانس فعلی CPU: {} گیگاهرتز"
 
 msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "حداکثر فرکانس CPU: {گیگاهرتز}"
+msgstr "حداکثر فرکانس CPU: {}"
 
 msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
 msgstr "GPU {}: بار پردازنده گرافیکی: {}%, دما: {}."
@@ -507,7 +507,7 @@ msgid "{prefix} memoria {mem}, carga del procesador gráfico: {util}%."
 msgstr "{prefix} حافظه {mem}، بار پردازنده گرافیکی: {util}%."
 
 msgid "{prefix} carga del procesador gráfico: {util}%, temperatura: {temp}."
-msgstr "{پیشوند} بار پردازنده گرافیکی: {util}%, دما: {temp}."
+msgstr "{prefix} بار پردازنده گرافیکی: {util}%, دما: {temp}."
 
 msgid "{prefix} carga del procesador gráfico: {util}%."
 msgstr "بار پردازنده گرافیکی {prefix}: {util}%."

@@ -11,7 +11,7 @@ $complementos = @("monitoreoSistema", "climaAccesible", "biosManager")
 
 # Lo que NO se copia al paquete
 $fuera = @(".git", ".github", "tests", "__pycache__")
-$fueraArchivos = @("*.bat", "*.ps1", "*.yml", "README.md", "CHANGELOG.md",
+$fueraArchivos = @("*.bat", "*.ps1", "*.yml", "*.bak", "*.log", "README.md", "CHANGELOG.md",
                    ".gitignore", "resultado_github.txt", "*.nvda-addon")
 
 foreach ($nombre in $complementos) {

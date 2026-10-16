@@ -28,7 +28,8 @@ class _Cualquiera:
     """Objeto que acepta cualquier atributo y cualquier llamada sin protestar."""
 
     def __init__(self, *a, **k):
-        pass
+        for k_name, v in k.items():
+            setattr(self, k_name, v)
 
     def __getattr__(self, nombre):
         return _Cualquiera()
@@ -58,7 +59,9 @@ def instalar():
             getCodeAddon=lambda: _Cualquiera(),
             getLanguage=lambda: "es")
     _modulo("logHandler", log=_Cualquiera())
-    _modulo("globalPluginHandler", GlobalPlugin=type("GlobalPlugin", (), {}))
+    _modulo("globalPluginHandler",
+            GlobalPlugin=type("GlobalPlugin", (), {"terminate": lambda self: None}),
+            ActionCancelled=type("ActionCancelled", (Exception,), {}))
     _modulo("scriptHandler",
             script=lambda **k: (lambda f: f),
             getLastScriptRepeatCount=lambda: 0)
@@ -84,8 +87,10 @@ def instalar():
     for nombre in ("Dialog", "Panel", "Button", "CheckBox", "StaticText", "TextCtrl",
                    "ListCtrl", "ListBox", "Choice", "SpinCtrl", "BoxSizer", "Colour",
                    "StaticBox", "StaticBoxSizer", "ScrolledWindow", "StdDialogButtonSizer",
-                   "CommandEvent", "MessageBox", "CallAfter"):
+                   "CommandEvent", "MessageBox"):
         setattr(wx, nombre, _Cualquiera)
+    # CallAfter ejecuta de inmediato en pruebas para que los hilos daemon anuncien sin GUI.
+    setattr(wx, "CallAfter", lambda func, *a, **k: func(*a, **k) if callable(func) else None)
     for constante in ("VERTICAL", "HORIZONTAL", "EXPAND", "ALL", "LEFT", "RIGHT", "TOP",
                       "BOTTOM", "LB_SINGLE", "LC_REPORT", "LC_SINGLE_SEL", "BORDER_SUNKEN",
                       "TE_PROCESS_ENTER", "VSCROLL", "ALIGN_RIGHT", "ID_OK", "ID_CANCEL",
@@ -101,7 +106,7 @@ def instalar():
                 QueryValueEx=lambda *a, **k: ("", 0), CloseKey=lambda *a: None,
                 HKEY_LOCAL_MACHINE=0, KEY_READ=0)
 
-    _modulo("globalVars", appArgs=_Cualquiera(), appDir="", startTime=0)
+    _modulo("globalVars", appArgs=_Cualquiera(secureMode=False), appDir="", startTime=0)
     _modulo("core", callLater=lambda ms, f, *a, **k: None,
             triggerAsleep=lambda: None, isMainThread=lambda: True)
     class _WinVerInfo:
@@ -132,7 +137,9 @@ def instalar():
                 disk_usage=lambda p: _Cualquiera(),
                 disk_partitions=lambda **k: [],
                 process_iter=lambda *a, **k: [],
-                net_io_counters=lambda **k: _Cualquiera())
+                net_io_counters=lambda **k: _Cualquiera(),
+                NoSuchProcess=type("NoSuchProcess", (Exception,), {}),
+                AccessDenied=type("AccessDenied", (Exception,), {}))
 
     # ctypes en Linux no tiene windll ni las funciones de Windows.
     import ctypes

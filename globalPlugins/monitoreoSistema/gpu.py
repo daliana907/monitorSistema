@@ -10,6 +10,7 @@ import os
 import os.path
 import shutil
 import subprocess
+import threading
 import time
 import ctypes
 from ctypes import (
@@ -30,11 +31,39 @@ from ctypes import (
 	WINFUNCTYPE,
 )
 from dataclasses import dataclass
+import math
 try:
 	from logHandler import log
 except ImportError:
 	import logging
 	log = logging.getLogger("gpu")
+
+
+def _safe_float(val, default=0.0):
+	"""Convierte a float de forma segura mitigando NaN, Inf y desbordamientos."""
+	try:
+		f = float(val)
+		if math.isnan(f) or math.isinf(f):
+			return default
+		return f
+	except (ValueError, TypeError, OverflowError):
+		return default
+
+
+def _format_gpu_util(val) -> str:
+	"""Formatea el porcentaje de uso de GPU clampado a [0.0, 100.0] sin errores de conversión."""
+	c = max(0.0, min(100.0, _safe_float(val, 0.0)))
+	try:
+		ic = int(c)
+		return str(round(c, 1) if c != ic else ic)
+	except (ValueError, OverflowError):
+		return "0"
+
+
+def _format_gpu_mem(val, default=0.0) -> str:
+	"""Formatea el valor de memoria en MB de forma finita y positiva."""
+	c = max(0.0, _safe_float(val, default))
+	return str(round(c, 1))
 
 
 @dataclass
@@ -50,6 +79,44 @@ class GpuTelemetry:
 # nvidia-smi/where.exe, and avoids NVDA's UIAHandler logging errors while it
 # tries (and fails) to probe a console window that closes almost immediately.
 _CREATE_NO_WINDOW = 0x08000000
+
+
+_ADL_DLL_CACHE = None
+_ADL_DLL_NAME = None
+_ADL_DLL_LOCK = threading.Lock()
+_ADL_ALLOC_CB = None
+
+
+def _getAdlDll():
+	"""DLL ADL de AMD cacheada globalmente (una sola carga)."""
+	global _ADL_DLL_CACHE, _ADL_DLL_NAME, _ADL_ALLOC_CB
+	with _ADL_DLL_LOCK:
+		if _ADL_DLL_CACHE is not None:
+			return _ADL_DLL_CACHE, _ADL_DLL_NAME
+		for _name in ("atiadlxx.dll", "atiadlxy.dll"):
+			try:
+				_dll = ctypes.WinDLL(_name)
+				_ADL_DLL_CACHE = _dll
+				_ADL_DLL_NAME = _name
+				return _dll, _name
+			except Exception:
+				continue
+		return None, None
+
+
+def _freeAdlDll():
+	"""Libera la DLL ADL cacheada con FreeLibrary."""
+	global _ADL_DLL_CACHE, _ADL_DLL_NAME, _ADL_ALLOC_CB
+	with _ADL_DLL_LOCK:
+		dll = _ADL_DLL_CACHE
+		_ADL_DLL_CACHE = None
+		_ADL_DLL_NAME = None
+		_ADL_ALLOC_CB = None
+	if dll is not None:
+		try:
+			ctypes.windll.kernel32.FreeLibrary(dll._handle)  # type: ignore[attr-defined]
+		except Exception:
+			pass
 
 
 class BaseGpuProvider:
@@ -69,6 +136,10 @@ class NvidiaGpuProvider(BaseGpuProvider):
 		super().__init__()
 		self._nvidiaSmiPath = None
 		self._nvidiaSmiPathResolved = False
+		self._lastTelemetry = None
+		self._lastCollectTime = 0.0
+		self._refreshLock = threading.Lock()
+		self._refreshing = False
 
 	def _findNvidiaSmiPath(self) -> str | None:
 		"""Localiza la ruta absoluta al ejecutable nvidia-smi en el PATH o directorios estándar del sistema."""
@@ -92,8 +163,8 @@ class NvidiaGpuProvider(BaseGpuProvider):
 				return path
 		return None
 
-	def collect(self) -> list[GpuTelemetry] | None:
-		"""Ejecuta nvidia-smi para obtener uso, temperatura y memoria de GPUs NVIDIA."""
+	def _queryNvidiaSmi(self) -> list[GpuTelemetry] | None:
+		"""Ejecuta nvidia-smi de forma síncrona (uso interno del hilo de refresco)."""
 		if not self._nvidiaSmiPathResolved:
 			self._nvidiaSmiPath = self._findNvidiaSmiPath()
 			self._nvidiaSmiPathResolved = True
@@ -133,6 +204,61 @@ class NvidiaGpuProvider(BaseGpuProvider):
 				)
 			)
 		return items
+		self._lastTelemetry = list(items)
+		self._lastCollectTime = time.time()
+		return items
+
+	def _refreshInBackground(self):
+		"""Refresca nvidia-smi en un hilo daemon sin bloquear el hilo principal."""
+		try:
+			items = self._queryNvidiaSmi()
+			if items is not None:
+				with self._refreshLock:
+					self._lastTelemetry = list(items)
+					self._lastCollectTime = time.time()
+		except Exception as e:
+			log.debug(f"MonitorSistema GPU: refresco nvidia-smi en hilo falló: {e}")
+		finally:
+			with self._refreshLock:
+				self._refreshing = False
+
+	def collect(self) -> list[GpuTelemetry] | None:
+		"""Devuelve caché inmediata; refresca nvidia-smi en hilo si está obsoleta."""
+		try:
+			with self._refreshLock:
+				cached = list(self._lastTelemetry) if self._lastTelemetry is not None else None
+				last = float(getattr(self, '_lastCollectTime', 0.0) or 0.0)
+				refreshing = bool(getattr(self, '_refreshing', False))
+		except Exception:
+			cached, last, refreshing = None, 0.0, False
+		now = time.time()
+		if cached is not None and (now - last) < 30.0:
+			return cached
+		if not refreshing:
+			try:
+				with self._refreshLock:
+					if not self._refreshing:
+						self._refreshing = True
+						threading.Thread(target=self._refreshInBackground, daemon=True).start()
+			except Exception:
+				try:
+					with self._refreshLock:
+						self._refreshing = False
+				except Exception:
+					pass
+		if cached is not None:
+			return cached
+		# Sin caché aún: intento síncrono único con límite (primer uso).
+		try:
+			items = self._queryNvidiaSmi()
+			if items is not None:
+				with self._refreshLock:
+					self._lastTelemetry = list(items)
+					self._lastCollectTime = time.time()
+				return list(items)
+		except Exception:
+			pass
+		return cached
 
 
 # ── Windows PDH (Performance Data Helper) & DXGI Provider ─────────────────────
@@ -303,43 +429,48 @@ def _extractLuid(name: str) -> str:
 	if idx >= 0:
 		parts = name[idx:].split("_")
 		if len(parts) >= 3:
-			return f"{parts[0]}_{parts[1]}_{parts[2]}"
+			part2 = parts[2].split("#")[0].split(")")[0].split("/")[0].split(":")[0].strip()
+			return f"{parts[0]}_{parts[1]}_{part2}"
 	return "default"
 
 
 def _getAmdGpuTemperature() -> str:
 	"""Consulta la temperatura actual de GPUs AMD Radeon mediante la biblioteca nativa ADL (atiadlxx/atiadlxy)."""
-	for dll_name in ("atiadlxx.dll", "atiadlxy.dll"):
+	adl, _dll_name = _getAdlDll()
+	if adl is None:
+		return ""
+	global _ADL_ALLOC_CB
+	created = False
+	try:
+		ALLOC_FUNC = ctypes.WINFUNCTYPE(ctypes.c_void_p, ctypes.c_size_t)
+		def adl_alloc(size):
+			"""Callback de reserva de memoria para la biblioteca ADL de AMD."""
+			return ctypes.windll.kernel32.LocalAlloc(0x0040, size)
+		adl_alloc_cb = ALLOC_FUNC(adl_alloc)
+		_ADL_ALLOC_CB = adl_alloc_cb
+		if adl.ADL_Main_Control_Create(adl_alloc_cb, 1) != 0:
+			return ""
+		created = True
+		temp_str = ""
 		try:
-			adl = ctypes.WinDLL(dll_name)
-			ALLOC_FUNC = ctypes.WINFUNCTYPE(ctypes.c_void_p, ctypes.c_size_t)
-			def adl_alloc(size):
-				"""Callback de reserva de memoria para la biblioteca ADL de AMD."""
-				return ctypes.windll.kernel32.LocalAlloc(0x0040, size)
-			adl_alloc_cb = ALLOC_FUNC(adl_alloc)
-			if adl.ADL_Main_Control_Create(adl_alloc_cb, 1) == 0:
-				temp_str = ""
+			if hasattr(adl, "ADL2_OverdriveN_Temperature_Get"):
+				func = adl.ADL2_OverdriveN_Temperature_Get
+				func.argtypes = [ctypes.c_void_p, c_long, c_long, POINTER(c_long)]
+				func.restype = c_long
+				t = c_long(0)
+				if func(None, 0, 0, byref(t)) == 0 and t.value > 0:
+					c = t.value / 1000.0
+					if 0 < c < 125:
+						temp_str = str(round(c))
+		finally:
+			if created:
 				try:
-					if hasattr(adl, "ADL2_OverdriveN_Temperature_Get"):
-						func = adl.ADL2_OverdriveN_Temperature_Get
-						func.argtypes = [ctypes.c_void_p, c_long, c_long, POINTER(c_long)]
-						func.restype = c_long
-						t = c_long(0)
-						if func(None, 0, 0, byref(t)) == 0 and t.value > 0:
-							c = t.value / 1000.0
-							if 0 < c < 125:
-								temp_str = str(round(c))
-				finally:
-					try:
-						adl.ADL_Main_Control_Destroy()
-					except Exception:
-						pass
-				if temp_str:
-					return temp_str
-		except Exception:
-			pass
-	return ""
-
+					adl.ADL_Main_Control_Destroy()
+				except Exception:
+					pass
+		return temp_str
+	except Exception:
+		return ""
 
 class WindowsGpuProvider(BaseGpuProvider):
 	"""Universal Windows GPU telemetry provider using Performance Data Helper (PDH) and DXGI."""
@@ -392,11 +523,31 @@ class WindowsGpuProvider(BaseGpuProvider):
 			)
 			self._counterShared = hCounterShared if status == ERROR_SUCCESS else None
 
+			if not self._counterUtil and not self._counterDedicated and not self._counterShared:
+				log.warning("MonitorSistema GPU: Ningún contador PDH de GPU pudo añadirse; cerrando consulta.")
+				try:
+					self._pdh.PdhCloseQuery(self._query)
+				except Exception:
+					pass
+				self._query = None
+				self._pdh = None
+				return
+
 			self._adapters = _getDxgiAdapters()
 			self._pdh.PdhCollectQueryData(self._query)
 			self._lastCollectTime = time.time()
 		except Exception as e:
 			log.error(f"MonitorSistema GPU: Error inicializando PDH en WindowsGpuProvider: {e}", exc_info=True)
+			try:
+				_q = getattr(self, '_query', None)
+				if _q is not None:
+					try:
+						ctypes.windll.pdh.PdhCloseQuery(_q)
+					except Exception:
+						pass
+			except Exception:
+				pass
+			self._query = None
 			self._pdh = None
 
 	def collect(self) -> list[GpuTelemetry] | None:
@@ -407,13 +558,17 @@ class WindowsGpuProvider(BaseGpuProvider):
 			return None
 		try:
 			now = time.time()
-			# Rate counters require at least ~100ms between data collections
-			if now - self._lastCollectTime < 0.1:
-				time.sleep(0.1)
+			# Sin sleep en el hilo principal: devolver caché si la consulta es muy reciente.
+			if now - getattr(self, '_lastCollectTime', 0) < 0.1:
+				cached = getattr(self, "_lastTelemetry", None)
+				if cached is not None:
+					return list(cached)
+				return []
 
 			status = self._pdh.PdhCollectQueryData(self._query)
 			self._lastCollectTime = time.time()
 			if status != ERROR_SUCCESS:
+				self.close()
 				return []
 
 			luidUtilization: dict[str, float] = {}
@@ -442,7 +597,7 @@ class WindowsGpuProvider(BaseGpuProvider):
 							item = items[i]
 							if item.FmtValue.CStatus != ERROR_SUCCESS:
 								continue
-							val = item.FmtValue.doubleValue
+							val = _safe_float(item.FmtValue.doubleValue, 0.0)
 							if item.szName:
 								luid = _extractLuid(item.szName)
 								if val > 0.0001:
@@ -478,7 +633,7 @@ class WindowsGpuProvider(BaseGpuProvider):
 							item = items[i]
 							if item.FmtValue.CStatus != ERROR_SUCCESS:
 								continue
-							val = item.FmtValue.doubleValue
+							val = _safe_float(item.FmtValue.doubleValue, 0.0)
 							if item.szName:
 								luid = _extractLuid(item.szName)
 								if val > 0:
@@ -499,36 +654,37 @@ class WindowsGpuProvider(BaseGpuProvider):
 					adapter_name = info.get("name", "").lower()
 					if has_hardware_gpu and ("basic render" in adapter_name or "software" in adapter_name):
 						continue
-					util = min(100.0, luidUtilization.get(luid, 0.0))
-					if util == 0.0 and "default" in luidUtilization:
-						util = min(100.0, luidUtilization["default"])
-					memUsed = luidMemUsed.get(luid, 0.0)
-					if memUsed == 0.0 and "default" in luidMemUsed:
-						memUsed = luidMemUsed["default"]
+					raw_util = luidUtilization.get(luid, 0.0)
+					if raw_util == 0.0 and "default" in luidUtilization:
+						raw_util = luidUtilization["default"]
+					raw_mem = luidMemUsed.get(luid, 0.0)
+					if raw_mem == 0.0 and "default" in luidMemUsed:
+						raw_mem = luidMemUsed["default"]
 					memTotal = info.get("total_mb", 512.0)
 					is_amd = "amd" in info.get("name", "").lower() or "radeon" in info.get("name", "").lower()
 					t_val = amdTemp if is_amd else ""
 					telemetryList.append(
 						GpuTelemetry(
-							utilization=str(round(util, 1) if util != int(util) else int(util)),
+							utilization=_format_gpu_util(raw_util),
 							temperature=t_val,
-							memoryUsed=str(round(memUsed, 1)),
-							memoryTotal=str(round(memTotal, 1)),
+							memoryUsed=_format_gpu_mem(raw_mem),
+							memoryTotal=_format_gpu_mem(memTotal, default=512.0),
 						)
 					)
 
 			if not telemetryList:
-				totalUtil = sum(luidUtilization.values())
-				totalMem = sum(luidMemUsed.values())
+				totalUtil = sum(_safe_float(v) for v in luidUtilization.values())
+				totalMem = sum(_safe_float(v) for v in luidMemUsed.values())
 				telemetryList.append(
 					GpuTelemetry(
-						utilization=str(round(min(100.0, totalUtil), 1) if totalUtil != int(totalUtil) else int(totalUtil)),
+						utilization=_format_gpu_util(totalUtil),
 						temperature=amdTemp,
-						memoryUsed=str(round(totalMem, 1)),
-						memoryTotal=str(round(max(512.0, totalMem), 1)),
+						memoryUsed=_format_gpu_mem(totalMem),
+						memoryTotal=_format_gpu_mem(max(512.0, totalMem), default=512.0),
 					)
 				)
 
+			self._lastTelemetry = list(telemetryList)
 			return telemetryList
 		except Exception as e:
 			log.error(f"MonitorSistema GPU: Error en WindowsGpuProvider.collect: {e}", exc_info=True)
@@ -543,9 +699,15 @@ class WindowsGpuProvider(BaseGpuProvider):
 				pass
 			self._query = None
 			self._pdh = None
+		self._counterUtil = None
+		self._counterDedicated = None
+		self._counterShared = None
 
 	def __del__(self):
-		self.close()
+		try:
+			self.close()
+		except Exception:
+			pass
 
 
 def getGpuProviders() -> list[BaseGpuProvider]:

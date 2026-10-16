@@ -37,8 +37,8 @@ jobs:
 
           versioned = f'{name}-{ver}.nvda-addon'
           exclude_dirs = {'__pycache__', '.git', '.github', 'tests'}
-          exclude_exts = {'.pyc', '.tmp', '.bat', '.ps1', '.yml'}
-          exclude_files = {'README.md', 'CHANGELOG.md', '.gitignore'}
+          exclude_exts = {'.pyc', '.tmp', '.bat', '.ps1', '.yml', '.bak', '.log'}
+          exclude_files = {'README.md', 'CHANGELOG.md', '.gitignore', 'resultado_github.txt'}
 
           with zipfile.ZipFile(versioned, 'w', zipfile.ZIP_DEFLATED) as z:
               for root, dirs, files in os.walk('.'):

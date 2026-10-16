@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: resourceMonitor 2.3\n"
+"Project-Id-Version: monitoreoSistema 3.0.0\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-05-21 19:54-0600\n"
+"PO-Revision-Date: 2026-10-16 12:00+0000\n"
 "Last-Translator: Nicolai Svendsen <chojiro1990@gmail.com>\n"
 "Language-Team: Dansk NVDA <dansk@nvda.dk>\n"
 "Language: da\n"
@@ -152,7 +152,7 @@ msgid "Frecuencia actual de la CPU: {} gigahercios"
 msgstr "Aktuel CPU-frekvens: {} gigahertz"
 
 msgid "Frecuencia máxima de la CPU: {} gigahercios"
-msgstr "Maksimal CPU-frekvens: {gigahertz}"
+msgstr "Maksimal CPU-frekvens: {}"
 
 msgid "GPU {}: carga del procesador gráfico: {}%, temperatura: {}."
 msgstr "GPU {}: grafikprocessorbelastning: {}%, temperatur: {}."
@@ -689,7 +689,7 @@ msgid "Inter&valo de comprobación de temperatura de GPU (minutos):"
 msgstr "GPU temperaturkontrolinterval (minutter):"
 
 msgid "Alerta: Temperatura de {name} alta ({temp})."
-msgstr "Advarsel: Høj {navn} temperatur ({temp})."
+msgstr "Advarsel: Høj {name} temperatur ({temp})."
 
 msgid "Presenta la carga promedio del procesador y la carga de cada núcleo. Si se pulsa dos veces, copia la información al portapapeles."
 msgstr "Viser den gennemsnitlige belastning af processoren og belastningen af ​​hver kerne. Hvis der trykkes to gange, kopieres oplysningerne til udklipsholderen."

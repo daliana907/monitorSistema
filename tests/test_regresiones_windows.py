@@ -15,9 +15,33 @@ al módulo de wifi, sin tocar ese archivo compartido.
 import ctypes
 import os
 import sys
+import threading
 import types
 import unittest
 from unittest.mock import MagicMock
+
+
+def _dotarEstadoMinimo(plugin):
+    """Estado minimo que GlobalPlugin.__init__ crea (locks, hilos, cache WLAN)."""
+    import threading as _th
+    if not hasattr(plugin, '_stateLock') or getattr(plugin, '_stateLock', None) is None:
+        plugin._stateLock = _th.RLock()
+    if not hasattr(plugin, '_opLocks') or getattr(plugin, '_opLocks', None) is None:
+        plugin._opLocks = {k: _th.Lock() for k in ("diskHealth", "topProcesses", "netSpeed", "advBattery", "bluetooth", "diskAlert")}
+    if not hasattr(plugin, '_bgThreads'):
+        plugin._bgThreads = []
+    if not hasattr(plugin, '_stopAlertsEvent'):
+        plugin._stopAlertsEvent = _th.Event()
+    for attr, val in (('_wlanCallback', None), ('_lastWlanOpenAttempt', 0.0), ('_wlanSignalCache', None), ('_wlanSignalCacheTime', 0.0), ('_alertCoalescer', []), ('_coalescingAlerts', False)):
+        if not hasattr(plugin, attr):
+            setattr(plugin, attr, list(val) if isinstance(val, list) else val)
+    if not hasattr(plugin, '_cpuQuery'):
+        plugin._cpuQuery = None
+    if not hasattr(plugin, '_cpuCounter'):
+        plugin._cpuCounter = None
+    if not hasattr(plugin, '_lastCpuCollectTime'):
+        plugin._lastCpuCollectTime = 0
+    return plugin
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nvda_falso                                    # noqa: E402
@@ -86,7 +110,9 @@ class CierreDeLaConexionWifi(unittest.TestCase):
     def test_wlan_close_handle_recibe_el_manejador_en_si(self):
         modulo = _importarModuloPrincipal()
         plugin = modulo.GlobalPlugin.__new__(modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         plugin._cpuQuery = None
+        plugin._cpuCounter = None
         plugin._gpuProviders = []
         handleDePrueba = ctypes.wintypes.HANDLE(4321)
         plugin._client_handle = handleDePrueba
@@ -114,6 +140,7 @@ class FugasDeLaConsultaDeVelocidadDeCpu(unittest.TestCase):
 
     def test_cierra_la_consulta_si_ningun_contador_de_cpu_funciona(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         pdhFalso = MagicMock()
         pdhFalso.PdhOpenQueryW.return_value = 0
         pdhFalso.PdhAddEnglishCounterW.return_value = 1  # los 4 nombres de contador fallan
@@ -129,6 +156,7 @@ class FugasDeLaConsultaDeVelocidadDeCpu(unittest.TestCase):
         # de velocidad válido, el cálculo posterior de GHz daría un número
         # equivocado en vez de caer al respaldo correcto (psutil.cpu_freq()).
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         pdhFalso = MagicMock()
         pdhFalso.PdhOpenQueryW.return_value = 0
 
@@ -144,6 +172,7 @@ class FugasDeLaConsultaDeVelocidadDeCpu(unittest.TestCase):
 
     def test_cierra_la_consulta_anterior_antes_de_reintentar(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         pdhFalso = MagicMock()
         pdhFalso.PdhOpenQueryW.return_value = 0
         pdhFalso.PdhAddEnglishCounterW.return_value = 0  # el primer nombre de contador funciona
@@ -171,6 +200,7 @@ class ResilienciaDeAtajos(unittest.TestCase):
         import scriptHandler
         scriptHandler.getLastScriptRepeatCount = lambda: 1
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         plugin._diskHealthRunning = False
         plugin._lastDiskHealthResult = None
         plugin._copyDiskHealthOnFinish = False
@@ -192,6 +222,7 @@ class ResilienciaWlanApi(unittest.TestCase):
 
     def test_wlan_enum_interfaces_con_error_no_lanza_null_pointer_access(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         plugin._client_handle = ctypes.wintypes.HANDLE(1234)
         self.modulo.wlanapi.WlanEnumInterfaces = MagicMock(return_value=1)
 
@@ -200,6 +231,7 @@ class ResilienciaWlanApi(unittest.TestCase):
 
     def test_wlan_get_available_network_list_acceso_denegado_no_lanza_excepcion(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         plugin._client_handle = ctypes.wintypes.HANDLE(1234)
 
         iface = MagicMock()
@@ -221,6 +253,7 @@ class ResilienciaWlanApi(unittest.TestCase):
 
     def test_get_current_wlan_signal_acceso_denegado_retorna_none(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         plugin._client_handle = ctypes.wintypes.HANDLE(1234)
         plugin._obtenerInfoWifiNetsh = MagicMock(return_value={"signal": None})
 
@@ -242,6 +275,7 @@ class ResilienciaWlanApi(unittest.TestCase):
 
     def test_get_current_wlan_signal_acceso_denegado_recupera_con_netsh(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         plugin._client_handle = ctypes.wintypes.HANDLE(1234)
         plugin._obtenerInfoWifiNetsh = MagicMock(return_value={"signal": 85})
 
@@ -270,6 +304,7 @@ class RobustezWindows11(unittest.TestCase):
 
     def test_conflicto_no_detecta_monitoreosistema_como_ajeno(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         warnings = []
         addon_propio = MagicMock()
         addon_propio.name = "monitoreoSistema"
@@ -283,6 +318,7 @@ class RobustezWindows11(unittest.TestCase):
 
     def test_uptime_usa_tick_count_si_boot_time_es_cero(self):
         plugin = self.modulo.GlobalPlugin.__new__(self.modulo.GlobalPlugin)
+        _dotarEstadoMinimo(plugin)
         import psutil
         psutil.boot_time = lambda: 0.0
 

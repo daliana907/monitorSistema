@@ -1,8 +1,9 @@
 # Monitoreo del Sistema
 
 * Autor: Daliana (basado en Resource Monitor de Joseph Lee)
+* Versión: 3.0.1
 * Compatibilidad con NVDA: 2023.1 en adelante
-* Descarga de la versión estable: https://github.com/daliana907/monitoreoSistema
+* Descarga de la versión estable: https://github.com/daliana907/monitorSistema
 
 Este complemento reúne en un solo lugar todas las herramientas necesarias para conocer en detalle el estado y rendimiento de tu equipo, desde la carga del procesador y la memoria hasta el estado de tu conexión a internet y los dispositivos externos, interactuando mediante atajos de teclado rápidos y accesibles.
 
@@ -31,6 +32,8 @@ El uso se realiza principalmente mediante atajos de teclado básicos:
 *   NVDA + Shift + 7: Tiempo ininterrumpido de actividad del sistema (cuánto lleva encendido el ordenador).
 *   NVDA + Shift + 8: Información detallada de tarjetas gráficas (carga de procesador gráfico, temperatura y memoria VRAM).
 
+> Si usas TCA System Utilities y le asignaste NVDA + Shift + E para reiniciar el Explorador, los dos complementos usarán la misma combinación. Cambia una de las dos desde Preferencias de NVDA > Gestos de entrada.
+
 Atajos avanzados para diagnóstico profundo (requieren unos segundos de análisis):
 
 *   NVDA + Control + Shift + 1: Diagnóstico de salud (S.M.A.R.T.) y temperatura física de las unidades de disco.
@@ -39,10 +42,29 @@ Atajos avanzados para diagnóstico profundo (requieren unos segundos de análisi
 *   NVDA + Control + Shift + 4: Informe avanzado del porcentaje de batería del equipo, el tiempo restante estimado y su desgaste real.
 *   NVDA + Control + Shift + 5: Nivel de batería de dispositivos Bluetooth conectados.
 
+## Novedades en la versión 3.0.1
+
+*   El registro ya no se llena cada dos minutos con aparatos desconectados.
+*   Sin choque de teclas con TCA.
+
 ## Opciones y Alertas
 
 Todas las opciones de Monitoreo del Sistema se encuentran en el menú Herramientas de NVDA, bajo el submenú Monitoreo del Sistema. Desde allí puedes abrir los manuales, comprobar si hay conflictos con las teclas que usa el complemento, y abrir la configuración general.
 En la configuración puedes activar las alertas automáticas en segundo plano, definir cada cuántos minutos el sistema verificará las temperaturas y elegir los umbrales de alerta de sobrecalentamiento de la CPU.
+
+## Funcionamiento seguro
+
+*   Las consultas pesadas, como discos, Bluetooth, GPU y velocidad de red, se realizan en segundo plano para no congelar NVDA.
+*   Los avisos que coinciden se agrupan en un solo mensaje. La señal Wi-Fi se consulta con límites para evitar gastar batería.
+*   El complemento solo informa baterías de dispositivos Bluetooth que Windows confirma como conectados. Los aparatos desconectados se omiten y no llenan el registro normal de NVDA.
+*   Las conexiones de red usadas por la prueba de velocidad verifican los certificados de seguridad.
+*   Al cerrar o reiniciar NVDA, se detienen las tareas y se liberan los recursos de Wi-Fi, GPU y diagnósticos.
+*   Si usas TCA System Utilities, el gesto personalizado para reiniciar el Explorador está configurado en esta instalación como NVDA + Mayús + 0, para no interferir con el resumen de recursos.
+
+## Créditos de terceros
+
+*   Basado en Resource Monitor de Joseph Lee y colaboradores (https://github.com/josephsl/resourcemonitor).
+*   Módulo de batería Bluetooth inspirado en BlueToothBatteryReport (Cary-Rowen y colaboradores).
 
 ## Créditos
 
